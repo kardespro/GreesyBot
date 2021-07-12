@@ -11,9 +11,9 @@ var region = client.guilds.cache.get(guild).region;
 var roller = client.guilds.cache.get(guild).roles;
 var banner = client.guilds.cache.get(guild).banner;
 var embed = new Discord.MessageEmbed()
-.setThumbnail(`${banner || ""}`)
+.setImage(`${banner || "https://i.pinimg.com/originals/30/88/a3/3088a3ebaf713600adacd00397ee410d.png"}`)
 .setColor("GREEN")
-.setAuthor()
+
 .setDescription(`
 ${message.guild.name} Guild Info
 

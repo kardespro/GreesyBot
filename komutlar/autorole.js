@@ -3,13 +3,17 @@ const db = require("quick.db")
 const ayarlar = require('../ayarlar.json')
 
 exports.run = async (client, message, args) => {
-if(!args[0]) return message.channel.send("mistake! Correct Use: `!autorole @Role #Channel` ") 
+  message.channel.startTyping(1)
+if(!args[0]) return  message.channel.startTyping(1) && message.channel.send("mistake! Correct Use: `!autorole @Role #Channel` ") 
 let rol = message.mentions.roles.first() || args[0];
   if(!rol) return message.channel.send("mistake! Please Mention a Role! ") 
+  message.channel.startTyping(1)
   db.set(`autoroleRole_${message.guild.id}`, rol.id) 
   let kanal = message.mentions.channels.first() || args[1];
   if(!kanal) return message.channel.send("mistake! Please Mention a Valid Channel! ") 
   db.set(`autoroleChannel_${message.guild.id}`, kanal.id)
+   message.channel.startTyping(1)
+ 
   return message.channel.send(`
   > Succesfully! 
    Role: **${rol}**

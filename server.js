@@ -540,12 +540,12 @@ app.get("/dash/:sunucuID/yonet", async(req, res) => {
 var region = nico.guilds.cache.get(id).region;
 var roller = nico.guilds.cache.get(id).roles;
 var banner = nico.guilds.cache.get(id).banner;
-
+var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
  
  
  
  
-  render(res, req, "ayarlar.ejs", {id, guild,fetchedLogs,verfyseviye,mfalev,afkK,region,roller,banner,srev})
+  render(res, req, "ayarlar.ejs", {id, guild,fetchedLogs,verfyseviye,mfalev,afkK,region,roller,banner,srev,fetchGuildPre})
 })
 
 app.get("/dash/:sunucuID/yonet/embed", async(req, res) => {

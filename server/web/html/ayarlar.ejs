@@ -19,7 +19,7 @@
 
 <div class="jumbotron">
   <center>
-<img src="<%= srev.iconURL() %>" class="rounded card jumbotron"></img>
+<img src="https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png" class="rounded card jumbotron"></img>
   <p class="badge badge-success"><%= srev.name%></p>
   </center>
 </div>
@@ -183,6 +183,10 @@ Verifaction Level :
      <% if(region == "southafrica"){ %>
     <span class="badge badge-success">RSA</span> SOUTH AFRICA
     <% } %>
+    <!-- TR -->
+     <% if(region == "turkey"){ %>
+    <span class="badge badge-success">TR</span> TURKEY
+    <% } %>
     
     
     
@@ -195,6 +199,13 @@ Verifaction Level :
     Afk Channel : 
      <%= afkK || "Not Found" %>
   </div>
+<br>
+  <br>
+  <div class="col-md-4 col-xl-3 offset-xl-0">
+    Guild Premium : 
+     <%= fetchGuildPre %>
+  </div>
+  
   <style>
     .col{
       margin: 100px; 

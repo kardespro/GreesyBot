@@ -1,0 +1,24 @@
+<%-include('./static/header')-%>
+<h1> Home </h1>
+<p>Greesy</p> 
+<% blogPost.forEach(function(post){%>
+
+<div class="card">
+  <div class="card-body">
+   
+    <h5 class="card-title"><%=post.pT%></h5>
+    <p class="card-text"><%=post.pB.slice(0,150)%>...</p>
+    <p class="card-text"><small class="text-muted">.</small></p>
+    <a href="/blog/<%=post.pT%>">>Read more</a>
+    <br>
+  </div>
+  <br>
+  <br>
+  <!--<img class="card-img-bottom" src="..." alt="Card image cap">-->
+  <br>
+</div>
+<% }); %>
+<br>
+<br>
+  
+<%-include('./static/footer')-%>

@@ -1,0 +1,219 @@
+<%- include("./static/header") %>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- tailwind css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/base.css" integrity="sha512-0QkNa2kCeFy3GiSJ0Wt/lT9H5FMCCWoK0qqaC7kxi3NpQaixUbezgdr4ZOeQoT26wTSLYjBdMaSYLjCYM2AFNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/components.css" integrity="sha512-9BlWpvccUKhxv9Jzha/JN6P+4hrVmhka0a0tnjtuv+Ro/V8itR/f0FM28++8CiK2CQ/qXu56VzGoHpGT3dJTKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/components.min.css" integrity="sha512-f6TS5CFJrH/EWmarcBwG54/kW9wwejYMcw+I7fRnGf33Vv4yCvy4BecCKTti3l8e8HnUiIbxx3V3CuUYGqR1uQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/tailwind-dark.css" integrity="sha512-08XHFcnaP/GPelcbTkp6gx1e59wOsuoV1JQwUWflCtOn7Y46o3jTHlUdOGD90waMh3Zng5Q/BAEMgMC03c8x0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/tailwind-dark.min.css" integrity="sha512-kRWENa6+MyMYyFoGcguF4WIOM3Uj9TGhWizTco6FMj565+LHIrMwAZvcpTB9/jKIc4P4RtAXAUgTVDhVD4kaJA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/tailwind-experimental.css" integrity="sha512-ToxtXv8QXtgl2736sIcO8Mh8/npO8UrRpP/p6pXPDq6iGLrAFRI4tOnOYPtTwq1cKteJ+k1Tw1k9Di5Kl8QkgQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/tailwind-experimental.min.css" integrity="sha512-vJu7D5BpjnNXVpLBrl9LKLvmXBNjiLwge8EOZ/YS9XwiChpfKLAlydwIZvoJaDE3LI/kr3goH0MzDzNbBgyoOQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/tailwind.css" integrity="sha512-ToxtXv8QXtgl2736sIcO8Mh8/npO8UrRpP/p6pXPDq6iGLrAFRI4tOnOYPtTwq1cKteJ+k1Tw1k9Di5Kl8QkgQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/utilities.css" integrity="sha512-ax+dMnvvlLq1/hLTGIgXawOGU+7GasAMhkNdQW89iymqd8w/H2H4IiZN4LSoXTZKPUmoGfQFUmC5GNiI7J/bxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.0.0-insiders.4a070ac/utilities.min.css" integrity="sha512-M/yrPuL+hJ8AAE6cSPSNJUFqRhUddvVjsFvkU1BqzE61mpFQLXIZb3PzS6o4b4xQtapi8PjnIB42wIgFqrrceQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+  
+.pricing {
+	text-align: center;
+	border: 1px solid #f0f0f0;
+	color: #777;
+	font-size: 14px;
+	padding-left: 0;
+	margin-bottom: 30px;
+  font-family: 'Lato';
+}
+.pricing img {
+	display: block;
+	margin: auto;
+	width: 32px;
+}
+.pricing li:first-child,
+.pricing li:last-child {
+	padding: 20px 13px;
+}
+.pricing li {
+	list-style: none;
+	padding: 13px;
+}
+.pricing li + li {
+	border-top: 1px solid #f0f0f0;
+}
+.pricing big {
+	font-size: 32px;
+}
+.pricing h3 {
+	margin-bottom: 0;
+  font-size: 36px;
+}
+.pricing span {
+	font-size: 12px;
+	color: #999;
+	font-weight: normal;
+}
+.pricing li:nth-last-child(2) {
+	padding: 30px 13px;
+}
+.pricing button {
+	width: auto;
+	margin: auto;
+	font-size: 15px;
+	font-weight: bold;
+	border-radius: 50px;
+	color: #fff;
+	padding: 9px 24px;
+	background: #aaa;
+	opacity: 1;
+	transition: opacity .2s ease;
+  border: none;
+  outline: none;
+}
+.pricing button:hover {
+	opacity: .9;
+}
+.pricing button:active {
+	box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+/* pricing color */
+.p-green big,
+.p-green h3 {
+	color: #4c7737;
+}
+.p-green button {
+	background: #4c7737;
+}
+.p-yel big,
+.p-yel h3 {
+	color: #ffbb42;
+}
+.p-yel button {
+	background: #ffbb42;
+}
+.p-red big,
+.p-red h3 {
+	color: #e13c4c;
+}
+.p-red button {
+	background: #e13c4c;
+}
+.p-blue big,
+.p-blue h3 {
+	color: #3f4bb8;
+}
+.p-blue button {
+	background: #3f4bb8;
+}
+  </style>
+
+
+
+
+<section class="container">
+  <div class="row white">
+				<div class="block">
+
+					<div class="col-xs-12 col-sm-6 col-md-3">
+							<ul class="pricing p-green">
+								<li>
+									<img src="http://bread.pp.ua/n/settings_g.svg" alt="">
+									<big>Premium</big>
+								</li>
+								<li>100 Den Çok Özel Komut Ekleme</li>
+								<li>Gelişmiş Anti-Raid Koruması</li>
+								<li>HTML5 & CSS3</li>
+								<li>Styled elements</li>
+								<li>
+									<h3>$199</h3>
+									<span>Aylık</span>
+								</li>
+								<li>
+                  <% if(user){ %>
+                 	<button onclick="s();">Satın Al</button>
+                  <script>function s(){ window.location.href = "/user/subscribe/on" };</script>
+                  <% }else{ %>
+                  <button>Satın Almak İçin Giriş Yapman Gerek</button>
+                 
+                  <% } %>
+								</li>
+							</ul>
+					</div>
+<!--
+					<div class="col-xs-12 col-sm-6 col-md-3">
+							<ul class="pricing p-yel">
+								<li>
+									<img src="http://bread.pp.ua/n/settings_y.svg" alt="">
+									<big>Good</big>
+								</li>
+								<li>Responsive Design</li>
+								<li>Color Customization</li>
+								<li>HTML5 & CSS3</li>
+								<li>Styled elements</li>
+								<li>
+									<h3>$299</h3>
+									<span>per month</span>
+								</li>
+								<li>
+									<button>Join Now</button>
+								</li>
+							</ul>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-3">
+							<ul class="pricing p-red">
+								<li>
+									<img src="http://bread.pp.ua/n/settings_r.svg" alt="">
+									<big>Ultima</big>
+								</li>
+								<li>Responsive Design</li>
+								<li>Color Customization</li>
+								<li>HTML5 & CSS3</li>
+								<li>Styled elements</li>
+								<li>
+									<h3>$399</h3>
+									<span>per month</span>
+								</li>
+								<li>
+									<button>Join Now</button>
+								</li>
+							</ul>
+					</div>
+
+					<div class="col-xs-12 col-sm-6 col-md-3">
+							<ul class="pricing p-blue">
+								<li>
+									<img src="http://bread.pp.ua/n/settings_b.svg" alt="">
+									<big>Vip</big>
+								</li>
+								<li>Responsive Design</li>
+								<li>Color Customization</li>
+								<li>HTML5 & CSS3</li>
+								<li>Styled elements</li>
+								<li>
+									<h3>$799</h3>
+									<span>per month</span>
+								</li>
+								<li>
+									<button>Join Now</button>
+								</li>
+							</ul>
+					</div>
+-->
+
+				</div><!-- /block -->
+			</div><!-- /row -->
+  </section>
+
+
+
+
+
+<br>
+<br>
+<br>
+
+<%- include("./static/footer") %>
+

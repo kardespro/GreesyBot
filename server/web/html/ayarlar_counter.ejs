@@ -1,0 +1,181 @@
+<%- include("./static/dashheader") %>
+<!-- Font Awesome -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Google Fonts -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+<!-- Bootstrap core CSS -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+<% if(counterAddingsize > 10){  %>
+<% if(fetchPre == "premium"){%>
+
+<div class="jumbotron">
+Counter Set Has <%= counterAddingsize  || "0" %> Time!
+</div>
+<!-- Small input -->
+<form method="POST">
+
+
+  
+<div class="jumbotron col-md-4 col-xl-3 offset-xl-0" >
+  
+<input name="chnumber" class="form-control form-control-sm" type="text" placeholder="Please Write Counter Number."></input>
+<br>
+  <!--<button type="button" class="btn btn-info" style="background-color: #146ca4; padding: 5px 2em;height: 50px;">Save</button>
+-->
+
+  
+</div>
+<br>
+<br>
+<div class="jumbotron col-md-4 col-xl-3 offset-xl-1" >
+  
+
+<!-- Small input -->
+<input name="chid" class="form-control form-control-sm" type="number" placeholder="Please Write Channel ID."></input>
+  <br>
+</div>
+  <button type="submit" class="btn btn-info" style="padding: 5px 2em; height: 50px; background-color: #146ca4;">Save</button>
+  
+</form>
+
+<%}%>
+<% if(fetchPre == "free"){ %>
+<div class="tpoy">
+
+<span class="badge badge-danger">Counter Limit Has 10 Add More Counters in Buy PREMIUM</span>
+</div>
+<% } %>
+  <% } %> 
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<% if(counterAddingsize < 10){ %>
+
+<div class="jumbotron">
+Counter Set Has <%= counterAddingsize  || "0" %> Time!
+</div>
+<!-- Small input -->
+<form method="POST">
+<div class="jumbotron">
+  
+<input class="form-control form-control-sm" type="text" placeholder="Please Write Counter Number."></input>
+<br>
+  <!--<button type="button" class="btn btn-info" style="background-color: #146ca4; padding: 5px 2em;height: 50px;">Save</button>
+-->
+
+  
+</div>
+<br>
+<br>
+<div class="jumbotron" >
+  
+
+<!-- Small input -->
+<input class="form-control form-control-sm" type="number" placeholder="Please Write Channel ID."></input>
+  <br>
+</div>
+  <button type="submit" class="btn btn-info" style="padding: 5px 2em; height: 50px; background-color: #146ca4;">Save</button>
+</form>
+  <% } %>
+<script>
+//by Nego#0001
+  function haha(){
+  swal({
+  title: "Are you sure?",
+  text: "Click the Save button to save the setting!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Succes! Your Saved Counter System Settings!", {
+      icon: "success",
+    });
+    window.location.href = "/api/dash/<%= id %>/yonet/counter/save";
+  } else {
+    swal({
+      title: "Canceled!",
+      icon: "success"
+    });
+  }
+});
+    if(!haha == null){
+      alert("Please write info's on the input!")
+      }
+    };
+  </script>
+  <script>
+  function saveBtn(){
+    $(function(){
+      
+    }
+    $("save-box-greesy").show(240);
+    $("saved").hide()
+    };
+  //-----
+  $( function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // Most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 50 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 280, height: 185 } };
+      }
+ 
+      // Run the effect
+      $( "#effect" ).show( selectedEffect, options, 500, callback );
+    };
+ 
+    //callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+      }, 1000 );
+    };
+ 
+    // Set effect from select menu value
+    $( "#button" ).on( "click", function() {
+      runEffect();
+    });
+ 
+    $( "#effect" ).hide();
+  } );
+  </script>
+</script>
+<script>
+    const hamburger = document.querySelector(".hamburger");const navMenu = document.querySelector(".nav-menu");const navLink = document.querySelectorAll(".nav-link"); hamburger.addEventListener("click", mobileMenu);navLink.forEach(n => n.addEventListener("click", closeMenu)); function mobileMenu() { hamburger.classList.toggle("active"); navMenu.classList.toggle("active");} function closeMenu() { hamburger.classList.remove("active"); navMenu.classList.remove("active");}
+</script>
+<!-- JQuery -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+
+
+

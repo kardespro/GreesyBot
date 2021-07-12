@@ -1,0 +1,24 @@
+<%-include('./static/header')-%>
+<style>
+  .whatsapp
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid green;
+  border-radius: 50%;
+  transition-duration: 0.5s;
+  }
+  </style>
+<div class="jumbotron">
+
+<h1 style="text-align:center;size:100px;"><i class="fas fa-blog"></i></h1>
+  </div>
+<div class="jumbotron">
+<h5><i class="fas fa-heading"></i>   <%=blogPostTitle%></h5>
+<p class="post"><%=blogPostBody%></p>
+</div>
+<div class="jumbotron">
+<i class="fab fa-whatsapp-square"></i> <a href="whatsapp://send?text=Greesy Botun Yeni Blogu Yayinlandi Kacirma Derim https://hyper-gusty-node.glitch.me/blog/<%=blogPostTitle%>/">Share</a>
+</div>
+<%-include('./static/footer')-%>

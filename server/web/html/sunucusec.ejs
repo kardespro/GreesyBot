@@ -1,0 +1,56 @@
+<%- include("./static/header") %>
+<div class="card">
+
+  <div style="padding: 20px 5em; box-sizing: border-box; margin: 1;" class="kard-body">
+
+    Select Server in Setup Settings.
+
+  </div>
+  <br>
+  <br>
+  <div class="jumbotron mb-3" style="background-color: #146ca4; color: white;">
+<% user.guilds.forEach((sunucu) => {
+        const permsOnGuild = new perms(sunucu.permissions);
+        if(!permsOnGuild.has("MANAGE_GUILD")) return;
+        
+      %>
+      <%
+      
+      let link, eklenmemis;
+      
+      if (bot.guilds.cache.has(sunucu.id) === true) {
+        link = `/dash/${sunucu.id}/yonet`
+      } else {
+        
+        link = `https://discordapp.com/oauth2/authorize?client_id=817456729558220812&scope=bot&permissions=8&guild_id=`+sunucu.id+``
+        
+        eklenmemis = true
+      }
+      %>
+      <% if (sunucu.icon) { %>
+      <a href="<%=link%>" target="<%if(eklenmemis === true) {%>_blank<%} else {  }%>"><img title="<%=sunucu.name%>" class="rounded-circle" src="<%= `https://cdn.discordapp.com/icons/${sunucu.id}/${sunucu.icon}.png?size=128` %>" style="width: 80px;"></a>
+		  <% } else { %>
+      
+      <a href="<%=link%>"><canvas title="<%=sunucu.name%>" style="width: 80px;background-color:#363940;" class="rounded-circle"  id="<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>" width="80px" height="80px" ></canvas></a>
+		  <script>
+        function draw() {
+        const ctx = document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").getContext('2d');
+			  ctx.font = '20px Arial';
+			  ctx.textAlign = "center";
+			  ctx.fillStyle = "white";
+			  ctx.fillText("<%= sunucu.name.split(' ').map(v => v[0]).join('') %>", 40, 48);
+        document.getElementById("<%= sunucu.name.split(' ').join('').replace(`'`, ``) %>").style.marginBottom = "-35px";
+        };
+        draw();
+		  </script>
+		<% } %>
+    <% }); %> 
+    
+</div>
+<br>
+<br>
+
+<br>
+<br>
+   
+<%- include("./static/footer") %>

@@ -1,0 +1,15 @@
+<%-include('./static/header')-%>
+<form  method="POST">
+    <div class="form-group">
+      <p>Welcome , <%= user.username %>#<%= user.discriminator %></p>
+        <h1 style="text-align:center;">New Annoucument</h1>
+        <label>Title</label>
+        <input type="text" class="form-control" name="postTitle">
+      </div>
+      <div class="form-group">
+        <label>Post</label>
+        <textarea class="form-control" name="postBody" rows="10"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Publish</button>
+</form>
+<%-include('./static/footer')-%>

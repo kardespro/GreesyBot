@@ -1,0 +1,19 @@
+<%- include('./static/header') %>
+
+<div class="jumbotron">
+
+<% if(abIzin == "premium"){ %>
+  <form method="POST">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Bot İçin Yorumunuz</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Lütfen Yorum Yaziniz Örn : Çok İyi Bir Bot <3 " name="comment"></textarea>
+  </div>
+    <button type="submit" class="btn btn-green"><i class="fas fa-paper-plane"></i>     Gönder  </button>
+    </form>
+  <% } %>
+<% if(abIzin == "free"){ %>
+  <p class="text-red">Bu Özellik Premium Aboneler İçindir</p>
+  <% } %>
+
+</div>
+<%- include("./static/footer") %>

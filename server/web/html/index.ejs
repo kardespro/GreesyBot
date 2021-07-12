@@ -1,0 +1,146 @@
+<%- include("./static/header") %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta property="og:site_name" content="Greesy | HomePage ">
+<link rel="stylesheet" href="https://codare.fun/assets/bootstrap/css/bootstrap.min.css?h=b1579cbd7df3c885978321b82fddd11d">
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<!-- Google Fonts -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+<!-- Bootstrap core CSS -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://codare.fun/assets/bootstrap/css/bootstrap.min.css?h=b1579cbd7df3c885978321b82fddd11d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+<body style="background-color:#46648c;">
+  <div class="jumbotron">
+  <h1 style="color:black;text-align:center;font-family: 'Source Sans Pro', sans-serif;"> Greesy</h1>
+    <p style="color: #189de4;text-align:center;font-family: 'Teko', sans-serif;"> Discord's Best Utility Bot </p>
+  <center>
+  <a href="/cmds/" type="button" class="btn btn-info" onclick="muq();" >Commands</a>
+  <a href="/stat/" type="button" class="btn btn-success">Statistics</a>
+  </center>
+    </div>
+  <script>
+    function muq(){
+      window.location.href == "/cmds" 
+     };
+    </script>
+  <br>
+  <br>
+  <style>
+  button{
+    padding: 5px;
+    
+   } 
+  </style>
+  <!--
+  <div class="container-fluid" style="padding: 0px;"><div class="heading">
+    <h1 class="text-center" style="margin-bottom: 40px;">Hakkımızda</h1></div><div "margin: 100px; width: 300px" class="row">
+    <div "margin: 100px; width: 300px" class="col-md-4 col-xl-3 offset-xl-0">
+      <div class="card special-skill-item border-0"><div "margin: 100px; width: 300px" class="card-header bg-transparent border-0"><i class="la la-heart-o gradient-icon"></i></div><div style"margin: 100px; width: 300px" class="card-body"><h3 class="card-title">Yardımlaşma</h3><p class="card-text">Discord botunuzda oluşan hatalarda veya yapamadığınız kodlarda sunucumuzda bulunan yardım kanallarından destek alabilirsiniz. Tamamen ücretsiz bir şekilde destek veriyoruz!</p></div></div></div><div class="col-md-4 col-xl-3 offset-xl-0"><div class="card special-skill-item border-0"><div class="card-header bg-transparent border-0"><i class="la la-legal gradient-icon"></i></div><div class="card-body"><h3 class="card-title">Yetkililer</h3><p class="card-text">Yetkililerimiz en iyi şekilde sizlere destek çıkmaya çalışmaktadır. Ekibimiz sizlere daha iyi bir hizmet vermek için çabalamaktadır. Daha iyi hizmet vermek için çalışıyoruz.</p></div></div></div><div class="col-md-4 col-xl-3 offset-xl-0"><div class="card special-skill-item border-0"><div class="card-header bg-transparent border-0"><i class="la la-money gradient-icon"></i></div><div class="card-body"><h3 class="card-title">Ücretsiz Kodlar!</h3><p class="card-text">Hiçbir maddi destek istemeden sizlere ücretsiz bir şekilde kodları sunuyoruz. Gelirimizi sitedeki reklamlardan sağlamaktayızz Sadece arkadaşlarınızı Sunucuya davet ederek ya da sunucuda aktif kalarak daha özel kodlara sahip olabilirsiniz.</p></div></div></div>
+ -->
+  <div style="background-color: white; text-align: center;" class="heading"><h1 class="text-center" style="margin-bottom: 40px;"></h1></div>
+<div "background-color: ; margin: 100px; width: 300px" class="row">
+<div "margin: 100px; width: 300px" class="col-md-4 col-xl-3 offset-xl-0">
+<div class="card special-skill-item border-0"><div "margin: 100px; width: 300px" class="card-header bg-transparent border-0"><i class="la la-heart-o gradient-icon"></i></div>
+<div style"background-color: white; margin: 100px; width: 300px" class="card-body">
+<h3 class="card-title">Fast Reason</h3>
+<p class="card-text">Our bot has been made <%= kardesproclient.ws.ping %>ms to know the ping can serve you well <% if(kardesproclient.ws.ping < 20){ %>(Responding Faster)<% } %></p>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-xl-3 offset-xl-0">
+<div class="card special-skill-item border-0">
+<div class="card-header bg-transparent border-0"><i class="la la-legal gradient-icon"></i></div>
+<div class="card-body">
+<h3 class="card-title">Systems</h3>
+<p class="card-text">  We Have Our Own Functionally Beautifully Designed Systems!  You can do these faster from the Control Panel.</p>
+</div>
+</div>
+</div>
+<div class="col-md-4 col-xl-3 offset-xl-0">
+<div class="card special-skill-item border-0">
+<div class="card-header bg-transparent border-0"><i class="la la-money gradient-icon"></i></div>
+<div class="card-body">
+<h3 class="card-title">Web Dashboard !</h3>
+  <p class="card-text"> Easy Setup with Dashboard on 7/24</p>
+  
+</div>
+</div>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+<br>
+<br>
+<div class="jumbotron mb-3">
+   Comments <span class="badge badge-danger">Beta v1.0</span>
+  <br>
+  <br>
+  <img src="https://cdn.discordapp.com/avatars/<%= fetchComment.user.id%>/<%= fetchComment.user.avatar %>.png" class="post-author-img rounded"></img>
+<br>
+
+<div class=media-body><div class=row><div class="col-8 d-flex"><a class=is-size-5><span translate=no style=color:var(--body-text)> <%= fetchComment.user.username %># <%= fetchComment.user.discriminator %>
+
+ 
+
+ </span> <small class=text-muted>a month ago&nbsp;</small></a> &nbsp;</div></div><div class=stars-media><i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i></div>
+
+  
+  <%= fetchComment.yorum %>
+  
+    
+  
+ </div>
+<br>
+<br>
+<style>
+.card-body , .card-header , .card{
+  background-color: white;
+  color: #146ca4;
+  text-align:center;
+  
+  }
+h3 {
+  font-family: 'Otomanopee One', sans-serif;
+ } 
+</style>
+ </body>
+
+ <br>
+<br>
+<br>
+<br>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<%- include("./static/footer") %>

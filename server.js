@@ -775,7 +775,8 @@ app.get("/shard", (req, res) => {
 
 /*
 * ADMIN PANEL
-*/app.get("/admin", gGiris , adminCheck , (req, res) => {
+*/
+app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelgsayi = db.fetch(`adminpanel_giris_sayi`);
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
  const kullsayi = nico.guilds.cache.size;
@@ -789,7 +790,9 @@ const cmdsize = nico.komutlar.size;
   render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize,siteD});
  });
 
-
+app.get("/admin/promocode/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/promo-new.ejs");
+  });
 
 
 

@@ -1,7 +1,10 @@
 const Discord = require('discord.js')
 const disbut = require('discord-buttons') 
-
+const db = require("quick.db") 
+let fetchb = db.fetch(`bakim`)
 exports.run = async (client, message, args) => {
+  if(fetchb) return message.channel.send("**Maintance** Mode Has Enabled! ") 
+  else {
   const embed_ = new Discord.MessageEmbed()
  .setImage("")
   /*.setDescription(`
@@ -49,7 +52,7 @@ exports.run = async (client, message, args) => {
 message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
 
 
-
+} 
   
 };
 exports.conf = {

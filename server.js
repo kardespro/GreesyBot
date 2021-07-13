@@ -687,7 +687,10 @@ app.get("/shard", (req, res) => {
         if(geo) {
         //  let sitedatas = require("./database/models/analytics-site.js")
         //  await updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
-          await db.push(`country`,{[`country.${geo.country}`]});
+          var sDt = {
+           country : `country.${geo.country}`
+          }
+          await db.push(`country`,{sDt});
         }
         return next();
     })

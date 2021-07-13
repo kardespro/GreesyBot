@@ -685,8 +685,9 @@ app.get("/shard", (req, res) => {
         var geo = geoip.lookup(ip);
         
         if(geo) {
-          let sitedatas = require("./database/models/analytics-site.js")
-          await sitedatas.updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        //  let sitedatas = require("./database/models/analytics-site.js")
+        //  await updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+          await db.push(`country`,{[`country.${geo.country}`]});
         }
         return next();
     })
@@ -695,8 +696,9 @@ app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
  const kullsayi = nico.guilds.cache.size;
   const cacheGuild = nico.guilds;
+  let siteD =  db.fetch(`country`);
 const cmdsize = nico.komutlar.size;
-  render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize});
+  render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize,siteD});
  });
 
 

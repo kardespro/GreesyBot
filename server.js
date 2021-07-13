@@ -26,7 +26,7 @@ MONGO DB
 
 
 */
-mongoose.connect("", {
+mongoose.connect("mongodb+srv://greesy:<greesydb1>@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
@@ -137,6 +137,7 @@ const config = {
   callback: "https://greesy.negodev.tk/l/callback",
 
   secret: "IWgw_oextZSp83XJabSRnTqD759LMQB3",
+  clientID: "817456729558220812",
 
   logkanalid: "859899078624149516",
 
@@ -696,7 +697,7 @@ app.get("/shard", (req, res) => {
 /*
 * ADMIN PANEL
 */
-    app.use(async (req, res, next) => {
+    app.use(async(req, res, next) => {
         var getIP = require('ipware')().get_ip;
         var ipInfo = getIP(req);
         var geoip = require('geoip-lite');
@@ -704,12 +705,12 @@ app.get("/shard", (req, res) => {
         var geo = geoip.lookup(ip);
         
         if(geo) {
-        //  let sitedatas = require("./database/models/analytics-site.js")
-        //  await updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
-          var sDt = {
+        let sitedatas = require("./server/mongodb/countrydb.js")
+        await mongoose.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+      /*    var sDt = {
            country : `country.${geo.country}`
           }
-          await db.push(`country`,{sDt});
+          await db.push(`country`,{sDt});*/
         }
         return next();
     })
@@ -718,7 +719,11 @@ app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
  const kullsayi = nico.guilds.cache.size;
   const cacheGuild = nico.guilds;
-  let siteD =  db.fetch(`country`);
+  let sitedatalari = require("./server/mongodb/countrydb.js");
+  
+  let siteD = sitedatalari.findOne({ id: config.clientID });
+
+  //let siteD =  db.fetch(`country`);
 const cmdsize = nico.komutlar.size;
   render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize,siteD});
  });

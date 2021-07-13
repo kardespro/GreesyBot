@@ -4,4 +4,4 @@ id: String,
 country: Array,
 });
 
-module.exports = mongoose.model("countrydb", hm);
+module.exports = mongoose.model("countrydbb", hm);

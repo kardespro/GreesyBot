@@ -26,7 +26,7 @@ MONGO DB
 
 
 */
-mongoose.connect("mongodb+srv://greesy:<greesydb1>@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
@@ -706,7 +706,7 @@ app.get("/shard", (req, res) => {
         
         if(geo) {
         let sitedatas = require("./server/mongodb/countrydb.js")
-        await updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
       /*    var sDt = {
            country : `country.${geo.country}`
           }

@@ -93,7 +93,11 @@ function Random(length) {
        return result;
 
     };
-
+function userFetch(id){
+  if(!id) return "kullanici id gir";
+  var res = nico.users.cache.get(id);
+  return res;
+}
 //Routes
 
 const authRouter = require("./server/auth.js");

@@ -817,6 +817,25 @@ res.redirect("/admin/promocode");
 });
 
 
+app.get("/admin/maintance/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/maintance.ejs");
+  });
+
+
+app.post("/admin/maintance/on", (req, res) => {
+//render(res, req, "admin/maintance.ejs");
+  db.set(`bakim`,true);
+  res.redirect("/admin/maintance/");
+  });
+
+
+
+app.post("/admin/maintance/off", (req, res) => {
+//render(res, req, "admin/maintance.ejs");
+  db.set(`bakim`,false);
+  res.redirect("/admin/maintance/");
+  });
+
 
 
 

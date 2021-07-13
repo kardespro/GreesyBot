@@ -1,5 +1,6 @@
  const express = require("express");
 const Nuggies = require('nuggies');
+const tools = require("./greesyapi.js") 
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS

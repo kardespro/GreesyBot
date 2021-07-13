@@ -1,6 +1,7 @@
  const express = require("express");
 const Nuggies = require('nuggies');
 const tools = require("./greesyapi.js") 
+const mongoose = require("mongoose")
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -123,7 +124,7 @@ const config = {
 
   kurucurolid: "682607343707488388",
 
-  admins:["682607343707488388","682607343707488388",""],
+  admins:["682607343707488388","682607343707488388","852830717037510687"],
 
   evalyetki: "682607343707488388",
 

@@ -17,6 +17,34 @@ setInterval(function(){
   db.set(`dashPing`,pingDash);
 }, 5);*/
 
+//LOADERS
+console.clear();
+console.log(`
+
+□□□□□□□□□□□□□□□
+
+     GREESY 
+
+□□□□□□□□□□□□□□□
+
+Loading Project ....
+
+
+
+
+
+`);
+
+console.log("");
+console.log(
+
+
+
+
+
+
+
+
 
 /*
 
@@ -118,6 +146,34 @@ function userFetch(id){
   var res = nico.users.cache.get(id);
   return res;
 }
+
+    app.use(async(req, res, next) => {
+        var getIP = require('ipware')().get_ip;
+        var ipInfo = getIP(req);
+        var geoip = require('geoip-lite');
+        var ip = ipInfo.clientIp;
+        var geo = geoip.lookup(ip);
+        
+        if(geo) {
+        let sitedatas = require("./server/mongodb/countrydb.js")
+        await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+      /*    var sDt = {
+           country : `country.${geo.country}`
+          }
+          await db.push(`country`,{sDt});*/
+        }
+        return next();
+    })
+const http = require('http').createServer(app);
+    const io = require('socket.io')(http);
+    io.on('connection', socket => {
+        io.emit("userCount", io.engine.clientsCount);
+    });
+    /*http.listen(3000, () => { 
+      console.log("[Greesy]: Website running on 80 port.")
+    });*/
+
+
 //Routes
 
 const authRouter = require("./server/auth.js");
@@ -696,25 +752,7 @@ app.get("/shard", (req, res) => {
 
 /*
 * ADMIN PANEL
-*/
-    app.use(async(req, res, next) => {
-        var getIP = require('ipware')().get_ip;
-        var ipInfo = getIP(req);
-        var geoip = require('geoip-lite');
-        var ip = ipInfo.clientIp;
-        var geo = geoip.lookup(ip);
-        
-        if(geo) {
-        let sitedatas = require("./server/mongodb/countrydb.js")
-        await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
-      /*    var sDt = {
-           country : `country.${geo.country}`
-          }
-          await db.push(`country`,{sDt});*/
-        }
-        return next();
-    })
-app.get("/admin", gGiris , adminCheck , (req, res) => {
+*/app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelgsayi = db.fetch(`adminpanel_giris_sayi`);
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
  const kullsayi = nico.guilds.cache.size;
@@ -987,7 +1025,7 @@ const keyRouter = require("./server/api/keyAuth.js");
 nico.login(process.env.TOKEN)
 const listener = app.listen(process.env.PORT, () => {
 
-  console.log("Your app is listening on port " + listener.address().port);
+  /*console.log("Your app is listening on port " + listener.address().port);
 
   console.log(`
 
@@ -1009,7 +1047,7 @@ const listener = app.listen(process.env.PORT, () => {
 
   
 
-  `);
+  `);*/
 
 });
 nico.on("message", async msg => {

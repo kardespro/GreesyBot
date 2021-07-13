@@ -27,8 +27,10 @@ console.log(`
 
 □□□□□□□□□□□□□□□
 
-Loading Project ....
+    Loading Project ....
 
+
+□□□□□□□□□□□□□□□
 
 
 
@@ -36,7 +38,28 @@ Loading Project ....
 `);
 
 console.log("");
-console.log(
+console.log(`
+□□□□□□□□□□□□□□□
+
+     Greesy Loaded ! 
+
+□□□□□□□□□□□□□□□
+
+`);
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
+console.log("");
 
 
 
@@ -226,7 +249,7 @@ nico.on("ready", () => {
 
   
 
-  console.log(`
+ /* console.log(`
 
   
 
@@ -242,7 +265,7 @@ nico.on("ready", () => {
 
   *************
 
-  `);
+  `);*/
 
   nico.user.setActivity(`🌎 !help | !stat `);
 

@@ -1,5 +1,6 @@
-<%- include('./static/header') %>
-
+<%- include('static/header') %>
+ <main class="h-full overflow-y-auto">
+       
 <form action="/admin/maintance/on" method="POST">
   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit"> Turn On Maintenance Mode  </button>
   </form>
@@ -9,4 +10,4 @@
 <form action="/admin/maintance/off" method="POST">
   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit"> Turn Off Maintenance Mode  </button>
   </form>
-
+</main>

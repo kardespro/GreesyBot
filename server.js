@@ -399,7 +399,21 @@ const passport = require('passport');
 //settings
 
 app.set(express.json());
-
+//Rate Limit
+const rateLimit = require("express-rate-limit");
+var MongoStore = require('rate-limit-mongo');
+const reqLimitter = rateLimit({
+      store: new MongoStore({
+         uri: "",
+         collectionName: "rate-limit",
+         expireTimeMs:  60 * 60 * 1000,
+         resetExpireDateOnChange: true
+         }),
+           windowMs: 60 * 60 * 1000,
+           max: 4,
+           message:
+       ({ error: true, message:  "Too many requests, you have been rate limited. Please try again in one hour." })
+    });
 function gGiris(req, res, next) {
 
     if (req.isAuthenticated()) return next();

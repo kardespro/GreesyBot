@@ -706,7 +706,7 @@ app.get("/shard", (req, res) => {
         
         if(geo) {
         let sitedatas = require("./server/mongodb/countrydb.js")
-        await mongoose.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        await updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
       /*    var sDt = {
            country : `country.${geo.country}`
           }

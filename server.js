@@ -404,7 +404,7 @@ const rateLimit = require("express-rate-limit");
 var MongoStore = require('rate-limit-mongo');
 const reqLimitter = rateLimit({
       store: new MongoStore({
-         uri: "",
+         uri: "mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
          collectionName: "rate-limit",
          expireTimeMs:  60 * 60 * 1000,
          resetExpireDateOnChange: true
@@ -808,6 +808,13 @@ app.get("/admin/promocode/", gGiris , adminCheck , (req, res) => {
 render(res, req, "admin/promo-new.ejs");
   });
 
+app.post("/admin/promocode",  (req, res) => {
+  var kod = req.body.kod;
+ if(!kod) return res.json({error: "write promocode name"});
+  db.set(`promocodes_${kod}`,"premium");
+  //res.json({success: "Successfull Added Promo Code To System"});
+res.redirect("/admin/promocode");
+});
 
 
 

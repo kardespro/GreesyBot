@@ -10,6 +10,7 @@ dependencies:
   express-session: 1.17.2
   fs: 0.0.2
   got: 11.8.2
+  ipware: 2.0.0
   lodash: 4.17.21
   lowdb: 2.1.0
   moment: 2.29.1
@@ -1313,6 +1314,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==
+  /ipware/2.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-xOqLoYyWIBcO6ANVZK7GgnuH9V7wbqDf6/MrRi4I+Ae1A11m6jcaNRtMSezypkupRUjiSSLq3F/DTvAM1cZfQw==
   /is-arrayish/0.2.1:
     dev: false
     resolution:
@@ -2830,6 +2835,7 @@ specifiers:
   express-session: ^1.17.2
   fs: ^0.0.2
   got: ^11.8.2
+  ipware: ^2.0.0
   lodash: ^4.17.15
   lowdb: ^2.1.0
   moment: ^2.29.1

@@ -10,6 +10,14 @@ class greesy {
    return  this.greesyAuth;
       }
   }
+  static res(){
+    return "Bot Yeniden Başlatılıyor..... " 
+    process.exit(0);
+    setTimeout(function(){ 
+      return "Bot Yeniden başaltıldı! " 
+         }, 
+               5000);
+   } 
   static promoKod(kod){
     if(!kod) return "Kod Belirt";
     var result = requ(`https://hyper-gusty-node.glitch.me/api/v1/promocode/check/${kod}/`);

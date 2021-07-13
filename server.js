@@ -677,7 +677,19 @@ app.get("/shard", (req, res) => {
 /*
 * ADMIN PANEL
 */
-
+    app.use(async (req, res, next) => {
+        var getIP = require('ipware')().get_ip;
+        var ipInfo = getIP(req);
+        var geoip = require('geoip-lite');
+        var ip = ipInfo.clientIp;
+        var geo = geoip.lookup(ip);
+        
+        if(geo) {
+          let sitedatas = require("./database/models/analytics-site.js")
+          await sitedatas.updateOne({ id: config.website.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+        }
+        return next();
+    })
 app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelgsayi = db.fetch(`adminpanel_giris_sayi`);
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);

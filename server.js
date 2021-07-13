@@ -18,6 +18,29 @@ setInterval(function(){
 }, 5);*/
 
 
+/*
+
+
+MONGO DB
+
+
+
+*/
+mongoose.connect("", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        autoIndex: false
+    }).then(() => {
+    console.log("[Greesy]: Mongoose successfully connected.");
+    }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
+
+
+
+
+
+
 
 const app = express();
 const _ = require("lodash");
@@ -29,10 +52,6 @@ const path = require("path");
 
 const fs = require("fs");
 
-/*const nego = require("nego.db");
-
-const db2 = new nego("./Database.json");*/
-
 const url = require("url");
 const db = require("quick.db");
 const moment = require("moment");
@@ -40,7 +59,6 @@ const moment = require("moment");
 require('discord-buttons')(nico);
 var bodyParser = require('body-parser');
 
-//var bodyParser = require("body-parser");
 
 app.use(bodyParser.json()); 
 

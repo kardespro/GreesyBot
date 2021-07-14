@@ -988,7 +988,7 @@ app.post("/admin/blog/new", gGiris,(req,res) => {
 });
 app.get("/testblog",  (req, res) => {
 var fetchHaber = db.fetch(`habr`);
-render(res, req, "blogtest.ejs",{habr});
+render(res, req, "blogtest.ejs",{});
 
   });
 

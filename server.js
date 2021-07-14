@@ -904,12 +904,12 @@ app.get("/user/comment", (req,res) => {
 app.post("/user/comment", gGiris ,(req,res) => {
 var cBody = req.body.comment;
   var user = req.user.id;
-  var commentInfo = {
-    yorum:cBody,
-    userId:user,
-    user:req.user
+var commentInfo = {
+    commentAuthor: req.user.username,
+    comment: cBody,
+    cm:req.us
   };
-  if(cBody == "amk"){
+    if(cBody == "amk"){
     res.json("Küfürlü Yorum Kabul Edilemez");
   };
   db.push(`comment`,commentInfo);

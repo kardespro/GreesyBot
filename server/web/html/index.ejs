@@ -112,7 +112,7 @@
 
   
   <img
-    src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+    src="https://cdn.discordapp.com/avatars/<%=x.cm.id%>/<%=x.cm.avatar%>.png"
     alt="John Doe"
     class="me-3 rounded-circle"
     style="width: 60px; height: 60px;"
@@ -124,12 +124,13 @@
     
 
     <h5 class="fw-bold">
-      John Doe
+      <%= x.user %>
       <small class="text-muted">Posted on February 19, 2021</small>
     </h5>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua.
+     
+      <%= x.comment %>
+      
     </p>
   </div>
 </div>

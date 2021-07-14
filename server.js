@@ -617,7 +617,7 @@ Pages
 */
 
 app.get("/", bakimCheck , (req,res) => {
-var fetchComment = db.fetch(`comment`);
+var fetchComment = db.fetch(`commenttest`);
   render(res,req, "index.ejs",{
     kardesproclient: nico,
     fetchComment,
@@ -904,20 +904,32 @@ app.get("/user/comment", (req,res) => {
 app.post("/user/comment", gGiris ,(req,res) => {
 var cBody = req.body.comment;
   var user = req.user.id;
-var commentInfo = {
+/*var commentInfo = {
     commentAuthor: req.user.username,
     comment: cBody,
-    cm:req.us
-  };
+    cm:req.user
+  };*/
     /*if(cBody == "amk"){
     res.json("Küfürlü Yorum Kabul Edilemez");
   };*/
-  db.push(`comment`,commentInfo);
+  //db.push(`comment`,commentInfo);
   // db.defaults({ posts: []}).write()
 // db.get('comment').push(commentInfo).write()
 
  // var logtest = db.fetch(`comment`);
  // console.log(logtest);
+  
+
+var vat = {
+
+user: req.user.username,
+
+comment: cBody,
+cm: req.user
+
+}
+
+db.push(`commenttest`,vat)
   res.redirect("/");
 });
 

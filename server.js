@@ -316,6 +316,11 @@ nico.on('message', async message => {
         cmd = client.komutlar.get(client.aliases.get(command));
     }
     if (cmd) {
+      const kapalımıkardesbu = await db.fetch(`kapalı.${cmd.help.name}.${message.guild.id}`);
+
+  if(kapalımıkardesbu) return;
+
+ 
     //  db.fetch(`karaliste_${message.author.id}` === true ) // message.reply("") 
   /*  } else {
 

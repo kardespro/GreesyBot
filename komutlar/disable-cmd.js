@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {// Can°B#1308
   if(!args[0]) return message.channel.send("Please Write a Command Name To Disable! ") //message.channel.send('You need to specify one or more args[0]s to enable.');
 
   let cmd;
-  if(client.commands.has(args[0])) { cmd = client.commands.get(args[0]);
+  if(client.commands.get(args[0])) { cmd = client.commands.get(args[0]);
   } else if (client.aliases.has(args[0])) { cmd = client.commands.get(client.aliases.get(args[0]))};
 
   if(!cmd) return message.channel.send('Could not find a Command with that name.');

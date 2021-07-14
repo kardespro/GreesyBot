@@ -22,6 +22,7 @@ dependencies:
   node-fetch: 2.6.1
   node-http-ping: 0.3.1
   nuggies: 1.2.51
+  os: 0.1.2
   passport: 0.4.1
   passport-discord: 0.1.4
   path: 0.12.7
@@ -2016,6 +2017,10 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-RV2Zp2MY2aeYK5G+B/Sps8lW5NHAzE5QClbFP15j+PWmP+T9PxlJXBOOLoSAdgwFvS4t0aMR4vpedMkbHfh0nA==
+  /os/0.1.2:
+    dev: false
+    resolution:
+      integrity: sha512-ZoXJkvAnljwvc56MbvhtKVWmSkzV712k42Is2mA0+0KTSRakq5XXuXpjZjgAt9ctzl51ojhQWakQQpmOvXWfjQ==
   /p-cancelable/2.1.1:
     dev: false
     engines:
@@ -3066,6 +3071,7 @@ specifiers:
   node-fetch: ^2.6.1
   node-http-ping: ^0.3.1
   nuggies: ^1.2.51
+  os: ^0.1.2
   passport: ^0.4.1
   passport-discord: ^0.1.4
   path: ^0.12.7

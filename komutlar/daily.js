@@ -3,6 +3,15 @@ const ms = require("parse-ms")
 let db = require("quick.db") 
                 
 exports.run = async (client, message, args) => {
+  function rastgeleMiktar(min, max) {
+
+    min = Math.ceil(min);
+
+    max = Math.floor(max);
+
+    return Math.floor(Math.random() * (max - min)) + min;
+
+} 
  let times = db.fetch(`work_${message.author.id} `) 
   let day = 86400000
  

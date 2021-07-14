@@ -16,12 +16,12 @@ var embed = new Discord.MessageEmbed()
 
 .setDescription(`
 ${message.guild.name} Guild Info
-
+Owner: <@${message.guild.ownerID}>
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
 
 Verifaction Level : ${verfyseviye}
 Mfa Level : ${mfalev}
-Guild Region : ${region}
+Guild Region : ${region || "Greesy Reg Server 1"}
 Afk Channel : ${afkK || "Not Found"}
 
 <><><><><><><><><><><><><><><><><><><><><><><><><><><><>

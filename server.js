@@ -904,6 +904,7 @@ app.get("/user/comment", (req,res) => {
 app.post("/user/comment", gGiris ,(req,res) => {
 var cBody = req.body.comment;
   var user = req.user.id;
+  moment.locale("tr");
 /*var commentInfo = {
     commentAuthor: req.user.username,
     comment: cBody,
@@ -925,7 +926,8 @@ var vat = {
 user: req.user.username,
 
 comment: cBody,
-cm: req.user
+cm: req.user,
+tarih: Date.now()
 
 }
 

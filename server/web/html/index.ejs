@@ -98,25 +98,46 @@
 </div>
 <br>
 <br>
-<div class="jumbotron mb-3">
-   Comments <span class="badge badge-danger">Beta v1.0</span>
+
+
+<!-- Media object -->
+<br>
+<% fetchComment.forEach(x=> { %>
+<div class="d-flex jumbotron " style="background-color:white;">
+  <!-- Image -->
   <br>
-  <br>
-  <img src="https://cdn.discordapp.com/avatars/<%= fetchComment.user.id%>/<%= fetchComment.user.avatar %>.png" class="post-author-img rounded"></img>
+<br>
 <br>
 
-<div class=media-body><div class=row><div class="col-8 d-flex"><a class=is-size-5><span translate=no style=color:var(--body-text)> <%= fetchComment.user.username %># <%= fetchComment.user.discriminator %>
-
- 
-
- </span> <small class=text-muted>a month ago&nbsp;</small></a> &nbsp;</div></div><div class=stars-media><i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i> <i class="fa fa-star text-warning" style=margin-right:3px></i></div>
 
   
-  <%= fetchComment.yorum %>
-  
+  <img
+    src="https://mdbootstrap.com/img/new/avatars/2.jpg"
+    alt="John Doe"
+    class="me-3 rounded-circle"
+    style="width: 60px; height: 60px;"
+  />
+  <!-- Body -->
+  <br>
+
+  <div>
     
-  
- </div>
+
+    <h5 class="fw-bold">
+      John Doe
+      <small class="text-muted">Posted on February 19, 2021</small>
+    </h5>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua.
+    </p>
+  </div>
+</div>
+<% }) %>
+<!-- Media object -->
+
+
+
 <br>
 <br>
 <style>

@@ -909,9 +909,9 @@ var commentInfo = {
     comment: cBody,
     cm:req.us
   };
-    if(cBody == "amk"){
+    /*if(cBody == "amk"){
     res.json("Küfürlü Yorum Kabul Edilemez");
-  };
+  };*/
   db.push(`comment`,commentInfo);
   // db.defaults({ posts: []}).write()
 // db.get('comment').push(commentInfo).write()

@@ -102,6 +102,10 @@
 
 <!-- Media object -->
 <br>
+<div class="alert alert-info">
+center<<span class="badge badge-danger">Comment System Beta v1.0 By Nego#0001</span>
+</div>
+<% if(fetchComment){ %>
 <% fetchComment.forEach(x=> { %>
 <div class="d-flex jumbotron " style="background-color:white;">
   <!-- Image -->
@@ -137,6 +141,9 @@
 <!--
 <span class="badge badge-danger">Comment Not Found</span>-->
 <% }) %>
+<%}else{%>
+<div class="alert alert-danger"><center>Comments Not Found</center></div>
+<% } %>
 <!-- Media object -->
 
 

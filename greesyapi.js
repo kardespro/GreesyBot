@@ -30,6 +30,11 @@ class greesy {
     var resDB = db.fetch(`abonelik_${kullid}`);
     return resDB;
     }
+  static duyuruekle(name) {
+    if(!name) return new TypeError("Bir Metin Gir! ") 
+    db.set(`duyuru`, name) 
+    return `Eklendi! Önizleme: ${name} `
+   } 
   static fetchUser(kid){
     if(!kid) return new TypeError("Kullanıcı ID'si Belirt! ") 
     var te = nico.users.cache.get(kid)

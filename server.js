@@ -841,6 +841,9 @@ app.post("/admin/maintance/off", (req, res) => {
   res.redirect("/admin/maintance/");
   });
 
+app.get("/admin/maintance/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/maintance.ejs");
+  });
 
 
 
@@ -978,10 +981,18 @@ app.post("/admin/blog/new", gGiris,(req,res) => {
   }
  posts.push(post);
   db.push(`haber_${post.pT}`,post);
+  db.push(`habr`,post);
   var Log = db.fetch(`haber_${post.pT}`);
   console.log(Log);
   res.redirect("/");
 });
+app.get("/testblog",  (req, res) => {
+var fetchHaber = db.fetch(`habr`);
+render(res, req, "blogtest.ejs",{habr});
+
+  });
+
+
 
 
 

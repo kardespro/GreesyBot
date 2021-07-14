@@ -942,7 +942,9 @@ db.push(`commenttest`,vat)
 * Haber Sistemi
 */
 app.get("/blog/",bakimCheck,(req,res) => {
-  render(res,req, 'blog.ejs',{blogPost:posts, postsLen:postsL});
+  var fetchHaber = db.fetch(`habr`);
+
+  render(res,req, 'blog.ejs',{blogPost:posts, postsLen:postsL,fetchHaber});
 });
 let posts=[];
 //let posts = db.fetch("post")
@@ -988,7 +990,7 @@ app.post("/admin/blog/new", gGiris,(req,res) => {
 });
 app.get("/testblog",  (req, res) => {
 var fetchHaber = db.fetch(`habr`);
-render(res, req, "blogtest.ejs",{});
+render(res, req, "blogtest.ejs",{fetchHaber});
 
   });
 

@@ -1,5 +1,7 @@
 const requ = require("request");
 const db = require("quick.db");
+const Discord = require("discord.js") 
+const nico = new Discord.Client() 
 class greesy {
   constructor(key){
     this.greesyAuth = key;
@@ -28,6 +30,11 @@ class greesy {
     var resDB = db.fetch(`abonelik_${kullid}`);
     return resDB;
     }
+  static fetchUser(kid){
+    if(!kid) return new TypeError("Kullanıcı ID'si Belirt! ") 
+    var te = nico.users.cache.get(kid)
+    return te;
+   } 
   static bakimCheck(){
     var resBakim = db.fetch(`bakim`);
     return resBakim;

@@ -17,16 +17,22 @@ exports.run = async (client, message, args) => {
  .setAuthor(message.author.username , message.author.avatarURL({dynamic: true}))
  .setTitle('Greesy | Help Menu')
  .setDescription(`
+ 
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
   👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-  \`ban, kick\`
+   \`ban, kick\`
   🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 
    \`beaman, meme \`
   📥 ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
+    
+      **ANNOUNCUMENTS**
+      \`\`\`
+      ${db.fetch(`duyuru`) || ""}
+      \`\`\`
  `) 
   .setColor("WHITE")
  .setFooter("Greesy © - All Rights Reserved! ")

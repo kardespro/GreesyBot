@@ -849,7 +849,7 @@ app.post("/admin/annoucument/", (req, res) => {
 
 var duyuru = req.body.duyurutext;
   db.set(`duyuru`,duyuru);
-  
+  res.r
 
 });
 

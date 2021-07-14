@@ -841,9 +841,15 @@ app.post("/admin/maintance/off", (req, res) => {
   res.redirect("/admin/maintance/");
   });
 
-app.get("/admin/maintance/", gGiris , adminCheck , (req, res) => {
-render(res, req, "admin/maintance.ejs");
+app.get("/admin/annoucument/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/annoucument.ejs");
   });
+
+app.post("/admin/annoucument/", (req, res) => {
+
+var duyuru = req.body.duyurutext;
+
+});
 
 
 

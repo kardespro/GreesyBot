@@ -18,6 +18,7 @@ exports.run = async (client, message, args) => {
   > Succesfully! 
    Channel: **<#${kanal.id}>**
    Number: **${rakam} **
+   
   `) 
   db.add(`counterAdd_${message.guild.id}`, +1)
   

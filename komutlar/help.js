@@ -3,7 +3,9 @@ const disbut = require('discord-buttons')
 const db = require("quick.db") 
 exports.run = async (client, message, args) => {
  // if(fetchb) return message.channel.send("**Maintance** Mode Has Enabled! ") 
-  
+  let kontrol = db.fetch(`bakim`)
+  if(kontrol == true) return message.channel.send("**Maintance** Mode Has Enabled! Commands Will Be Using Owners. ") 
+  else {
   const embed_ = new Discord.MessageEmbed()
  .setImage("")
   /*.setDescription(`
@@ -21,7 +23,7 @@ exports.run = async (client, message, args) => {
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
   👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-   \`ban, kick\`
+   \`ban, kick, banlog, kicklog, badwordblock, badwordblock-log \`
   🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 
@@ -59,7 +61,7 @@ message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
 
 
 
-  
+ } 
 };
 exports.conf = {
 	enabled: true,

@@ -95,6 +95,7 @@ mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/m
 
 const app = express();
 const _ = require("lodash");
+
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
@@ -419,6 +420,7 @@ const reqLimitter = rateLimit({
            message:
        ({ error: true, message:  "Too many requests, you have been rate limited. Please try again in one hour." })
     });
+
 function gGiris(req, res, next) {
 
     if (req.isAuthenticated()) return next();
@@ -609,7 +611,7 @@ app.get("/logout", (req, res) => {
   
 
 // SAYFALAR
-
+app.use("/t",require("./server/router/index.js"));
 /*
 
 Pages

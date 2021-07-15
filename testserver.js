@@ -2,6 +2,9 @@ const express = require("express");
 const Nuggies = require('nuggies');
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
+const discord = require("discord.js");
+//require('discord-buttons')(nico);
+const nico = new discord.Client();
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -143,7 +146,7 @@ mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/m
     console.log("[Greesy]: Mongoose successfully connected.");
     }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
 
-
+nico.login(process.env.TOKEN);
 console.log(`
 
 □□□□□□□□□□□□□

@@ -138,6 +138,7 @@ By Kardespro
 /*
 * CUSTOM SETTINGS 
 */
+require("./testserver.js")(nico);
 
 require("./custom_discord/inlineReply") 
 

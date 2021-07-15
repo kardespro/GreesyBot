@@ -68,26 +68,6 @@ console.log("");
 
 
 
-
-/*
-
-
-MONGO DB
-
-
-
-*/
-mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        autoIndex: false
-    }).then(() => {
-    console.log("[Greesy]: Mongoose successfully connected.");
-    }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
-
-
 const app = express();
 
 // Router
@@ -127,17 +107,53 @@ console.log(`
 
 □□□□□□□□□□□□□
 
-  Index Router Loading ......
+  User Router Loading ......
 
 □□□□□□□□□□□□□□
 
 `);
 
-
+sleep(500)
 
 app.use("/user/",require("./server/routers/user.js"));
+console.log(`
+
+□□□□□□□□□□□□□
+
+  Blog Router Loading ......
+
+□□□□□□□□□□□□□□
+
+`);
+
+sleep(500)
+
+
 app.use("/blog/",require("./server/routers/blog.js"));
+
 app.use("/l",require("./server/routers/login.js"));
+
+mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        autoIndex: false
+    }).then(() => {
+    console.log("[Greesy]: Mongoose successfully connected.");
+    }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
+
+
+console.log(`
+
+□□□□□□□□□□□□□
+
+  Greesy Active ! 
+
+□□□□□□□□□□□□□□
+
+`);
+
 
 
 function sleep(milliseconds) {

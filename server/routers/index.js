@@ -6,8 +6,38 @@ const nico = new discord.Client();
 
 const path = require("path");
 
+const db = require("quick.db");
+const config = {
 
+  siteismi: "Greesy | Best Utility Bot",
 
+  sunucuid: "858052041507209266",
+
+  callback: "https://greesy.negodev.tk/l/callback",
+
+  secret: "IWgw_oextZSp83XJabSRnTqD759LMQB3",
+  clientID: "817456729558220812",
+
+  logkanalid: "859899078624149516",
+
+  kurucurolid: "682607343707488388",
+
+  admins:["682607343707488388","682607343707488388","852830717037510687"],
+
+  evalyetki: "682607343707488388",
+
+  evalyetki1: "",
+
+  evalyetki2: "852853360612605952",
+
+  evalyetki3: "",
+  logkanalid: "859899078624149516",
+
+  prefix: "!",
+
+  embedbanner: "https://i.pinimg.com/originals/30/88/a3/3088a3ebaf713600adacd00397ee410d.png"
+
+  };
 function gGiris(req, res, next) {
 
     if (req.isAuthenticated()) return next();
@@ -66,7 +96,7 @@ const render = (res, req, template, data = {}) => {
 
   };
 
-app.set('view engine','ejs');
+//app.set('view engine','ejs');
 
 
 

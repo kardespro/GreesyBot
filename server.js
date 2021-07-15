@@ -611,7 +611,7 @@ app.get("/logout", (req, res) => {
   
 
 // SAYFALAR
-app.use("/t",require("./server/router/index.js"));
+app.use("/t",require("./server/routers/index.js"));
 /*
 
 Pages
@@ -643,6 +643,7 @@ app.get("/index.html", (req, res) => {
 /*
 * Dashboard
 */
+
 app.get("/dash", gGiris ,bakimCheck ,(req,res) => {
   const user = nico.users.cache.get(req.user.id);
   const perms = discord.Permissions;
@@ -904,6 +905,7 @@ app.get("/user/subscriptions/delete", (req,res) => {
   res.redirect("/user/subscriptions");
   db.set(`abonelik_${req.user.id}`,"free");
   });
+
 /*
 * COMMENT System And COMMENT API
 */

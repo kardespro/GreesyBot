@@ -1,5 +1,4 @@
 const app = require("express").Router();
-
 const discord = require("discord.js");
 
 //require('discord-buttons')(nico);
@@ -9,7 +8,7 @@ const nico = new discord.Client();
 const path = require("path");
 
 const db = require("quick.db");
-
+const moment = require("moment");
 const config = {
 
   siteismi: "Greesy | Best Utility Bot",
@@ -130,96 +129,49 @@ const render = (res, req, template, data = {}) => {
 
 //app.set('view engine','ejs');
 
+
 /*
-
-* ADMIN PANEL
-
+* COMMENT System And COMMENT API
 */
 
-app.get("/admin", gGiris , adminCheck , (req, res) => {
+app.get("/user/comment", (req,res) => {
+ if(!req.user) return res.redirect("/l/");
+ var abIzin = db.fetch(`abonelik_${req.user.id}`);
+ render(res,req, "comment.ejs",{abIzin});
+  });
 
-  const panelgsayi = db.fetch(`adminpanel_giris_sayi`);
+app.post("/user/comment", gGiris ,(req,res) => {
+var cBody = req.body.comment;
+  var user = req.user.id;
+  moment.locale("tr");
+/*var commentInfo = {
+    commentAuthor: req.user.username,
+    comment: cBody,
+    cm:req.user
+  };*/
+    /*if(cBody == "amk"){
+    res.json("Küfürlü Yorum Kabul Edilemez");
+  };*/
+  //db.push(`comment`,commentInfo);
+  // db.defaults({ posts: []}).write()
+// db.get('comment').push(commentInfo).write()
 
-  const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
-
- const kullsayi = nico.guilds.cache.size;
-
-  const cacheGuild = nico.guilds;
-
-  let sitedatalari = require("./server/mongodb/countrydb.js");
-
+ // var logtest = db.fetch(`comment`);
+ // console.log(logtest);
   
 
-  let siteD = sitedatalari.findOne({ id: config.clientID });
+var vat = {
 
-  //let siteD =  db.fetch(`country`);
+user: req.user.username,
 
-const cmdsize = nico.komutlar.size;
+comment: cBody,
+cm: req.user,
+tarih: Date.now()
 
-  render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize,siteD});
+}
 
- });
-
-app.get("/admin/promocode/", gGiris , adminCheck , (req, res) => {
-
-render(res, req, "admin/promo-new.ejs");
-
-  });
-
-app.post("/admin/promocode",  (req, res) => {
-
-  var kod = req.body.kod;
-
- if(!kod) return res.json({error: "write promocode name"});
-
-  db.set(`promocodes_${kod}`,"premium");
-
-  //res.json({success: "Successfull Added Promo Code To System"});
-
-res.redirect("/admin/promocode");
-
-});
-
-app.get("/admin/maintance/", gGiris , adminCheck , (req, res) => {
-
-render(res, req, "admin/maintance.ejs");
-
-  });
-
-app.post("/admin/maintance/on", (req, res) => {
-
-//render(res, req, "admin/maintance.ejs");
-
-  db.set(`bakim`,true);
-
-  res.redirect("/admin/maintance/");
-
-  });
-
-app.post("/admin/maintance/off", (req, res) => {
-
-//render(res, req, "admin/maintance.ejs");
-
-  db.set(`bakim`,false);
-
-  res.redirect("/admin/maintance/");
-
-  });
-
-app.get("/admin/annoucument/", gGiris , adminCheck , (req, res) => {
-
-render(res, req, "admin/annoucument.ejs");
-
-  });
-
-app.post("/admin/annoucument/", (req, res) => {
-
-var duyuru = req.body.duyurutext;
-
-  db.set(`duyuru`,duyuru);
-
-  res.r
-
+db.push(`commenttest`,vat)
+  res.redirect("/");
 });
 
 

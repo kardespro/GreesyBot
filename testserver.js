@@ -91,9 +91,69 @@ mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/m
 const app = express();
 
 // Router
+console.log(`
+□□□□□□□□□□□□□
 
+  Index Router Loading ......
+
+□□□□□□□□□□□□□□
+`);
+sleep(500)
 app.use("/",require("./server/routers/index.js"));
+console.log(`
+□□□□□□□□□□□□□
+
+  Api Router Loading ......
+
+□□□□□□□□□□□□□□
+`);
+sleep(500)
+
 app.use("/api",require("./server/routers/api.js"));
+console.log(`
+
+□□□□□□□□□□□□□
+
+  Dashboard Router Loading ......
+
+□□□□□□□□□□□□□□
+
+`);
+sleep(500)
+
+
+app.use("/dash/",require("./server/routers/dashboard.js"));
+console.log(`
+
+□□□□□□□□□□□□□
+
+  Index Router Loading ......
+
+□□□□□□□□□□□□□□
+
+`);
+
+
+
+app.use("/user/",require("./server/routers/user.js"));
+app.use("/blog/",require("./server/routers/blog.js"));
+app.use("/l",require("./server/routers/login.js"));
+
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
+
+
+
+
+
+
 
 
 

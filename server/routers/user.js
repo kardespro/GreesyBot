@@ -210,6 +210,56 @@ app.get("/user/subscriptions/delete", (req,res) => {
   });
 
 
+/*
+* COMMENT System And COMMENT API
+*/
+
+app.get("/user/comment", (req,res) => {
+ if(!req.user) return res.redirect("/l/");
+ var abIzin = db.fetch(`abonelik_${req.user.id}`);
+ render(res,req, "comment.ejs",{abIzin});
+  });
+
+app.post("/user/comment", gGiris ,(req,res) => {
+var cBody = req.body.comment;
+  var user = req.user.id;
+  moment.locale("tr");
+/*var commentInfo = {
+    commentAuthor: req.user.username,
+    comment: cBody,
+    cm:req.user
+  };*/
+    /*if(cBody == "amk"){
+    res.json("Küfürlü Yorum Kabul Edilemez");
+  };*/
+  //db.push(`comment`,commentInfo);
+  // db.defaults({ posts: []}).write()
+// db.get('comment').push(commentInfo).write()
+
+ // var logtest = db.fetch(`comment`);
+ // console.log(logtest);
+  
+
+var vat = {
+
+user: req.user.username,
+
+comment: cBody,
+cm: req.user,
+tarih: Date.now()
+
+}
+
+db.push(`commenttest`,vat)
+  res.redirect("/");
+});
+
+
+
+
+
+
+
 
 
 

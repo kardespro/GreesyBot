@@ -2,8 +2,21 @@ const app = require("express").Router();
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
+var bodyParser = require('body-parser');
 
 const path = require("path");
+app.set(app.json());
+
+
+app.use(bodyParser.json()); 
+
+app.use(bodyParser.urlencoded({ 
+
+  extended: true 
+
+})); 
+
+
 
 const db = require("quick.db");
 const config = {

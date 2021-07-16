@@ -136,7 +136,7 @@ console.log(`
 sleep(500)
 
 
-app.use("/blog/",require("./server/routers/blog.js"));
+app.use("/blog",require("./server/routers/blog.js"));
 
 app.use("/l",require("./server/routers/login.js"));
 

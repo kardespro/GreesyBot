@@ -134,7 +134,7 @@ const render = (res, req, template, data = {}) => {
 
 */
 
-app.get("/blog/",bakimCheck,(req,res) => {
+app.get("/", bakimCheck,(req,res) => {
 
   var fetchHaber = db.fetch(`habr`);
 
@@ -148,7 +148,7 @@ let posts=[];
 
 let postsL=posts.length;
 
-app.get("/admin/blog/new",gGiris , (req,res) => {
+/*app.get("/admin/blog/new",gGiris , (req,res) => {
 
   if(req.user.id != config.kurucurolid) return res.redirect("/");
 
@@ -158,9 +158,9 @@ app.get("/admin/blog/new",gGiris , (req,res) => {
 
   render(res,req, 'blog_new.ejs',{user});
 
-});
+});*/
 
-app.get('/blog/:postName', gGiris , bakimCheck ,  (req,res) => {
+app.get('/:postName', gGiris , bakimCheck ,  (req,res) => {
 
   var a=0;
 

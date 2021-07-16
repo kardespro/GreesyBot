@@ -2,7 +2,11 @@
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
+const fs = require("fs");
+const db = require("quick.db");
+const express = require("express");
 
+const app = express()
 
 function Random(length) {
 
@@ -91,3 +95,291 @@ const embed = new Discord.MessageEmbed()
 
   }) //burda replace yi nasıl yapmalıyım arkadaşlaar
 });
+
+
+/*
+
+* Command Handler
+
+*/
+const log = message => {
+  console.log(`${message}`);
+};
+/*=======================================================================================*/
+require('events').EventEmitter.prototype._maxListeners = 100;
+nico.komutlar = new discord.Collection();
+nico.aliases = new discord.Collection();
+fs.readdir("./komutlar/", (err, files) => {
+    if (err) console.error(err);
+    console.log(`(!) Bota ${files.length} komut başarıyla yüklendi.`);
+    files.forEach(f => {
+        if (!f.endsWith('.js')) return
+        let props = require(`./komutlar/${f}`);
+        if (!props.help) return
+        nico.komutlar.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+            nico.aliases.set(alias, props.help.name);
+            global.commands = files;
+        });
+    });
+});
+nico.on('message', async message => {
+    let p = config.prefix
+    let client = message.client;
+    if (message.author.bot) return;
+    if (!message.content.startsWith(p)) return;
+    let command = message.content.split(" ")[0].slice(p.length);
+    let params = message.content.split(" ").slice(1);
+    let cmd
+    if (client.komutlar.has(command)) {
+        cmd = client.komutlar.get(command);
+    } else if (client.aliases.has(command)) {
+        cmd = client.komutlar.get(client.aliases.get(command));
+    }
+    if (cmd) {
+      const kapalımıkardesbu = await db.fetch(`kapalı.${cmd.help.name}.${message.guild.id}`);
+
+  if(kapalımıkardesbu) return;
+
+ 
+    //  db.fetch(`karaliste_${message.author.id}` === true ) // message.reply("") 
+  /*  } else {
+
+    const laura = [];
+
+    client.commands.forEach(dropinnem => {
+
+      laura.push(dropinnem.help.name);
+
+      dropinnem.conf.aliases.forEach(abcdef => laura.push(abcdef));
+
+    });
+      const rifleman = require('string-similarity').findBestMatch(command, laura);
+
+    message.channel.send(`That's What You Mean ? ${rifleman.bestMatch.target}`)
+  */
+  
+    }
+    cmd.run(client, message, params, p);
+})
+const clean = text => {
+
+    if (typeof(text) === "string")
+
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+
+    else
+
+        return text;
+
+  }
+
+nico.on("message", async message => {
+
+    const args = message.content.split(" ").slice(1);
+
+   
+
+    if (message.content.startsWith("!eval")) {
+      
+      if (![config.evalyetki, config.evalyetki1,config.evalyetki2, config.evalyetki3, "661827402069966869"].includes(message.author.id)) return;
+    
+      try {
+
+        const code = args.join(" ");
+
+        let evaled = eval(code);
+
+   
+    if(message.content.includes("nico.token")) return message.reply("al `31313313131311`") 
+        if (typeof evaled !== "string")
+
+         evaled = await require("util").inspect(evaled);
+
+   
+
+        await message.channel.send(clean(evaled), {code:"xl"});
+
+      } catch (err) {
+
+       await message.channel.send(`\`Hata Oluştu \n \` \`\`\`xl\n${clean(err)}\n\`\`\``);
+
+      }
+
+    }
+
+  });
+
+
+
+
+
+
+
+
+//Login
+const listener = app.listen(process.env.PORT, () => {
+
+  /*console.log("Your app is listening on port " + listener.address().port);
+
+  console.log(`
+
+  ***************
+
+  ****************
+
+  Server Başlatıldı PORT ${process.env.PORT}
+
+  
+
+  Bot Discorda Bağlandı 
+
+  
+
+  ******************
+
+  ******************
+
+  
+
+  `);*/
+
+});
+
+nico.on("message", async msg => {
+  if(msg.content.startsWith("!test")){
+   // if(msg.author.id == "852853360612605952"){
+   // msg.reply('test')
+    const disbut  = require('discord-buttons');
+/*let option = new MessageMenuOption()
+
+    .setLabel('Your Label')
+
+    .setEmoji('🍔')
+
+    .setValue('menuid')
+
+    .setDescription('Custom Description!')
+
+    
+
+let select = new MessageMenu()
+
+    .setID('customid')
+
+    .setPlaceholder('Click me! :D')
+
+    .setMaxValues(1)
+
+    .setMinValues(1)
+
+    .addOption(option)
+*/
+let button = new disbut.MessageButton()
+
+  .setLabel('Restart!')
+
+  .setID('myid')
+
+  .setStyle('blurple');
+    msg.channel.send('test!', {buttons: [button]})
+   // return process.exit();
+    console.log(`
+    Bot Has Restarted By ${msg.author} :) 
+    `)
+   // } 
+    }
+ });
+/*
+nico.on('clickButton', async (button) => {
+//.checkEnd()
+//  await button.reply.defer()
+ // await button.reply.think()
+
+//To make your reply only send to the user who clicked the button, add true to the options param
+
+//await button.reply.think(true)
+  
+ // msg.channel.send('te')
+  await button.reply.send('This is content replied!', true)
+
+ 
+ // msg.delete({timeout: 4000})
+  
+    //Your code here...
+
+});*/
+/*
+nico.on("message", async msg => {
+if(!msg.content.startsWith('!sggggggggggggg')){
+  const disbut = require('discord-buttons');
+
+let sunucu = new disbut.MessageButton()
+
+  .setLabel('Sunucu Sayısı!')
+
+  .setID('gg')
+
+  .setStyle('blurple');
+  msg.channel.send('Here Is My Stats', {buttons: [sunucu]}) 
+ } 
+  
+ });
+nico.on('clickButton', async (sunucu) => {
+
+    //Your code here...
+await sunucu.reply.send(`**${nico.guilds.cache.size} ** __Servers! __`, true)
+
+
+});*/
+//Left! 
+nico.on("guildMemberAdd", async member => {
+  let kanal = db.fetch(`counterChannel_${member.guild.id}`) 
+  let rakam = db.fetch(`counterNumber_${member.guild.id}`) 
+  nico.channels.cache.get(kanal).send(`
+  <a:grs:691620276055703573> **${member.user.tag}** Joined The Server! We're \`${rakam - member.guild.memberCount}\` Away From Being **${rakam}**! 
+ `)//Joined! We're 8 Away From Being 5! 
+ });
+
+
+nico.on("guildMemberRemove", async member => {
+  let kanal = db.fetch(`counterChannel_${member.guild.id}`) 
+  let rakam = db.fetch(`counterNumber_${member.guild.id}`) 
+ nico.channels.cache.get(kanal).send(`
+  <a:cks:691620378937917451> **${member.user.tag}** Left The Server! We're \`${rakam - member.guild.memberCount}\` Away From Being **${rakam}**! 
+ `)//Joined! We're 8 Away From Being 5! 
+ });
+nico.on("guildMemberAdd", async member => {
+  let role = db.fetch(`autoroleRole_${member.guild.id}`) 
+  let ch = db.fetch(`autoroleChannel_${member.guild.id}`) 
+  ch.send(`
+  **${member.user.tag}** Joined. **${role}** Role Given with Automatic Role System! 
+  `)
+  
+ });
+nico.on('clickButton', async (button) => {
+
+  if (button.id === 'B1') {
+   button.reply.defer()
+    button.channel.send(`${button.clicker.user.tag} clicked button!`);
+
+  }
+  if(button.id === "B2"){
+    button.reply.defer()
+    button.channel.send("ok")
+  
+   } 
+if(button.id === "vv"){
+  button.reply.defer()
+  button.channel.send(`
+  **Only You Know This Message! What about this one?  Only You Know This Message! So why Do I See This? I'll tell you about it. My Owners Made Users Who Clicked the Message Button See It So That It Wouldn't Spam or Disturb Users! **
+  
+  > Links:
+    [[Invite]](https://greesy.nicatdcw.com/invite) 
+    [[Dashboard]](https://greesy.nicatdcw.com) 
+    [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
+  `,)
+ } 
+});
+
+nico.login(process.env.TOKEN);

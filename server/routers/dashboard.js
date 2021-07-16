@@ -5,7 +5,7 @@ const nico = new discord.Client();
 var bodyParser = require('body-parser');
 
 const path = require("path");
-app.set(app.json());
+//app.set(app.json());
 
 
 app.use(bodyParser.json()); 

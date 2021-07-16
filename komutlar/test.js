@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { MessageButton } = require("discord-buttons");
-
+const { clickButton } = require("../events/button.js") 
+const client = new Discord.Client();
 exports.run = async(client, message, args, button) => {
   
 let embed = new Discord.MessageEmbed()
@@ -21,9 +22,16 @@ message.channel.send({
  buttons:[button1,button2],
  embed:embed
 });
-  if(button.id === "BTN1"){
-    await button.reply.send("hmm")
+  if(button1){
+//  client.on("clickButton", button1 => {
+ if(button.id === "BTN1"){
+     button1.reply.send("hmm")
    } 
+   }
+  client.on("clickButton", button2 => {
+     button2.reply.send("ha")
+   });
+            
 };
 
 exports.conf = {

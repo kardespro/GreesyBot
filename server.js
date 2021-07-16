@@ -266,8 +266,8 @@ nico.on("ready", () => {
         .setDescription(`Durumum **${nico.user.presence.activities[0].name} ${nico.user.presence.activities[0].type} olarak belirlendi.`)
 
         .setTimestamp()
-
-        .setImage(`${nico.user.avatarURL}`);
+  
+       // .setImage(`${nico.user.avatarURL}`);
 
        // .replace("WATCHING", "izliyor")
 

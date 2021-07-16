@@ -2,7 +2,7 @@
 const Nuggies = require('nuggies');
 const Discord2 = require("discord.js") 
 const Client2 = new Discord2.Client() 
-const { Util } = require("./util/eventloader.js") 
+const Util = require("./util/eventloader.js")(Client2) 
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
 

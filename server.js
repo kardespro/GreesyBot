@@ -1296,6 +1296,6 @@ if(button.id === "vv"){
     [[Invite]](https://greesy.nicatdcw.com/invite) 
     [[Dashboard]](https://greesy.nicatdcw.com) 
     [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
-  `, true)
+  `,)
  } 
 });

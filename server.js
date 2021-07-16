@@ -252,8 +252,29 @@ nico.on("ready", () => {
 
   //require("./server/index.js")(client)
 
-  
+  const Discord = require('discord.js') 
+  nico.user.setActivity('Dashboard', { type: 'WATCHING' })
 
+  .then(presence => {
+
+      const embed = new Discord.MessageEmbed()
+
+        .setColor('#0099ff')
+
+        .setTitle('**Durum Bildirgesi**')
+
+        .setDescription(`Durumum **${nico.user.presence.activities[0].name} ${nico.user.presence.activities[0].type} olarak belirlendi.`)
+
+        .setTimestamp()
+
+        .setImage(`${nico.user.avatarURL}`);
+
+       // .replace("WATCHING", "izliyor")
+
+    //  channel.send(embed);
+    nico.channels.cache.get("859899078624149516").send("Succes",{embed: embed}) 
+
+  }) //burda replace yi nasıl yapmalıyım arkadaşlaar
  /* console.log(`
 
   
@@ -272,7 +293,7 @@ nico.on("ready", () => {
 
   `);*/
 
-  nico.user.setActivity(`🌎 !help | !stat `);
+ // nico.user.setActivity(`🌎 !help | !stat `);
 
   });
 nico.on('clickbutton', dugme => {

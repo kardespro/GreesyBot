@@ -5,6 +5,8 @@ const mongoose = require("mongoose")
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
+module.exports = async (client) => {
+
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -169,7 +171,7 @@ function sleep(milliseconds) {
 
 
 
-
+}
 
 
 

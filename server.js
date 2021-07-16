@@ -250,7 +250,7 @@ const config = {
 
 nico.on("ready", () => {
 
-  //require("./server/index.js")(client)
+  require("./testserver.js")(nico)
 
   const Discord = require('discord.js') 
   nico.user.setActivity('Dashboard', { type: 'WATCHING' })

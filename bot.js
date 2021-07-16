@@ -65,7 +65,7 @@ const config = {
 //Ready
 nico.on("ready", () => {
 
-  require("./testserver.js")(nico)
+  require("./testserver.js")()
 
   const Discord = require('discord.js') 
   nico.user.setActivity('Dashboard', { type: 'WATCHING' })

@@ -86,7 +86,7 @@ console.log(`
 □□□□□□□□□□□□□□
 `);
 sleep(500)
-app.use("/",require("./server/routers/index.js"));
+app.use("/t", require("./server/routers/index.js"))
 console.log(`
 □□□□□□□□□□□□□
 

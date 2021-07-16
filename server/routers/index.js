@@ -102,7 +102,7 @@ const render = (res, req, template, data = {}) => {
 
 
 
-app.get("/", bakimCheck , (req,res) => {
+app.get("/", bakimCheck , async (req,res) => {
 
 var fetchComment = db.fetch(`commenttest`);
 

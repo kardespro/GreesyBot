@@ -641,6 +641,11 @@ app.get("/logout", (req, res) => {
 
 // SAYFALAR
 app.use("/t",require("./server/routers/index.js"));
+app.use("/blogt",require("./server/routers/blog.js"));
+app.use("*",require("./server/routers/404.js"));
+
+
+
 /*
 
 Pages

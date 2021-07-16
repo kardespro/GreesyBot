@@ -1263,7 +1263,7 @@ nico.on("guildMemberAdd", async member => {
 nico.on("guildMemberRemove", async member => {
   let kanal = db.fetch(`counterChannel_${member.guild.id}`) 
   let rakam = db.fetch(`counterNumber_${member.guild.id}`) 
- kanal.send(`
+ nico.channels.cache.get(kanal).send(`
   <a:cks:691620378937917451> **${member.user.tag}** Left The Server! We're \`${rakam - member.guild.memberCount}\` Away From Being **${rakam}**! 
  `)//Joined! We're 8 Away From Being 5! 
  });
@@ -1275,3 +1275,17 @@ nico.on("guildMemberAdd", async member => {
   `)
   
  });
+nico.on('clickButton', async (button) => {
+
+  if (button.id === 'B1') {
+   button.reply.defer()
+    button.channel.send(`${button.clicker.user.tag} clicked button!`);
+
+  }
+  if(button.id === "B2"){
+    button.reply.defer()
+    button.channel.send("ok")
+  
+   } 
+
+});

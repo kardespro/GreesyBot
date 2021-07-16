@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const { MessageButton } = require("discord-buttons");
-const { clickButton } = require("../events/button.js") 
-const client = new Discord.Client();
-exports.run = async(client, message, args, button) => {
+//const { clickButton } = require("../events/button.js") 
+//const client = new Discord.Client();
+exports.run = async (client, message, args) => {
   
 let embed = new Discord.MessageEmbed()
   .setColor('yellow')
@@ -12,16 +12,17 @@ let button1 = new MessageButton()
   .setStyle('green')
 .setEmoji("✔")
   .setLabel('EVET!') 
-  .setID('BTN1');
+  .setID('B1');
 let button2 = new MessageButton()
   .setStyle('red')
 .setEmoji("❌")
   .setLabel('HAYIR!') 
-  .setID('BTN2'); 
+  .setID('B2'); 
 message.channel.send({
  buttons:[button1,button2],
  embed:embed
 });
+  /*
   if(button1){
 //  client.on("clickButton", button1 => {
  if(button.id === "BTN1"){
@@ -31,7 +32,7 @@ message.channel.send({
   client.on("clickButton", button2 => {
      button2.reply.send("ha")
    });
-            
+           */ 
 };
 
 exports.conf = {

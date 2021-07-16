@@ -256,14 +256,18 @@ nico.on("ready", () => {
   nico.user.setActivity('Dashboard', { type: 'WATCHING' })
 
   .then(presence => {
-
-      const embed = new Discord.MessageEmbed()
+    /*
+var mesajj = mesaj;
+    if(mesajj){
+   .replace("")
+     } */
+const embed = new Discord.MessageEmbed()
 
         .setColor('#0099ff')
 
         .setTitle('**Durum Bildirgesi**')
 
-        .setDescription(`Durumum **${nico.user.presence.activities[0].name} ${nico.user.presence.activities[0].type} olarak belirlendi.`)
+        .setDescription(`Durumum **${nico.user.presence.activities[0].name}** \n Tür **${nico.user.presence.activities[0].type}** olarak belirlendi.`)
 
         .setTimestamp()
   
@@ -272,7 +276,7 @@ nico.on("ready", () => {
        // .replace("WATCHING", "izliyor")
 
     //  channel.send(embed);
-    nico.channels.cache.get("859899078624149516").send("Succes",{embed: embed}) 
+    nico.channels.cache.get("859899078624149516").send("Succes!",{embed: embed}) 
 
   }) //burda replace yi nasıl yapmalıyım arkadaşlaar
  /* console.log(`

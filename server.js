@@ -1287,5 +1287,15 @@ nico.on('clickButton', async (button) => {
     button.channel.send("ok")
   
    } 
-
+if(button.id === "vv"){
+  button.reply.defer()
+  button.channel.send(`
+  **Only You Know This Message! What about this one?  Only You Know This Message! So why Do I See This? I'll tell you about it. My Owners Made Users Who Clicked the Message Button See It So That It Wouldn't Spam or Disturb Users! **
+  
+  > Links:
+    [[Invite]](https://greesy.nicatdcw.com/invite) 
+    [[Dashboard]](https://greesy.nicatdcw.com) 
+    [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
+  `, true)
+ } 
 });

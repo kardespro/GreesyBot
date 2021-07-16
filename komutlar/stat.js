@@ -39,12 +39,11 @@ exports.run = (client, message, args) => {
    .setID("vv") 
    .setLabel("View Links")
     
-      client.on('clickButton', async (pingbuton) => {
+      client.on('clickButton', async (buton) => {
        // await pingbuton.think(true)
-        /* if(pingbuton.id == 'pingg') {
-    info.edit(`Test`)
+         if(buton.id == 'pingg') {
+   // info.edit(`Test`)
 
-} */
      //   message.delete().then(helpMessage.delete())
 
 
@@ -58,10 +57,10 @@ exports.run = (client, message, args) => {
    //  await pingbuton.reply.think()
     // await pingbuton.reply.think(true)
       //  await pingbuton.reply.send('Refreshed!',{embed: info})
-      await pingbuton.reply.send(info, true)
+      await buton.reply.send(info, true)
     //Your code here...
         
-
+} 
 }); 
   /*
   client.on('clickButton', async vv => {
@@ -72,7 +71,7 @@ exports.run = (client, message, args) => {
     //Your code here...
 
 });*/
-    message.channel.send('', {embed: info, buttons: [pingbuton]}); //Mesajı gönderir.
+    message.channel.send('', {embed: info, buttons: [pingbuton, testbuton]}); //Mesajı gönderir.
   
 };
 

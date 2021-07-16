@@ -250,7 +250,7 @@ const config = {
 
 nico.on("ready", () => {
 
-  require("./testserver.js")(nico)
+  //require("./testserver.js")(nico)
 
   const Discord = require('discord.js') 
   nico.user.setActivity('Dashboard', { type: 'WATCHING' })
@@ -1331,6 +1331,93 @@ if(button.id === "vv"){
     [[Invite]](https://greesy.nicatdcw.com/invite) 
     [[Dashboard]](https://greesy.nicatdcw.com) 
     [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
-  `,)
+  `)
  } 
 });
+nico.guilds.cache.forEach(g => {
+
+    g.fetchInvites().then(guildInvites => {
+
+      invites[g.id] = guildInvites;
+
+    });
+});
+nico.on('guildMemberAdd', async member => {
+
+  member.guild.fetchInvites().then(davetler => {
+
+    const eski = davetler[member.guild.id]
+
+    //burası karşılaştırma için lazım ^^
+
+    davetler[member.guild.id] = davetler;
+
+    //burada davetleri güncelledik
+
+    //şimdi karşılaştırma yapalım
+
+    const davet = davetler.find(x => eski.get(x.code).uses < x.uses);
+
+    const davetci = member.guild.members.cache.get(davet.inviter.id);
+
+    const kanal = member.guild.channels.cache.get(db.get(`davet_kanal.${member.guild.id}`))
+
+    if(!kanal) return;
+
+    kanal.send(`${member.user} sunucuya katıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`);
+
+    const roller = db.get(`roller_${member.guild.id}`);
+
+    roller.forEach((role) => {
+
+      if(davet.uses >= role.invite){
+
+        const roll = member.guild.roles.cache.get(role.roleId)
+
+        davetci.roles.add(roll);
+
+        davetci.user.send(`Artık ${role.invite} davetin olduğu için sana ${roll} rolünü verdik`);
+
+      }
+
+    })
+
+    
+
+  })
+
+});
+
+nico.on('guildMemberRemove', async member => {
+
+  member.guild.fetchInvites().then(davetler => {
+
+    const eski = davetler[member.guild.id]
+
+    //burası karşılaştırma için lazım ^^
+
+    davetler[member.guild.id] = davetler;
+
+    //burada davetleri güncelledik
+
+    //şimdi karşılaştırma yapalım
+
+    const davet = davetler.find(x => eski.get(x.code).uses > x.uses);
+
+    const davetci = member.guild.members.cache.get(davet.inviter.id);
+
+    const kanal = member.guild.channels.cache.get(db.get(`davet_kanal.${member.guild.id}`))
+
+    if(!kanal) return;
+
+    kanal.send(`${member.user} sunucudan ayrıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`);
+    // Nicat Has Left the Server! Invited Nego Had a Total of 2000 Invitations 
+
+    
+
+  })
+
+})
+ // });
+
+//});

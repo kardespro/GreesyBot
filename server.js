@@ -211,7 +211,9 @@ const authRouter = require("./server/auth.js");
 //*******
 
 //CONFIG
-
+const ayar = {
+  "durum": "!help | !stat " 
+ } 
 const config = {
 
   siteismi: "Greesy | Best Utility Bot",
@@ -253,7 +255,7 @@ nico.on("ready", () => {
   //require("./testserver.js")(nico)
 
   const Discord = require('discord.js') 
-  nico.user.setActivity('Dashboard', { type: 'WATCHING' })
+  nico.user.setActivity(ayar.durum, { type: 'WATCHING' })
 
   .then(presence => {
     /*

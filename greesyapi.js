@@ -1,6 +1,7 @@
 const requ = require("request");
 const db = require("quick.db");
 const Discord = require("discord.js") 
+const ayar = require("./server.js")
 const nico = new Discord.Client() 
 class greesy {
   constructor(key){
@@ -48,10 +49,12 @@ class greesy {
     if(!tool) return new TypeError("ac / kapat Yaz");
     if(tool == "ac"){
       db.set(`bakim`,true);
+      nico.user.setActivity("Maintance Mode ON")
       return "Bakim Modu Aktif";
     }
     if(tool == "kapat"){
       db.set(`bakim`,false);
+     nico.user.setActivity(ayar.durum)
       return "bakim modu kapatildi";
     }
     }

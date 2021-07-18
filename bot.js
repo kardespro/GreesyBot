@@ -352,7 +352,7 @@ nico.on("guildMemberRemove", async member => {
 nico.on("guildMemberAdd", async member => {
   let role = db.fetch(`autoroleRole_${member.guild.id}`) 
   let ch = db.fetch(`autoroleChannel_${member.guild.id}`) 
-  ch.send(`
+  nico.channels.cache.get(send(`
   **${member.user.tag}** Joined. **${role}** Role Given with Automatic Role System! 
   `)
   
@@ -380,6 +380,54 @@ if(button.id === "vv"){
     [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
   `,)
  } 
+});
+  /*guard dude*/
+  nico.on('roleDelete', async function(role) {
+
+  const fetch = await role.guild.fetchAuditLogs({type: "ROLE_DELETE"}).then(log => log.entries.first())
+
+  let yapanad = fetch.executor;
+
+  let isim = role.name;
+
+  let renk = role.color;
+
+  let ayrı = role.hoist;
+
+  let sıra = role.position;
+
+  let yetkiler = role.permissions;
+
+  let etiketlenebilir = role.mentionable;
+
+  role.guild.roles.create({
+
+    name:isim,
+
+    color:renk,
+
+    hoist:ayrı,
+
+    position:sıra,
+
+    permissions:yetkiler,
+
+    mentionable:etiketlenebilir
+
+  })
+
+  let teqnoembed = new Discord.MessageEmbed()
+
+    .setTitle("Warning! ")
+
+    .setColor("RED")
+
+    .setFooter("Greesy - Guard System")
+
+    //.setDescription(`\`${role.guild.name}\` adlı sunucunuzda ${isim} adına sahip rol, ${yapanad} adlı kişi tarafından silindi. Ben tekrardan onardım!`)
+.setDescription(` @Bok Role Deleted on Your Nicat Server! By: @Nicat, `) 
+  role.guild.owner.send(teqnoembed)
+
 });
 
 nico.login(process.env.TOKEN);

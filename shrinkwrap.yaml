@@ -1,6 +1,7 @@
 dependencies:
   body-parser: 1.19.0
   bootstrap-icons: 1.5.0
+  canvacord: 5.2.1
   canvas: 2.8.0
   croxydb: 0.0.7
   discord-buttons: 4.0.0
@@ -62,6 +63,16 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==
+  /@canvacord/assets/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-76uLD27UDlfTxtgA7armbt6G9/X1NDqm/qjs9gxbWFVfcJxVdT3r3LlwaLp0NlRa5yMylCFf3WcOHufVjk60vw==
+  /@canvacord/emoji-parser/1.0.1:
+    dependencies:
+      twemoji-parser: 13.1.0
+    dev: false
+    resolution:
+      integrity: sha512-Lb3xatdd91MR9tU4sicgrxxKg+/rVD1zKTOh55bmVF2Ri5X8vHTV+jNHTvRzkomGpyepGM+7qA4xMvG8ZqtO8g==
   /@discordjs/collection/0.1.6:
     dev: false
     resolution:
@@ -517,6 +528,17 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
+  /canvacord/5.2.1:
+    dependencies:
+      '@canvacord/assets': 1.0.2
+      '@canvacord/emoji-parser': 1.0.1
+      canvas: 2.8.0
+      gifencoder: 2.0.1
+      moment: 2.29.1
+      moment-duration-format: 2.3.2
+    dev: false
+    resolution:
+      integrity: sha512-vauEvj3QEDNyza6laa4C5cKiOSld/O+Uvjr8uzD+ANUxaWtprHE6372J7oXMqrjPEsOd4XAwKuy5zlVPe4a7OQ==
   /canvas/2.8.0:
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.5
@@ -1202,6 +1224,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
+  /gifencoder/2.0.1:
+    dependencies:
+      canvas: 2.8.0
+    dev: false
+    resolution:
+      integrity: sha512-x19DcyWY10SkshBpokqFOo/HBht9GB75evRYvaLMbez9p+yB/o+kt0fK9AwW59nFiAMs2UUQsjv1lX/hvu9Ong==
   /github-from-package/0.0.0:
     dev: false
     resolution:
@@ -1754,6 +1782,10 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-2lMlY1Yc1+CUy0gw4H95uNN7vjbpoED7NNRSBHE25nWfLBdmMzFCsPshlzbxHz+gYMcBEUN8V4pU16prcdPSgA==
+  /moment-duration-format/2.3.2:
+    dev: false
+    resolution:
+      integrity: sha512-cBMXjSW+fjOb4tyaVHuaVE/A5TqkukDWiOfxxAjY+PEqmmBQlLwn+8OzwPiG3brouXKY5Un4pBjAeB6UToXHaQ==
   /moment/2.29.1:
     dev: false
     resolution:
@@ -2897,6 +2929,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==
+  /twemoji-parser/13.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-AQOzLJpYlpWMy8n+0ATyKKZzWlZBJN+G0C+5lhX7Ftc2PeEVdUU/7ns2Pn2vVje26AIZ/OHwFoUbdv6YYD/wGg==
   /twostep/0.4.2:
     dev: false
     resolution:
@@ -3057,6 +3093,7 @@ shrinkwrapVersion: 3
 specifiers:
   body-parser: ^1.19.0
   bootstrap-icons: ^1.5.0
+  canvacord: ^5.2.1
   canvas: ^2.8.0
   croxydb: ^0.0.7
   discord-buttons: ^4.0.0

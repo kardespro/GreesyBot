@@ -1314,7 +1314,14 @@ nico.on("guildMemberAdd", async member => {
  });
 /*
 nico.on("guildMemberAdd", async member => {
-let kontrol =
+const canvacord = require("canvacord") 
+//const discord-canvas =require
+let kontrol = db.fetch(`resimli_${member.guild.id}`) 
+if(!kontrol) return;
+if(kontrol){
+
+
+} 
 });
 
 */

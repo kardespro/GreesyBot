@@ -1,0 +1,3 @@
+<% let map = srev.members.cache.filter(mem => !mem.user.bot).array().sort((a, b) => { return ( db.fetch(`lvl_${b.user.id}_${id}`) || 0) - ( db.fetch(`lvl_${a.user.id}_${id}`) || 0) }).slice(0, 5).map(member => { return `\`#${sayi++}\` <@${member.user.id}> | **__Seviye:__** \`${( db.fetch(`lvl_${member.user.id}_${id}`))}\` **__XP:__** \`${( db.fetch(`xp_${member.user.id}_${id}`)) || `0`}\`` }) %>
+
+<%= map %>

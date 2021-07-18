@@ -825,6 +825,39 @@ var rBody = req.body;
 })
 
 
+
+
+//LeaderBoard
+app.get("/leaderboard/:sunucuID", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
+  let guild = nico.guild;
+  if(!id) return res.json({error: "Bulunamadı"});
+  let srev = nico.guilds.cache.get(id);
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  const fetchedLogs = nico.guilds.cache.get(id).fetchAuditLogs({typ: "MESSAGE_DELETE"});
+  var verfyseviye = nico.guilds.cache.get(id).verificationLevel;
+ var mfalev = nico.guilds.cache.get(id).mfaLevel;
+ var afkK = nico.guilds.cache.get(id).afkChannel;
+var region = nico.guilds.cache.get(id).region;
+var roller = nico.guilds.cache.get(id).roles;
+var banner = nico.guilds.cache.get(id).banner;
+var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
+ 
+ 
+ 
+ 
+  render(res, req, "leaderboard.ejs",{id,srev})
+})
+
+
+
+
+
+
+
+
 app.get("/te", (req, res) => {
   render(res, req, "ayarlar_counter.ejs");
  });

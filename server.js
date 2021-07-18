@@ -1312,6 +1312,12 @@ nico.on("guildMemberAdd", async member => {
   `)
   
  });
+/*
+nico.on("guildMemberAdd", async member => {
+let kontrol =
+});
+
+*/
 nico.on('clickButton', async (button) => {
 
   if (button.id === 'B1') {

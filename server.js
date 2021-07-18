@@ -183,8 +183,8 @@ function userFetch(id){
         var geo = geoip.lookup(ip);
         
         if(geo) {
-        let sitedatas = require("./server/mongodb/countrydb.js")
-        await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+       //let sitedatas = require("./server/mongodb/countrydb.js")
+        //await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
       /*    var sDt = {
            country : `country.${geo.country}`
           }

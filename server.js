@@ -1420,6 +1420,89 @@ nico.on('guildMemberRemove', async member => {
   })
 
 })
+
+  nico.on('roleDelete', async function(role) {
+let kontroll = db.fetch(`modlogrolk_${role.guild.id}`)
+if(!kontroll) return;
+    if(kontroll){
+      
+const fetch = await role.guild.fetchAuditLogs({type: "ROLE_DELETE"}).then(log => log.entries.first())
+  
+  let yapanad = fetch.executor;
+
+  let isim = role.name;
+
+  let renk = role.color;
+
+  let ayrı = role.hoist;
+
+  let sıra = role.position;
+
+  let yetkiler = role.permissions;
+
+  let etiketlenebilir = role.mentionable;
+if(yapanad == message.guild.ownerID) return;
+  role.guild.roles.create({
+
+    name:isim,
+
+    color:renk,
+
+    hoist:ayrı,
+
+    position:sıra,
+
+    permissions:yetkiler,
+
+    mentionable:etiketlenebilir
+
+  })
+
+  let teqnoembed = new Discord.MessageEmbed()
+
+    .setTitle("Warning! ")
+
+    .setColor("RED")
+
+    .setFooter("Greesy - Guard System")
+
+    //.setDescription(`\`${role.guild.name}\` adlı sunucunuzda ${isim} adına sahip rol, ${yapanad} adlı kişi tarafından silindi. Ben tekrardan onardım!`)
+//.setDescription(` @Bok Role Deleted on Your Nicat Server! By: @Nicat, @Bok Role Deleted on Your Nicat Server! And I'm Back on! By: @Nicat, `) 
+ .setDescription(`> **${isim}** Role Deleted on Your **${role.guild.name}** Server! And I'm Back on! By: \`${yapanad}#${yapanad.discriminator}\` `) 
+  role.guild.owner.send(teqnoembed)
+} 
+});
+
+nico.on("channelDelete", async function(channel) {
+
+    let rol = await db.fetch(`modlogkanalk_${channel.guild.id}`);
+
+  
+
+  if (rol) {
+
+const guild = channel.guild.cache;
+
+let channelp = channel.parentID;
+
+  channel.clone().then(z => {
+
+    let kanal = z.guild.channels.find(c => c.name === z.name);
+
+    kanal.setParent(
+
+      kanal.guild.channels.find(channel => channel.id === channelp)
+
+      
+
+    );
+ 
+  });
+
+  }
+
+})
+
  // });
 
 //});

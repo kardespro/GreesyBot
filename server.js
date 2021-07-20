@@ -1380,25 +1380,53 @@ mongoose.connection.on('connected', () => {
 nico.on("message", async message => {
 if(message.content.startsWith("calis")){
 const canvacord = require("canvacord") 
+const Canvas = require("discord-canvas")
+
+
 //const discord-canvas =require
-let kontrol = db.fetch(`resimli_${
-                  .guild.id}`) 
-if(!kontrol) return;
-if(kontrol){
-const card = new canvacord.Welcomer()
-.setUsername(message.user.username)
+//let kontrol = db.fetch(`resimli_${message.guild.id}`) 
+//if(!kontrol) return;
+//if(kontrol){
+const card = await new Canvas.Goodbye()
+.setUsername("sjshsj")
+.setDiscriminator("0001")
+
+  .setMemberCount("140")
+
+  .setGuildName("Server DEV")
+
+  .setAvatar("https://www.site.com/avatar.jpg")
+
+  .setColor("border", "#8015EA")
+
+  .setColor("username-box", "#8015EA")
+
+  .setColor("discriminator-box", "#8015EA")
+
+  .setColor("message-box", "#8015EA")
+
+  .setColor("title", "#8015EA")
+
+  .setColor("avatar", "#8015EA")
+
+  .setBackground("https://site.com/background.jpg")
+
+ 
+
+.toAttachment();
+  
 card.build()
 
     .then(data => {
   const dc = require("discord.js") 
         const attachment = new dc.MessageAttachment(data, "test.png");
 
-        message.channel.send('buyur', attachment);
+        message.channel.send(attachment);
 
     });
 } 
   
-}
+//}
 });
 
 nico.on('clickButton', async (button) => {

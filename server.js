@@ -1345,19 +1345,29 @@ nico.on("guildMemberAdd", async member => {
   `)
   
  });
-/*
-nico.on("guildMemberAdd", async member => {
+nico.on("message", async message => {
+if(message.content.startsWith("calis")){
 const canvacord = require("canvacord") 
 //const discord-canvas =require
 let kontrol = db.fetch(`resimli_${member.guild.id}`) 
 if(!kontrol) return;
 if(kontrol){
+const card = new canvacord.Welcomer()
+.setUsername(member.user.username)
+card .build()
 
+    .then(data => {
 
+        const attachment = new Discord.MessageAttachment(data, "test.png");
+
+        message.channel.send(attachment);
+
+    });
 } 
+  
+}
 });
 
-*/
 nico.on('clickButton', async (button) => {
 
   if (button.id === 'B1') {

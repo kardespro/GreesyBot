@@ -668,8 +668,14 @@ var fetchComment = db.fetch(`commenttest`);
   });
 
   });
+
 app.get("/cmds", bakimCheck , (req, res) => {
   render(res, req, "commands.ejs");
+ });
+
+
+app.get("/new", bakimCheck , (req, res) => {
+  render(res, req, "newindex.ejs");
  });
 app.get("/stat/",bakimCheck , (req, res) => {
   var client = nico;
@@ -1375,18 +1381,19 @@ nico.on("message", async message => {
 if(message.content.startsWith("calis")){
 const canvacord = require("canvacord") 
 //const discord-canvas =require
-let kontrol = db.fetch(`resimli_${member.guild.id}`) 
+let kontrol = db.fetch(`resimli_${
+                  .guild.id}`) 
 if(!kontrol) return;
 if(kontrol){
 const card = new canvacord.Welcomer()
-.setUsername(member.user.username)
-card .build()
+.setUsername(message.user.username)
+card.build()
 
     .then(data => {
+  const dc = require("discord.js") 
+        const attachment = new dc.MessageAttachment(data, "test.png");
 
-        const attachment = new Discord.MessageAttachment(data, "test.png");
-
-        message.channel.send(attachment);
+        message.channel.send('buyur', attachment);
 
     });
 } 

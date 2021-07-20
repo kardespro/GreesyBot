@@ -866,7 +866,7 @@ app.get("/dash/:sunucuID/yonet/mylevel", async(req, res) => {
  
  
  
-  render(res, req, "mylevel.ejs",{id,srev,db,})
+  render(res, req, "mylevel.ejs",{id,srev,db,lvl,xp,xpToLvl})
 })
 
 
@@ -1363,6 +1363,14 @@ nico.on("guildMemberAdd", async member => {
   `)
   
  });
+/*
+mongoose.connection.on('connected', () => {
+
+  console.log('connected');
+
+  console.log(mongoose.connection.readyState); //logs 1
+
+});*/
 nico.on("message", async message => {
 if(message.content.startsWith("calis")){
 const canvacord = require("canvacord") 

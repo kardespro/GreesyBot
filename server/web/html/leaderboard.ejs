@@ -2,7 +2,7 @@
 <%- include('./static/header') %>
 <%
 let sayi = 1
-let map = srev.members.cache.filter(mem => !mem.user.bot).array().sort((a, b) => { return  ( db.fetch(`lvl_${b.user.id}_${id}`) || 0) - ( db.fetch(`lvl_${a.user.id}_${id}`) || 0) }).slice(0, 5).map(member => { return `\n\n\n\n\n\n\n\n\n #${sayi++} ${member.user.username} \n\n\n\n\n\n Seviye: \n\n\n\n\n\n\n ${( db.fetch(`lvl_${member.user.id}_${id}`))}\n\n\n\n\n` **XP:** \n\n\n\n\n\n ${( db.fetch(`xp_${member.user.id}_${id}`)) || `0`}\n\n` })
+let map = srev.members.cache.filter(mem => !mem.user.bot).array().sort((a, b) => { return  ( db.fetch(`lvl_${b.user.id}_${id}`) || 0) - ( db.fetch(`lvl_${a.user.id}_${id}`) || 0) }).slice(0, 5).map(member => { return `\n\n\n\n\n\n\n\n\n #${sayi++}\n\n\n\n\n\n\n\n\n ${member.user.username} \n\n\n\n\n\n\n\n\n Seviye: \n\n\n\n\n\n\n ${( db.fetch(`lvl_${member.user.id}_${id}`))}\n\n\n\n\n\n\n\n\n XP: \n\n\n\n\n\n\n\n\n ${( db.fetch(`xp_${member.user.id}_${id}`)) || `0`}\n\n` })
 %>
 <div class="jumbotron">
 <%= map %>

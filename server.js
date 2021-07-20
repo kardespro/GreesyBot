@@ -850,6 +850,24 @@ var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
  
   render(res, req, "leaderboard.ejs",{id,srev,db})
 })
+app.get("/dash/:sunucuID/yonet/mylevel", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
+  let guild = nico.guild;
+  if(!id) return res.json({error: "Bulunamadı"});
+  let srev = nico.guilds.cache.get(id);
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
+ var lvl = await db.fetch(`lvl_${req.user.id}_${id}`);
+  var xp = await db.fetch(`xp_${req.user.id}_${id}`);
+  var xpToLvl = await db.fetch(`xpToLvl_${req.user.id}_${id}`);
+
+ 
+ 
+ 
+  render(res, req, "mylevel.ejs",{id,srev,db,})
+})
 
 
 

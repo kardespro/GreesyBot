@@ -848,7 +848,7 @@ var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
  
  
  
-  render(res, req, "leaderboard.ejs",{id,srev})
+  render(res, req, "leaderboard.ejs",{id,srev,db})
 })
 
 

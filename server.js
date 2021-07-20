@@ -675,7 +675,7 @@ app.get("/cmds", bakimCheck , (req, res) => {
 
 
 app.get("/new", bakimCheck , (req, res) => {
-  render(res, req, "newindex.ejs");
+  render(res, req, "newindex.ejs",{});
  });
 app.get("/stat/",bakimCheck , (req, res) => {
   var client = nico;

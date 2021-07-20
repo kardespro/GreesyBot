@@ -1,10 +1,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client() 
+const db = require("mongoose") 
 const ping = require('node-http-ping')
  const os = require("os") 
 const prettyMilliseconds = require("pretty-ms"); //npm i pretty-ms
 const disbut = require('discord-buttons') 
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
+  var ya = await db.ping;
   const Dashping = ping('https://google.com')
   .then(time => console.log(`Response time: ${time}ms`))
   .catch(() => console.log('Failed to ping google.com'))
@@ -21,7 +23,7 @@ exports.run = (client, message, args) => {
         { name: '🔒 Owner(s)', value: '<@852853360612605952> | ɴɪᴄᴀᴛ.ᴅᴄᴡ#6666', inline: true }, // İdnizi girin
         { name: '💻 Uptime', value: prettyMilliseconds(client.uptime), inline: true }, // Uptime Süresi
         { name: "👮 Mod Team", value: "<@682607343707488388> | Nego#0001", inline: true}, 
-        { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms**', inline: true }, // Ping
+        { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + ya + '**ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
         { name: "🖥 Platform", value: os.platform }, 
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
         { name: '🔝 Guilds', value: client.guilds.cache.size, inline: true }, // Olduğu sunucu sayısı

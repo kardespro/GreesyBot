@@ -24,7 +24,7 @@ var prefix = ayarlar.prefix;
 
   message.guild.members.ban(user.id)
   message.channel.send(`
- > Succesfully! 
+ > <:greesy_true:867464502111240242> | Succesfully! 
    👤 User: **<@${user.id}>**
     Reason: **${reason}**
    👨‍⚖️ Moderator: **${message.author.tag}**

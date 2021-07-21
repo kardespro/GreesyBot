@@ -23,7 +23,7 @@ if (user.position > message.member.roles.highest.position) return message.channe
     message.guild.member(user).kick(reason);
 //message.channel.send(`<@${user.id}> **Adlı kullanıcı sunucudan atıldı!** **Sebep: \`${reason}\``)
 message.channel.send(`
-> Succesfully! 
+> <:greesy_true:867464502111240242> | Succesfully! 
  User: **<@${user.id}>
  Reason: **${reason} 
  Moderator: **${message.author.tag}**

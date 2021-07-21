@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
   const embed_ = new Discord.MessageEmbed()
  .setImage("")
   .setDescription(`
-  My Web Dashboard Link
+  <:greesy_true:867464502111240242> | My Web Dashboard Link
   
   `)
   .setColor("YELLOW");
@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
   
  //.setLabel("Click!")
   .setStyle("url")
-  .setURL("https://greesybot.tk") 
+  .setURL("https://greesy..tk") 
  .setLabel("Click!")
   //guild control
   var id = message.guild.id;

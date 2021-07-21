@@ -15,7 +15,7 @@ let rol = message.mentions.roles.first() || args[0];
    message.channel.startTyping(1)
  
   return message.channel.send(`
-  > Succesfully! 
+  > <:greesy_true:867464502111240242> | Succesfully! 
    Role: **${rol}**
    Channel: **${kanal}**
    Moderator: \`${message.author.tag}\`

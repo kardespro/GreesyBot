@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
  // db.set(`counterChannel_${message.guild.id}`, kanal.id) 
   db.set(`counterNumber_${message.guild.id}`, rakam) 
   return message.channel.send(`
-  > Succesfully! 
+  > <:greesy_true:867464502111240242> | Succesfully! 
    Channel: **<#${kanal.id}>**
    Number: **${rakam} **
    

@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
         { name: '🔒 Owner(s)', value: '<@852853360612605952> | ɴɪᴄᴀᴛ.ᴅᴄᴡ#6666', inline: true }, // İdnizi girin
         { name: '💻 Uptime', value: prettyMilliseconds(client.uptime), inline: true }, // Uptime Süresi
         { name: "👮 Mod Team", value: "<@682607343707488388> | Nego#0001", inline: true}, 
-        { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + ya + '**ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
+        { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + ya + ' **ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
         { name: "🖥 Platform", value: os.platform }, 
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
         { name: '🔝 Guilds', value: client.guilds.cache.size, inline: true }, // Olduğu sunucu sayısı

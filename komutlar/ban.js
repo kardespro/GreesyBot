@@ -49,6 +49,11 @@ var prefix = ayarlar.prefix;
  .setID("reset")
   .setLabel("Reset BanLog") 
   if(l) client.channels.cache.get(l).send('', {embed: bu, buttons: sil})
+  client.on("clickButton", async button => {
+   // await button.reply.defer() 
+    await button.reply.send("Successfully Reset! ") 
+    db.delete(`banlog_${message.guild.id}`) 
+   });
  // message.channel.send(`<@${user.id}> **Adlı kullanıcı yasaklandı!** **Sebep: \`${reason}\`**`)
 
 };

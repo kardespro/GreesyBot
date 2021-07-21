@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
   👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-   \`ban, kick, banlog, kicklog, badwordblock, badwordblock-log \`
+   \`ban, kick, banlog, kicklog, , badwordblock-log \`
   🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 

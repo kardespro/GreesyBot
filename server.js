@@ -1644,6 +1644,27 @@ let channelp = channel.parentID;
   }
 
 })
+nico.on("message", async msg => {
+  
+  
+ const i = await db.fetch(`kufur_${msg.guild.id}`)
+    if (i == "acik") {
+        const kufur = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "am", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "amq",];
+        if (kufur.some(word => msg.content.includes(word))) {
+          try {
+            if (!msg.member.hasPermission("BAN_MEMBERS")) {
+                  msg.delete();
+                          
+                      return msg.reply('This Server Owners Actived **BadWord** Blocker. Take Care of Yourself! ')
+            }              
+          } catch(err) {
+            console.log(err);
+          }
+        }
+    }
+    if (!i) return;
+});
+
 
  // });
 

@@ -208,12 +208,15 @@ Offer For You </h2>
 <div class="main_title">
 <p class="top_text">Comments <span></span></p>
 <h2> <br>
-About Me </h2>
+ </h2>
 </div>
 </div>
 </div>
-<div class="owl-carousel owl-theme testimonial-slider ">
-<div class="testimonial-item">
+<!--<div class="owl-carousel owl-theme testimonial-slider ">
+-->
+  <% if(cmm){ %>
+  <%  cmm.forEach(x => { %>
+  <div class="testimonial-item">
 <div class="row">
 <div class="col-lg-6">
 <div class="testi-img mb-4 mb-lg-0">
@@ -222,15 +225,15 @@ About Me </h2>
 </div>
 <div class="col-lg-6">
 <div class="testi-right">
-<h4>ɴɪᴄᴀᴛ.ᴅᴄᴡ#6666</h4>
-<p><small>Owner, Project Manager</small></p>
-<p>We Have Multiple Efforts on Our Bot But We Give Our Systems Superiority! We Thank You For Choosing Us.</p>
+<h4><%= x.user %></h4>
+<p><small>Greesy Bot User</small></p>
+<p><%= x.comment %>.</p>
 <ul class="star_rating mt-4">
 <li><span><i class="fas fa-star"></i></span></li>
 <li><span><i class="fas fa-star"></i></span></li>
 <li><span><i class="fas fa-star"></i></span></li>
 <li><span><i class="fas fa-star"></i></span></li>
-<li class="disable"><span><i class="fas fa-star"></i></span></li>
+<li class="disablee"><span><i class="fas fa-star"></i></span></li>
 </ul>
 </div>
 </div>
@@ -238,31 +241,12 @@ About Me </h2>
 </div>
   </div>
 </div>
-<div class="testimonial-item">
-<div class="row">
-<div class="col-lg-6">
-<div class="testi-img mb-4 mb-lg-0">
-<img src="img/testimonials/xtestimonial1.png.pagespeed.ic.EEPFvr2prU.webp" alt="">
 </div>
-</div>
-<div class="col-lg-6">
-<div class="testi-right">
-<h4>Roser Henrique</h4>
-<p><small>Project Manager, Apple</small></p>
-<p>Waters can not replenish hath fly and be to brought isn't very days behold without land every above lights us fruitful wherein divide it him fowl moving may beginning subdue fly waters can't replenish hath fly and be to brought isn't very days behold </p>
-<ul class="star_rating mt-3">
-<li><span><i class="fas fa-star"></i></span></li>
-<li><span><i class="fas fa-star"></i></span></li>
-<li><span><i class="fas fa-star"></i></span></li>
-<li><span><i class="fas fa-star"></i></span></li>
-<li class="disable"><span><i class="fas fa-star"></i></span></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+  <%})%>
+  <%}else{ %>
+  <div class="alert alert-danger"><center>Comments Not Found</center></div>
+
+  <% } %>
 </section>
 
 

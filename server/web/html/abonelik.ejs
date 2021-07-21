@@ -42,12 +42,12 @@ function aha()
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Aboneliy Başarıyla Silindi! Yönlendiriliyorsun....", {
+    swal("Subscription Successfully Deleted!  You are being redirected....", {
       icon: "success",
     });
     window.location.href = '/user/subscriptions/delete'
   } else {
-    swal("İşlem İptal Edildi");
+    swal("Transaction Canceled");
   }
 });
       };

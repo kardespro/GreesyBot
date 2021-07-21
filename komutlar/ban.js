@@ -10,7 +10,7 @@ var prefix = ayarlar.prefix;
 	let user = message.mentions.users.first() || message.client.users.cache.get(args[0]) || message.client.users.cache.find(m => m.username === args.slice(0).join(" ")) || message.author;
   let reason = args.slice(1).join(' ');
   
-  if (!user) return message.reply("**Please Mention User And Write Reason! ** \n Example: `!ban @Greesy BadWords`")//message.channel.send(`Sunucudan yasaklamak istediğiniz kullanıcıyı etiketlemelisiniz; \`${prefix}ban @Gnarge Reklam\` `);
+  if (!user) return message.reply("<:hayirbei:867465654960128010> | **Please Mention User And Write Reason! ** \n Example: `!ban @Greesy BadWords`")//message.channel.send(`Sunucudan yasaklamak istediğiniz kullanıcıyı etiketlemelisiniz; \`${prefix}ban @Gnarge Reklam\` `);
   if (user.id === message.author.id) return message.channel.send('Kendini yasaklayamazsın.');
   if (user.position > message.member.roles.highest.position) return message.channel.send('ERR! This Member Role Highest Role For You! ') //message.channel.send(`Bu kullanıcının senin rollerinden/rolünden daha yüksek rolleri/rolü var.`);
     if (!reason) reason = 'Belirtilmemiş.'

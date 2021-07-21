@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
   
  //.setLabel("Click!")
   .setStyle("url")
-  .setURL("https://greesy..tk") 
+  .setURL("https://greesy.negodev.tk") 
  .setLabel("Click!")
   //guild control
   var id = message.guild.id;

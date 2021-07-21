@@ -661,6 +661,20 @@ Pages
 
 app.get("/", bakimCheck , (req,res) => {
 var fetchComment = db.fetch(`commenttest`);
+ if(req.isAuthenticated()){
+  var beta = db.fetch(`beta_${req.user.id}`);
+    if(beta == true){
+      render(res, req, "newindex.ejs",{cmm:fetchComment,nego:nico});
+      
+      }
+   }else {
+       render(res,req, "index.ejs",{
+    kardesproclient: nico,
+    fetchComment,
+    config
+  });
+
+  };
   render(res,req, "index.ejs",{
     kardesproclient: nico,
     fetchComment,

@@ -96,14 +96,14 @@ body{
 <div class="row justify-content-lg-start justify-content-center">
 <div class="col-lg-2 col-md-3">
 <div class="statistics_item">
-<h3><span class="counter">15</span>k+</h3>
-<p>Happy Customer</p>
+<h3><span class="counter"><%= nego.guilds.cache.size %></span><% if(!nego.guilds.cache.size > 1000){ %> k+ <%}%></h3>
+<p>Guilds</p>
 </div>
 </div>
 <div class="col-lg-2 col-md-3">
 <div class="statistics_item">
-<h3><span class="counter">12</span>k+</h3>
-<p>Ticket Solved</p>
+<h3><span class="counter"><%= nego.users.cache.size %></span><% if(!nego.users.cache.size > 1000){ %> k+ <%}%></h3>
+<p>Users</p>
 </div>
 </div>
 <div class="col-lg-2 col-md-3">
@@ -154,19 +154,18 @@ Offer For You </h2>
 <div class="row">
 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 <div class="service_item">
-<img src="0img/services/xs1.png.pagespeed.ic.lbt6SEMUs8.webp" alt="">
+<img src="data:image/png;base64,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" alt="">
 <h4>Custom Bot</h4>
-<p>Your Own Bot Connected to Greesyin Infrastructure</p>
+<p>Your Own Bot Connected to Greesy Infrastructure</p>
 <a href="/docs/custom-bot" class="primary_btn2 mt-35">Learn More</a>
 </div>
 </div>
 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
 <div class="service_item">
-<img src="img/services/xs2.png.pagespeed.ic.9QY7x-sNwX.webp" alt="">
-<h4>UX/UI Design</h4>
-<p>Fruit saw for brought fish forth had ave is man a that their Two he is dominion evening their Fruit saw for
-brought fish forth</p>
-<a href="#" class="primary_btn2 mt-35">Learn More</a>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX/AAD/////yMj/7+//1NT/ODj/eHj/paX/a2v/+vr/6Oj/xcX/b2//9vb/tbX/3Nz/4+P/TEz/HR3/c3P/MTH/XFz/m5v/KCj/Pz//v7//f3//qqr/R0f/DAz/j4//19f/ExP/lZX/Zmb/UlL/np7/iYn/urr/Skrc0tINAAAE9ElEQVR4nO2daXeqMBBAy1IFgWCtBYVatXb5///whfa5NizqwDDD3I89p2RuG0gm64PFnQfsAFpHDOkjhvQRQ/qIIX3EkD5iSB8xpI8Y0kcM6SOG9BFD+oghfcSQPmJIHzGkjxjSRwzpI4b0EcO7cfbE7inx4edtB3C7oR85zkTj2oFS+bgg8bzwO03T1cNtrPTvfoeel/w8LVcqsN2iCMeJ/I4Mo8IpUEmWhd7uabF41MxmmxuF6tnMZkURi8XTzguzLFFB4Ru1YRjby3E2en6atSbTnNnT8ygbL+0YxtB3bBXO0w22loFNOg+V7dTV32rDaPu+wBapYfG+ra61VYaBhx1+Q7zgJsM1Fb8Cb321YbTFDvpKSutqieF0hx3x1eym1xi6fWgVrmXmNjfMsYO9kbypYYAd6c2YvqkGQ/fWbiU+K0NF/WvozLHjvIP531Tlr2GGHeVdZPWGCjvGO1F1hk7f+6F1LC7r6aXhGDvCuxnXGGLHB0C14RI7PACWVYY+pXyiDM+vMJxSbgv3zKcVhhwq6WU1PTd8xg4OhOcKw0fs4EB4LDecbrCDA2EzLTUknFWccp5hnBl+YMcGxEep4Sd2aEB8lhn69IafzOz8EsMIOzIwohJDBzswMJwSQxs7MDDsEkOqg4h/yUsM6We/e8YlhrTHoE7JzIb+C3ZgYLz4RsPoFTswMF6jgRqySPB/OU3zTwxtHplFwco2GoIPYSAOLi+Nhl/QxQQBWr3/MhqCz1jYVpQjTSYroyH42oTiZZiOoJ/aiK3RMIQu5vd1j9+hn9uA0GgI3qX5/0Hzg+6H8F6MhuCfvsMnO/ro+nVcGA3B/9InjdJk1K3jY+eGlrX+hn58FUZDH7xLc2ao+0wdOq58gyH8ONSFoRUl3VXVyGA4AS/l0tCynM5GZCdIhroHAN7qmjEZxuClmAx1B7+TzupxEXj3hpaVd+CIa2hN3jbghV1gMlyDl1JqqP+cbc82H1dFIxlaVtDuyJ7JEDwBrjZsOXc8psBHQ/gle9WG7fYAjikwpqF+HVtboWQyTMBLqTfUndWWZmUTg+EbeClNDC1ftdI6vvXHULeObWxe6ZWh7pDDt44mQ/huf2NDy3ehh1COyzGOhvDDfs0NNSoFLXvUP0Pg1rGPhjp3BGwd+2moewBgndW+GurWEWiatreG2hGm7N4asv8fcn8PuX9L2beHHfRpePVLj+u+hpRbSH54PX3L8fmP0/Afa+M/Xsp/zJv/vAX/uSf+84cyB3w9fZvH578Wg/96Gv5roviva+O/NnEA60v5rxHmv86b/1p9/vst+O+Z4b/vif/eNf77D/nvIeW/D5i/If/9+PzPVBjAuRj8zzbhfz4N/zOG+J8Txf+sL/7ntQ3gzD3+5ybyP/uS//mlAziDlv85wizS/MqzoPmf582iml5cVDK4c/UZZMF1dyPwv9+C/x0l1MejGtwzM4C7gihnGM3ue6I8ImVahTXMe9cGcHfeAO4/HMAdlhb/e0gLuN8lW8D9PuAC7nc6H2B8L/c5jO9WN+BHTuE7ce1AqfznRvvE88Jdmqa3dmxX+nd3oeclP0/LlQpstyjCcaK6utiGYUOcPbF7Snz4edsBtG6IjhjSRwzpI4b0EUP6iCF9xJA+YkgfMaSPGNJHDOkjhvQRQ/qIIX3EkD5iSB8xpI8Y0kcM6SOG9PkHjrmQIWlk3f0AAAAASUVORK5CYII=" alt="">
+<h4>Youtube Video Notification</h4>
+<p>Receiving Video Notifications of Phenomenon on Your Server ?  Use  !</p>
+<a href="/docs/yt-notify" class="primary_btn2 mt-35">Learn More</a>
 </div>
 </div>
 <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">

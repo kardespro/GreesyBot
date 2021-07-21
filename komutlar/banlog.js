@@ -14,13 +14,13 @@ exports.run = async (client, message, args) => {
   `) 
   let kontrol = db.fetch(`banlog_${message.guild.id}`) 
   if(!kontrol) return message.channel.send("System Already Set! If You Want to Reset `!banlog reset` Command Use! ") 
-  if(args[0] == "reset"){
+  if(args[1] == "reset"){
     const onaybt = new disbut.MessageButton() 
    .setStyle("green") 
    .setID("banl")
    .setEmoji("867465536736460810")
    .setLabel("Yes")
-    message.channel.send("", {buttons: onaybt}) 
+    message.channel.send("nego", {buttons: onaybt}) 
    } 
  };
 exports.conf = {
@@ -30,5 +30,7 @@ exports.conf = {
   
  } 
 exports.help = {
-  name: "banlog" 
+  name: "banlog", 
+  description: "", 
+  usage: "" 
  } 

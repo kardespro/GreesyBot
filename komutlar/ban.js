@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
-
+const db = require("quick.db") 
+const client = new Discord.Client();
 exports.run = async (client, message, args) => {
 let guild = message.guild.id;   
 var prefix = ayarlar.prefix;
@@ -29,6 +30,25 @@ var prefix = ayarlar.prefix;
     Reason: **${reason}**
    👨‍⚖️ Moderator: **${message.author.tag}**
   `) 
+  let l = db.fetch(`banlog_${message.guild.id}`)
+  if(!l) return;
+  const bu = new Discord.MessageEmbed() 
+ .setColor("#146ca4")
+ .setDescription(`
+ > Greesy | BanLog
+ 
+  User: <@${user.id}>
+  Reason: \`${reason}\`
+  Moderator: ${message.author} 
+  
+ `) 
+ .setFooter(ayarlar.footer) 
+  const disbut = require("discord-buttons") 
+  const sil = new disbut.MessageButton() 
+ .setStyle("red") 
+ .setID("reset")
+  .setLabel("Reset BanLog") 
+  if(l) client.channels.cache.get(l).send('', {embed: bu, buttons: sil})
  // message.channel.send(`<@${user.id}> **Adlı kullanıcı yasaklandı!** **Sebep: \`${reason}\`**`)
 
 };

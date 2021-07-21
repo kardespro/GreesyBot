@@ -674,11 +674,20 @@ app.get("/cmds", bakimCheck , (req, res) => {
  });
 
 
-app.get("/new", bakimCheck , (req, res) => {
+
+//Beta
+
+app.get("/new", bakimCheck , gGiris,  (req, res) => {
   const cmm = db.fetch(`commenttest`);
-  
+  var beta = db.fetch(`beta_${req.user.id}`);
+  if(!beta) return res.redirect("/");
   render(res, req, "newindex.ejs",{cmm,nego:nico});
  });
+
+
+
+//Beta 
+
 app.get("/stat/",bakimCheck , (req, res) => {
   var client = nico;
   render(res, req, "stat.ejs", {nego:client} );

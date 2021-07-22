@@ -693,7 +693,7 @@ app.get("/cmds", bakimCheck , (req, res) => {
 
 app.get("/new", bakimCheck ,(req, res) => {
   const cmm = db.fetch(`commenttest`);
-  var beta = db.fetch(`beta_${req.user.id}`);
+//  var beta = db.fetch(`beta_${req.user.id}`);
 //  if(!beta) return res.redirect("/");
   render(res, req, "newindex.ejs",{cmm,nego:nico});
  });

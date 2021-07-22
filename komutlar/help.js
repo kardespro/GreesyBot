@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 
    \`beaman, meme, akinator,avatar \`
-  📥 ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
+  <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     
       **ANNOUNCUMENTS**

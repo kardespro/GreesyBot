@@ -691,7 +691,7 @@ app.get("/cmds", bakimCheck , (req, res) => {
 
 //Beta
 
-app.get("/new", bakimCheck , gGiris,  (req, res) => {
+app.get("/new", bakimCheck ,(req, res) => {
   const cmm = db.fetch(`commenttest`);
   var beta = db.fetch(`beta_${req.user.id}`);
 //  if(!beta) return res.redirect("/");

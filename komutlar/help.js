@@ -33,7 +33,7 @@ exports.run = async (client, message, args) => {
   <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     
-      **ANNOUNCUMENTS**
+  <:duyuru:867807850448551966> | **ANNOUNCUMENTS**
       \`\`\`
       ${db.fetch(`duyuru`) || ""}
       \`\`\`

@@ -24,10 +24,11 @@ exports.run = async (client, message, args) => {
  
   <:ayarbei:867673709820248074> ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
    \`ban, kick, banlog, kicklog, badwordblock \`
-  🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
+  <a:RainbowSonsuzGif:847108338554765313> ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
-  🤠 ¦ **Fun**; - Here are the commands for fun :) 
+  <:funbei:867801163558551553> ¦ **Fun**; - Here are the commands for fun :) 
    \`beaman, meme, akinator,avatar \`
+  <:kontrol:867672868455055410> | **BackUP**; - If You Want a Copy of the Channels on the Server, This 
   <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     

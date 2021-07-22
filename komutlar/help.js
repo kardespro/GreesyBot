@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
       ${db.fetch(`duyuru`) || ""}
       \`\`\`
  `) 
-  .setColor("WHITE")
+  .setColor("#146ca4")
  .setFooter("Greesy © - All Rights Reserved! ")
   const davet = new disbut.MessageButton() 
  .setStyle('url', 'blurple') 

@@ -23,6 +23,7 @@ dependencies:
   nego.db: 1.1.6
   node-fetch: 2.6.1
   node-http-ping: 0.3.1
+  node-superfetch: 0.2.3
   nuggies: 1.2.51
   os: 0.1.2
   parse-ms: 3.0.0
@@ -1138,6 +1139,16 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
+  /form-data/4.0.0:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.31
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   /fortnite-9812/1.0.4:
     dependencies:
       node-fetch: 2.6.1
@@ -1985,6 +1996,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4q295gTtUXhFYp3CRMsmUWAXwHoB0oKEz3czmO9ZueWDcTcS3sX4I8L5zvdiXRrZpCMhb/TBaY9I27Gi7/Pa1Q==
+  /node-superfetch/0.2.3:
+    dependencies:
+      form-data: 4.0.0
+      node-fetch: 2.6.1
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-xOqifvw/3N+tIeeC80/TNJXkoxDZm8JWc7/0VBkJ86ttQTlJvoicuVaeJlKKHYRlmC2O6ygNIhNPwLYX4bxqdA==
   /nopt/5.0.0:
     dependencies:
       abbrev: 1.1.1
@@ -3141,6 +3161,7 @@ specifiers:
   nego.db: ^1.1.6
   node-fetch: ^2.6.1
   node-http-ping: ^0.3.1
+  node-superfetch: ^0.2.3
   nuggies: ^1.2.51
   os: ^0.1.2
   parse-ms: ^3.0.0

@@ -1665,7 +1665,17 @@ nico.on("message", async msg => {
     if (!i) return;
 });
 
+const akinator = require("discord-tr-akinator")
 
+nico.on("message", async message => {
+
+    if(message.content.startsWith(`!akinator`)) {
+
+        akinator(message, nico);
+
+    }
+
+}); 
  // });
 
 //});

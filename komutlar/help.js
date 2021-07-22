@@ -22,12 +22,12 @@ exports.run = async (client, message, args) => {
  
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
-  👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
+  <:ayarbei:867673709820248074> ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
    \`ban, kick, banlog, kicklog, badwordblock \`
   🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 
-   \`beaman, meme \`
+   \`beaman, meme, akinator,avatar \`
   📥 ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     

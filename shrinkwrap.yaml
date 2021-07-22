@@ -6,6 +6,7 @@ dependencies:
   croxydb: 0.0.7
   discord-buttons: 4.0.0
   discord-canvas: 1.4.1
+  discord-tr-akinator: 1.0.1
   discord.js: 12.5.3
   ejs: 3.1.6
   express: 4.17.1
@@ -271,6 +272,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
+  /aki-api/5.2.1:
+    dependencies:
+      axios: 0.21.1
+    dev: false
+    resolution:
+      integrity: sha512-hKncCXEBsP6JOkaUoXVQtLlIZw8VQsWroZNEjtNWW+CVWt6zmXrKEDJtZ00ycg4TzQemRZPH6PhvJnP9Lq3lIw==
   /ansi-regex/2.1.1:
     dev: false
     engines:
@@ -361,6 +368,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /balanced-match/1.0.2:
     dev: false
     resolution:
@@ -882,6 +895,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-0Ee1mvmalw1Nz60MwU6SxUdFNUDrJwx8II4JxaDFqw/2nEPav7PB8giQxDPaCgcyFOAvReQJFSQ66FCr+m1O8g==
+  /discord-tr-akinator/1.0.1:
+    dependencies:
+      aki-api: 5.2.1
+      discord.js: 12.5.3
+    dev: false
+    resolution:
+      integrity: sha512-mV7jRTYCWuUyWvkNWApR/wsJ/TWW3FfsES2VFCFKUD/l/qkBf2VSNPHVwoEH07B8mejvq2WHGxmJ/HEd2cz+Eg==
   /discord.js/12.5.3:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -1125,6 +1145,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-aAWcW57uxVNrQZqFXjITpW3sIUQmHGG3qSb9mUah9MgMC4NeWhNOlNjXEYq3HjRAvL6arUviZGGJsBg6z0zsWA==
+  /follow-redirects/1.14.1:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
   /forever-agent/0.6.1:
     dev: false
     resolution:
@@ -3144,6 +3170,7 @@ specifiers:
   croxydb: ^0.0.7
   discord-buttons: ^4.0.0
   discord-canvas: ^1.3.2
+  discord-tr-akinator: ^1.0.1
   discord.js: ^12.5.3
   ejs: ^3.1.6
   express: ^4.17.1

@@ -661,7 +661,7 @@ Pages
 
 app.get("/", bakimCheck , (req,res) => {
 var fetchComment = db.fetch(`commenttest`);
- if(req.isAuthenticated()){
+/* if(req.isAuthenticated()){
   var beta = db.fetch(`beta_${req.user.id}`);
     if(beta == true){
       render(res, req, "newindex.ejs",{cmm:fetchComment,nego:nico});
@@ -674,7 +674,7 @@ var fetchComment = db.fetch(`commenttest`);
     config
   });
 
-  };
+  };*/
   render(res,req, "index.ejs",{
     kardesproclient: nico,
     fetchComment,
@@ -694,7 +694,7 @@ app.get("/cmds", bakimCheck , (req, res) => {
 app.get("/new", bakimCheck , gGiris,  (req, res) => {
   const cmm = db.fetch(`commenttest`);
   var beta = db.fetch(`beta_${req.user.id}`);
-  if(!beta) return res.redirect("/");
+//  if(!beta) return res.redirect("/");
   render(res, req, "newindex.ejs",{cmm,nego:nico});
  });
 

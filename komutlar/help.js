@@ -28,8 +28,8 @@ exports.run = async (client, message, args) => {
    \`daily, voteaward, shop, yearlyaward \`
   <:funbei:867801163558551553> ¦ **Fun**; - Here are the commands for fun :) 
    \`beaman, meme, akinator,avatar, snake \`
-  <:kontrol:867805449276358657> | **BackUP**; - If You Want a Copy of the Channels on the Server, This Page Is For You! [Cooming Soon....]
-  \`backup create, backup list, backup delete\`
+  <:kontrol:867805449276358657> | **BackUP**; - If You Want a Copy of the Channels on the Server, This Page Is For You! 
+  \`backup create, backup upload\`
   <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     

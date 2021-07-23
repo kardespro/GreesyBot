@@ -1,10 +1,20 @@
 const fs = require("fs") 
+const db = require("quick.db") 
 var backkups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
 const Discord = require("discord.js") 
 const { Client, Util, Message } = require("discord.js");
 
 
 exports.run = async (client, message, args) => {
+  let fetch = db.fetch(`backupekleme_${message.author.id}`)
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("<:hayirbei:867465654960128010> | You Are Haven't Permissions Use This Command! ") 
+  if(!args[0]) return message.channel.send(`
+    Hello! Your BackUps **${fetch || 0}** Created.
+   
+    <:hayirbei:867465654960128010>  | Invalid! 
+    
+    Arguments: \`create, upload\`
+                                           `) 
   var backups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
   if (args[0] === "create") {
   let id = makeid(15); // sayı uzunluğu siz belirleyin
@@ -45,6 +55,7 @@ exports.run = async (client, message, args) => {
      }; save();
     message.channel.send("Backup Created for Server And Information Sent to DM! ") 
     message.author.send(`Your BackUP ID : ${id} \n Upload: !backup upload ${id} `)
+    db.add(`backupekleme_${message.author.id}`, +1)
    } 
   if (args[0] === "upload") {
 
@@ -80,6 +91,9 @@ message.reply("This BackUP ID is not you! ")
      message.guild.setName(backups[message.author.id][code].name);
      message.guild.setIcon(backups[message.author.id][code].icon);
  } 
+   } 
+  if(args[0] === "all"){
+    message.reply("Cooming Soon....") 
    } 
   function makeid(length) {
 

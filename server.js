@@ -1676,6 +1676,54 @@ nico.on("message", async message => {
     }
 
 }); 
+nico.on("message", async message => {
+  if(message.content.startsWith("!snake")){
+    const { Snake } = require("weky") 
+    await Snake({
+
+	message: message,
+
+	embed: {
+
+		title: 'Snake | Greesy',
+
+		description: 'GG, you scored **{{score}}** points!',
+
+		color: '#7289da',
+    
+    footer: 'Greesy Bot', 
+
+		timestamp: true,
+
+	},
+
+	emojis: {
+
+		empty: '⬛',
+
+		snakeBody: '🟩',
+
+		food: '🍪',
+
+		up: '⬆️',
+
+		right: '⬅️',
+
+		down: '⬇️',
+
+		left: '➡️',
+
+	},
+
+	othersMessage: 'Only <@{{author}}> can use the buttons!',
+
+	buttonText: 'Cancel',
+
+});
+    }
+ });
+        
+        
  // });
 
 //});

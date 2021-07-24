@@ -238,7 +238,7 @@ const authRouter = require("./server/auth.js");
 
 //CONFIG
 const ayar = {
-  "durum": "!help | !stat " 
+  "durum": "🍪 !help | !stat " 
  } 
 const config = {
 
@@ -346,6 +346,7 @@ const log = message => {
 require('events').EventEmitter.prototype._maxListeners = 100;
 nico.komutlar = new discord.Collection();
 nico.aliases = new discord.Collection();
+nico.cooldowns = new discord.Collection();
 fs.readdir("./komutlar/", (err, files) => {
     if (err) console.error(err);
     console.log(`(!) Bota ${files.length} komut başarıyla yüklendi.`);

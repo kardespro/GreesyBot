@@ -343,6 +343,23 @@ fs.readdir("./komutlar/", (err, files) => {
 });
 nico.on('message', async message => {
     let p = config.prefix
+    let prefix;
+
+  
+
+  if (db.has(`prefix_${message.guild.id}`) === true) {
+
+    prefix = db.fetch(`prefix_${message.guild.id}`)
+
+  }
+
+    
+
+  if (db.has(`prefix_${message.guild.id}`) === false) {
+
+    prefix = ayarlar.prefix
+
+  }
     let client = message.client;
     if (message.author.bot) return;
     if (!message.content.startsWith(p)) return;

@@ -25,6 +25,7 @@ exports.run = async (client, message, args) => {
         { name: "👮 Mod Team", value: "<@682607343707488388> | Nego#0001", inline: true}, 
         { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + ya + ' **ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
         { name: "🖥 Platform", value: os.platform }, 
+        { name: "🍪 Versions", value: "@Greesy-Beta > `1`" }, 
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
         { name: '🔝 Guilds', value: client.guilds.cache.size, inline: true }, // Olduğu sunucu sayısı
         { name: '👨 Users', value: client.users.cache.size + ' ', inline: true }, // Kullanıcı sayısı

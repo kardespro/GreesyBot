@@ -19,7 +19,10 @@ credential: admin.credential.cert(servis)
 }) */
 
 const dataa = admin.firestore()
-var backkups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
+//var backkups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
+var backups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
+
+ 
 const Discord = require("discord.js") 
 const { Client, Util, Message } = require("discord.js");
 
@@ -73,12 +76,9 @@ exports.run = async (client, message, args) => {
             channels
      }; save();
     dataa.collection('BackUP').doc(`backup_${message.guild.id}`).set({
-
-      
 mesaj_sahip: message.author.username, 
 icon: message.guild.iconURL(), 
 name: message.guild.name,
-rolesize: message.guild.roles(),      
 owner: message.guild.ownerID, 
 memberCount: message.guild.memberCount,
 created: message.guild.createdAt

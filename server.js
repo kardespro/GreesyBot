@@ -387,7 +387,7 @@ nico.on('message', async message => {
     let params = message.content.split(" ").slice(1);
  // let params = message.content.split(' ').slice(1);
 
- // let perms = nico.elevation(message);
+// let perms = nico.elevation(message);
     let cmd
     if (client.komutlar.has(command)) {
         cmd = client.komutlar.get(command);
@@ -395,7 +395,34 @@ nico.on('message', async message => {
         cmd = client.komutlar.get(client.aliases.get(command));
     }
     if (cmd) {
-     // if (perms < cmd.conf.permLevel) return;
+      const { cooldowns } = client;
+
+if (!cooldowns.has(command.name)) {
+	cooldowns.set(command.name, new discord.Collection());
+}
+
+const now = Date.now();
+const timestamps = cooldowns.get(command.name);
+const cooldownAmount = (command.cooldown || 3) * 10000;
+
+if (timestamps.has(message.author.id)) {
+	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+	if (now < expirationTime) {
+		const timeLeft = (expirationTime - now) / 10000;
+		return message.reply(`<:hayirbei:867465654960128010> | Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${komut.name}\` command.`);
+	}
+}
+
+try {
+	// ...
+} catch (error) {
+	// ...
+}
+timestamps.set(message.author.id, now);
+setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+    /* if (perms < cmd.conf.permLevel) return;
 
     
       if (nico.cooldowns.has(`${command}_${message.author.id}`)) {
@@ -407,13 +434,13 @@ nico.on('message', async message => {
     
     const finish = new Date();
     finish.setSeconds(finish.getSeconds() + cmd.help.cooldown);
-    cmd.run(nico, message, params);
+    cmd.run(nico, message, params, perms);
     if (cmd.help.cooldown > 0) {
         nico.cooldowns.set(`${command}_${message.author.id}`, finish);
         setTimeout(() => {
           nico.cooldowns.delete(`${command}_${message.author.id}`);
         }, cmd.help.cooldown * 1000);
-      }
+      }*/
       const kapalımıkardesbu = await db.fetch(`kapalı.${cmd.help.name}.${message.guild.id}`);
 
   if(kapalımıkardesbu) return;

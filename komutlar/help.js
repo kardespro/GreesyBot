@@ -68,7 +68,8 @@ message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
 exports.conf = {
 	enabled: true,
 	guildOnly: false,
-	aliases: ["help"]
+	aliases: ["help"], 
+  permLevel: 1,
 };
 exports.help = {
 	name: 'yardim',

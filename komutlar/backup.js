@@ -80,6 +80,7 @@ mesaj_sahip: message.author.username,
 icon: message.guild.iconURL(), 
 name: message.guild.name,
 owner: message.guild.ownerID, 
+backupid: id, 
 memberCount: message.guild.memberCount,
 created: message.guild.createdAt
     }) 

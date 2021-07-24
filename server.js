@@ -1829,8 +1829,10 @@ nico.on("message", message => {
 
 mesaj_sahip: message.author.username
 
-}) 
-    message.reply("bak be") 
+})
+    let dur = dataa.collection('Mesajlar').doc(`mesaj_${message.author.id}`).val(`mesaj_sahip`) 
+    message.reply(`bak be ${dur} `) 
+    
    } 
  });
         

@@ -11,10 +11,16 @@ const embed = new Discord.MessageEmbed()
 .setColor("#146ca4") 
 .setTitle("Greesy | Server Settings") 
 .setDescription(`
-\`\`
+\`${message.guild.name}\` Settings! 
+
+> Prefix: \`${prefix || "Not Set!"}\` 
+> Counter Number: \`${sayacsayi || "Not Set!"}\`
+> Counter Channel: \`${sayackanal || "Not Set!"}\`  ¦ <#${sayackanal}>
+> Autorole Channel: \`${otorolkanal || "Not Set!"}\` ¦ <#${otorolkanal || "Not Set!"}>
+> Autorole Role: \`${otorolRol || "Not Set!"}\`
+
 `) 
-
-
+message.channel.send(embed) 
 
 };
 
@@ -24,13 +30,13 @@ enabled: true,
 
 guildOnly: false,
 
-aliases: ["önek"]
+aliases: ["setinfo"]
 
 };
 
 exports.help = {
 
-name: "prefix",
+name: "settings",
 
 description: "Botun prefixini ayarlar",
 

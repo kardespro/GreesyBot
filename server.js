@@ -357,7 +357,7 @@ nico.on('message', async message => {
 
   if (db.has(`prefix_${message.guild.id}`) === false) {
 
-    prefix = ayarlar.prefix
+    prefix = config.prefix
 
   }
     let client = message.client;

@@ -410,7 +410,7 @@ if (timestamps.has(message.author.id)) {
 
 	if (now < expirationTime) {
 		const timeLeft = (expirationTime - now) / 10000;
-		return message.reply(`<:hayirbei:867465654960128010> | Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${komut.name}\` command.`);
+		return message.reply(`<:hayirbei:867465654960128010> | Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${cmd.name}\` command.`);
 	}
 }
 

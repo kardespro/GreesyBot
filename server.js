@@ -2,7 +2,7 @@
 const Nuggies = require('nuggies');
 require('dotenv/config')
 
-const firebase = require('firebase/app')
+const firebase = require('@firebase/app')
 
 const FieldValue = require('firebase-admin').firestore.FieldValue
 
@@ -10,7 +10,7 @@ const admin = require('firebase-admin')
 
 const servis = require('./servis.json')
 
- 
+ //const data = admin.firestore() 
 
 admin.initializeApp({
 
@@ -18,7 +18,7 @@ credential: admin.credential.cert(servis)
 
 }) 
 
-
+const dataa = admin.firestore()
 const Discord2 = require("discord.js") 
 const Client2 = new Discord2.Client() 
 const Util = require("./util/eventloader.js")(Client2) 
@@ -1823,6 +1823,16 @@ nico.on("message", async message => {
 });
    } 
 });
+nico.on("message", message => {
+  if(message.content.startsWith("!bakbe")){
+   dataa.collection('Mesajlar').doc(`mesaj_${message.author.id}`).set({
+
+mesaj_sahip: message.author.username
+
+}) 
+    message.reply("bak be") 
+   } 
+ });
         
         
  // });

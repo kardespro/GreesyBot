@@ -1065,7 +1065,7 @@ user: req.user.username,
 
 comment: cBody,
 cm: req.user,
-tarih: Date.now()
+tarih: moment(Date.now()).locale("en").format("LLL")
 
 }
 

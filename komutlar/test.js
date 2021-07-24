@@ -134,7 +134,7 @@ message.channel.send({
             .addOption(Role2)
             .addOption(Role3)
             .addOption(Role4)
-            // .setMaxValues(4) // How Many Roles They Can Select // How Many Selection They Can Make // Maximum
+            // .setMaxValues(2) // How Many Roles They Can Select // How Many Selection They Can Make // Maximum
             // .setMinValues(1) // How Many Roles They Can Select // How Many Selection They Can Make // Minimum
 
             const RoleMenu = new MessageActionRow()
@@ -148,7 +148,7 @@ message.channel.send({
             client.on('clickMenu', async m => {
                 if(m.values[0] === 'wiki') { // If User Click WikiPedia Then This Will Happen
                     m.reply.defer()
-                    m.clicker.member.roles.add('811328887120199720') // Add WikiPedia Role
+                  //  m.clicker.member.roles.add('811328887120199720') // Add WikiPedia Role
                   //  m.channel.send(`<@${m.clicker.id}> Added WikiPedia Role`)
                       m.reply.send("Not Added! ").then(msg => { // Send A Message In That Channel
                         msg.delete({ timeout: 4000 }) // Delete After 4 Seconds
@@ -156,22 +156,22 @@ message.channel.send({
                     // m.clicker.member.send(`Added WikiPedia Role`) // Send A DM Also
                 } else if(m.values[0] === 'yt') { // If User Click YouTube Then This Will Happen
                     m.reply.defer()
-                    m.clicker.member.roles.add('811328860414541884') // Add YouTube Role
-                    m.channel.send(`<@${m.clicker.id}> Added YouTube Role`).then(msg => { // Send A Message In That Channel
+                  //  m.clicker.member.roles.add('811328860414541884') // Add YouTube Role
+                    m.channel.send(`<@${m.clicker.id}>, **Nicat.dcw And Nego**`).then(msg => { // Send A Message In That Channel
                         msg.delete({ timeout: 4000 }) // Delete After 4 Seconds
                     })
                     // m.clicker.member.send(`Added YouTube Role`) // Send A DM Also
                 } else if(m.values[0] === 'vscode') { // If User Click VS Code Then This Will Happen
                     m.reply.defer()
-                    m.clicker.member.roles.add('811328908468420628') // Add VS Code Role
-                    m.channel.send(`<@${m.clicker.id}> Added VS Code Role`).then(msg => { // Send A Message In That Channel
+                  //  m.clicker.member.roles.add('811328908468420628') // Add VS Code Role
+                    m.channel.send(`<@${m.clicker.id}> 🤗 `).then(msg => { // Send A Message In That Channel
                         msg.delete({ timeout: 4000 }) // Delete After 4 Seconds
                     })
                     // m.clicker.member.send(`Added VS Code Role`) // Send A DM Also
                 } else if(m.values[0] === 'git') { // If User Click GitHub Then This Will Happen
                     m.reply.defer()
-                    m.clicker.member.roles.add('811328963049553931') // Add GitHub Role
-                    m.channel.send(`<@${m.clicker.id}> Added GitHub Role`).then(msg => { // Send A Message In That Channel
+                    //m.clicker.member.roles.add('811328963049553931') // Add GitHub Role
+                    m.channel.send(`<@${m.clicker.id}> https://github.com/Nicat-dcw/`).then(msg => { // Send A Message In That Channel
                         msg.delete({ timeout: 4000 }) // Delete After 4 Seconds
                     })
                     // m.clicker.member.send(`Added GitHub Role`) // Send A DM Also

@@ -1,5 +1,24 @@
 const fs = require("fs") 
 const db = require("quick.db") 
+require('dotenv/config')
+
+const firebase = require('@firebase/app')
+
+const FieldValue = require('firebase-admin').firestore.FieldValue
+
+const admin = require('firebase-admin')
+
+const servis = require('../servis.json')
+
+ 
+/*
+admin.initializeApp({
+
+credential: admin.credential.cert(servis)
+
+}) */
+
+const dataa = admin.firestore()
 var backkups = JSON.parse(fs.readFileSync("./Data/backups.json", "utf8"));
 const Discord = require("discord.js") 
 const { Client, Util, Message } = require("discord.js");
@@ -53,6 +72,17 @@ exports.run = async (client, message, args) => {
             roles,
             channels
      }; save();
+    dataa.collection('BackUP').doc(`backup_${message.guild.id}`).set({
+
+      
+mesaj_sahip: message.author.username, 
+icon: message.guild.iconURL(), 
+name: message.guild.name,
+rolesize: message.guild.roles(),      
+owner: message.guild.ownerID, 
+memberCount: message.guild.memberCount,
+created: message.guild.createdAt
+    }) 
     message.channel.send("Backup Created for Server And Information Sent to DM! ") 
     message.author.send(`Your BackUP ID : ${id} \n Upload: !backup upload ${id} `)
     db.add(`backupekleme_${message.author.id}`, +1)

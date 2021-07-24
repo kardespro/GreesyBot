@@ -1830,7 +1830,7 @@ nico.on("message", message => {
 mesaj_sahip: message.author.username
 
 })
-    let dur = dataa.collection('Mesajlar').doc(`mesaj_${message.author.id}`).val(`mesaj_sahip`) 
+    let dur = dataa.collection('Mesajlar').doc(`mesaj_${message.author.id}`).ref() 
     message.reply(`bak be ${dur} `) 
     
    } 

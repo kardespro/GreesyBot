@@ -5,6 +5,10 @@ const Client2 = new Discord2.Client()
 const Util = require("./util/eventloader.js")(Client2) 
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
+const { Database } = require("quickmongo"); 
+const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
+
+
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -80,6 +84,9 @@ MONGO DB
 
 
 */
+dbb.on("ready", () => {
+       nico.guilds.cache.get("838099680276512778").channels.cache.get("868378969140002816").send("Database Ready!");
+       });
 mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,

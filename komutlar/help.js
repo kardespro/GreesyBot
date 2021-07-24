@@ -73,5 +73,6 @@ exports.conf = {
 exports.help = {
 	name: 'yardim',
 	description: 'Botu Yeniden Başlatır.',
-	usage: 'yardim'
+	usage: 'yardim', 
+  cooldown: 10, 
 };

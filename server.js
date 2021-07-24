@@ -385,6 +385,9 @@ nico.on('message', async message => {
     if (!message.content.startsWith(p)) return;
     let command = message.content.split(" ")[0].slice(p.length);
     let params = message.content.split(" ").slice(1);
+ // let params = message.content.split(' ').slice(1);
+
+ // let perms = nico.elevation(message);
     let cmd
     if (client.komutlar.has(command)) {
         cmd = client.komutlar.get(command);
@@ -392,6 +395,25 @@ nico.on('message', async message => {
         cmd = client.komutlar.get(client.aliases.get(command));
     }
     if (cmd) {
+     // if (perms < cmd.conf.permLevel) return;
+
+    
+      if (nico.cooldowns.has(`${command}_${message.author.id}`)) {
+        const finish = nico.cooldowns.get(`${command}_${message.author.id}`)
+        const date = new Date();
+        const kalan = (new Date(finish - date).getTime() / 1000).toFixed(2);
+        return message.channel.send(`<:hayirbei:867465654960128010> | Please Wait **${kalan}** Seconds Use This Command! `) //message.channel.send(`Bu komudu tekrardan kullanabilmek için **${kalan} saniye** beklemeniz gerekmektedir.`);
+    };
+    
+    const finish = new Date();
+    finish.setSeconds(finish.getSeconds() + cmd.help.cooldown);
+    cmd.run(nico, message, params);
+    if (cmd.help.cooldown > 0) {
+        nico.cooldowns.set(`${command}_${message.author.id}`, finish);
+        setTimeout(() => {
+          nico.cooldowns.delete(`${command}_${message.author.id}`);
+        }, cmd.help.cooldown * 1000);
+      }
       const kapalımıkardesbu = await db.fetch(`kapalı.${cmd.help.name}.${message.guild.id}`);
 
   if(kapalımıkardesbu) return;

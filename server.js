@@ -1821,7 +1821,7 @@ nico.on("message", async message => {
     });
   }
 });
-nico.on("message", message => {
+/*nico.on("message", message => {
   if (message.content.startsWith("!bakbe")) {
     dataa
       .collection("Mesajlar")
@@ -1835,7 +1835,7 @@ nico.on("message", message => {
       .ref();
     message.reply(`bak be ${dur} `);
   }
-});
+});*/
 //Client2.login(process.env.TOKEN) 
 
 // });

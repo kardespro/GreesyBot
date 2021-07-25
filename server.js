@@ -25,7 +25,7 @@ const Util = require("./util/eventloader.js")(Client2)
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
 const { Database } = require("quickmongo"); 
-const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
+//const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
 
 
 
@@ -103,8 +103,10 @@ MONGO DB
 
 
 */
+/*
 dbb.on("ready", () => {
        nico.guilds.cache.get("838099680276512778").channels.cache.get("868378969140002816").send("Database Ready!");
+       
        });
 mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true,
@@ -115,7 +117,7 @@ mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/m
     }).then(() => {
     console.log("[Greesy]: Mongoose successfully connected.");
     }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
-
+*/
 
 
 
@@ -282,7 +284,7 @@ nico.on("ready", () => {
 
   const Discord = require('discord.js') 
   nico.user.setActivity(ayar.durum, { type: 'WATCHING' })
-
+ console.log("Greesy Dcye Bağlandı! ") 
   .then(presence => {
     /*
 var mesajj = mesaj;

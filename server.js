@@ -113,6 +113,7 @@ dbb.on("ready", () => {
     console.log("[Greesy]: An error occurred while connecting mongoose.", err)
   );
 */
+const api = express();
 const app = express();
 const _ = require("lodash");
 

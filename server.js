@@ -1,28 +1,14 @@
-const express = require("express");
-const Nuggies = require("nuggies");
-require("dotenv/config");
+ const express = require("express");
+const Nuggies = require('nuggies');
+const Discord2 = require("discord.js") 
+const Client2 = new Discord2.Client() 
+const Util = require("./util/eventloader.js")(Client2) 
+const tools = require("./greesyapi.js") 
+const mongoose = require("mongoose")
+const { Database } = require("quickmongo"); 
+const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
 
-const firebase = require("@firebase/app");
 
-const FieldValue = require("firebase-admin").firestore.FieldValue;
-
-//const admin = require("firebase-admin");
-
-//const servis = require("./servis.json");
-
-//const data = admin.firestore()
-
-/*admin.initializeApp({
-  credential: admin.credential.cert(servis)
-});
-const dataa = admin.firestore();*/
-const Discord2 = require("discord.js");
-const Client2 = new Discord2.Client();
-const Util = require("./util/eventloader.js")(Client2);
-const tools = require("./greesyapi.js");
-const dbb = require("mongoose");
-//const { Database } = require("quickmongo");
-//const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -82,6 +68,14 @@ console.log("");
 console.log("");
 console.log("");
 
+
+
+
+
+
+
+
+
 /*
 
 
@@ -90,30 +84,25 @@ MONGO DB
 
 
 */
-/*
 dbb.on("ready", () => {
        nico.guilds.cache.get("838099680276512778").channels.cache.get("868378969140002816").send("Database Ready!");
-       
-       });*/
-/*dbb
-  .connect(
-    "mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      autoIndex: false
-    }
-  )
-  .then(() => {
+       });
+mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        autoIndex: false
+    }).then(() => {
     console.log("[Greesy]: Mongoose successfully connected.");
-  })
-  .catch(err =>
-    console.log("[Greesy]: An error occurred while connecting mongoose.", err)
-  );
-*/
-const api = express();
+    }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
+
+
+
+
+
+
+
 const app = express();
 const _ = require("lodash");
 
@@ -129,18 +118,19 @@ const url = require("url");
 const db = require("quick.db");
 const moment = require("moment");
 //db.add("kull",1);
-require("discord-buttons")(nico);
-var bodyParser = require("body-parser");
+require('discord-buttons')(nico);
+var bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
 
-app.use(
-  bodyParser.urlencoded({
-    extended: true
-  })
-);
+app.use(bodyParser.json()); 
 
-app.use("/assets", express.static("server/web/css/"));
+app.use(bodyParser.urlencoded({ 
+
+  extended: true 
+
+})); 
+
+app.use('/assets', express.static('server/web/css/'))
 
 /*
 
@@ -154,12 +144,14 @@ By Kardespro
 
 */
 
+
 /*
- * CUSTOM SETTINGS
- */
+* CUSTOM SETTINGS 
+*/
 //require("./testserver.js")(nico);
 
-require("./custom_discord/inlineReply");
+require("./custom_discord/inlineReply") 
+
 
 /*
 
@@ -168,50 +160,54 @@ require("./custom_discord/inlineReply");
 */
 
 function Random(length) {
-  var result = "";
 
-  var characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+       var result           = '';
 
-  var charactersLength = characters.length;
+       var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
+       var charactersLength = characters.length;
 
-  return result;
-}
-function userFetch(id) {
-  if (!id) return "kullanici id gir";
+       for(var i = 0; i < length; i++) {
+
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+       }
+
+       return result;
+
+    };
+function userFetch(id){
+  if(!id) return "kullanici id gir";
   var res = nico.users.cache.get(id);
   return res;
 }
 
-app.use(async (req, res, next) => {
-  var getIP = require("ipware")().get_ip;
-  var ipInfo = getIP(req);
-  var geoip = require("geoip-lite");
-  var ip = ipInfo.clientIp;
-  var geo = geoip.lookup(ip);
-
-  if (geo) {
-    //let sitedatas = require("./server/mongodb/countrydb.js")
-    //await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
-    /*    var sDt = {
+    app.use(async(req, res, next) => {
+        var getIP = require('ipware')().get_ip;
+        var ipInfo = getIP(req);
+        var geoip = require('geoip-lite');
+        var ip = ipInfo.clientIp;
+        var geo = geoip.lookup(ip);
+        
+        if(geo) {
+       //let sitedatas = require("./server/mongodb/countrydb.js")
+        //await sitedatas.updateOne({ id: config.clientID }, {$inc: {[`country.${geo.country}`]: 1} }, { upsert: true})
+      /*    var sDt = {
            country : `country.${geo.country}`
           }
           await db.push(`country`,{sDt});*/
-  }
-  return next();
-});
-const http = require("http").createServer(app);
-const io = require("socket.io")(http);
-io.on("connection", socket => {
-  io.emit("userCount", io.engine.clientsCount);
-});
-/*http.listen(3000, () => { 
+        }
+        return next();
+    })
+const http = require('http').createServer(app);
+    const io = require('socket.io')(http);
+    io.on('connection', socket => {
+        io.emit("userCount", io.engine.clientsCount);
+    });
+    /*http.listen(3000, () => { 
       console.log("[Greesy]: Website running on 80 port.")
     });*/
+
 
 //Routes
 
@@ -223,9 +219,10 @@ const authRouter = require("./server/auth.js");
 
 //CONFIG
 const ayar = {
-  durum: "🍪 !help | !stat "
-};
+  "durum": "!help | !stat " 
+ } 
 const config = {
+
   siteismi: "Greesy | Best Utility Bot",
 
   sunucuid: "858052041507209266",
@@ -239,7 +236,7 @@ const config = {
 
   kurucurolid: "682607343707488388",
 
-  admins: ["682607343707488388", "682607343707488388", "852830717037510687"],
+  admins:["682607343707488388","682607343707488388","852830717037510687"],
 
   evalyetki: "682607343707488388",
 
@@ -252,47 +249,46 @@ const config = {
 
   prefix: "!",
 
-  embedbanner:
-    "https://i.pinimg.com/originals/30/88/a3/3088a3ebaf713600adacd00397ee410d.png"
-};
+  embedbanner: "https://i.pinimg.com/originals/30/88/a3/3088a3ebaf713600adacd00397ee410d.png"
+
+  };
 
 //Server
 
 //BOT
 
 nico.on("ready", () => {
+
   //require("./testserver.js")(nico)
 
-  const Discord = require("discord.js");
-  nico.user.setActivity(ayar.durum, { type: "WATCHING" });
-  console.log("Greesy Dcye Bağlandı! ").then(presence => {
+  const Discord = require('discord.js') 
+  nico.user.setActivity(ayar.durum, { type: 'WATCHING' })
+
+  .then(presence => {
     /*
 var mesajj = mesaj;
     if(mesajj){
    .replace("")
      } */
-    const embed = new Discord.MessageEmbed()
+const embed = new Discord.MessageEmbed()
 
-      .setColor("#0099ff")
+        .setColor('#0099ff')
 
-      .setTitle("**Durum Bildirgesi**")
+        .setTitle('**Durum Bildirgesi**')
 
-      .setDescription(
-        `Durumum **${nico.user.presence.activities[0].name}** \n Tür **${nico.user.presence.activities[0].type}** olarak belirlendi.`
-      )
+        .setDescription(`Durumum **${nico.user.presence.activities[0].name}** \n Tür **${nico.user.presence.activities[0].type}** olarak belirlendi.`)
 
-      .setTimestamp();
+        .setTimestamp()
+  
+       // .setImage(`${nico.user.avatarURL}`);
 
-    // .setImage(`${nico.user.avatarURL}`);
-
-    // .replace("WATCHING", "izliyor")
+       // .replace("WATCHING", "izliyor")
 
     //  channel.send(embed);
-    nico.channels.cache
-      .get("859899078624149516")
-      .send("Succes!", { embed: embed });
-  }); //burda replace yi nasıl yapmalıyım arkadaşlaar
-  /* console.log(`
+    nico.channels.cache.get("859899078624149516").send("Succes!",{embed: embed}) 
+
+  }) //burda replace yi nasıl yapmalıyım arkadaşlaar
+ /* console.log(`
 
   
 
@@ -310,10 +306,13 @@ var mesajj = mesaj;
 
   `);*/
 
-  // nico.user.setActivity(`🌎 !help | !stat `);
-});
-nico.on("clickbutton", dugme => {
-  Nuggies.giveaways.buttonclick(nico, dugme);
+ // nico.user.setActivity(`🌎 !help | !stat `);
+
+  });
+nico.on('clickbutton', dugme => {
+
+    Nuggies.giveaways.buttonclick(nico, dugme);
+
 });
 
 /*
@@ -325,106 +324,44 @@ const log = message => {
   console.log(`${message}`);
 };
 /*=======================================================================================*/
-require("events").EventEmitter.prototype._maxListeners = 100;
+require('events').EventEmitter.prototype._maxListeners = 100;
 nico.komutlar = new discord.Collection();
 nico.aliases = new discord.Collection();
-nico.cooldowns = new discord.Collection();
 fs.readdir("./komutlar/", (err, files) => {
-  if (err) console.error(err);
-  console.log(`(!) Bota ${files.length} komut başarıyla yüklendi.`);
-  files.forEach(f => {
-    if (!f.endsWith(".js")) return;
-    let props = require(`./komutlar/${f}`);
-    if (!props.help) return;
-    nico.komutlar.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      nico.aliases.set(alias, props.help.name);
-      global.commands = files;
+    if (err) console.error(err);
+    console.log(`(!) Bota ${files.length} komut başarıyla yüklendi.`);
+    files.forEach(f => {
+        if (!f.endsWith('.js')) return
+        let props = require(`./komutlar/${f}`);
+        if (!props.help) return
+        nico.komutlar.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+            nico.aliases.set(alias, props.help.name);
+            global.commands = files;
+        });
     });
-  });
 });
-nico.on("message", async message => {
-  let p = config.prefix;
-  let prefix;
+nico.on('message', async message => {
+    let p = config.prefix
+    let client = message.client;
+    if (message.author.bot) return;
+    if (!message.content.startsWith(p)) return;
+    let command = message.content.split(" ")[0].slice(p.length);
+    let params = message.content.split(" ").slice(1);
+    let cmd
+    if (client.komutlar.has(command)) {
+        cmd = client.komutlar.get(command);
+    } else if (client.aliases.has(command)) {
+        cmd = client.komutlar.get(client.aliases.get(command));
+    }
+    if (cmd) {
+      const kapalımıkardesbu = await db.fetch(`kapalı.${cmd.help.name}.${message.guild.id}`);
 
-  if (db.has(`prefix_${message.guild.id}`) === true) {
-    prefix = db.fetch(`prefix_${message.guild.id}`);
-  }
+  if(kapalımıkardesbu) return;
 
-  if (db.has(`prefix_${message.guild.id}`) === false) {
-    prefix = config.prefix;
-  }
-  let client = message.client;
-  if (message.author.bot) return;
-  if (!message.content.startsWith(p)) return;
-  let command = message.content.split(" ")[0].slice(p.length);
-  let params = message.content.split(" ").slice(1);
-  // let params = message.content.split(' ').slice(1);
-
-  // let perms = nico.elevation(message);
-  let cmd;
-  if (client.komutlar.has(command)) {
-    cmd = client.komutlar.get(command);
-  } else if (client.aliases.has(command)) {
-    cmd = client.komutlar.get(client.aliases.get(command));
-  }
-  if (cmd) {
-    /*
-      const { cooldowns } = client;
-
-if (!cooldowns.has(command.name)) {
-	cooldowns.set(command.name, new discord.Collection());
-}
-
-const now = Date.now();
-const timestamps = cooldowns.get(command.name);
-const cooldownAmount = (command.cooldown || 3) * 10000;
-
-if (timestamps.has(message.author.id)) {
-	const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-
-	if (now < expirationTime) {
-		const timeLeft = (expirationTime - now) / 10000;
-		return message.reply(`<:hayirbei:867465654960128010> | Please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${cmd.name}\` command.`);
-	}
-}
-
-try {
-	// ...
-} catch (error) {
-	// ...
-}
-timestamps.set(message.author.id, now);
-setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-*/
-
-    /* if (perms < cmd.conf.permLevel) return;
-
-    
-      if (nico.cooldowns.has(`${command}_${message.author.id}`)) {
-        const finish = nico.cooldowns.get(`${command}_${message.author.id}`)
-        const date = new Date();
-        const kalan = (new Date(finish - date).getTime() / 1000).toFixed(2);
-        return message.channel.send(`<:hayirbei:867465654960128010> | Please Wait **${kalan}** Seconds Use This Command! `) //message.channel.send(`Bu komudu tekrardan kullanabilmek için **${kalan} saniye** beklemeniz gerekmektedir.`);
-    };
-    
-    const finish = new Date();
-    finish.setSeconds(finish.getSeconds() + cmd.help.cooldown);
-    cmd.run(nico, message, params, perms);
-    if (cmd.help.cooldown > 0) {
-        nico.cooldowns.set(`${command}_${message.author.id}`, finish);
-        setTimeout(() => {
-          nico.cooldowns.delete(`${command}_${message.author.id}`);
-        }, cmd.help.cooldown * 1000);
-      }*/
-    const kapalımıkardesbu = await db.fetch(
-      `kapalı.${cmd.help.name}.${message.guild.id}`
-    );
-
-    if (kapalımıkardesbu) return;
-
-    //  db.fetch(`karaliste_${message.author.id}` === true ) // message.reply("")
-    /*  } else {
+ 
+    //  db.fetch(`karaliste_${message.author.id}` === true ) // message.reply("") 
+  /*  } else {
 
     const laura = [];
 
@@ -439,56 +376,63 @@ setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
     message.channel.send(`That's What You Mean ? ${rifleman.bestMatch.target}`)
   */
-  }
-  cmd.run(client, message, params, p);
-});
+  
+    }
+    cmd.run(client, message, params, p);
+})
 const clean = text => {
-  if (typeof text === "string")
-    return text
-      .replace(/`/g, "`" + String.fromCharCode(8203))
-      .replace(/@/g, "@" + String.fromCharCode(8203));
-  else return text;
-};
+
+    if (typeof(text) === "string")
+
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+
+    else
+
+        return text;
+
+  }
 
 nico.on("message", async message => {
-  const args = message.content.split(" ").slice(1);
 
-  if (message.content.startsWith("!eval")) {
-    if (
-      ![
-        config.evalyetki,
-        config.evalyetki1,
-        config.evalyetki2,
-        config.evalyetki3,
-        "661827402069966869"
-      ].includes(message.author.id)
-    )
-      return;
+    const args = message.content.split(" ").slice(1);
 
-    try {
-      const code = args.join(" ");
+   
 
-      let evaled = eval(code);
+    if (message.content.startsWith("!eval")) {
+      
+      if (![config.evalyetki, config.evalyetki1,config.evalyetki2, config.evalyetki3, "661827402069966869"].includes(message.author.id)) return;
+    
+      try {
 
-      if (message.content.includes("nico.token"))
-        return message.reply("al `31313313131311`");
-      if (typeof evaled !== "string")
-        evaled = await require("util").inspect(evaled);
+        const code = args.join(" ");
 
-      await message.channel.send(clean(evaled), { code: "xl" });
-    } catch (err) {
-      await message.channel.send(
-        `\`Hata Oluştu \n \` \`\`\`xl\n${clean(err)}\n\`\`\``
-      );
+        let evaled = eval(code);
+
+   
+    if(message.content.includes("nico.token")) return message.reply("al `31313313131311`") 
+        if (typeof evaled !== "string")
+
+         evaled = await require("util").inspect(evaled);
+
+   
+
+        await message.channel.send(clean(evaled), {code:"xl"});
+
+      } catch (err) {
+
+       await message.channel.send(`\`Hata Oluştu \n \` \`\`\`xl\n${clean(err)}\n\`\`\``);
+
+      }
+
     }
-  }
-});
+
+  });
 
 const Strategy = require("passport-discord").Strategy;
 
-const session = require("express-session");
+const session = require('express-session');
 
-const passport = require("passport");
+const passport = require('passport');
 
 /*
 
@@ -501,125 +445,131 @@ const passport = require("passport");
 app.set(express.json());
 //Rate Limit
 const rateLimit = require("express-rate-limit");
-var MongoStore = require("rate-limit-mongo");
+var MongoStore = require('rate-limit-mongo');
 const reqLimitter = rateLimit({
-  store: new MongoStore({
-    uri:
-      "mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    collectionName: "rate-limit",
-    expireTimeMs: 60 * 60 * 1000,
-    resetExpireDateOnChange: true
-  }),
-  windowMs: 60 * 60 * 1000,
-  max: 4,
-  message: {
-    error: true,
-    message:
-      "Too many requests, you have been rate limited. Please try again in one hour."
-  }
-});
+      store: new MongoStore({
+         uri: "mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+         collectionName: "rate-limit",
+         expireTimeMs:  60 * 60 * 1000,
+         resetExpireDateOnChange: true
+         }),
+           windowMs: 60 * 60 * 1000,
+           max: 4,
+           message:
+       ({ error: true, message:  "Too many requests, you have been rate limited. Please try again in one hour." })
+    });
 
 function gGiris(req, res, next) {
-  if (req.isAuthenticated()) return next();
 
-  req.session.backURL = req.url;
+    if (req.isAuthenticated()) return next();
 
-  res.redirect("/l/");
-}
-function bakimCheck(req, res, next) {
-  var bakimDB = db.fetch(`bakim`);
+    req.session.backURL = req.url;
 
-  if (bakimDB == false) return next();
-  if (bakimDB == true) {
-    render(res, req, "bakim.ejs");
+    res.redirect("/l/");
+
   }
-}
-function karalisteCheck(req, res, next) {
-  if (req.isAuthenticated()) {
-    var karalisteDB = db.fetch(`karaliste_${req.user.id}`);
-    if (karalisteDB == true) {
-      render(res, req, "karaliste.ejs");
+function bakimCheck(req,res,next){
+  var bakimDB  = db.fetch(`bakim`);
+
+  if(bakimDB == false) return next();
+  if(bakimDB == true){
+    render(res,req, "bakim.ejs");
     }
   }
-  if (karalisteDB == false) {
+function karalisteCheck(req,res,next){
+  if (req.isAuthenticated()) { 
+  var karalisteDB = db.fetch(`karaliste_${req.user.id}`);
+    if(karalisteDB == true){
+      render(res,req, "karaliste.ejs");
+      }
+    }
+  if(karalisteDB == false){
     next();
-  }
+    }
 }
-function adminCheck(req, res, next) {
-  if (req.isAuthenticated()) {
-    var ussr = req.user.id;
-    if (ussr == config.kurucurolid.includes())
-      return (
-        res.redirect("/404") && db.add(`adminpanel_izinsiz_giris_sayi`, +1)
-      );
+function adminCheck(req,res,next){
+  if (req.isAuthenticated()) { 
+  
+  var ussr = req.user.id;
+    if(ussr == config.kurucurolid.includes())return res.redirect("/404")  &&  db.add(`adminpanel_izinsiz_giris_sayi`, +1);
 
     next();
-    db.add(`adminpanel_giris_sayi`, +1);
-  }
+    db.add(`adminpanel_giris_sayi`,+1);
+    }
 }
 
 const dataDir = path.resolve(`${process.cwd()}${path.sep}server`);
 
-const templateDir = path.resolve(
-  `${dataDir}${path.sep}web${path.sep}html${path.sep}`
-);
+  const templateDir = path.resolve(`${dataDir}${path.sep}web${path.sep}html${path.sep}`);
 
 const render = (res, req, template, data = {}) => {
-  const baseData = {
-    bot: nico,
 
-    path: req.path,
+    const baseData = {
 
-    user: req.isAuthenticated() ? req.user : null
+      bot: nico,
+
+      path: req.path,
+
+      user: req.isAuthenticated() ? req.user : null
+
+    };
+    res.render(path.resolve(`${templateDir}${path.sep}${template}`), Object.assign(baseData, data));
+
   };
-  res.render(
-    path.resolve(`${templateDir}${path.sep}${template}`),
-    Object.assign(baseData, data)
-  );
-};
 
-app.set("view engine", "ejs");
+app.set('view engine','ejs');
 
 //AUTH
 
-passport.use(
-  new Strategy(
-    {
-      clientID: "817456729558220812",
+passport.use(new Strategy({
 
-      clientSecret: config.secret,
+    clientID: "817456729558220812",
 
-      callbackURL: config.callback,
+    clientSecret: config.secret,
 
-      scope: ["identify", "guilds", "guilds.join"]
-    },
-    (accessToken, refreshToken, profile, done) => {
-      process.nextTick(() => done(null, profile));
-    }
-  )
-);
+    callbackURL: config.callback,
 
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
+    scope: ["identify", "guilds","guilds.join"]
 
-passport.deserializeUser((obj, done) => {
-  done(null, obj);
-});
+  }, (accessToken, refreshToken, profile, done) => {
 
-app.use(
-  session({
-    secret: "kardespro",
+    process.nextTick(() => done(null, profile));
 
-    resave: false,
+  }));
 
-    saveUninitialized: false
-  })
-);
+  
 
-app.use(passport.initialize());
+  passport.serializeUser((user, done) => {
 
-app.use(passport.session());
+    done(null, user);
+
+  });
+
+  passport.deserializeUser((obj, done) => {
+
+    done(null, obj);
+
+  });
+
+  app.use(
+
+    session({
+
+      secret: "kardespro",
+
+      resave: false,
+
+      saveUninitialized: false
+
+    })
+
+  );
+
+  
+
+  app.use(passport.initialize());
+
+  app.use(passport.session());
 /*
 app.get("/l", passport.authenticate("discord", {
 
@@ -641,96 +591,74 @@ db.set(`abonelik_${req.user.id}`,"free");
 */
 // FAST Login API
 
-app.get(
-  "/l/",
-  (req, res, next) => {
-    if (req.session.backURL) {
-      req.session.backURL = req.session.backURL;
-    } else if (req.headers.referer) {
-      const parsed = url.parse(req.headers.referer);
-      if (parsed.hostname === app.locals.domain) {
-        req.session.backURL = parsed.path;
-      }
-    } else {
-      req.session.backURL = "/";
-    }
-    next();
-  },
-  passport.authenticate("discord", { prompt: "none" })
-);
-app.get(
-  "/l/callback",
-  passport.authenticate("discord", { failureRedirect: "/l/" }),
-  async (req, res) => {
-    let banned = await db.fetch(`banned_${req.user.id}`);
-    if (banned) {
-      nico.users.fetch(req.user.id).then(async a => {
-        nico.channels.cache.get(config.logknalid).send(
-          new discord.MessageEmbed()
-            .setAuthor(a.username, a.avatarURL({ dynamic: true }))
-            .setThumbnail(a.avatarURL({ dynamic: true }))
-            .setColor("RED")
-            .setDescription(
-              `[**${a.username}**#${a.discriminator}]() isimli kullanıcı **siteye** giriş yapmaya çalıştı fakat siteden engellendiği için giriş yapamadı.`
-            )
-            .addField("Username", a.username)
-            .addField("User ID", a.id)
-            .addField("User Discriminator", a.discriminator)
-        );
-      });
-      req.session.destroy(() => {
-        res.json({
-          login: false,
-          message: "You have been blocked from Greesy.",
-          logout: true
-        });
+   app.get("/l/", (req, res, next) => {
+      if (req.session.backURL) {
+        req.session.backURL = req.session.backURL; 
+      } else if (req.headers.referer) {
+        const parsed = url.parse(req.headers.referer);
+        if (parsed.hostname === app.locals.domain) {
+          req.session.backURL = parsed.path;
+        }
+      } else {
+        req.session.backURL = "/";
+       }
+      next();
+    },
+    passport.authenticate("discord", { prompt: 'none' }));
+    app.get("/l/callback", passport.authenticate("discord", { failureRedirect: '/l/' }), async (req, res) => {
+        let banned = await db.fetch(`banned_${req.user.id}`);
+        if(banned) {
+        nico.users.fetch(req.user.id).then(async a => {
+        nico.channels.cache.get(config.logknalid).send(new discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("RED").setDescription(`[**${a.username}**#${a.discriminator}]() isimli kullanıcı **siteye** giriş yapmaya çalıştı fakat siteden engellendiği için giriş yapamadı.`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+        })
+        req.session.destroy(() => {
+        res.json({ login: false, message: "You have been blocked from Greesy.", logout: true })
         req.logout();
-      });
-    } else {
-      try {
-        const request = require("request");
-        request({
-          url: `https://discordapp.com/api/v8/guilds/${config.server.id}/members/${req.user.id}`,
-          method: "PUT",
-          json: { access_token: req.user.accessToken },
-          headers: { Authorization: `Bot ${nico.token}` }
         });
-      } catch {}
-      res.redirect(req.session.backURL || "/");
-      nico.users.fetch(req.user.id).then(async a => {
-        nico.channels.cache.get(config.logkanalid).send(
-          new discord.MessageEmbed()
-            .setAuthor(a.username, a.avatarURL({ dynamic: true }))
-            .setThumbnail(a.avatarURL({ dynamic: true }))
-            .setColor("GREEN")
-            .setDescription(
-              `[**${a.username}**#${a.discriminator}]() Login In Website!`
-            )
-            .addField("Username", a.username)
-            .addField("User ID", a.id)
-            .addField("User Discriminator", a.discriminator)
-        );
-        var ab_free = db.fetch(`abonelik_${req.user.id}`, "free");
-        var ab_var = db.fetch(`abonelik_${req.user.id}`, "premium");
-        if (ab_free) return res.redirect("/");
-        if (ab_var) return res.redirect("/");
-        // res.redirect("/");
-        db.set(`abonelik_${req.user.id}`, "free");
-      });
-    }
-  }
-);
-app.get("/logout", (req, res) => {
-  req.logOut();
+        } else {
+            try {
+              const request = require('request');
+              request({
+                  url: `https://discordapp.com/api/v8/guilds/${config.server.id}/members/${req.user.id}`,
+                  method: "PUT",
+                  json: { access_token: req.user.accessToken },
+                  headers: { "Authorization": `Bot ${nico.token}` }
+              });
+        } catch {};
+        res.redirect(req.session.backURL || '/')
+        nico.users.fetch(req.user.id).then(async a => {
+        nico.channels.cache.get(config.logkanalid).send(new discord.MessageEmbed().setAuthor(a.username, a.avatarURL({dynamic: true})).setThumbnail(a.avatarURL({dynamic: true})).setColor("GREEN").setDescription(`[**${a.username}**#${a.discriminator}]() Login In Website!`).addField("Username", a.username).addField("User ID", a.id).addField("User Discriminator", a.discriminator))
+          var ab_free = db.fetch(`abonelik_${req.user.id}`,"free");
+    var ab_var = db.fetch(`abonelik_${req.user.id}`,"premium");
+    if(ab_free) return res.redirect("/");
+    if(ab_var) return res.redirect("/");
+   // res.redirect("/");
+db.set(`abonelik_${req.user.id}`,"free");
 
-  res.redirect("/");
-});
+        })
+        }
+    });
+app.get("/logout", (req, res) => {
+
+    req.logOut();
+
+    res.redirect("/");
+
+  });
+
+  
 
 // SAYFALAR
-app.use("/t", require("./server/routers/index.js"));
-app.use("/blogt", require("./server/routers/blog.js"));
+app.use("/t",require("./server/routers/index.js"));
+app.use("/blogt",require("./server/routers/blog.js"));
 //app.use("*",require("./server/routers/404.js"));
-app.use("/dashtest", require("./server/routers/dashboard.js"));
+app.use("/dashtest",require("./server/routers/dashboard.js"));
+
+
+
+
+
+
 
 /*
 
@@ -738,9 +666,9 @@ Pages
 
 */
 
-app.get("/", bakimCheck, (req, res) => {
-  var fetchComment = db.fetch(`commenttest`);
-  /* if(req.isAuthenticated()){
+app.get("/", bakimCheck , (req,res) => {
+var fetchComment = db.fetch(`commenttest`);
+/* if(req.isAuthenticated()){
   var beta = db.fetch(`beta_${req.user.id}`);
     if(beta == true){
       render(res, req, "newindex.ejs",{cmm:fetchComment,nego:nico});
@@ -754,174 +682,154 @@ app.get("/", bakimCheck, (req, res) => {
   });
 
   };*/
-  render(res, req, "index.ejs", {
+  render(res,req, "index.ejs",{
     kardesproclient: nico,
     fetchComment,
     config
   });
-});
 
-app.get("/cmds", bakimCheck, (req, res) => {
+  });
+
+app.get("/cmds", bakimCheck , (req, res) => {
   render(res, req, "commands.ejs");
-});
+ });
+
+
 
 //Beta
 
-app.get("/new", bakimCheck, (req, res) => {
+app.get("/new", bakimCheck ,(req, res) => {
   const cmm = db.fetch(`commenttest`);
-  //  var beta = db.fetch(`beta_${req.user.id}`);
-  //  if(!beta) return res.redirect("/");
-  render(res, req, "newindex.ejs", { cmm, nego: nico });
-});
+//  var beta = db.fetch(`beta_${req.user.id}`);
+//  if(!beta) return res.redirect("/");
+  render(res, req, "newindex.ejs",{cmm,nego:nico});
+ });
 
-//Beta
 
-app.get("/stat/", bakimCheck, (req, res) => {
+
+//Beta 
+
+app.get("/stat/",bakimCheck , (req, res) => {
   var client = nico;
-  render(res, req, "stat.ejs", { nego: client });
-});
+  render(res, req, "stat.ejs", {nego:client} );
+ });
 
 app.get("/index.html", (req, res) => {
   var client = nico;
   //render(res, req, "stat.ejs", {nego:client} );
   res.json("Al Sana HTML 🤣");
-});
+ });
 /*
- * Dashboard
- */
+* Dashboard
+*/
 
-app.get("/dash", gGiris, bakimCheck, (req, res) => {
+app.get("/dash", gGiris ,bakimCheck ,(req,res) => {
   const user = nico.users.cache.get(req.user.id);
   const perms = discord.Permissions;
+  
+  render(res, req, "sunucusec.ejs",{perms});
+ });
 
-  render(res, req, "sunucusec.ejs", { perms });
-});
-
-app.get("/dash/:sunucuID/yonet", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+app.get("/dash/:sunucuID/yonet", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
-  if (!id) return res.json({ error: "Bulunamadı" });
+  if(!id) return res.json({error: "Bulunamadı"});
   let srev = nico.guilds.cache.get(id);
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-  const fetchedLogs = nico.guilds.cache
-    .get(id)
-    .fetchAuditLogs({ typ: "MESSAGE_DELETE" });
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  const fetchedLogs = nico.guilds.cache.get(id).fetchAuditLogs({typ: "MESSAGE_DELETE"});
   var verfyseviye = nico.guilds.cache.get(id).verificationLevel;
-  var mfalev = nico.guilds.cache.get(id).mfaLevel;
-  var afkK = nico.guilds.cache.get(id).afkChannel;
-  var region = nico.guilds.cache.get(id).region;
-  var roller = nico.guilds.cache.get(id).roles;
-  var banner = nico.guilds.cache.get(id).banner;
-  var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
+ var mfalev = nico.guilds.cache.get(id).mfaLevel;
+ var afkK = nico.guilds.cache.get(id).afkChannel;
+var region = nico.guilds.cache.get(id).region;
+var roller = nico.guilds.cache.get(id).roles;
+var banner = nico.guilds.cache.get(id).banner;
+var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
+ 
+ 
+ 
+ 
+  render(res, req, "ayarlar.ejs", {id, guild,fetchedLogs,verfyseviye,mfalev,afkK,region,roller,banner,srev,fetchGuildPre})
+})
 
-  render(res, req, "ayarlar.ejs", {
-    id,
-    guild,
-    fetchedLogs,
-    verfyseviye,
-    mfalev,
-    afkK,
-    region,
-    roller,
-    banner,
-    srev,
-    fetchGuildPre
-  });
-});
-
-app.get("/dash/:sunucuID/yonet/embed", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+app.get("/dash/:sunucuID/yonet/embed", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
   var fetchPre = db.fetch(`abonelik_${req.user.id}`);
+  
+  if(!id) return res.json({error: "Bulunamadı"});
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  render(res, req, "ayarlar_embed.ejs", {id,fetchPre,guild})
+})
 
-  if (!id) return res.json({ error: "Bulunamadı" });
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-  render(res, req, "ayarlar_embed.ejs", { id, fetchPre, guild });
-});
-
-app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+app.get("/dash/:sunucuID/yonet/counter", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
   var fetchPre = db.fetch(`abonelik_${req.user.id}`);
   var counterAddingsize = db.fetch(`counterAdd_${id}`);
-  if (!id) return res.json({ error: "Bulunamadı" });
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-  render(res, req, "ayarlar_counter.ejs", {
-    id,
-    fetchPre,
-    guild,
-    counterAddingsize
-  });
-});
+  if(!id) return res.json({error: "Bulunamadı"});
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  render(res, req, "ayarlar_counter.ejs", {id,fetchPre,guild,counterAddingsize})
+})
 
-app.post("/dash/:sunucuID/yonet/counter", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+app.post("/dash/:sunucuID/yonet/counter", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
   var fetchPre = db.fetch(`abonelik_${req.user.id}`);
-
-  if (!id) return res.json({ error: "Bulunamadı" });
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-
-  var rBody = req.body;
-  if (rBody == null) {
+  
+  if(!id) return res.json({error: "Bulunamadı"});
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+ 
+var rBody = req.body;
+  if(rBody == null){
     res.json("Please Write Informations in Inputs!");
   }
-  if (rBody == undefined) {
+  if(rBody == undefined){
     res.json("unexcepted Error");
   }
-  if (rBody == NaN) {
+  if(rBody == NaN){
     res.json("NaN");
   }
   //kufur engel rBody
-  if (rBody == "amk") {
+  if(rBody == "amk"){
     res.json("amk");
   }
-
-  if (rBody == "nah") {
+  
+  if(rBody == "nah"){
     res.json("al sana nah 😋");
   }
   db.set(`counter_${id}`);
   db.set(`counterNumber_${id + rBody.cnumber}`);
-  db.set(`counterChannel_${id + rBody.chid}`);
-  db.add(`counterAdd_${id}`, +1);
-
+  db.set(`counterChannel_${id +rBody.chid}`)
+  db.add(`counterAdd_${id}`,+1);
+  
+  
   res.redirect(`/dash/${id}/yonet/counter`);
-});
 
-app.get("/api/dash/:sunucuID/yonet/counter/save", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+
+
+})
+
+
+
+app.get("/api/dash/:sunucuID/yonet/counter/save", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
   var fetchPre = db.fetch(`abonelik_${req.user.id}`);
-
-  if (!id) return res.json({ error: "Bulunamadı" });
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-
-  var rBody = req.body;
+  
+  if(!id) return res.json({error: "Bulunamadı"});
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+ 
+var rBody = req.body;
   /*
   if(rBody == null){
     res.json("Please Write Informations in Inputs!");
@@ -945,368 +853,418 @@ app.get("/api/dash/:sunucuID/yonet/counter/save", async (req, res) => {
   db.set(`counterRakam_${rBody.cnumber}`);
   db.set(`counterKanal_${rBody.chid}`)
   */
-  db.add(`counterAdd_${id}`, +1);
-
+  db.add(`counterAdd_${id}`,+1);
+  
   console.log(rBody.chid);
   res.redirect(`/dash/${id}/yonet/counter/`);
-});
+
+
+
+})
+
+
+
 
 //LeaderBoard
-app.get("/leaderboard/:sunucuID", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+app.get("/leaderboard/:sunucuID", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
-  if (!id) return res.json({ error: "Bulunamadı" });
+  if(!id) return res.json({error: "Bulunamadı"});
   let srev = nico.guilds.cache.get(id);
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
-  const fetchedLogs = nico.guilds.cache
-    .get(id)
-    .fetchAuditLogs({ typ: "MESSAGE_DELETE" });
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
+  const fetchedLogs = nico.guilds.cache.get(id).fetchAuditLogs({typ: "MESSAGE_DELETE"});
   var verfyseviye = nico.guilds.cache.get(id).verificationLevel;
-  var mfalev = nico.guilds.cache.get(id).mfaLevel;
-  var afkK = nico.guilds.cache.get(id).afkChannel;
-  var region = nico.guilds.cache.get(id).region;
-  var roller = nico.guilds.cache.get(id).roles;
-  var banner = nico.guilds.cache.get(id).banner;
-  var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
-
-  render(res, req, "leaderboard.ejs", { id, srev, db });
-});
-app.get("/dash/:sunucuID/yonet/mylevel", async (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  let id = req.params.sunucuID;
+ var mfalev = nico.guilds.cache.get(id).mfaLevel;
+ var afkK = nico.guilds.cache.get(id).afkChannel;
+var region = nico.guilds.cache.get(id).region;
+var roller = nico.guilds.cache.get(id).roles;
+var banner = nico.guilds.cache.get(id).banner;
+var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
+ 
+ 
+ 
+ 
+  render(res, req, "leaderboard.ejs",{id,srev,db})
+})
+app.get("/dash/:sunucuID/yonet/mylevel", async(req, res) => {
+  if(!req.user) return res.redirect("/l/")
+  let id = req.params.sunucuID
   let guild = nico.guild;
-  if (!id) return res.json({ error: "Bulunamadı" });
+  if(!id) return res.json({error: "Bulunamadı"});
   let srev = nico.guilds.cache.get(id);
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
-  if (!perm) return res.json({ error: "Bulunamadı" });
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD")
+  if(!perm) return res.json({error: "Bulunamadı"});
   var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
-  var lvl = await db.fetch(`lvl_${req.user.id}_${id}`);
+ var lvl = await db.fetch(`lvl_${req.user.id}_${id}`);
   var xp = await db.fetch(`xp_${req.user.id}_${id}`);
   var xpToLvl = await db.fetch(`xpToLvl_${req.user.id}_${id}`);
 
-  render(res, req, "mylevel.ejs", { id, srev, db, lvl, xp, xpToLvl });
-});
+ 
+ 
+ 
+  render(res, req, "mylevel.ejs",{id,srev,db,lvl,xp,xpToLvl})
+})
+
+
+
+
+
+
+
 
 app.get("/te", (req, res) => {
   render(res, req, "ayarlar_counter.ejs");
-});
+ });
 
 app.get("/shard", (req, res) => {
   const shardClient = nico.ws.shards;
-  render(res, req, "shard-analitycs.ejs", { shardClient });
-});
+  render(res, req, "shard-analitycs.ejs",{shardClient});
+ });
+
+
 
 /*
- * ADMIN PANEL
- */
-app.get("/admin", gGiris, adminCheck, (req, res) => {
+* ADMIN PANEL
+*/
+app.get("/admin", gGiris , adminCheck , (req, res) => {
   const panelgsayi = db.fetch(`adminpanel_giris_sayi`);
   const panelizinsizgsayi = db.fetch(`adminpanel_izinsiz_giris_sayi`);
-  const kullsayi = nico.guilds.cache.size;
+ const kullsayi = nico.guilds.cache.size;
   const cacheGuild = nico.guilds;
   let sitedatalari = require("./server/mongodb/countrydb.js");
-
+  
   let siteD = sitedatalari.findOne({ id: config.clientID });
 
   //let siteD =  db.fetch(`country`);
-  const cmdsize = nico.komutlar.size;
-  render(res, req, "admin/index.ejs", {
-    panelgsayi,
-    panelizinsizgsayi,
-    cacheGuild,
-    cmdsize,
-    siteD
+const cmdsize = nico.komutlar.size;
+  render(res, req, "admin/index.ejs",{panelgsayi,panelizinsizgsayi,cacheGuild,cmdsize,siteD});
+ });
+
+app.get("/admin/promocode/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/promo-new.ejs");
   });
-});
 
-app.get("/admin/promocode/", gGiris, adminCheck, (req, res) => {
-  render(res, req, "admin/promo-new.ejs");
-});
-
-app.post("/admin/promocode", (req, res) => {
+app.post("/admin/promocode",  (req, res) => {
   var kod = req.body.kod;
-  if (!kod) return res.json({ error: "write promocode name" });
-  db.set(`promocodes_${kod}`, "premium");
+ if(!kod) return res.json({error: "write promocode name"});
+  db.set(`promocodes_${kod}`,"premium");
   //res.json({success: "Successfull Added Promo Code To System"});
-  res.redirect("/admin/promocode");
+res.redirect("/admin/promocode");
 });
 
-app.get("/admin/maintance/", gGiris, adminCheck, (req, res) => {
-  render(res, req, "admin/maintance.ejs");
-});
+
+app.get("/admin/maintance/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/maintance.ejs");
+  });
+
 
 app.post("/admin/maintance/on", (req, res) => {
-  //render(res, req, "admin/maintance.ejs");
-  db.set(`bakim`, true);
+//render(res, req, "admin/maintance.ejs");
+  db.set(`bakim`,true);
   res.redirect("/admin/maintance/");
-});
+  });
+
+
 
 app.post("/admin/maintance/off", (req, res) => {
-  //render(res, req, "admin/maintance.ejs");
-  db.set(`bakim`, false);
+//render(res, req, "admin/maintance.ejs");
+  db.set(`bakim`,false);
   res.redirect("/admin/maintance/");
-});
+  });
 
-app.get("/admin/annoucument/", gGiris, adminCheck, (req, res) => {
-  render(res, req, "admin/annoucument.ejs");
-});
+app.get("/admin/annoucument/", gGiris , adminCheck , (req, res) => {
+render(res, req, "admin/annoucument.ejs");
+  });
 
 app.post("/admin/annoucument/", (req, res) => {
-  var duyuru = req.body.duyurutext;
-  db.set(`duyuru`, duyuru);
-  res.r;
+
+var duyuru = req.body.duyurutext;
+  db.set(`duyuru`,duyuru);
+  res.r
+
 });
+
+
+
+
 
 /*
- * Subscribe API
- */
+* Subscribe API
+*/
 
-app.get("/user/subscribe", bakimCheck, (req, res) => {
+app.get("/user/subscribe", bakimCheck ,(req,res) => {
   var body = req.body;
-  render(res, req, "aboneol.ejs");
-});
+  render(res,req, "aboneol.ejs");
+  });
 
-app.get("/user/subscribe/on", gGiris, (req, res) => {
-  // var body = req.body;
-  // var fetch = true;
+app.get("/user/subscribe/on", gGiris ,  (req,res) => {
+ // var body = req.body;
+ // var fetch = true;
   var kredisi = db.fetch(`kredi_${req.user.id}`);
-  if (kredisi == 30) {
-    res.json({ success: "The Subscription Was Added" });
+  if(kredisi == 30){
+    res.json({success: "The Subscription Was Added"});
     db.set(`abonelik_${req.user.id}`, "premium");
-    db.delete(`kredi_${req.user.id}`, -30);
-  }
-  if (kredisi < 29) {
-    res.json({ error: "Kredin Yetersiz" });
-  }
+    db.delete(`kredi_${req.user.id}`,-30);
+    };
+  if(kredisi < 29){
+    res.json({error: "Kredin Yetersiz"});
+  };
   res.json("error");
-});
+  });
 
-app.get("/user/subscriptions/", (req, res) => {
-  if (!req.user) return res.redirect("/l");
+app.get("/user/subscriptions/", (req,res) => {
+  if(!req.user) return res.redirect("/l");
   var user = req.user.id;
   var userr = req.user;
   var fetch_abonelik = db.fetch(`abonelik_${user}`);
-  render(res, req, "abonelik.ejs", {
+  render(res,req, "abonelik.ejs",{
     abonelik: fetch_abonelik,
     user,
     userr
   });
-});
+  });
 
-app.get("/user/subscriptions/delete", (req, res) => {
-  if (!req.user) return res.redirect("/l");
+app.get("/user/subscriptions/delete", (req,res) => {
+  if(!req.user) return res.redirect("/l");
   var user = req.user.id;
   var userr = req.user;
 
-  db.delete(`abonelik_${req.user.id}`, "premium");
+   db.delete(`abonelik_${req.user.id}`, "premium");
   res.redirect("/user/subscriptions");
-  db.set(`abonelik_${req.user.id}`, "free");
-});
+  db.set(`abonelik_${req.user.id}`,"free");
+  });
 
 /*
- * COMMENT System And COMMENT API
- */
+* COMMENT System And COMMENT API
+*/
 
-app.get("/user/comment", (req, res) => {
-  if (!req.user) return res.redirect("/l/");
-  var abIzin = db.fetch(`abonelik_${req.user.id}`);
-  render(res, req, "comment.ejs", { abIzin });
-});
+app.get("/user/comment", (req,res) => {
+ if(!req.user) return res.redirect("/l/");
+ var abIzin = db.fetch(`abonelik_${req.user.id}`);
+ render(res,req, "comment.ejs",{abIzin});
+  });
 
-app.post("/user/comment", gGiris, (req, res) => {
-  var cBody = req.body.comment;
+app.post("/user/comment", gGiris ,(req,res) => {
+var cBody = req.body.comment;
   var user = req.user.id;
   moment.locale("tr");
-  /*var commentInfo = {
+/*var commentInfo = {
     commentAuthor: req.user.username,
     comment: cBody,
     cm:req.user
   };*/
-  /*if(cBody == "amk"){
+    /*if(cBody == "amk"){
     res.json("Küfürlü Yorum Kabul Edilemez");
   };*/
   //db.push(`comment`,commentInfo);
   // db.defaults({ posts: []}).write()
-  // db.get('comment').push(commentInfo).write()
+// db.get('comment').push(commentInfo).write()
 
-  // var logtest = db.fetch(`comment`);
-  // console.log(logtest);
+ // var logtest = db.fetch(`comment`);
+ // console.log(logtest);
+  
 
-  var vat = {
-    user: req.user.username,
+var vat = {
 
-    comment: cBody,
-    cm: req.user,
-    tarih: moment(Date.now())
-      .locale("en")
-      .format("LLL")
-  };
+user: req.user.username,
 
-  db.push(`commenttest`, vat);
+comment: cBody,
+cm: req.user,
+tarih: moment(Date.now()).locale("en").format("LLL")
+
+}
+
+db.push(`commenttest`,vat)
   res.redirect("/");
 });
 
 /*
- * Haber Sistemi
- */
-app.get("/blog/", bakimCheck, (req, res) => {
+* Haber Sistemi
+*/
+app.get("/blog/",bakimCheck,(req,res) => {
   var fetchHaber = db.fetch(`habr`);
 
-  render(res, req, "blog.ejs", {
-    blogPost: posts,
-    postsLen: postsL,
-    fetchHaber
-  });
+  render(res,req, 'blog.ejs',{blogPost:posts, postsLen:postsL,fetchHaber});
 });
-let posts = [];
+let posts=[];
 //let posts = db.fetch("post")
-let postsL = posts.length;
-app.get("/admin/blog/new", gGiris, (req, res) => {
-  if (req.user.id != config.kurucurolid) return res.redirect("/");
-
+let postsL=posts.length;
+app.get("/admin/blog/new",gGiris , (req,res) => {
+  if(req.user.id != config.kurucurolid) return res.redirect("/");
+  
   var user = req.user;
-  render(res, req, "blog_new.ejs", { user });
+  render(res,req, 'blog_new.ejs',{user});
 });
-app.get("/blog/:postName", gGiris, bakimCheck, (req, res) => {
-  var a = 0;
-  console.log(req.params.postName);
+app.get('/blog/:postName', gGiris , bakimCheck ,  (req,res) => {
+  var a=0;
+ console.log(req.params.postName)
   var iDb = db.fetch(`haber_${req.params.postName}`);
-  posts.forEach(function(title) {
-    let pName = _.lowerCase(req.params.postName);
-    let pTitle = _.lowerCase(title.pT);
-    // let pAuthor = _.lowercase(title.author);
-    if (pName === pTitle) {
-      a = 1;
-      render(res, req, "blog_view.ejs", {
-        blogPostTitle: title.pT,
-        blogPostBody: title.pB,
-        config
-      });
-    }
-  });
-  if (a == 1) {
-    console.log("Match found!!");
-  } else {
-    console.log("match not found");
-  }
+ posts.forEach(function(title){
+  let pName = _.lowerCase(req.params.postName);
+  let pTitle = _.lowerCase(title.pT)
+ // let pAuthor = _.lowercase(title.author);
+   if(pName===pTitle){
+     a=1;
+     render(res,req, "blog_view.ejs",{blogPostTitle:title.pT,blogPostBody:title.pB,config});
+   }
+ });
+ if(a==1){
+  console.log("Match found!!")
+ }
+ else{
+  console.log("match not found");
+}
 });
-app.post("/admin/blog/new", gGiris, (req, res) => {
-  if (req.user.id != config.kurucurolid) return res.redirect("/");
+app.post("/admin/blog/new", gGiris,(req,res) => {
+  if(req.user.id != config.kurucurolid) return res.redirect("/");
   let post = {
-    pT: req.body.postTitle,
-    pB: req.body.postBody
-  };
-  posts.push(post);
-  db.push(`haber_${post.pT}`, post);
-  db.push(`habr`, post);
+    pT:req.body.postTitle,
+    pB:req.body.postBody
+  }
+ posts.push(post);
+  db.push(`haber_${post.pT}`,post);
+  db.push(`habr`,post);
   var Log = db.fetch(`haber_${post.pT}`);
   console.log(Log);
   res.redirect("/");
 });
-app.get("/testblog", (req, res) => {
-  var fetchHaber = db.fetch(`habr`);
-  render(res, req, "blogtest.ejs", { fetchHaber });
-});
+app.get("/testblog",  (req, res) => {
+var fetchHaber = db.fetch(`habr`);
+render(res, req, "blogtest.ejs",{fetchHaber});
+
+  });
+
+
+
+
+
 
 /*
- * API
- */
+* API 
+*/
 
 //key check
 
 app.get("/api/v1/keycheck/:key", (req, res) => {
   var key = req.params.key;
   var keyUser = db.fetch(`key`);
-  if (key == "nego") {
+  if(key == "nego"){
     res.json("true");
   }
-  //  render(res, req, "ayarlar_counter.ejs");
-});
+//  render(res, req, "ayarlar_counter.ejs");
+ });
+
+
+
+
 
 app.get("/api/v1/promo/generate/:kod", gGiris, (req, res) => {
   var kod = req.params.kod;
-  if (!kod) return res.json({ error: "not found" });
-  db.set(`promocodes_${kod}`, "premium");
-  res.json({ success: "Successfull Added Promo Code To System" });
+ if(!kod) return res.json({error: "not found"});
+  db.set(`promocodes_${kod}`,"premium");
+  res.json({success: "Successfull Added Promo Code To System"});
+
 });
 
-app.get("/api/v1/promocode/:promo", gGiris, (req, res) => {
+app.get("/api/v1/promocode/:promo", gGiris , (req,res) => {
   var params = req.params.promo;
-  var fetchpromos = db.fetch(`promocodes_${params}`, "premium");
-  if (params == "free_premium") {
-    res.json({ success: "The Subscription Was Added" });
-    db.set(`abonelik_${req.user.id}`, "premium");
-  }
-  if (params == "free") {
-    res.json({ success: "The Subscription Was Added" });
+  var fetchpromos = db.fetch(`promocodes_${params}`,"premium");
+  if(params == "free_premium"){
+    res.json({success: "The Subscription Was Added"});
+    db.set(`abonelik_${req.user.id}`,"premium");
+    }
+  if(params == "free"){
+    res.json({success: "The Subscription Was Added"});
+    
+    db.set(`abonelik_${req.user.id}`,"free");
 
-    db.set(`abonelik_${req.user.id}`, "free");
-  }
-  if (fetchpromos) {
-    res.json({ success: "The Subscription Was Added" });
+    
+    };
+  if(fetchpromos){
+    res.json({success: "The Subscription Was Added"});
 
-    db.set(`abonelik_${req.user.id}`, "premium");
-  }
-  res.json({ error: "Permission Denied" });
-});
+    db.set(`abonelik_${req.user.id}`,"premium");
+    };
+  res.json({error: "Permission Denied"});
+  });
 //....
-app.get("/api/v1/promocode/check/:promo", (req, res) => {
+app.get("/api/v1/promocode/check/:promo",  (req,res) => {
+
   var params = req.params.promo;
 
-  var fetchpromos = db.fetch(`promocodes_${params}`, "premium");
+  var fetchpromos = db.fetch(`promocodes_${params}`,"premium");
 
-  if (params == "free_premium") {
-    res.json({ success: "true" });
-  }
+  if(params == "free_premium"){
 
-  if (params == "free") {
-    res.json({ success: "true" });
-  }
+    res.json({success: "true"});
 
-  if (fetchpromos) {
-    res.json({ success: "true" });
-  }
+    }
 
-  res.json({ error: "Permission Denied" });
-});
+  if(params == "free"){
+
+    res.json({success: "true"});
+
+    
+    
+
+    };
+
+  if(fetchpromos){
+
+    res.json({success: "true"});
+
+    
+    };
+
+  res.json({error: "Permission Denied"});
+
+  });
+
 
 /*
- * Gift Api
- */
+* Gift Api
+*/
 
-app.get("/api/v1/gift/:giftKod/", gGiris, (req, res) => {
+app.get("/api/v1/gift/:giftKod/", gGiris , (req,res) => {
   var fetchgift = db.fetch(`gift_${req.params.giftKod}`);
-  if (fetchgift === false) {
-    res.json({ error: "İnvalid Gift Code" });
-  }
+  if(fetchgift === false){  res.json({error: "İnvalid Gift Code"});};
   /*
-   * Fetch Gift Code
-   */
-  if (fetchgift === true) {
-    res.json({ success: "The Gift Claimed" });
-    db.set(`abonelik_${req.user.id}`, "premium");
-    db.set(`giftkullanim_${req.params.giftKod}`, 1);
-  }
+  * Fetch Gift Code
+  */
+   if(fetchgift === true){
+    res.json({success: "The Gift Claimed"});
+     db.set(`abonelik_${req.user.id}`, "premium");
+     db.set(`giftkullanim_${req.params.giftKod}`,1);
+     
+    }
   var kullanimsayi = db.fetch(`giftkullanim_${req.params.giftkod}`);
+ 
+  if(kullanimsayi > 1){
+    res.json({error: "This Gift Is Already Received!"});
+    }
+  
+  
+  
+  
+  });
 
-  if (kullanimsayi > 1) {
-    res.json({ error: "This Gift Is Already Received!" });
-  }
-});
+
+
+
+
+
+
+
+
 
 const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
 
-nico.login(process.env.TOKEN);
+nico.login(process.env.TOKEN)
 const listener = app.listen(process.env.PORT, () => {
+
   /*console.log("Your app is listening on port " + listener.address().port);
 
   console.log(`
@@ -1330,16 +1288,14 @@ const listener = app.listen(process.env.PORT, () => {
   
 
   `);*/
-});
-nico.on("ready", () => {
-  console.log("Greesy Connected Discord");
+
 });
 nico.on("message", async msg => {
-  if (msg.content.startsWith("!test")) {
-    // if(msg.author.id == "852853360612605952"){
-    // msg.reply('test')
-    const disbut = require("discord-buttons");
-    /*let option = new MessageMenuOption()
+  if(msg.content.startsWith("!test")){
+   // if(msg.author.id == "852853360612605952"){
+   // msg.reply('test')
+    const disbut  = require('discord-buttons');
+/*let option = new MessageMenuOption()
 
     .setLabel('Your Label')
 
@@ -1363,21 +1319,21 @@ let select = new MessageMenu()
 
     .addOption(option)
 */
-    let button = new disbut.MessageButton()
+let button = new disbut.MessageButton()
 
-      .setLabel("Restart!")
+  .setLabel('Restart!')
 
-      .setID("myid")
+  .setID('myid')
 
-      .setStyle("blurple");
-    msg.channel.send("test!", { buttons: [button] });
-    // return process.exit();
+  .setStyle('blurple');
+    msg.channel.send('test!', {buttons: [button]})
+   // return process.exit();
     console.log(`
     Bot Has Restarted By ${msg.author} :) 
-    `);
-    // }
-  }
-});
+    `)
+   // } 
+    }
+ });
 /*
 nico.on('clickButton', async (button) => {
 //.checkEnd()
@@ -1420,35 +1376,31 @@ await sunucu.reply.send(`**${nico.guilds.cache.size} ** __Servers! __`, true)
 
 
 });*/
-//Left!
+//Left! 
 nico.on("guildMemberAdd", async member => {
-  let kanal = db.fetch(`counterChannel_${member.guild.id}`);
-  let rakam = db.fetch(`counterNumber_${member.guild.id}`);
+  let kanal = db.fetch(`counterChannel_${member.guild.id}`) 
+  let rakam = db.fetch(`counterNumber_${member.guild.id}`) 
   nico.channels.cache.get(kanal).send(`
-  <a:grs:691620276055703573> **${
-    member.user.tag
-  }** Joined The Server! We're \`${rakam -
-    member.guild.memberCount}\` Away From Being **${rakam}**! 
- `); //Joined! We're 8 Away From Being 5!
-});
+  <a:grs:691620276055703573> **${member.user.tag}** Joined The Server! We're \`${rakam - member.guild.memberCount}\` Away From Being **${rakam}**! 
+ `)//Joined! We're 8 Away From Being 5! 
+ });
+
 
 nico.on("guildMemberRemove", async member => {
-  let kanal = db.fetch(`counterChannel_${member.guild.id}`);
-  let rakam = db.fetch(`counterNumber_${member.guild.id}`);
-  nico.channels.cache.get(kanal).send(`
-  <a:cks:691620378937917451> **${
-    member.user.tag
-  }** Left The Server! We're \`${rakam -
-    member.guild.memberCount}\` Away From Being **${rakam}**! 
- `); //Joined! We're 8 Away From Being 5!
-});
+  let kanal = db.fetch(`counterChannel_${member.guild.id}`) 
+  let rakam = db.fetch(`counterNumber_${member.guild.id}`) 
+ nico.channels.cache.get(kanal).send(`
+  <a:cks:691620378937917451> **${member.user.tag}** Left The Server! We're \`${rakam - member.guild.memberCount}\` Away From Being **${rakam}**! 
+ `)//Joined! We're 8 Away From Being 5! 
+ });
 nico.on("guildMemberAdd", async member => {
-  let role = db.fetch(`autoroleRole_${member.guild.id}`);
-  let ch = db.fetch(`autoroleChannel_${member.guild.id}`);
+  let role = db.fetch(`autoroleRole_${member.guild.id}`) 
+  let ch = db.fetch(`autoroleChannel_${member.guild.id}`) 
   ch.send(`
   **${member.user.tag}** Joined. **${role}** Role Given with Automatic Role System! 
-  `);
-});
+  `)
+  
+ });
 /*
 mongoose.connection.on('connected', () => {
 
@@ -1458,83 +1410,94 @@ mongoose.connection.on('connected', () => {
 
 });*/
 nico.on("message", async message => {
-  if (message.content.startsWith("calis")) {
-    const canvacord = require("canvacord");
-    const Canvas = require("discord-canvas");
+if(message.content.startsWith("calis")){
+const canvacord = require("canvacord") 
+const Canvas = require("discord-canvas")
 
-    //const discord-canvas =require
-    //let kontrol = db.fetch(`resimli_${message.guild.id}`)
-    //if(!kontrol) return;
-    //if(kontrol){
-    const card = await new Canvas.Goodbye()
-      .setUsername("sjshsj")
-      .setDiscriminator("0001")
 
-      .setMemberCount("140")
+//const discord-canvas =require
+//let kontrol = db.fetch(`resimli_${message.guild.id}`) 
+//if(!kontrol) return;
+//if(kontrol){
+const card = await new Canvas.Goodbye()
+.setUsername("sjshsj")
+.setDiscriminator("0001")
 
-      .setGuildName("Server DEV")
+  .setMemberCount("140")
 
-      .setAvatar("https://www.site.com/avatar.jpg")
+  .setGuildName("Server DEV")
 
-      .setColor("border", "#8015EA")
+  .setAvatar("https://www.site.com/avatar.jpg")
 
-      .setColor("username-box", "#8015EA")
+  .setColor("border", "#8015EA")
 
-      .setColor("discriminator-box", "#8015EA")
+  .setColor("username-box", "#8015EA")
 
-      .setColor("message-box", "#8015EA")
+  .setColor("discriminator-box", "#8015EA")
 
-      .setColor("title", "#8015EA")
+  .setColor("message-box", "#8015EA")
 
-      .setColor("avatar", "#8015EA")
+  .setColor("title", "#8015EA")
 
-      .setBackground("https://site.com/background.jpg")
+  .setColor("avatar", "#8015EA")
 
-      .toAttachment();
+  .setBackground("https://site.com/background.jpg")
 
-    card
-      .build()
+ 
 
-      .then(data => {
-        const dc = require("discord.js");
+.toAttachment();
+  
+card.build()
+
+    .then(data => {
+  const dc = require("discord.js") 
         const attachment = new dc.MessageAttachment(data, "test.png");
 
         message.channel.send(attachment);
-      });
-  }
 
-  //}
+    });
+} 
+  
+//}
 });
 
-nico.on("clickButton", async button => {
-  if (button.id === "B1") {
-    button.reply.defer();
+nico.on('clickButton', async (button) => {
+
+  if (button.id === 'B1') {
+   button.reply.defer()
     button.channel.send(`${button.clicker.user.tag} clicked button!`);
+
   }
-  if (button.id === "B2") {
-    button.reply.defer();
-    button.channel.send("ok");
-  }
-  if (button.id === "vv") {
-    button.reply.defer();
-    button.channel.send(`
+  if(button.id === "B2"){
+    button.reply.defer()
+    button.channel.send("ok")
+  
+   } 
+if(button.id === "vv"){
+  button.reply.defer()
+  button.channel.send(`
   **Only You Know This Message! What about this one?  Only You Know This Message! So why Do I See This? I'll tell you about it. My Owners Made Users Who Clicked the Message Button See It So That It Wouldn't Spam or Disturb Users! **
   
   > Links:
     [[Invite]](https://greesy.nicatdcw.com/invite) 
     [[Dashboard]](https://greesy.nicatdcw.com) 
     [[Guild Dashboard]](https://greesy.nicatdcw.com/dash/${message.guild.id}/yonet) 
-  `);
-  }
+  `)
+ } 
 });
 nico.guilds.cache.forEach(g => {
-  g.fetchInvites().then(guildInvites => {
-    invites[g.id] = guildInvites;
-  });
+
+    g.fetchInvites().then(guildInvites => {
+
+      invites[g.id] = guildInvites;
+
+    });
 });
-nico.on("guildMemberAdd", async member => {
+nico.on('guildMemberAdd', async member => {
+
   member.guild.fetchInvites().then(davetler => {
-    const eski = davetler[member.guild.id];
+
+    const eski = davetler[member.guild.id]
 
     //burası karşılaştırma için lazım ^^
 
@@ -1548,35 +1511,39 @@ nico.on("guildMemberAdd", async member => {
 
     const davetci = member.guild.members.cache.get(davet.inviter.id);
 
-    const kanal = member.guild.channels.cache.get(
-      db.get(`davet_kanal.${member.guild.id}`)
-    );
+    const kanal = member.guild.channels.cache.get(db.get(`davet_kanal.${member.guild.id}`))
 
-    if (!kanal) return;
+    if(!kanal) return;
 
-    kanal.send(
-      `${member.user} sunucuya katıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`
-    );
+    kanal.send(`${member.user} sunucuya katıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`);
 
     const roller = db.get(`roller_${member.guild.id}`);
 
-    roller.forEach(role => {
-      if (davet.uses >= role.invite) {
-        const roll = member.guild.roles.cache.get(role.roleId);
+    roller.forEach((role) => {
+
+      if(davet.uses >= role.invite){
+
+        const roll = member.guild.roles.cache.get(role.roleId)
 
         davetci.roles.add(roll);
 
-        davetci.user.send(
-          `Artık ${role.invite} davetin olduğu için sana ${roll} rolünü verdik`
-        );
+        davetci.user.send(`Artık ${role.invite} davetin olduğu için sana ${roll} rolünü verdik`);
+
       }
-    });
-  });
+
+    })
+
+    
+
+  })
+
 });
 
-nico.on("guildMemberRemove", async member => {
+nico.on('guildMemberRemove', async member => {
+
   member.guild.fetchInvites().then(davetler => {
-    const eski = davetler[member.guild.id];
+
+    const eski = davetler[member.guild.id]
 
     //burası karşılaştırma için lazım ^^
 
@@ -1590,254 +1557,238 @@ nico.on("guildMemberRemove", async member => {
 
     const davetci = member.guild.members.cache.get(davet.inviter.id);
 
-    const kanal = member.guild.channels.cache.get(
-      db.get(`davet_kanal.${member.guild.id}`)
-    );
+    const kanal = member.guild.channels.cache.get(db.get(`davet_kanal.${member.guild.id}`))
 
-    if (!kanal) return;
+    if(!kanal) return;
 
-    kanal.send(
-      `${member.user} sunucudan ayrıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`
-    );
-    // Nicat Has Left the Server! Invited Nego Had a Total of 2000 Invitations
-  });
-});
+    kanal.send(`${member.user} sunucudan ayrıldı. Davet eden ${member.user.username}#${member.user.discriminator}. Toplam davet sayısı: ${davet.uses}`);
+    // Nicat Has Left the Server! Invited Nego Had a Total of 2000 Invitations 
 
-nico.on("roleDelete", async function(role) {
-  let kontroll = db.fetch(`modlogrolk_${role.guild.id}`);
-  if (!kontroll) return;
-  if (kontroll) {
-    const fetch = await role.guild
-      .fetchAuditLogs({ type: "ROLE_DELETE" })
-      .then(log => log.entries.first());
+    
 
-    let yapanad = fetch.executor;
+  })
 
-    let isim = role.name;
+})
 
-    let renk = role.color;
+  nico.on('roleDelete', async function(role) {
+let kontroll = db.fetch(`modlogrolk_${role.guild.id}`)
+if(!kontroll) return;
+    if(kontroll){
+      
+const fetch = await role.guild.fetchAuditLogs({type: "ROLE_DELETE"}).then(log => log.entries.first())
+  
+  let yapanad = fetch.executor;
 
-    let ayrı = role.hoist;
+  let isim = role.name;
 
-    let sıra = role.position;
+  let renk = role.color;
 
-    let yetkiler = role.permissions;
+  let ayrı = role.hoist;
 
-    let etiketlenebilir = role.mentionable;
-    if (yapanad == message.guild.ownerID) return;
-    role.guild.roles.create({
-      name: isim,
+  let sıra = role.position;
 
-      color: renk,
+  let yetkiler = role.permissions;
 
-      hoist: ayrı,
+  let etiketlenebilir = role.mentionable;
+if(yapanad == message.guild.ownerID) return;
+  role.guild.roles.create({
 
-      position: sıra,
+    name:isim,
 
-      permissions: yetkiler,
+    color:renk,
 
-      mentionable: etiketlenebilir
-    });
+    hoist:ayrı,
 
-    let teqnoembed = new Discord.MessageEmbed()
+    position:sıra,
 
-      .setTitle("Warning! ")
+    permissions:yetkiler,
 
-      .setColor("RED")
+    mentionable:etiketlenebilir
 
-      .setFooter("Greesy - Guard System")
+  })
 
-      //.setDescription(`\`${role.guild.name}\` adlı sunucunuzda ${isim} adına sahip rol, ${yapanad} adlı kişi tarafından silindi. Ben tekrardan onardım!`)
-      //.setDescription(` @Bok Role Deleted on Your Nicat Server! By: @Nicat, @Bok Role Deleted on Your Nicat Server! And I'm Back on! By: @Nicat, `)
-      .setDescription(
-        `> **${isim}** Role Deleted on Your **${role.guild.name}** Server! And I'm Back on! By: \`${yapanad}#${yapanad.discriminator}\` `
-      );
-    role.guild.owner.send(teqnoembed);
-  }
+  let teqnoembed = new Discord.MessageEmbed()
+
+    .setTitle("Warning! ")
+
+    .setColor("RED")
+
+    .setFooter("Greesy - Guard System")
+
+    //.setDescription(`\`${role.guild.name}\` adlı sunucunuzda ${isim} adına sahip rol, ${yapanad} adlı kişi tarafından silindi. Ben tekrardan onardım!`)
+//.setDescription(` @Bok Role Deleted on Your Nicat Server! By: @Nicat, @Bok Role Deleted on Your Nicat Server! And I'm Back on! By: @Nicat, `) 
+ .setDescription(`> **${isim}** Role Deleted on Your **${role.guild.name}** Server! And I'm Back on! By: \`${yapanad}#${yapanad.discriminator}\` `) 
+  role.guild.owner.send(teqnoembed)
+} 
 });
 
 nico.on("channelDelete", async function(channel) {
-  let rol = await db.fetch(`modlogkanalk_${channel.guild.id}`);
+
+    let rol = await db.fetch(`modlogkanalk_${channel.guild.id}`);
+
+  
 
   if (rol) {
-    const guild = channel.guild.cache;
 
-    let channelp = channel.parentID;
+const guild = channel.guild.cache;
 
-    channel.clone().then(z => {
-      let kanal = z.guild.channels.find(c => c.name === z.name);
+let channelp = channel.parentID;
 
-      kanal.setParent(
-        kanal.guild.channels.find(channel => channel.id === channelp)
-      );
-    });
+  channel.clone().then(z => {
+
+    let kanal = z.guild.channels.find(c => c.name === z.name);
+
+    kanal.setParent(
+
+      kanal.guild.channels.find(channel => channel.id === channelp)
+
+      
+
+    );
+ 
+  });
+
   }
-});
+
+})
 nico.on("message", async msg => {
-  const i = await db.fetch(`kufur_${msg.guild.id}`);
-  if (i == "acik") {
-    const kufur = [
-      "oç",
-      "amk",
-      "ananı sikiyim",
-      "ananıskm",
-      "piç",
-      "amk",
-      "amsk",
-      "sikim",
-      "sikiyim",
-      "orospu çocuğu",
-      "piç kurusu",
-      "kahpe",
-      "orospu",
-      "mal",
-      "sik",
-      "yarrak",
-      "am",
-      "amcık",
-      "amık",
-      "yarram",
-      "sikimi ye",
-      "mk",
-      "mq",
-      "aq",
-      "amq"
-    ];
-    if (kufur.some(word => msg.content.includes(word))) {
-      try {
-        if (!msg.member.hasPermission("BAN_MEMBERS")) {
-          msg.delete();
-
-          return msg.reply(
-            "This Server Owners Actived **BadWord** Blocker. Take Care of Yourself! "
-          );
+  
+  
+ const i = await db.fetch(`kufur_${msg.guild.id}`)
+    if (i == "acik") {
+        const kufur = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "am", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "amq",];
+        if (kufur.some(word => msg.content.includes(word))) {
+          try {
+            if (!msg.member.hasPermission("BAN_MEMBERS")) {
+                  msg.delete();
+                          
+                      return msg.reply('This Server Owners Actived **BadWord** Blocker. Take Care of Yourself! ')
+            }              
+          } catch(err) {
+            console.log(err);
+          }
         }
-      } catch (err) {
-        console.log(err);
-      }
     }
-  }
-  if (!i) return;
+    if (!i) return;
 });
 
-const akinator = require("discord-tr-akinator");
+const akinator = require("discord-tr-akinator")
 
 nico.on("message", async message => {
-  if (message.content.startsWith(`!akinator`)) {
-    akinator(message, nico);
-  }
-});
+
+    if(message.content.startsWith(`!akinator`)) {
+
+        akinator(message, nico);
+
+    }
+
+}); 
 nico.on("message", async message => {
-  if (message.content.startsWith("!snake")) {
-    const { Snake } = require("weky");
+  if(message.content.startsWith("!snake")){
+    const { Snake } = require("weky") 
     await Snake({
-      message: message,
 
-      embed: {
-        title: "Snake | Greesy",
+	message: message,
 
-        description: "GG, you scored **{{score}}** points!",
+	embed: {
 
-        color: "#7289da",
+		title: 'Snake | Greesy',
 
-        footer: "Greesy Bot",
+		description: 'GG, you scored **{{score}}** points!',
 
-        timestamp: true
-      },
+		color: '#7289da',
+    
+    footer: 'Greesy Bot', 
 
-      emojis: {
-        empty: "⬛",
+		timestamp: true,
 
-        snakeBody: "🟩",
+	},
 
-        food: "🍪",
+	emojis: {
 
-        up: "⬆️",
+		empty: '⬛',
 
-        right: "⬅️",
+		snakeBody: '🟩',
 
-        down: "⬇️",
+		food: '🍪',
 
-        left: "➡️"
-      },
+		up: '⬆️',
 
-      othersMessage: "Only <@{{author}}> can use the buttons!",
+		right: '⬅️',
 
-      buttonText: "Cancel"
-    });
-  }
+		down: '⬇️',
+
+		left: '➡️',
+
+	},
+
+	othersMessage: 'Only <@{{author}}> can use the buttons!',
+
+	buttonText: 'Cancel',
+
 });
+    }
+ });
 nico.on("message", async message => {
-  if (message.content.startsWith("!fight")) {
-    const { Fight } = require("weky");
+  if(message.content.startsWith("!fight")){
+    const { Fight } = require("weky") 
     await Fight({
-      message: message,
 
-      opponent: message.mentions.users.first(),
+    message: message,
 
-      embed: {
-        title: "Fight | Greesy",
+    opponent: message.mentions.users.first(),
 
-        footer: "Greesy Bot",
+    embed: {
 
-        color: "#7289da",
+        title: 'Fight | Greesy',
+        
+        footer: 'Greesy Bot', 
+
+        color: '#7289da',
 
         timestamp: true
-      },
 
-      buttons: {
-        hit: "Hit",
+    },
 
-        heal: "Heal",
+    buttons: {
 
-        cancel: "Stop",
+      hit: 'Hit',
 
-        accept: "Accept",
+      heal: 'Heal',
 
-        deny: "Deny"
-      },
+      cancel: 'Stop',
 
-      acceptMessage:
-        "<@{{challenger}}> has challenged <@{{opponent}}> for a fight!",
+      accept: 'Accept',
 
-      winMessage: "GG, <@{{winner}}> won the fight!",
+      deny: 'Deny'
 
-      endMessage:
-        "<@{{opponent}}> didn't answer in time. So, I dropped the game!",
+    },
 
-      cancelMessage: "<@{{opponent}}> refused to have a fight with you!",
+    acceptMessage: '<@{{challenger}}> has challenged <@{{opponent}}> for a fight!',
 
-      fightMessage: "{{player}} you go first!",
+    winMessage: 'GG, <@{{winner}}> won the fight!',
 
-      opponentsTurnMessage: "Please wait for your opponents move!",
+    endMessage: '<@{{opponent}}> didn\'t answer in time. So, I dropped the game!',
 
-      highHealthMessage: "You cannot heal if your HP is above 80!",
+    cancelMessage: '<@{{opponent}}> refused to have a fight with you!',
 
-      lowHealthMessage: "You cannot cancel the fight if your HP is below 50!",
+    fightMessage: '{{player}} you go first!',
 
-      returnWinner: false,
+    opponentsTurnMessage: 'Please wait for your opponents move!',
 
-      othersMessage: "Only {{author}} can use the buttons!"
-    });
-  }
+    highHealthMessage: 'You cannot heal if your HP is above 80!',
+
+    lowHealthMessage: 'You cannot cancel the fight if your HP is below 50!',
+
+    returnWinner: false,
+
+    othersMessage: 'Only {{author}} can use the buttons!'
+
 });
-/*nico.on("message", message => {
-  if (message.content.startsWith("!bakbe")) {
-    dataa
-      .collection("Mesajlar")
-      .doc(`mesaj_${message.author.id}`)
-      .set({
-        mesaj_sahip: message.author.username
-      });
-    let dur = dataa
-      .collection("Mesajlar")
-      .doc(`mesaj_${message.author.id}`)
-      .ref();
-    message.reply(`bak be ${dur} `);
-  }
-});*/
-//Client2.login(process.env.TOKEN) 
-
-// });
+   } 
+});
+        
+        
+ // });
 
 //});

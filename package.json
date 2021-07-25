@@ -53,10 +53,7 @@
     "node-superfetch": "^0.2.3",
     "discord-tr-akinator": "^1.0.1",
     "weky": "^3.1.0",
-    "quickmongo": "^3.0.2",
-    "dotenv-config": "^0.1.1",
-    "@firebase/app": "^0.6.28",
-    "firebase-admin": "^9.11.0"
+    "quickmongo": "^3.0.2"
   },
   "engines": {
     "node": "12.x"

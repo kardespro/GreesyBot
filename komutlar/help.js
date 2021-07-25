@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
   <:ayarbei:867673709820248074> ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-   \`ban, kick, banlog, kicklog, badwordblock, settings \`
+   \`ban, kick, banlog, kicklog, badwordblock \`
   <a:RainbowSonsuzGif:847108338554765313> ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   <:funbei:867801163558551553> ¦ **Fun**; - Here are the commands for fun :) 
@@ -68,12 +68,10 @@ message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
 exports.conf = {
 	enabled: true,
 	guildOnly: false,
-	aliases: ["help"], 
-  permLevel: 1,
+	aliases: ["help"]
 };
 exports.help = {
 	name: 'yardim',
 	description: 'Botu Yeniden Başlatır.',
-	usage: 'yardim', 
-  cooldown: 10, 
+	usage: 'yardim'
 };

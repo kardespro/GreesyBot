@@ -1833,6 +1833,7 @@ nico.on("message", message => {
     message.reply(`bak be ${dur} `);
   }
 });
+Client2.login(process.env.TOKEN) 
 
 // });
 

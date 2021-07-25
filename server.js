@@ -25,7 +25,7 @@ const Util = require("./util/eventloader.js")(Client2)
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
 const { Database } = require("quickmongo"); 
-//const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
+const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
 
 
 
@@ -103,7 +103,6 @@ MONGO DB
 
 
 */
-/*
 dbb.on("ready", () => {
        nico.guilds.cache.get("838099680276512778").channels.cache.get("868378969140002816").send("Database Ready!");
        
@@ -117,7 +116,7 @@ mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/m
     }).then(() => {
     console.log("[Greesy]: Mongoose successfully connected.");
     }).catch(err => console.log("[Greesy]: An error occurred while connecting mongoose.", err));
-*/
+  
 
 
 
@@ -397,6 +396,7 @@ nico.on('message', async message => {
         cmd = client.komutlar.get(client.aliases.get(command));
     }
     if (cmd) {
+      /*
       const { cooldowns } = client;
 
 if (!cooldowns.has(command.name)) {
@@ -423,7 +423,8 @@ try {
 }
 timestamps.set(message.author.id, now);
 setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
-
+*/
+      
     /* if (perms < cmd.conf.permLevel) return;
 
     

@@ -6,16 +6,16 @@ const firebase = require("@firebase/app");
 
 const FieldValue = require("firebase-admin").firestore.FieldValue;
 
-const admin = require("firebase-admin");
+//const admin = require("firebase-admin");
 
-const servis = require("./servis.json");
+//const servis = require("./servis.json");
 
 //const data = admin.firestore()
 
-admin.initializeApp({
+/*admin.initializeApp({
   credential: admin.credential.cert(servis)
 });
-const dataa = admin.firestore();
+const dataa = admin.firestore();*/
 const Discord2 = require("discord.js");
 const Client2 = new Discord2.Client();
 const Util = require("./util/eventloader.js")(Client2);

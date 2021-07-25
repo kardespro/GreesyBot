@@ -1256,6 +1256,9 @@ const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
 
 nico.login(process.env.TOKEN)
+nico.on("ready", () => {
+  console.log(`Greesy Connected Discord`);
+});
 const listener = app.listen(process.env.PORT, () => {
 
   /*console.log("Your app is listening on port " + listener.address().port);

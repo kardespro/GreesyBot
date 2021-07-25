@@ -661,7 +661,7 @@ Pages
 
 app.get("/", bakimCheck , (req,res) => {
 var fetchComment = db.fetch(`commenttest`);
-/* if(req.isAuthenticated()){
+ if(req.isAuthenticated()){
   var beta = db.fetch(`beta_${req.user.id}`);
     if(beta == true){
       render(res, req, "newindex.ejs",{cmm:fetchComment,nego:nico});
@@ -674,7 +674,7 @@ var fetchComment = db.fetch(`commenttest`);
     config
   });
 
-  };*/
+  };
   render(res,req, "index.ejs",{
     kardesproclient: nico,
     fetchComment,
@@ -691,10 +691,10 @@ app.get("/cmds", bakimCheck , (req, res) => {
 
 //Beta
 
-app.get("/new", bakimCheck ,(req, res) => {
+app.get("/new", bakimCheck , gGiris,  (req, res) => {
   const cmm = db.fetch(`commenttest`);
-//  var beta = db.fetch(`beta_${req.user.id}`);
-//  if(!beta) return res.redirect("/");
+  var beta = db.fetch(`beta_${req.user.id}`);
+  if(!beta) return res.redirect("/");
   render(res, req, "newindex.ejs",{cmm,nego:nico});
  });
 
@@ -1256,9 +1256,6 @@ const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
 
 nico.login(process.env.TOKEN)
-nico.on("ready", () => {
-  console.log(`Greesy Connected Discord`);
-});
 const listener = app.listen(process.env.PORT, () => {
 
   /*console.log("Your app is listening on port " + listener.address().port);
@@ -1668,17 +1665,7 @@ nico.on("message", async msg => {
     if (!i) return;
 });
 
-const akinator = require("discord-tr-akinator")
 
-nico.on("message", async message => {
-
-    if(message.content.startsWith(`!akinator`)) {
-
-        akinator(message, nico);
-
-    }
-
-}); 
  // });
 
 //});

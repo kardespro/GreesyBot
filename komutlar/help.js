@@ -22,15 +22,13 @@ exports.run = async (client, message, args) => {
  
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
-  <:ayarbei:867673709820248074> ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-   \`ban, kick, banlog, kicklog, badwordblock \`
-  <a:RainbowSonsuzGif:847108338554765313> ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
+  👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
+   \`ban, kick, banlog, kicklog, , badwordblock-log \`
+  🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
-  <:funbei:867801163558551553> ¦ **Fun**; - Here are the commands for fun :) 
-   \`beaman, meme, akinator,avatar \`
-  <:kontrol:867805449276358657> | **BackUP**; - If You Want a Copy of the Channels on the Server, This Page Is For You! [Cooming Soon....]
-  \`backup create, backup list, backup delete\`
-  <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
+  🤠 ¦ **Fun**; - Here are the commands for fun :) 
+   \`beaman, meme \`
+  📥 ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     
       **ANNOUNCUMENTS**
@@ -38,7 +36,7 @@ exports.run = async (client, message, args) => {
       ${db.fetch(`duyuru`) || ""}
       \`\`\`
  `) 
-  .setColor("#146ca4")
+  .setColor("WHITE")
  .setFooter("Greesy © - All Rights Reserved! ")
   const davet = new disbut.MessageButton() 
  .setStyle('url', 'blurple') 

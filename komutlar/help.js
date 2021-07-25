@@ -27,13 +27,13 @@ exports.run = async (client, message, args) => {
   <a:RainbowSonsuzGif:847108338554765313> ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   <:funbei:867801163558551553> ¦ **Fun**; - Here are the commands for fun :) 
-   \`beaman, meme, akinator,avatar, snake \`
-  <:kontrol:867805449276358657> | **BackUP**; - If You Want a Copy of the Channels on the Server, This Page Is For You! 
-  \`backup create, backup upload\`
+   \`beaman, meme, akinator,avatar \`
+  <:kontrol:867805449276358657> | **BackUP**; - If You Want a Copy of the Channels on the Server, This Page Is For You! [Cooming Soon....]
+  \`backup create, backup list, backup delete\`
   <:sayfabei:867674107428339733> ¦ **Plugins**; - Do You Want to Make the Bot Or Server Even More Useful? Then try it. 
     \`enable-cmd, disable-cmd\`
     
-  <:duyuru:867807850448551966> | **ANNOUNCUMENTS**
+      **ANNOUNCUMENTS**
       \`\`\`
       ${db.fetch(`duyuru`) || ""}
       \`\`\`

@@ -5,10 +5,6 @@ const Client2 = new Discord2.Client()
 const Util = require("./util/eventloader.js")(Client2) 
 const tools = require("./greesyapi.js") 
 const mongoose = require("mongoose")
-const { Database } = require("quickmongo"); 
-const dbb = new Database("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"); 
-
-
 
 //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
@@ -84,9 +80,6 @@ MONGO DB
 
 
 */
-dbb.on("ready", () => {
-       nico.guilds.cache.get("838099680276512778").channels.cache.get("868378969140002816").send("Database Ready!");
-       });
 mongoose.connect("mongodb+srv://greesy:greesydb1@greesymongo.4jmok.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -1072,7 +1065,7 @@ user: req.user.username,
 
 comment: cBody,
 cm: req.user,
-tarih: moment(Date.now()).locale("en").format("LLL")
+tarih: Date.now()
 
 }
 
@@ -1683,112 +1676,6 @@ nico.on("message", async message => {
     }
 
 }); 
-nico.on("message", async message => {
-  if(message.content.startsWith("!snake")){
-    const { Snake } = require("weky") 
-    await Snake({
-
-	message: message,
-
-	embed: {
-
-		title: 'Snake | Greesy',
-
-		description: 'GG, you scored **{{score}}** points!',
-
-		color: '#7289da',
-    
-    footer: 'Greesy Bot', 
-
-		timestamp: true,
-
-	},
-
-	emojis: {
-
-		empty: '⬛',
-
-		snakeBody: '🟩',
-
-		food: '🍪',
-
-		up: '⬆️',
-
-		right: '⬅️',
-
-		down: '⬇️',
-
-		left: '➡️',
-
-	},
-
-	othersMessage: 'Only <@{{author}}> can use the buttons!',
-
-	buttonText: 'Cancel',
-
-});
-    }
- });
-nico.on("message", async message => {
-  if(message.content.startsWith("!fight")){
-    const { Fight } = require("weky") 
-    await Fight({
-
-    message: message,
-
-    opponent: message.mentions.users.first(),
-
-    embed: {
-
-        title: 'Fight | Greesy',
-        
-        footer: 'Greesy Bot', 
-
-        color: '#7289da',
-
-        timestamp: true
-
-    },
-
-    buttons: {
-
-      hit: 'Hit',
-
-      heal: 'Heal',
-
-      cancel: 'Stop',
-
-      accept: 'Accept',
-
-      deny: 'Deny'
-
-    },
-
-    acceptMessage: '<@{{challenger}}> has challenged <@{{opponent}}> for a fight!',
-
-    winMessage: 'GG, <@{{winner}}> won the fight!',
-
-    endMessage: '<@{{opponent}}> didn\'t answer in time. So, I dropped the game!',
-
-    cancelMessage: '<@{{opponent}}> refused to have a fight with you!',
-
-    fightMessage: '{{player}} you go first!',
-
-    opponentsTurnMessage: 'Please wait for your opponents move!',
-
-    highHealthMessage: 'You cannot heal if your HP is above 80!',
-
-    lowHealthMessage: 'You cannot cancel the fight if your HP is below 50!',
-
-    returnWinner: false,
-
-    othersMessage: 'Only {{author}} can use the buttons!'
-
-});
-   } 
-});
-        
-        
  // });
 
 //});

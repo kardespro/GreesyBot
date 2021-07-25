@@ -1331,6 +1331,9 @@ const listener = app.listen(process.env.PORT, () => {
 
   `);*/
 });
+nico.on("ready", () => {
+  console.log("Greesy Connected Discord");
+});
 nico.on("message", async msg => {
   if (msg.content.startsWith("!test")) {
     // if(msg.author.id == "852853360612605952"){

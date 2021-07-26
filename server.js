@@ -1665,8 +1665,13 @@ nico.on("message", async msg => {
     if (!i) return;
 });
 nico.on("message", async message => {
+  if(message.content.startsWith("!random")){
   let ran = message.guild.members.cache.get().random()
+  message.channel.send(`Kazanan: <@${run}>`) 
+    message.react("🍪")
+    
   
+ } 
  });
 
  // });

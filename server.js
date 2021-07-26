@@ -1667,9 +1667,27 @@ nico.on("message", async msg => {
 nico.on("message", async message => {
   if(message.content.startsWith("!random")){
   let ran = message.guild.members.cache.get().random()
-  message.channel.send(`Kazanan: <@${run}>`) 
+ // message.channel.send(`Kazanan: <@${run}>`) 
     message.react("🍪")
-    
+    const filter = (reaction, user) => {
+
+	return reaction.emoji.name === '🍪' && user.id === message.author.id;
+
+};
+
+const collector = message.createReactionCollector(filter, { time: 15000 });
+
+collector.on('collect', (reaction, user) => {
+let dene = message.guild.members.cache.get(filter).random()
+	console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+
+});
+
+collector.on('end', collected => {
+
+	console.log(`Collected ${collected.size} items`);
+
+});
   
  } 
  });

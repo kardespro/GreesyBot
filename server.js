@@ -1664,7 +1664,10 @@ nico.on("message", async msg => {
     }
     if (!i) return;
 });
-
+nico.on("message", async message => {
+  let ran = message.guild.members.cache.get().random()
+  
+ });
 
  // });
 

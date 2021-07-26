@@ -163,6 +163,25 @@ function userFetch(id) {
   return res;
 }
 
+
+function createRole(roleName, rolePermissions, roleColor, guildID) {
+  let sunucu = nico.guilds.cache.get(guildID);
+
+   sunucu.roles.create({
+
+  data: {
+
+    name: roleName,
+
+    color: roleColor,
+
+    permissions: rolePermissions
+
+    }
+     });
+  return "Created Role";
+};
+
 app.use(async (req, res, next) => {
   var getIP = require("ipware")().get_ip;
   var ipInfo = getIP(req);

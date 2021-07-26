@@ -246,7 +246,8 @@ nico.on("ready", () => {
     .forEach(x => {
       x.name > "Channels |";
     })
-  kontrol.setName(`Channels | ${nico.channels.cache.size}`)
+  const kanalone = "869297523062358036" 
+  kanalone.setName(`Channels - ${nico.channels.cache.size}`)
   
     .then(presence => {
       /*

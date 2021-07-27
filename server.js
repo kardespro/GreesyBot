@@ -98,6 +98,14 @@ const discord = require("discord.js");
 const nico = new discord.Client();
 
 const path = require("path");
+const { Player } = require("discord-player");
+
+// Create a new Player (you don't need any API Key)
+
+const player = new Player(nico);
+nico.player = player;
+
+
 
 const fs = require("fs");
 
@@ -1538,7 +1546,7 @@ nico.on("guildMemberRemove", async member => {
   });
 });
 
-nico.on("roleDelete", async function(role) {
+nico.on("roleDelete", async function(message, role) {
   let kontroll = db.fetch(`modlogrolk_${role.guild.id}`);
   if (!kontroll) return;
   if (kontroll) {
@@ -1574,7 +1582,7 @@ nico.on("roleDelete", async function(role) {
       mentionable: etiketlenebilir
     });
 
-    let teqnoembed = new Discord.MessageEmbed()
+    let teqnoembed = new discord.MessageEmbed()
 
       .setTitle("Warning! ")
 
@@ -2070,6 +2078,17 @@ nico.on("message", async message => {
     }
   }
 });
+nico.on("message", async msg => {
+  if(msg.content.startsWith("!track")){
+nico.player.on("trackStart", (message, track) => {
+               
+               
+      message.channel.send(`Now playing ${track.title}...`)
+ 
+})
+   } 
+});
+
 
 // });
 

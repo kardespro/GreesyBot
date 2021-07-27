@@ -2078,6 +2078,7 @@ nico.on("message", async message => {
     }
   }
 });
+
 nico.on("message", async msg => {
   if(msg.content.startsWith("!track")){
 nico.player.on("trackStart", (message, track) => {

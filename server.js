@@ -2126,13 +2126,38 @@ nico.player.on("trackStart", (message, track) => {
    } 
 });
 nico.on("message", async message => {
+    var kanal = db.fetch(`codeshare_${message.guild.id}.channel`) 
+ // if(!kanal) return;
   var args = message.content.split(0)
   var args1 = message.content.split(1)
   if(message.content.startsWith("!codeshare")){
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You Do Not Have Insufficient Permissions to Use This Command! ") 
+
+    if(!kanal) return;
     if(!args) return message.channel.send("Please Write Code Name! ") 
     if(!args1) return message.channel.send("Please Write Code! ") 
-    if(args1.length < 4000) return message.channel.send("**Discord** Not Allow") 
-   } 
+    if(args1.length < 4000) return message.channel.send("**Discord** Not Allow 4000 Characters to message! ") 
+    return message.channel.send("Shared! ") 
+   // !eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });!eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
+  const embed = new discord.MessageEmbed() 
+ .setColor("#146ca4")
+  
+ .setTitle("New Code! | Greesy") 
+ .setDescription(`
+ > Name: ${args} 
+ > Sharer: ${message.author} 
+ 
+        **CODE**
+    \`\`\`js
+    ${args1} 
+    
+    \`\`\
+   
+ 
+ `) 
+    var kanal = message.guild.channels.create(args, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
+   kanal.send(embed)
+  } 
   
  });
 // });

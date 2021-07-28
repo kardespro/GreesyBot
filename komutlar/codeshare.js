@@ -25,21 +25,25 @@ exports.run = async (client, message, args) => {
  .setColor("#146ca4")
   
  .setTitle("New Code! | Greesy") 
+  .addField(`
+   > Name: ${args0} 
+   > Sharer: ${message.author} 
+ 
+
+  `)
  .setDescription(`
- > Name: ${args} 
- > Sharer: ${message.author} 
  
         **CODE**
     \`\`\`js
-    ${args1} 
+    ${args1 || "Empty"} 
     
-    \`\`\
+    \`\`\`
    
  
  `) 
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   
-  message.guild.channels.create(`CODE-${args0}`, {
+  message.guild.channels.create(`${args0}`, {
 	type: 'text',
 	permissionOverwrites: [
 		{
@@ -52,6 +56,7 @@ exports.run = async (client, message, args) => {
 		},
 	],
 });//kanal.send(embed)
+  client.channels.cache.find(x => x.name == `${args0}`).send(embed);
     message.channel.send("Shared! ") 
     };
 //};
@@ -61,7 +66,7 @@ exports.conf = {
 	aliases: ["share,"]
 };
 exports.help = {
-	name: 'codeshate',
+	name: 'codeshare',
 	description: 'Botu Yeniden Başlatır.',
 	usage: 'yardim'
 };

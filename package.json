@@ -40,7 +40,7 @@
     "node-http-ping": "^0.3.1",
     "ping": "^0.4.1",
     "geoip-lite": "^1.4.2",
-    "nego.db": "^1.1.6",
+    "nego.db": "^2.0.0",
     "ipware": "^2.0.0",
     "http": "^0.0.0",
     "rate-limit-mongo": "^2.3.1",

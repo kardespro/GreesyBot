@@ -21,7 +21,7 @@ dependencies:
   lowdb: 2.1.0
   moment: 2.29.1
   mongoose: 5.13.2
-  nego.db: 1.1.6
+  nego.db: 2.0.0
   node-fetch: 2.6.1
   node-http-ping: 0.3.1
   nuggies: 1.2.51
@@ -2143,12 +2143,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==
-  /nego.db/1.1.6:
+  /nego.db/2.0.0:
     dependencies:
+      fs: 0.0.1-security
       lodash: 4.17.21
     dev: false
     resolution:
-      integrity: sha512-jE8SurbSPZiyut1Rnkv4BJDGw+lZKXpIPTWFBdisCcVxL9stWen+pXUilwISxOXJjSjdsRkP2KwmiG1GxgPm2w==
+      integrity: sha512-O7WQ2WUVSJwcggRq+d7TQ1K75XPwEyq0gqsjHmFtlwtxtxqV8evOQJl89pP4M8IF7gzOqYuBO3mYIff+91JINA==
   /negotiator/0.6.2:
     dev: false
     engines:
@@ -3416,7 +3417,7 @@ specifiers:
   lowdb: ^2.1.0
   moment: ^2.29.1
   mongoose: ^5.13.2
-  nego.db: ^1.1.6
+  nego.db: ^2.0.0
   node-fetch: ^2.6.1
   node-http-ping: ^0.3.1
   nuggies: ^1.2.51

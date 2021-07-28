@@ -1,4 +1,10 @@
 {
   "value": 2,
-  "value44": 4
+  "value44": 4,
+  "Negodb": {
+    "prefix": "!"
+  },
+  "setting.838099680276512778.channel": [
+    "VTF"
+  ]
 }

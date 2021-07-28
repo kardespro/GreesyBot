@@ -1106,20 +1106,23 @@ app.post("/user/comment", gGiris, (req, res) => {
 
 app.get("/user/apikey", gGiris , (req,res) => {
   var emaili = req.user.email;
-  res.json(emaili);
+  //res.json(emaili);
+  render(res,req, "apikey.ejs");
   });
 app.post('/user/apikey', gGiris, (req,res) => {
   const sendmail = require('sendmail')();
 
  const emaili = req.user.email;
-
+  var olustur = Random(10);
+  db.set(`apikey.${req.user.id}`,olustur);
+var nego = `<h1>Greesy Bot </h1> <br>  <p style="color:green;">Your Api Key Request Approved ! </p> <br> <div class="container"><h5>Your Api Key : </h5> <br> <br> <h5>${olustur}</h5></div>`
 sendmail({
 
-    from: 'no-reply@greesy.negodev.tk',
+    from: 'negoishere@gmail.com',
 
-    to: em,
+    to: emaili,
 
-    subject: 'test sendmail',
+    subject: 'Greesy Bot Api Key Request',
 
     html: 'Mail of test sendmail ',
 

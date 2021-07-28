@@ -43,13 +43,15 @@ exports.run = async (client, message, args) => {
     \`\`\`
    
  
- `)
+ `);
+  message.channel.send("Shared! ") 
+    
  /* message.react("👍");
   message.react("👎");
  */
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   
-  message.guild.channels.create(`${args0}`, {
+message.guild.channels.create(`${args0}`, {
 	type: 'text',
 	permissionOverwrites: [
 		{
@@ -63,8 +65,7 @@ exports.run = async (client, message, args) => {
 	],
 });//kanal.send(embed)
   var idKanal = client.channels.cache.find(x => x.name == `${args0}`).id;
-  client.channels.cache.find(x => x.name == `${args0}`).send(embed);
-    message.channel.send("Shared! ") 
+  client.channels.cache.get(idKanal).send(embed);
     };
 //};
 exports.conf = {

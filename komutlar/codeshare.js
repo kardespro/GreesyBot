@@ -19,7 +19,8 @@ exports.run = async (client, message, args) => {
     if(!args) return message.channel.send("Please Write Code Name! ") 
     if(!args1) return message.channel.send("Please Write Code! ") 
     if(args1.length > 4000) return message.channel.send("**Discord** Not Allow 4000 Characters to message! ") 
-    
+    var neggo = db.fetch(`codes.${message.guild.id}.kanal.${args0}`);
+   if(neggo == args0) return message.channel.send("[Error] Code Exist System");
    // !eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });!eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   const embed = new Discord.MessageEmbed() 
  .setColor("#146ca4")
@@ -50,7 +51,7 @@ exports.run = async (client, message, args) => {
   message.react("👎");
  */
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
-  
+  db.set(`codes.${message.guild.id}.kanal.${args0}`);
 message.guild.channels.create(`${args0}`, {
 	type: 'text',
 	permissionOverwrites: [

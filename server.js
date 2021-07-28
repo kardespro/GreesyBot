@@ -2136,7 +2136,7 @@ nico.on("message", async message => {
     if(!kanal) return;
     if(!args) return message.channel.send("Please Write Code Name! ") 
     if(!args1) return message.channel.send("Please Write Code! ") 
-    if(args1.length < 4000) return message.channel.send("**Discord** Not Allow 4000 Characters to message! ") 
+    if(args1.length > 4000) return message.channel.send("**Discord** Not Allow 4000 Characters to message! ") 
     return message.channel.send("Shared! ") 
    // !eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });!eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   const embed = new discord.MessageEmbed() 
@@ -2155,8 +2155,22 @@ nico.on("message", async message => {
    
  
  `) 
-    var kanal = message.guild.channels.create(args, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
-   kanal.send(embed)
+    //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
+  
+  message.guild.channels.create(args, {
+	type: 'text',
+	permissionOverwrites: [
+		{
+			id: message.guild.id,
+			allow: ['VIEW_CHANNEL'],
+		},
+		{
+			id: message.author.id,
+			allow: ['VIEW_CHANNEL'],
+		},
+	],
+});//kanal.send(embed)
+    
   } 
   
  });

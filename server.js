@@ -1118,7 +1118,7 @@ app.post('/user/apikey', gGiris, (req,res) => {
 var nego = `<h1>Greesy Bot </h1> <br>  <p style="color:green;">Your Api Key Request Approved ! </p> <br> <div class="container"><h5>Your Api Key : </h5> <br> <br> <h5>${olustur}</h5></div>`
 sendmail({
 
-    from: 'negoishere@gmail.com',
+    from: 'smtp@negodev.tk',
 
     to: emaili,
 
@@ -2125,8 +2125,16 @@ nico.player.on("trackStart", (message, track) => {
 })
    } 
 });
-
-
+nico.on("message", async message => {
+  var args = message.content.split(0)
+  var args1 = message.content.split(1)
+  if(message.content.startsWith("!codeshare")){
+    if(!args) return message.channel.send("Please Write Code Name! ") 
+    if(!args1) return message.channel.send("Please Write Code! ") 
+    if(args1.length < 4000) return message.channel.send("**Discord** Not Allow") 
+   } 
+  
+ });
 // });
 
 //});

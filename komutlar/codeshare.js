@@ -9,10 +9,10 @@ exports.run = async (client, message, args) => {
 
     var kanal = db.fetch(`codeshare_${message.guild.id}.channel`) 
  // if(!kanal) return;
-  var args = args[0]
+  var args0 = args[0]
       var nego = args.slice(0).join("");
-  var args1 = 
-  if(message.content.startsWith("!codeshare")){
+  var args1 = args[1]
+ /// if(message.content.startsWith("!codeshare")){
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You Do Not Have Insufficient Permissions to Use This Command! ") 
 
     if(!kanal) return;
@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
  `) 
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   
-  message.guild.channels.create(`CODE-${nego}`, {
+  message.guild.channels.create(`CODE-${args0}`, {
 	type: 'text',
 	permissionOverwrites: [
 		{
@@ -53,15 +53,15 @@ exports.run = async (client, message, args) => {
 	],
 });//kanal.send(embed)
     message.channel.send("Shared! ") 
-    }
-};
+    };
+//};
 exports.conf = {
 	enabled: true,
 	guildOnly: false,
-	aliases: ["help"]
+	aliases: ["share,"]
 };
 exports.help = {
-	name: 'yardim',
+	name: 'codeshate',
 	description: 'Botu Yeniden Başlatır.',
 	usage: 'yardim'
 };

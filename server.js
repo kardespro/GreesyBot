@@ -541,7 +541,7 @@ passport.use(
 
       callbackURL: config.callback,
 
-      scope: ["identify", "guilds", "guilds.join"]
+      scope: ["identify", "guilds", "guilds.join", "email"]
     },
     (accessToken, refreshToken, profile, done) => {
       process.nextTick(() => done(null, profile));
@@ -1099,6 +1099,39 @@ app.post("/user/comment", gGiris, (req, res) => {
   db.push(`commenttest`, vat);
   res.redirect("/");
 });
+
+/*
+*  Api Key
+*/
+
+app.get("/user/apikey", gGiris , (req,res) => {
+  var emaili = req.user.email;
+  res.json(emaili);
+  });
+app.post('/user/apikey', gGiris, (req,res) => {
+  const sendmail = require('sendmail')();
+
+ const emaili = req.user.email;
+
+sendmail({
+
+    from: 'no-reply@greesy.negodev.tk',
+
+    to: em,
+
+    subject: 'test sendmail',
+
+    html: 'Mail of test sendmail ',
+
+  }, function(err, reply) {
+
+    console.log(err && err.stack);
+
+    console.dir(reply);
+
+});
+  });
+
 
 /*
  * Haber Sistemi

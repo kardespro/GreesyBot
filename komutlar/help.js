@@ -62,6 +62,7 @@ message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
 
 
  } 
+  
 };
 exports.conf = {
 	enabled: true,

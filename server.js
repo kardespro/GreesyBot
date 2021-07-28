@@ -2128,8 +2128,9 @@ nico.player.on("trackStart", (message, track) => {
 nico.on("message", async message => {
     var kanal = db.fetch(`codeshare_${message.guild.id}.channel`) 
  // if(!kanal) return;
-  var args = message.content.split(0)
-  var args1 = message.content.split(1)
+  var args = message.content.slice(0)
+  var nego = args.slice(0).join("");
+  var args1 = message.content.slice(1)
   if(message.content.startsWith("!codeshare")){
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You Do Not Have Insufficient Permissions to Use This Command! ") 
 
@@ -2137,7 +2138,7 @@ nico.on("message", async message => {
     if(!args) return message.channel.send("Please Write Code Name! ") 
     if(!args1) return message.channel.send("Please Write Code! ") 
     if(args1.length > 4000) return message.channel.send("**Discord** Not Allow 4000 Characters to message! ") 
-    return message.channel.send("Shared! ") 
+    
    // !eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });!eval message.guild.channels.create('Greesy', { 	type: 'voice', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['VIEW_CHANNEL'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   const embed = new discord.MessageEmbed() 
  .setColor("#146ca4")
@@ -2157,7 +2158,7 @@ nico.on("message", async message => {
  `) 
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   
-  message.guild.channels.create(args, {
+  message.guild.channels.create(`CODE-${nego}`, {
 	type: 'text',
 	permissionOverwrites: [
 		{
@@ -2170,6 +2171,7 @@ nico.on("message", async message => {
 		},
 	],
 });//kanal.send(embed)
+    message.channel.send("Shared! ") 
     
   } 
   

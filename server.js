@@ -721,6 +721,13 @@ app.get("/new", bakimCheck, gGiris, (req, res) => {
   if (!beta) return res.redirect("/");
   render(res, req, "newindex.ejs", { cmm, nego: nico });
 });
+app.get("/new2",  (req, res) => {
+
+  const cmm = db.fetch(`commenttest`);
+  
+  render(res, req, "newindex2.ejs", { cmm, nego: nico });
+
+  });
 
 //Beta
 

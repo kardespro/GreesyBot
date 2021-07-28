@@ -8,7 +8,7 @@ class Database {
     const backup = () => {
     fs.copyFile('./json.sqlite', `./backups/yedekleme • ${moment().format('D-M-YYYY • H.mm.ss')} • greesy.sqlite`, err => {
         if (err) return console.log(err);
-        console.log('Veritabanını yedekledim.');
+        return 'Veritabanını yedekledim.';
     });
 };
   }, minute);

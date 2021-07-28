@@ -25,13 +25,16 @@ exports.run = async (client, message, args) => {
  .setColor("#146ca4")
   
  .setTitle("New Code! | Greesy") 
-  .addField(`
+ /* .addField(`
    > Name: ${args0} 
    > Sharer: ${message.author} 
  
 
-  `)
+  `)*/
  .setDescription(`
+  > Name: ${args0} 
+  > Sharer: ${message.author} 
+
  
         **CODE**
     \`\`\`js
@@ -40,7 +43,10 @@ exports.run = async (client, message, args) => {
     \`\`\`
    
  
- `) 
+ `)
+ /* message.react("👍");
+  message.react("👎");
+ */
     //message.guild.channels.create(`${args}`, { 	type: 'text', 	permissionOverwrites: [ 		{ 			id: message.guild.id, 			deny: ['SEND_MESSAGES'], 		}, 		{ 			id: message.author.id, 			allow: ['VIEW_CHANNEL'], 		}, 	], });
   
   message.guild.channels.create(`${args0}`, {
@@ -56,6 +62,7 @@ exports.run = async (client, message, args) => {
 		},
 	],
 });//kanal.send(embed)
+  var idKanal = client.channels.cache.find(x => x.name == `${args0}`).id;
   client.channels.cache.find(x => x.name == `${args0}`).send(embed);
     message.channel.send("Shared! ") 
     };

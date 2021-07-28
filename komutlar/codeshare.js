@@ -67,7 +67,7 @@ message.guild.channels.create(`${args0}`, {
 });//kanal.send(embed)
   //var idKanal = client.channels.cache.find(x => x.name == `${args0}`).id;
  // client.channels.cache.get(idKanal).send(embed);
-  client.channels.cache.find(x => x.name == args0).s
+  client.channels.cache.find(x => x.name == args0).send(embed);
     };
 //};
 exports.conf = {

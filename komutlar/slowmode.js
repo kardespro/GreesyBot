@@ -9,7 +9,7 @@ const limit = args[0];
     
               var embed = new Discord.MessageEmbed()
                 .setDescription(`<:hayirbei:867465654960128010> Write how many seconds you want to set the write limit (time)!`)
-              .setColor("Blue")
+              .setColor("#3437eb")
             msg.channel.send({embed: embed})
             return
           }
@@ -17,7 +17,7 @@ const limit = args[0];
 if (isNaN(limit)) {
   var s = new Discord.MessageEmbed()
   .setDescription("<:hayirbei:867465654960128010> Write how many seconds you want to set the write limit (time)!")
-  .setColor("RANDOM")
+  .setColor("#3437eb")
   msg.channel.send({embed: s});
     return
 }
@@ -25,13 +25,13 @@ if (isNaN(limit)) {
 if (limit > 10) {
   var x = new Discord.MessageEmbed()
   .setDescription("<:hayirbei:867465654960128010> Write limit (time) limit can be maximum **10** seconds!")
-  .setColor("RANDOM")
+  .setColor("#3437eb")
   msg.channel.send({embed: x});
     return//
 }
     var e = new Discord.MessageEmbed()
     .setDescription(`<:greesy_true:867464502111240242>  The write limit (time) has been successfully set to **${limit}** seconds!`)
-    .setColor("RANDOM")
+    .setColor("#3437eb")
     msg.channel.send({embed: e})
   
 var request = require('request');

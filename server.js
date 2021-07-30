@@ -2306,4 +2306,25 @@ const request = require('node-superfetch');
   
 
   });
+nico.on("message", async (msg, user) => {
+  const request = require("node-superfetch");
+  const db = require("quick.db");
+  const ms = require("parse-ms");
+  let zaman = db.fetch(`${msg.guild.id}.slowmode`);
+  if (zaman === undefined) zaman = 0;
+  let timeout = zaman;
+  let nego = await db.fetch(`slowmodee_${msg.author.id}`);
+
+  if (nego !== null && timeout - (Date.now() - nego) > 0) {
+    let time = ms(timeout - (Date.now() - nego));
+    msg.delete();
+    msg.channel
+      .send("**On this channel, slow mode is on, you need to wait without texting!**")
+      .then(message => message.delete(2000));
+  } else {
+    if (msg.content.length > 0) {
+      db.set(`slowmodee_${msg.author.id}`, Date.now());
+    }
+  }
+});
 //});

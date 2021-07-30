@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client() 
 //const db = require("mongoose") 
-
+const db = require("quick.db");
 const ping = require('node-http-ping')
  const os = require("os") 
 const prettyMilliseconds = require("pretty-ms"); //npm i pretty-ms
@@ -30,7 +30,7 @@ exports.run = async (client, message, args) => {
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
         { name: '🔝 Guilds', value: client.guilds.cache.size, inline: true }, // Olduğu sunucu sayısı
         { name: '👨 Users', value: client.users.cache.size + ' ', inline: true }, // Kullanıcı sayısı
-        { name: '🖥 Dashboard Statics', value: `Ping: 31¦ Index Router Ping : undefined ms `, inline: true }, // Dash Ping
+        { name: '🖥 Dashboard Statics', value: `Ping: ${db.fetch(`dashPing`)} ¦ Index Router Ping : undefined ms ¦ User Router Ping : undefined ms ¦ Subscriptions Router Ping : null ms  ¦ Dashboard Router Ping : null ms ¦ Api Ping : undefined ms `, inline: true }, // Dash Ping
       )
       .setTimestamp() //Bunu eğer altta zaman gözüksün istemiyorsanız silin.
      // .setFooter('Stats, yey!', 'https://i.pinimg.com/originals/c3/06/a9/c306a969d8d171a43a09a6dc31f6fbfd.jpg'); // Alttaki footer fotoğrafo

@@ -24,13 +24,13 @@ if (isNaN(limit)) {
   
 if (limit > 10) {
   var x = new Discord.MessageEmbed()
-  .setDescription("Yazma sınırı (süresi) limiti maksimum **10** saniye olabilir!")
+  .setDescription("Write limit (time) limit can be maximum **10** seconds!")
   .setColor("RANDOM")
   msg.channel.send({embed: x});
     return//
 }
     var e = new Discord.MessageEmbed()
-    .setDescription(`Yazma sınırı (süresi) başarıyla **${limit}** saniye olarak başarılıyla ayarlanmıştır!`)
+    .setDescription(`The write limit (time) has been successfully set to **${limit}** seconds!`)
     .setColor("RANDOM")
     msg.channel.send({embed: e})
   

@@ -705,10 +705,6 @@ Pages
 app.get("/", bakimCheck, (req, res) => {
   const start = process.hrtime() 
   const durationInMilliseconds = getDurationInMilliseconds (start) 
-/*  var startTime = new Date()
-  var callResTime = new Date()
-   var exc = callResTime - startTime;
-  db.set(`indexPing`,exc);*/
   res.on('finish', () => {            
         console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
     db.set(`indexPing`,durationInMilliseconds.toLocaleString());
@@ -736,7 +732,21 @@ app.get("/", bakimCheck, (req, res) => {
 });
 
 app.get("/cmds", bakimCheck, (req, res) => {
-  render(res, req, "commands.ejs");
+   const start = process.hrtime() 
+
+  const durationInMilliseconds = getDurationInMilliseconds (start) 
+
+  res.on('finish', () => {            
+
+        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
+
+    db.set(`cmdsPing`,durationInMilliseconds.toLocaleString());
+
+    })
+  render(res, req, "commands.ejs",{
+    ping:durationInMilliseconds.toLocaleString()
+    
+  });
 });
 
 //Beta
@@ -759,7 +769,20 @@ app.get("/new2",  (req, res) => {
 
 app.get("/stat/", bakimCheck, (req, res) => {
   var client = nico;
-  render(res, req, "stat.ejs", { nego: client });
+   const start = process.hrtime() 
+
+  const durationInMilliseconds = getDurationInMilliseconds (start) 
+
+  res.on('finish', () => {            
+
+        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
+
+    db.set(`statPing`,durationInMilliseconds.toLocaleString());
+
+    })
+  render(res, req, "stat.ejs", { nego: client , ping:durationInMilliseconds.toLocaleString()
+
+ });
 });
 
 app.get("/index.html", (req, res) => {
@@ -774,8 +797,22 @@ app.get("/index.html", (req, res) => {
 app.get("/dash", gGiris, bakimCheck, (req, res) => {
   const user = nico.users.cache.get(req.user.id);
   const perms = discord.Permissions;
+ const start = process.hrtime() 
 
-  render(res, req, "sunucusec.ejs", { perms });
+  const durationInMilliseconds = getDurationInMilliseconds (start) 
+
+  res.on('finish', () => {            
+
+        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
+
+    db.set(`dashServerSelectPing`,durationInMilliseconds.toLocaleString());
+
+    })
+
+
+  
+  render(res, req, "sunucusec.ejs", { perms , ping:durationInMilliseconds.toLocaleString()
+ });
 });
 
 app.get("/dash/:sunucuID/yonet", async (req, res) => {

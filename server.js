@@ -682,6 +682,7 @@ app.use("/blogt", require("./server/routers/blog.js"));
 //app.use("*",require("./server/routers/404.js"));
 app.use("/dashtest", require("./server/routers/dashboard.js"));
 
+
 /*
 
 Pages
@@ -689,9 +690,10 @@ Pages
 */
 
 app.get("/", bakimCheck, (req, res) => {
-   var callResTime = new Date()
-   var startTime = new Date()
-var exc = startTime 
+/*  var startTime = new Date()
+  var callResTime = new Date()
+   var exc = callResTime - startTime;
+  db.set(`indexPing`,exc);*/
   var fetchComment = db.fetch(`commenttest`);
   if (req.isAuthenticated()) {
     var beta = db.fetch(`beta_${req.user.id}`);

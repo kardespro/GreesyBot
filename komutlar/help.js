@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
  > Systems Will Run Faster If You Keep **@Greesy** Role at The Highest Level! 
  
   👮 ¦ **Moderation;** - Moderator-Specific Standard or Important Commands! 
-   \`ban, kick, banlog, kicklog, , badwordblock-log \`
+   \`ban, kick, banlog, kicklog, , badwordblock-log, slowmode, clear\`
   🗨 ¦ **Economy;** - How about a fun? Save Money and Enjoy the Economic System! [Maintance!] 
    \`daily, voteaward, shop, yearlyaward \`
   🤠 ¦ **Fun**; - Here are the commands for fun :) 
@@ -33,10 +33,10 @@ exports.run = async (client, message, args) => {
     
       **ANNOUNCUMENTS**
       \`\`\`
-      ${db.fetch(`duyuru`) || ""}
+      ${db.fetch(`duyuru`) || "Database Error : Annoucument Not Found  "}
       \`\`\`
  `) 
-  .setColor("#4634eb")//white
+  .setColor("#3437eb")//white
  .setFooter("Greesy © - All Rights Reserved! ")
   const davet = new disbut.MessageButton() 
  .setStyle('url', 'blurple') 

@@ -689,6 +689,9 @@ Pages
 */
 
 app.get("/", bakimCheck, (req, res) => {
+   var callResTime = new Date()
+   var startTime = new Date()
+var exc = startTime 
   var fetchComment = db.fetch(`commenttest`);
   if (req.isAuthenticated()) {
     var beta = db.fetch(`beta_${req.user.id}`);

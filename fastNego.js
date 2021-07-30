@@ -1,5 +1,5 @@
 const app = require('fastify')({ logger: true })
-
+app.register(require('fastify-express'))
 const Nuggies = require("nuggies");
 const Discord2 = require("discord.js");
 const Client2 = new Discord2.Client();
@@ -106,7 +106,7 @@ app.use(
   })
 );
 
-app.use("/assets", express.static("server/web/css/"));
+//app.use("/assets", express.static("server/web/css/"));
 
 /*
 

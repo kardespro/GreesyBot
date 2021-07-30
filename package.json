@@ -5,9 +5,9 @@
   "name": "hello-express",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "fastNego.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node fastNego.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -54,7 +54,10 @@
     "sendmail": "^1.6.1",
     "fastify": "^3.19.2",
     "fastify-formbody": "^5.1.0",
-    "point-of-view": "^4.15.0"
+    "point-of-view": "^4.15.0",
+    "fastify-express": "^0.3.3",
+    "fastify-helmet": "^5.3.1",
+    "fastify-static": "^4.2.2"
   },
   "engines": {
     "node": "12.x"

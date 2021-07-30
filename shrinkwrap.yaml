@@ -13,7 +13,10 @@ dependencies:
   express-rate-limit: 5.3.0
   express-session: 1.17.2
   fastify: 3.19.2
+  fastify-express: 0.3.3
   fastify-formbody: 5.1.0
+  fastify-helmet: 5.3.2
+  fastify-static: 4.2.2
   fs: 0.0.2
   geoip-lite: 1.4.2
   got: 11.8.2
@@ -1082,6 +1085,12 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-rT/0yG7C0CkyL1oCw6mmBslbP1k=
+  /encoding-negotiator/2.0.1:
+    dev: false
+    engines:
+      node: '>=10.13.0'
+    resolution:
+      integrity: sha512-GSK7qphNR4iPcejfAlZxKDoz3xMhnspwImK+Af5WhePS9jUpK/Oh7rUdyENWu+9rgDflOCTmAojBsgsvM8neAQ==
   /end-of-stream/1.4.4:
     dependencies:
       once: 1.4.0
@@ -1269,16 +1278,43 @@ packages:
     dev: false
     resolution:
       integrity: sha512-oCfpcsDndgnDVgiI7bwFKAun2dO+4h84vBlkWsWnz/OUK9Reff5UFoFl241xTiLeHWX/vU9zkDVXqYUxjOwHcQ==
+  /fastify-express/0.3.3:
+    dependencies:
+      express: 4.17.1
+      fastify-plugin: 3.0.0
+    dev: false
+    engines:
+      node: '>=10.0.0'
+    resolution:
+      integrity: sha512-1b95R59zUJET/RQg3RaOeHq7DToDaFr1Nslhd/ND+zH2sMUe5/fF4gj4XbFt3Nfteay4hXjCWTBjOKe+KUOlMA==
   /fastify-formbody/5.1.0:
     dependencies:
       fastify-plugin: 3.0.0
     dev: false
     resolution:
       integrity: sha512-dLFQ8gMQeLuV45J72svDbrp6CZ3hxsaiK2dd3vzoiCs9wEmCSbbJV+/afQl1cfvf19+NfCIzYVQIg1r4yO4Epw==
+  /fastify-helmet/5.3.2:
+    dependencies:
+      fastify-plugin: 3.0.0
+      helmet: 4.6.0
+    dev: false
+    resolution:
+      integrity: sha512-X9lKZa7wjvMe79eUP0Fo+3GMMmbxKC92ddJGdmSIEZxn0JwSw+Fw5mlOiM9RABRQGphdLDSHIL/29ywH7GUusQ==
   /fastify-plugin/3.0.0:
     dev: false
     resolution:
       integrity: sha512-ZdCvKEEd92DNLps5n0v231Bha8bkz1DjnPP/aEz37rz/q42Z5JVLmgnqR4DYuNn3NXAO3IDCPyRvgvxtJ4Ym4w==
+  /fastify-static/4.2.2:
+    dependencies:
+      content-disposition: 0.5.3
+      encoding-negotiator: 2.0.1
+      fastify-plugin: 3.0.0
+      glob: 7.1.7
+      readable-stream: 3.6.0
+      send: 0.17.1
+    dev: false
+    resolution:
+      integrity: sha512-C631EuGdMlUzFXuuP4SqXBoQEiit9S0uYRd97cF2mFhgStvZvQKIjtzUk/GMQu6EfEdm0ddj3UAc0C6dVeNyKA==
   /fastify-warning/0.2.0:
     dev: false
     resolution:
@@ -1592,6 +1628,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-0cMsjjIC8I+D3M44pOQdsy0OHXGLVz6Z0beRuufhKa0KfaD2wGwAev6jILzXsd3/vpnNQJmWyZtIILqM1N+n5A==
+  /helmet/4.6.0:
+    dev: false
+    engines:
+      node: '>=10.0.0'
+    resolution:
+      integrity: sha512-HVqALKZlR95ROkrnesdhbbZJFi/rIVSoNq6f3jA/9u6MIbTsPh3xZwihjeI5+DO/2sOV6HMHooXcEOuwskHpTg==
   /himalaya/1.1.0:
     dev: false
     resolution:
@@ -3608,7 +3650,10 @@ specifiers:
   express-rate-limit: ^5.2.6
   express-session: ^1.17.2
   fastify: ^3.19.2
+  fastify-express: ^0.3.3
   fastify-formbody: ^5.1.0
+  fastify-helmet: ^5.3.1
+  fastify-static: ^4.2.2
   fs: ^0.0.2
   geoip-lite: ^1.4.2
   got: ^11.8.2

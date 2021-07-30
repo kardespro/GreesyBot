@@ -9,7 +9,7 @@ const limit = args[0];
     
               var embed = new Discord.MessageEmbed()
                 .setDescription(`Write how many seconds you want to set the write limit (time)!`)
-              .setColor("RANDOM")
+              .setColor("Blue")
             msg.channel.send({embed: embed})
             return
           }

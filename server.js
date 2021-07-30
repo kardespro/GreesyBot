@@ -682,6 +682,13 @@ app.use("/blogt", require("./server/routers/blog.js"));
 //app.use("*",require("./server/routers/404.js"));
 app.use("/dashtest", require("./server/routers/dashboard.js"));
 
+const getDurationInMilliseconds = (start) => {
+    const NS_PER_SEC = 1e9
+    const NS_TO_MS = 1e6
+    const diff = process.hrtime(start)
+
+    return (diff[0] * NS_PER_SEC + diff[1]) / NS_TO_MS
+}
 
 /*
 
@@ -690,10 +697,17 @@ Pages
 */
 
 app.get("/", bakimCheck, (req, res) => {
+  const start = process.hrtime() 
+  const durationInMilliseconds = getDurationInMilliseconds (start) 
 /*  var startTime = new Date()
   var callResTime = new Date()
    var exc = callResTime - startTime;
   db.set(`indexPing`,exc);*/
+  res.on('finish', () => {            
+        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
+    db.set(`indexPing`,durationInMilliseconds.toLocaleString());
+    })
+
   var fetchComment = db.fetch(`commenttest`);
   if (req.isAuthenticated()) {
     var beta = db.fetch(`beta_${req.user.id}`);

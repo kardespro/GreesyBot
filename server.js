@@ -730,7 +730,8 @@ app.get("/", bakimCheck, (req, res) => {
   render(res, req, "index.ejs", {
     kardesproclient: nico,
     fetchComment,
-    config
+    config,
+    ping:durationInMilliseconds.toLocaleString()
   });
 });
 

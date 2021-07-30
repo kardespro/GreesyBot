@@ -1290,7 +1290,7 @@ app.get("/api/v1/gift/:giftKod/", gGiris, (req, res) => {
     res.json({ error: "This Gift Is Already Received!" });
   }
 });
-
+/*
 const getDurationInMilliseconds = (start) => {
     const NS_PER_SEC = 1e9
     const NS_TO_MS = 1e6
@@ -1314,7 +1314,16 @@ app.use((req, res, next) => {
     })
 
     next()
-})
+})*/
+const responseTime = require('express-response-time')
+
+
+const timeout = ms => new Promise(r => setTimeout(() => r(), ms))
+
+app.use(responseTime((methond, url, time) => {
+    console.log(`${methond} ${url} ${time}ms`)
+   // db.set(`${url}`)
+}))
 const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
 

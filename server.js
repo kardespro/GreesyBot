@@ -689,6 +689,12 @@ const getDurationInMilliseconds = (start) => {
 
     return (diff[0] * NS_PER_SEC + diff[1]) / NS_TO_MS
 }
+setInterval(function(){
+   const start = process.hrtime() 
+  const durationInMilliseconds = getDurationInMilliseconds (start) 
+
+  db.set(`indexPing`,durationInMilliseconds.toLocaleString());
+}, 3600000);
 
 /*
 

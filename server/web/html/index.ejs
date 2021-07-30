@@ -37,27 +37,23 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
 
 <body style="background-color:#46648c;">
-  <%- if(user){
   
-   <div class="jumbotron">
-  <h1 style="color:black;text-align:center;font-family: 'Source Sans Pro', sans-serif;"> Greesy</h1>
-    <p style="color: #189de4;text-align:center;font-family: 'Teko', sans-serif;"> Discord's Best Utility Bot </p>
-  <center>
-  <a href="/cmds/" type="button" class="btn btn-info" onclick="muq();" >Commands</a>
-  <a href="/stat/" type="button" class="btn btn-success">Statistics</a>
-  </center>
-    </div>
- 
-  }
-  %>
   <div class="jumbotron">
   <h1 style="color:black;text-align:center;font-family: 'Source Sans Pro', sans-serif;"> Greesy</h1>
-    <p style="color: #189de4;text-align:center;font-family: 'Teko', sans-serif;"> Discord's Best Utility Bot </p>
+    <p style="color: #189de4;text-align:center;font-family: 'Teko', sans-serif;"> Discord's Best Moderation Bot </p>
   <center>
   <a href="/cmds/" type="button" class="btn btn-info" onclick="muq();" >Commands</a>
   <a href="/stat/" type="button" class="btn btn-success">Statistics</a>
+    <% if(user){ %>
+     <a href="/dash" type="button" class="btn btn-danger" onclick="muq();" >Dashboard</a>
+ <% if(user.id == config.kurucurolid){ %>
+    <a href="/admin" type="button" class="btn btn-secondary" onclick="muq();" >Admin Panel</a>
+
+    <%}%>
+  <% } %>
   </center>
     </div>
+    
   <script>
     function muq(){
       window.location.href == "/cmds" 

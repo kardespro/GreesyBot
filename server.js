@@ -1354,6 +1354,15 @@ app.get("/api/v1/gift/:giftKod/", gGiris, (req, res) => {
   }
 });
 
+// Language Api
+app.get("/api/lang", (req,res) => {
+  var href = req.query.href;
+  if(!href) return res.json({error: "Please Write Lang Code"});
+  var eng ;
+  var tr = require("./langs/tr/index.json");
+  
+  
+});
 
 
 

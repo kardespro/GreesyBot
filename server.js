@@ -748,6 +748,7 @@ app.get("/", bakimCheck, (req, res) => {
     fetchComment,
     config,
     langPage,
+    tr,
     ping:durationInMilliseconds.toLocaleString()
   });
 });

@@ -730,7 +730,15 @@ app.get("/", bakimCheck, (req, res) => {
   var langPage = db.fetch(`pageLang_${ipInfo.clientIp}`);
   var tr = require("./langs/tr/index.json");
   if(langPage == "tr"){
-    res.json(`${ipInfo.clientIp}`);
+   // res.json(`${ipInfo.clientIp}`);
+    render(res, req, "index.ejs", {
+    kardesproclient: nico,
+    fetchComment,
+    config,
+    lang: tr,
+    ping:durationInMilliseconds.toLocaleString()
+  });
+
     }
   
   render(res, req, "index.ejs", {
@@ -1381,7 +1389,7 @@ var def = "en";
   var geoip = require("geoip-lite");
   var ip = ipInfo.clientIp;
  db.set(`pageLang_${ipInfo.clientIp}`,href);
-
+res.redirect("/");
   
 });
 

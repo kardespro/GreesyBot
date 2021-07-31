@@ -1,0 +1,11 @@
+{
+  "sitebasliki": "Greesy AnaSayfa",
+  "slogan": "En Iyi Discord Moderasyon Botu",
+  "pageping": "Sayfa Gecikmesi : ",
+  "fastreason": "Hızlı Neden",
+  "fastreason2": "Botumuz, ping'in size iyi hizmet edebileceğini bilmek için ${negoClient.ws.ping}ms yapıldı.",
+  "btn_cmds": "Komutlar",
+  "btn_stats": "Istatistikler",
+  "systems_text": "Sistemler",
+  
+}

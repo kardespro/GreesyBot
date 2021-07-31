@@ -96,7 +96,9 @@ const _ = require("lodash");
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
+const logs = require('discord-logs');
 
+logs(nico)
 const path = require("path");
 const { Player } = require("discord-player");
 
@@ -2365,4 +2367,12 @@ nico.on("message", async (msg, user) => {
     }
   }
 });
+nico.on("guildMemberBoost", async member => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if(!kontrol) return;
+  kanal.send(`
+  ${member.user.tag} Just Boosted a Server! 
+  `) 
+ });
 //});

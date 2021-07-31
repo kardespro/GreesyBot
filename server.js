@@ -2453,7 +2453,7 @@ const Data = db.fetch(`URL_${Server.id}_Süre`)
 const Data2 = db.fetch(`PremiumSunucuBilgiSüre_${Server.id}`)
 if (!Data) return;
 if (Saat - (Date.now() - Data) < 0) {
-await client.channels.cache.get('821408562701402213').send(new Discord.MessageEmbed().setColor('BLUE').setDescription(`${client.onay} **| ${client.guilds.cache.get(Server.id).name} Sunucusundaki \`${db.fetch(`URL_${Server.id}`).URL}\` Urlsi Sıfırlandı.**`))
+await nico.channels.cache.get('821408562701402213').send(new Discord.MessageEmbed().setColor('BLUE').setDescription(`${client.onay} **| ${client.guilds.cache.get(Server.id).name} Sunucusundaki \`${db.fetch(`URL_${Server.id}`).URL}\` Urlsi Sıfırlandı.**`))
 db.delete(db.fetch(`PBURL_${Server.id}`))
 db.delete(`URL_${Server.id}`)
 db.delete(`URL_${Server.id}_Süre`)
@@ -2463,7 +2463,7 @@ db.set(Server.id,Server.id)
 if (!Data2) return;
 //Saat - (Date.now() - Data2)
 if (604800000 - (Date.now() - Data2) < 0) {
-client.guilds.cache.get('813459382096232528').users.cache.find(User => User.id == db.fetch(`PremiumSunucuBilgi_${Server.id}`).Ayarlayan).roles.remove('822767014317654044')
+.guilds.cache.get('813459382096232528').users.cache.find(User => User.id == db.fetch(`PremiumSunucuBilgi_${Server.id}`).Ayarlayan).roles.remove('822767014317654044')
 client.channels.cache.get('821408562701402213').send(new Discord.MessageEmbed().setColor('BLUE').setDescription(`${client.onay} **| ${client.guilds.cache.get(Server.id).name} Sunucusundaki \`Premium\` Sıfırlandı.**`))
 db.delete(`PremiumSunucuBilgi_${Server.id}`)
 db.delete(`PremiumSunucu_${Server.id}`)

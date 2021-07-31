@@ -3,9 +3,14 @@
   "slogan": "En Iyi Discord Moderasyon Botu",
   "pageping": "Sayfa Gecikmesi : ",
   "fastreason": "Hızlı Neden",
-  "fastreason2": "Botumuz, ping'in size iyi hizmet edebileceğini bilmek için ${negoClient.ws.ping}ms yapıldı.",
+  "fastreason_alt": "Botumuz, ping'in size iyi hizmet edebileceğini bilmek için ${kardesproclient.ws.ping}ms yapıldı.",
   "btn_cmds": "Komutlar",
   "btn_stats": "Istatistikler",
   "systems_text": "Sistemler",
-  
+  "systems_alt": "İşlevsel Olarak Güzel Tasarlanmış Kendi Sistemlerimiz Var!  Bunları Kontrol Panelinden daha hızlı yapabilirsiniz.",
+  "dash_text": "Web kontrol Paneli!",
+  "dash_alt": "7/24 Dashboard ile Kolay Kurulum",
+  "comments_text": "Yorum Sistemi Beta v1.0 Nego#0001 Tarafından",
+  "footer_bio": "En İyi Discord Botu!  Kullanışlı Sistem Ve Web Sitesi İle Çok Kontrol Edilebilir!",
+  "footer_supporters": "Destekçiler"
 }

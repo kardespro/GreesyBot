@@ -2421,7 +2421,7 @@ nico.on("guildMemberRoleRemove", async (member,role) => {
  });
 
 //});
-nico.on("messageContentEdited", async (member, old, yeni) => {
+nico.on("messageContentEdited", async (message, member, old, yeni) => {
 
   let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
 
@@ -2435,7 +2435,11 @@ nico.on("messageContentEdited", async (member, old, yeni) => {
 
   `) */
   kanal.send(`
-  ==MODLOG | GREESY
+  ==MODLOG | GREESY==
+ \ Details: /
+  Member: ${member.user.tag}
+  Old Message: \`${old}\`
+  Edited: \`${yeni}\`
   `)
 
  });

@@ -701,8 +701,24 @@ setInterval(function(){
 Pages
 
 */
+ /*var getIP = require("ipware")().get_ip;
 
+  var ipInfo = getIP(req);
+
+  var geoip = require("geoip-lite");
+
+  var ip = ipInfo.clientIp;
+*/
+ 
 app.get("/", bakimCheck, (req, res) => {
+  var getIP = require("ipware")().get_ip;
+
+  var ipInfo = getIP(req);
+
+  var geoip = require("geoip-lite");
+
+  var ip = ipInfo.clientIp;
+
   const start = process.hrtime() 
   const durationInMilliseconds = getDurationInMilliseconds (start) 
   res.on('finish', () => {            
@@ -711,18 +727,12 @@ app.get("/", bakimCheck, (req, res) => {
     })
 
   var fetchComment = db.fetch(`commenttest`);
-  /*if (req.isAuthenticated()) {
-    var beta = db.fetch(`beta_${req.user.id}`);
-    if (beta == true) {
-      render(res, req, "newindex.ejs", { cmm: fetchComment, nego: nico });
+  var langPage = db.fetch(`pageLang_${ipInfo.clientIp}`);
+  var tr = require("./langs/tr/index.json");
+  if(langPage == "tr"){
+    res.json(`${ipInfo.clientIp}`);
     }
-  } else {
-    render(res, req, "index.ejs", {
-      kardesproclient: nico,
-      fetchComment,
-      config
-    });
-  }*/
+  
   render(res, req, "index.ejs", {
     kardesproclient: nico,
     fetchComment,
@@ -1357,10 +1367,21 @@ app.get("/api/v1/gift/:giftKod/", gGiris, (req, res) => {
 // Language Api
 app.get("/api/lang", (req,res) => {
   var href = req.query.href;
+  if(href == "restore"){
+    res.json({success: "Restored Language"});
+    db.delete(`pageLang_${ipInfo.clientIp}`);
+
+    };
   if(!href) return res.json({error: "Please Write Lang Code"});
   var eng ;
   var tr = require("./langs/tr/index.json");
-  
+var def = "en";
+   var getIP = require("ipware")().get_ip;
+  var ipInfo = getIP(req);
+  var geoip = require("geoip-lite");
+  var ip = ipInfo.clientIp;
+ db.set(`pageLang_${ipInfo.clientIp}`,href);
+
   
 });
 

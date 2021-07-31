@@ -742,11 +742,12 @@ app.get("/", bakimCheck, (req, res) => {
   });
 
     }
-  
+  var lang;
   render(res, req, "index.ejs", {
     kardesproclient: nico,
     fetchComment,
     config,
+    lang,
     ping:durationInMilliseconds.toLocaleString()
   });
 });
@@ -2367,6 +2368,7 @@ nico.on("message", async (msg, user) => {
     }
   }
 });
+//.
 nico.on("guildMemberBoost", async member => {
   let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
   var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
@@ -2375,4 +2377,67 @@ nico.on("guildMemberBoost", async member => {
   ${member.user.tag} Just Boosted a Server! 
   `) 
  });
+nico.on("guildMemberUnboost", async member => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if(!kontrol) return;
+  kanal.send(`
+  
+  ${member.user.tag} Just UnBoosted a Server! :c
+  `) 
+ });
+
+nico.on("guildMemberRoleAdd", async (member, role) => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if(!kontrol) return;
+  kanal.send(`
+  ==MODLOG | GREESY==
+  ${member.user.tag} Gived A **${role.name}** Role! 
+  `) 
+ });
+
+nico.on("guildMemberNicknameUpdate", async (member, old, yeni) => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if(!kontrol) return;
+  kanal.send(`
+  ==MODLOG | GREESY==
+  ${member.user.tag} Changed Nickname! 
+  \ Details: /
+  Old: ${old} 
+  New: ${yeni} 
+  `) 
+ });
+
+nico.on("guildMemberRoleRemove", async (member,role) => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if(!kontrol) return;
+  kanal.send(`
+  ==MODLOG | GREESY==
+  ${member.user.tag} Lost in The **${role.name}** Role! 
+  `) 
+ });
+
 //});
+nico.on("messageContentEdited", async (member, old, yeni) => {
+
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+
+  if(!kontrol) return;
+
+ /* kanal.send(`
+
+  ${member.user.tag} Just Boosted a Server! 
+
+  `) */
+  kanal.send(`
+  ==MODLOG | GREESY
+  `)
+
+ });
+
+

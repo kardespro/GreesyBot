@@ -731,7 +731,7 @@ app.get("/", bakimCheck, (req, res) => {
   var fetchComment = db.fetch(`commenttest`);
   var langPage = db.fetch(`pageLang_${ipInfo.clientIp}`);
   var tr = require("./langs/tr/index.json");
-  if(langPage == "tr"){
+/*if(langPage == "tr"){
    // res.json(`${ipInfo.clientIp}`);
     render(res, req, "index.ejs", {
     kardesproclient: nico,
@@ -741,13 +741,13 @@ app.get("/", bakimCheck, (req, res) => {
     ping:durationInMilliseconds.toLocaleString()
   });
 
-    }
+    }*/
   var lang;
   render(res, req, "index.ejs", {
     kardesproclient: nico,
     fetchComment,
     config,
-    lang,
+    langPage,
     ping:durationInMilliseconds.toLocaleString()
   });
 });

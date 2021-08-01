@@ -543,7 +543,7 @@ passport.use(
 
       callbackURL: config.callback,
 
-      scope: ["identify", "guilds", "guilds.join", "email"]
+      scope: ["identify", "guilds", "guilds.join"]
     },
     (accessToken, refreshToken, profile, done) => {
       process.nextTick(() => done(null, profile));
@@ -863,14 +863,11 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
   let guild = nico.guild;
   if (!id) return res.json({ error: "Bulunamadı" });
   let srev = nico.guilds.cache.get(id);
-  let perm = nico.guilds.cache
-    .get(id)
-    .members.cache.get(req.user.id)
-    .permissions.has("MANAGE_GUILD");
+  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Bulunamadı" });
   const fetchedLogs = nico.guilds.cache
     .get(id)
-    .fetchAuditLogs({ typ: "MESSAGE_DELETE" });
+    .fetchAuditLogs({ type: "MESSAGE_DELETE" });
   var verfyseviye = nico.guilds.cache.get(id).verificationLevel;
   var mfalev = nico.guilds.cache.get(id).mfaLevel;
   var afkK = nico.guilds.cache.get(id).afkChannel;

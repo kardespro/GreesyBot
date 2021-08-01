@@ -1417,7 +1417,19 @@ res.redirect("/");
   
 });
 
-
+app.get("/api/pings", (req,res) => {
+var Nego = {
+  bot_ping: `${nico.ws.ping} ms`,
+  status: "ONLINE",
+  Database_Locations:{
+    us4: "STATUS:CONNECTING.."
+  },
+  Dashboard_statics: {
+    index: `STATUS: ONLINE PING: ${db.fetch("indexPing")} ms`
+  }
+}
+res.json(Nego);
+  });
 
 const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)

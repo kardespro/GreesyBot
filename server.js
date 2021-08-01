@@ -813,6 +813,26 @@ app.get("/index.html", (req, res) => {
   res.json("Al Sana HTML 🤣");
 });
 /*
+*  Serverlist
+*/
+
+app.get("/servers", (req,res) => {
+    var popularforvotes = db.fetch(`popVotes`)
+    var usersSizePop = nico.guilds.cache.filter((m) => m.memberCount > 500)
+    //usersSizePop.forEach(x=> { x.name})
+    var onlineUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "online")
+    var dndUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "dnd")
+    var idleUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "idle")
+    var verifiedServers = db.fetch(`verifiedServers`)
+    var publicServers = db.fetch(`publicServer`)
+    var chatServers = db.fetch(`chatserver`)
+    if(!popularforvotes && usersSizePop && onlineUsersSize && dndUsersSize && idleUsersSize && verifiedServers && publicServers && chatServers ) return res.json({error: "Database Error ! Not Found "});
+})
+
+
+
+
+/*
  * Dashboard
  */
 

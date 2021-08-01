@@ -1424,7 +1424,8 @@ var Nego = {
   Database_Locations:{
     us4: "STATUS:CONNECTING.. ERR ! ERRMSG: Requesting us4.greesy.negodev.tk:3000 Was Responding",
     tr1: "STATUS: ONLINE DATABASE SIZE: 16000 mb",
-    aze1AMDRyzen: "STATUS: ONLINE DATABASE SIZE: 560000 mb"
+    aze1AMDRyzen: "STATUS: ONLINE DATABASE SIZE: 560000 mb",
+    trAMDRyzen: "STATUS: ONLINE DATABASE SIZE 32000 mb"
   },
   Dashboard_statics: {
     index: `STATUS: ONLINE PING: ${db.fetch("indexPing")} ms`

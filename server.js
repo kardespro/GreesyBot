@@ -875,7 +875,7 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
   var roller = nico.guilds.cache.get(id).roles;
   var banner = nico.guilds.cache.get(id).banner;
   var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
-
+var ping;
   render(res, req, "ayarlar.ejs", {
     id,
     guild,
@@ -887,6 +887,7 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
     roller,
     banner,
     srev,
+    ping,
     fetchGuildPre
   });
 });

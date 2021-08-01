@@ -1422,7 +1422,9 @@ var Nego = {
   bot_ping: `${nico.ws.ping} ms`,
   status: "ONLINE",
   Database_Locations:{
-    us4: "STATUS:CONNECTING.."
+    us4: "STATUS:CONNECTING.. ERR ! ERRMSG: Requesting us4.greesy.negodev.tk:3000 Was Responding",
+    tr1: "STATUS: ONLINE DATABASE SIZE: 16000 mb",
+    aze1AMDRyzen: "STATUS: ONLINE DATABASE SIZE: 560000 mb"
   },
   Dashboard_statics: {
     index: `STATUS: ONLINE PING: ${db.fetch("indexPing")} ms`

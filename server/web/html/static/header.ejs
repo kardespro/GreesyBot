@@ -5,7 +5,10 @@
     <meta name="theme-color" content="black">
 
     <title>Greesy</title>
+<link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
 
+
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -50,14 +53,14 @@
 
    <!--  <li class="list-group-item">Test</li>-->
 
-      <a class="nav-item nav-link " href="/stat/">Statistics</a>
+      <a class="nav-item nav-link " href="/stat/"><i class="fas fa-signal-alt-3"></i> Statistics</a>
 
       <% if(user){ %>
 
      <!--<a class="" href="/user/<%=user.id%>"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=" style="width:45px;height:45px;border-radius:50%;border:50%;border-color:green;"></img>  <%= user.username %>#<%= user.discriminator %></a>
     --> <button class="btn btn-primary dropdown-toggle mr-4" id="dropdownMenu1" type="button" data-toggle="dropdown"
 
-  aria-haspopup="true" aria-expanded="false"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=" style="width: 45px; height: 45px;border-radius: 50%;border-color:green;"></img> <%= user.username%>#<%= user.discriminator%></button>
+  aria-haspopup="true" aria-expanded="false"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=" style="width: 45px; height: 45px;border-radius: 50%;border-color:green;"></img> <i class="fad fa-user"></i> <%= user.username%>#<%= user.discriminator%></button>
 
 <div class="dropdown-menu dropdown-primary ">
 
@@ -76,7 +79,7 @@
 
     <% }else{ %>
 
-       <a class="nav-item nav-link" href="/l/">Giriş Yap</a>
+       <a class="nav-item nav-link" href="/l/"><i class="fab fa-discord"></i> Login</a>
 
      
 

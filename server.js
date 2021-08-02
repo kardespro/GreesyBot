@@ -1064,9 +1064,10 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
     res.json("al sana nah 😋");
   }
   
- if(!req.body.badwordd == "true"){
+ if(req.body.badwordd == "true"){
    res.json("saaaa");
  } 
+  if(rBody.creat
 
   db.set(`banlog_${id}`, rBody.banid);
   db.set(`kicklog_${id}`, rBody.kickid)

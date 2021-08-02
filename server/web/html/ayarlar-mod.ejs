@@ -25,6 +25,7 @@
 <body>
   <%- include("./static/header") %>
   <form method="POST">
+    
 <div class="jumbotron">
   
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BanLog Channel </p>
@@ -32,7 +33,40 @@
   <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
     <label class="form-label" for="form1Example1"></label>
   <br>
-  <button style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
+  <button name="bnlog" style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
+  </div>
+    <br>
+    <br>
+    
+<div class="jumbotron">
+  
+  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> KickLog Channel </p>
+  
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="kickid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
+    <label class="form-label" for="form1Example1"></label>
+  <br>
+  <button name="kicklo" style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="kickl">Save</button>
+  </div>
+    <br>
+    <br>
+    
+
+<div class="jumbotron">
+
+  
+
+  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BadWord Blocker </p>
+
+  
+<!--
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
+
+    <label class="form-label" for="form1Example1"></label>
+-->
+  <br>
+
+  <button name="bnlog" style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
+
   </div>
   </form>
 
@@ -44,7 +78,7 @@
     alert("Succesfully!")
     
     }
-  function haha(){
+  function banlog(){
   swal({
   title: "Are you sure?",
   text: "Click the Save button to save the setting!",
@@ -54,10 +88,10 @@
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Succes! Your Saved Counter System Settings!", {
+    swal("Succes! Your Saved Settings!", {
       icon: "success",
     });
-    window.location.href = "/api/dash/<%= id %>/yonet/counter/save";
+    window.location.href = "/api/dash/<%= id %>/yonet/mod/save";
   } else {
     swal({
       title: "Canceled!",
@@ -65,7 +99,7 @@
     });
   }
 });
-    if(!haha == null){
+    if(!banlog == null){
       alert("Please write info's on the input!")
       }
     };

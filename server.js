@@ -1063,7 +1063,16 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (rBody == "nah") {
     res.json("al sana nah 😋");
   }
+  
+  if (rBody == "bnlog") {
+    //res.json("al sana nah 😋");
+    alert("Sucessfully!")
+  }
+  
+
   db.set(`banlog_${id}`, rBody.banid);
+  db.set(`kicklog_${id}`, rBody.kickid)
+  
   /*
   db.set(`counterNumber_${id + rBody.cnumber}`);
   

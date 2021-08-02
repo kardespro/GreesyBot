@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Georama:wght@100&display=swap" rel="stylesheet">
 
 
-
+<link href="https://fonts.googleapis.com/css2?family=Georama:wght@100&family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://raw.githubusercontent.com/lipis/flag-icon-css/master/css/flag-icon.css">
 <link rel="stylesheet" href="https://raw.githubusercontent.com/lipis/flag-icon-css/master/css/flag-icon.min.css">
@@ -32,8 +32,12 @@
     <div class="overlay"></div>
 
 <div class="jumbotron">
-  <p style="text-align: left;font-family: 'Georama', sans-serif;"> Members Count: <%= ksayi %> </p>
+  
+  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> Members Count: <%= ksayi %> </p>
   <br>
+  
+  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> Verification Level: <%= verfyseviye %> </p>
+ <br>
   <center>
     
 <img src="https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png" class="rounded card jumbotron"></img>
@@ -45,7 +49,7 @@
 
         <h2 class="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">
 
-            Moderation
+            <i class="fas fa-user-shield"></i> Moderation
 
         </h2>
 
@@ -70,7 +74,7 @@
 
         <h2 class="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">
 
-            Plugins
+           <i class="fas fa-plus-circle"></i> Plugins
 
         </h2>
 

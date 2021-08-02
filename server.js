@@ -1064,17 +1064,14 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
     res.json("al sana nah 😋");
   }
   
-  if (rBody == "bnlog") {
-    //res.json("al sana nah 😋");
-    alert("Sucessfully!")
-  }
-  
+ if(rBody.badwordd == true){
+   res.json("saaaa");
+ } 
 
   db.set(`banlog_${id}`, rBody.banid);
   db.set(`kicklog_${id}`, rBody.kickid)
-  var ah = document.querySelector('#badwor:checked') 
-  const cb = document.getElementById('badwor') 
-     db.set(`kufur_${id}`, "acik")
+ 
+  db.set(`kufur_${id}`, "acik")
   
   /*
   db.set(`counterNumber_${id + rBody.cnumber}`);

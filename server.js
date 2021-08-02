@@ -873,6 +873,7 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
   var afkK = nico.guilds.cache.get(id).afkChannel;
   var region = nico.guilds.cache.get(id).region;
   var roller = nico.guilds.cache.get(id).roles;
+  var ksayi = nico.guilds.cache.get(id).memberCount;
   var banner = nico.guilds.cache.get(id).banner;
   var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
 var ping;
@@ -883,6 +884,7 @@ var ping;
     verfyseviye,
     mfalev,
     afkK,
+    ksayi, 
     region,
     roller,
     banner,

@@ -1064,7 +1064,7 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
     res.json("al sana nah 😋");
   }
   
- if(rBody.badwordd == true){
+ if(!req.body.badwordd == "true"){
    res.json("saaaa");
  } 
 
@@ -1079,7 +1079,7 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
   db.set(`counterChannel_${id + rBody.chid}`);
   db.add(`counterAdd_${id}`, +1);
 */
-  res.redirect(`/dash/${id}/yonet/mod`);
+  //res.redirect(`/dash/${id}/yonet/mod`);
 });
 
 app.get("/api/dash/:sunucuID/yonet/mod/save", async (req, res) => {

@@ -5,10 +5,7 @@
     <meta name="theme-color" content="black">
 
     <title>Greesy</title>
-<link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
-
-
-    
+    <link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -47,13 +44,13 @@
 
     <div class="navbar-nav">
 
-      <a class="nav-item nav-link active " href="/">Home <span class="sr-only"></span></a>
+      <a class="nav-item nav-link active " href="/"><i class="fad fa-home"></i> Home <span class="sr-only"></span></a>
 
-      <a class="nav-item nav-link " href="/cmds/">Commands</a>
+      <a class="nav-item nav-link " href="/cmds/"><i class="fad fa-terminal"></i> Commands</a>
 
    <!--  <li class="list-group-item">Test</li>-->
 
-      <a class="nav-item nav-link " href="/stat/"><i class="fas fa-signal-alt-3"></i> Statistics</a>
+      <a class="nav-item nav-link " href="/stat/"><i class="fad fa-signal-alt-1"></i>  Statistics</a>
 
       <% if(user){ %>
 
@@ -63,8 +60,11 @@
   aria-haspopup="true" aria-expanded="false"><img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.png?size=" style="width: 45px; height: 45px;border-radius: 50%;border-color:green;"></img> <i class="fad fa-user"></i> <%= user.username%>#<%= user.discriminator%></button>
 
 <div class="dropdown-menu dropdown-primary ">
+<% if(user.id == config.kurucurolid){ %>
+   <a class="dropdown-item" href="/admin"><i class="fad fa-users-crown"></i> Dashboard</a>
 
-  <a class="dropdown-item" href="/dash">Dashboard</a>
+  <% } %>
+  <a class="dropdown-item" href="/dash"><i class="fad fa-presentation"></i> Dashboard</a>
 
   <a class="dropdown-item" href="/ticket/create">Support Ticket</a>
 

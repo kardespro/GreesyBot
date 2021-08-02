@@ -1,7 +1,7 @@
 <%- include("./static/header") %>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
-
+<!--<link href="https://pro.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
+-->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
@@ -39,14 +39,14 @@
 
 <body style="background-color:#46648c;">
    <div class="jumbotron">
-  <h1 style="color:black;text-align:center;font-family: 'Source Sans Pro', sans-serif;"> Greesy</h1>
+  <h1 style="color:black;text-align:center;font-family: 'Source Sans Pro', sans-serif;"><i class="fal fa-dumbbell"></i> Greesy</h1>
     <p style="color: #189de4;text-align:center;font-family: 'Teko', sans-serif;">Discord's Best Moderation Bot </p>
  
      <center>
   <a href="/cmds/" type="button" class="btn btn-info" onclick="muq();" >Commands</a>
   <a href="/stat/" type="button" class="btn btn-success">Statistics</a>
     <% if(user){ %>
-     <a href="/dash" type="button" class="btn btn-danger" onclick="muq();" >Dashboard</a>
+     <a href="/dash" type="button" class="btn btn-danger" onclick="muq();" > Dashboard</a>
  <% if(user.id == config.kurucurolid){ %>
     <a href="/admin" type="button" class="btn btn-secondary" onclick="muq();" >Admin Panel</a>
 

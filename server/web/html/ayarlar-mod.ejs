@@ -5,20 +5,34 @@
 <!-- Google Fonts -->
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Google Fonts -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+<!-- Bootstrap core CSS -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
 
 <!-- Bootstrap core CSS -->
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
 
 <body>
+  <%- include("./static/header") %>
   <form method="POST">
 <div class="jumbotron">
   
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BanLog Channel </p>
   
-  <input type="email" id="form1Example1" class="form-control" placeholder="Write ID"/>
-    <label class="form-label" for="form1Example1">Channel ID</label>
-
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
+    <label class="form-label" for="form1Example1"></label>
+  <br>
+  <button style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
   </div>
   </form>
 
@@ -26,6 +40,10 @@
 </body>
 <script>
 //by Nego#0001
+  function banlog(){
+    alert("Succesfully!")
+    
+    }
   function haha(){
   swal({
   title: "Are you sure?",

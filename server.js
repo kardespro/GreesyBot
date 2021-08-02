@@ -1012,7 +1012,7 @@ app.get("/api/dash/:sunucuID/yonet/counter/save", async (req, res) => {
 });
 
 
-app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
+app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (!req.user) return res.redirect("/l/");
   let id = req.params.sunucuID;
   let guild = nico.guild;
@@ -1024,7 +1024,7 @@ app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
     .members.cache.get(req.user.id)
     .permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Bulunamadı" });
-  render(res, req, "ayarlar_counter.ejs", {
+  render(res, req, "ayarlar-mod.ejs", {
     id,
     fetchPre,
     guild,
@@ -1063,11 +1063,13 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (rBody == "nah") {
     res.json("al sana nah 😋");
   }
-  db.set(`counter_${id}`);
+  db.set(`banlog_${id}`, rBody.banid);
+  /*
   db.set(`counterNumber_${id + rBody.cnumber}`);
+  
   db.set(`counterChannel_${id + rBody.chid}`);
   db.add(`counterAdd_${id}`, +1);
-
+*/
   res.redirect(`/dash/${id}/yonet/mod`);
 });
 

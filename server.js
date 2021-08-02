@@ -1072,6 +1072,9 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
 
   db.set(`banlog_${id}`, rBody.banid);
   db.set(`kicklog_${id}`, rBody.kickid)
+  var ah = document.querySelector('#badwor:checked') 
+  const cb = document.getElementById('badwor') 
+     db.set(`kufur_${id}`, "acik")
   
   /*
   db.set(`counterNumber_${id + rBody.cnumber}`);

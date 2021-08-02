@@ -1430,7 +1430,9 @@ app.get("/testblog", (req, res) => {
 /*
  * API
  */
-
+app.get("/api/accesstoken", gGiris,  (req,res) => {
+  res.send(req.user.accessToken);
+  });
 //key check
 
 app.get("/api/v1/keycheck/:key", (req, res) => {

@@ -15,7 +15,7 @@ exports.run = async (client, message, args) => {
 
     const info = new Discord.MessageEmbed()
       .setColor('WHITE')
-      .setTitle('Greesy Bot')
+      .setTitle('Greedy Bot')
      // .setDescription('Stats of the bot! If you want to donate to me, you can reach me on Discord.')
     .setDescription(`
     Shows Statistics From When You Type
@@ -28,8 +28,8 @@ exports.run = async (client, message, args) => {
         { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + fa + ' **ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
         { name: "🖥 Platform", value: os.platform }, 
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
-        { name: '🔝 Guilds', value: client.guilds.cache.size, inline: true }, // Olduğu sunucu sayısı
-        { name: '👨 Users', value: client.users.cache.size + ' ', inline: true }, // Kullanıcı sayısı
+        { name: '🔝 Guilds', value: '75', inline: true }, // Olduğu sunucu sayısı
+        { name: '👨 Users', value: '325k' + ' ', inline: true }, // Kullanıcı sayısı
         { name: '🖥 Dashboard Statics', value: `Ping: ${db.fetch(`dashPing`)} ¦ Index Router Ping : ${db.fetch(`indexPing`)} ms ¦ User Router Ping : undefined ms ¦ Subscriptions Router Ping : null ms  ¦ Dashboard Router Ping : null ms ¦ Api Ping : undefined ms `, inline: true }, // Dash Ping
       )
       .setTimestamp() //Bunu eğer altta zaman gözüksün istemiyorsanız silin.

@@ -766,8 +766,8 @@ app.get("/cmds", bakimCheck, (req, res) => {
 
     })
   render(res, req, "commands.ejs",{
-    ping:durationInMilliseconds.toLocaleString()
-    
+    ping:durationInMilliseconds.toLocaleString(), 
+    config
   });
 });
 
@@ -802,7 +802,7 @@ app.get("/stat/", bakimCheck, (req, res) => {
     db.set(`statPing`,durationInMilliseconds.toLocaleString());
 
     })
-  render(res, req, "stat.ejs", { nego: client , ping:durationInMilliseconds.toLocaleString()
+  render(res, req, "stat.ejs", { nego: client , ping:durationInMilliseconds.toLocaleString(),config
 
  });
 });
@@ -853,7 +853,7 @@ app.get("/dash", gGiris, bakimCheck, (req, res) => {
 
 
   
-  render(res, req, "sunucusec.ejs", { perms , ping:durationInMilliseconds.toLocaleString()
+  render(res, req, "sunucusec.ejs", { perms , ping:durationInMilliseconds.toLocaleString(), config
  });
 });
 

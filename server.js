@@ -1,5 +1,7 @@
 const express = require("express");
 const Nuggies = require("nuggies");
+const managerdb = require("./Database/main.js") 
+const manager = new managerdb("./all.json") 
 const Discord2 = require("discord.js");
 const Client2 = new Discord2.Client();
 const Util = require("./util/eventloader.js")(Client2);

@@ -3,7 +3,7 @@ const fs = require("fs");
 if (!fs.existsSync("./database.json")) {fs.writeFileSync('database.json','{}', function (err) { if (err) throw err; });}
 let useful;
 let dosya;
-class nego {
+class db {
     constructor(input){ 
         //Json Dosyasi Ayarlama
     if(input && typeof input != 'string' ) throw new TypeError("[Nego.db] Json Dosyasini Belirtmedin")
@@ -41,12 +41,14 @@ fetchAll(){
 return dosya;}
 }
 //has
-
+/*
 has(veri){
     if(!veri) throw new TypeError("Veri Ismi Girmediniz")
-    return dosya[veri] ? true : false}
+    return dosya[veri] ? true : false
+}*/
 //yedekle
+/*
 backup(dosyaname){
     if(!dosyaname) throw new TypeError("Dosya Ismi Girmedin")
-return fs.writeFileSync(`${dosyaname}.json`, JSON.stringify(dosya, null, 1))}
-module.exports = nego;
+return fs.writeFileSync(`${dosyaname}.json`, JSON.stringify(dosya, null, 1))}*/
+module.exports = db;

@@ -890,7 +890,8 @@ var ping;
     banner,
     srev,
     ping,
-    fetchGuildPre
+    fetchGuildPre, 
+    config
   });
 });
 
@@ -906,7 +907,7 @@ app.get("/dash/:sunucuID/yonet/embed", async (req, res) => {
     .members.cache.get(req.user.id)
     .permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Bulunamadı" });
-  render(res, req, "ayarlar_embed.ejs", { id, fetchPre, guild });
+  render(res, req, "ayarlar_embed.ejs", { id, fetchPre, guild, config});
 });
 
 app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
@@ -925,7 +926,8 @@ app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
     id,
     fetchPre,
     guild,
-    counterAddingsize
+    counterAddingsize, 
+    config
   });
 });
 
@@ -1028,7 +1030,8 @@ app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
     id,
     fetchPre,
     guild,
-    counterAddingsize
+    counterAddingsize, 
+    config
   });
 });
 
@@ -1270,11 +1273,14 @@ app.get("/user/subscriptions/", (req, res) => {
   if (!req.user) return res.redirect("/l");
   var user = req.user.id;
   var userr = req.user;
+  let ping = 0;
   var fetch_abonelik = db.fetch(`abonelik_${user}`);
   render(res, req, "abonelik.ejs", {
     abonelik: fetch_abonelik,
     user,
-    userr
+    userr, 
+    config,
+    ping
   });
 });
 
@@ -1295,7 +1301,7 @@ app.get("/user/subscriptions/delete", (req, res) => {
 app.get("/user/comment", (req, res) => {
   if (!req.user) return res.redirect("/l/");
   var abIzin = db.fetch(`abonelik_${req.user.id}`);
-  render(res, req, "comment.ejs", { abIzin });
+  render(res, req, "comment.ejs", { abIzin,config });
 });
 
 app.post("/user/comment", gGiris, (req, res) => {

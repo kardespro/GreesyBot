@@ -1,6 +1,8 @@
 const Discord = require('discord.js');
 const client = new Discord.Client() 
 //const db = require("mongoose") 
+const manager = require("../Database/main.js")
+const dbx = new manager("./all.json")
 const db = require("quick.db");
 const ping = require('node-http-ping')
  const os = require("os") 
@@ -30,6 +32,7 @@ exports.run = async (client, message, args) => {
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
         { name: '🔝 Guilds', value: '75', inline: true }, // Olduğu sunucu sayısı
         { name: '👨 Users', value: '325k' + ' ', inline: true }, // Kullanıcı sayısı
+        { name: "<:sayfabei:867674107428339733> Used Modules", value: `Discord.js: **12.5.3** | Mongoose: **5.13.2** | GreesyDB(Custom): ${dbx.version()}` }, 
         { name: '🖥 Dashboard Statics', value: `Ping: ${db.fetch(`dashPing`)} ¦ Index Router Ping : ${db.fetch(`indexPing`)} ms ¦ User Router Ping : undefined ms ¦ Subscriptions Router Ping : null ms  ¦ Dashboard Router Ping : null ms ¦ Api Ping : undefined ms `, inline: true }, // Dash Ping
       )
       .setTimestamp() //Bunu eğer altta zaman gözüksün istemiyorsanız silin.

@@ -15,6 +15,8 @@ set(veri, değer){
 if(!veri && !değer) throw new TypeError("You should enter an input.")
 dosya[veri] = değer;return fs.writeFileSync(useful,JSON.stringify(dosya, null, 1))}
 //çek
+  version(){
+    return "0.0.1-Dev By ɴɪᴄᴀᴛ.ᴅᴄᴡ"} 
 fetch(veri){
     if(!veri) throw new TypeError("Veri Ismini Girmedin")
     
@@ -40,6 +42,10 @@ dosya[veri].push(değer);return fs.writeFileSync(useful,JSON.stringify(dosya, nu
 fetchAll(){ 
 return dosya;}
 }
+/*
+version(){
+  return "";
+ } */
 //has
 /*
 has(veri){

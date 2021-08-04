@@ -30,10 +30,10 @@ exports.run = async (client, message, args) => {
         { name: '🥁 Ping(s)', value: Math.round(client.ws.ping) + '**ms** ¦ Dashboard Ping: 0**ms** | ' + fa + ' **ms** ¦ 🌎 Mongoose Ping', inline: true }, // Ping
         { name: "🖥 Platform", value: os.platform }, 
         { name: '↕ Memory', value: (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + ' MB|2000 GB', inline: true }, // Rss
-        { name: '🔝 Guilds', value: '75', inline: true }, // Olduğu sunucu sayısı
-        { name: '👨 Users', value: '325k' + ' ', inline: true }, // Kullanıcı sayısı
-        { name: "<:sayfabei:867674107428339733> Used Modules", value: `Discord.js: **12.5.3** | Mongoose: **5.13.2** | GreesyDB(Custom): ${dbx.version()}` }, 
-        { name: '🖥 Dashboard Statics', value: `Ping: ${db.fetch(`dashPing`)} ¦ Index Router Ping : ${db.fetch(`indexPing`)} ms ¦ User Router Ping : undefined ms ¦ Subscriptions Router Ping : null ms  ¦ Dashboard Router Ping : null ms ¦ Api Ping : undefined ms `, inline: true }, // Dash Ping
+        { name: '🔝 Guilds', value: client.guilds.cache.size , inline: true }, // Olduğu sunucu sayısı
+        { name: '👨 Users', value: client.guilds.cache.reduce((a, b) => a + b.memberCount, 0) + ' ', inline: true }, // Kullanıcı sayısı
+        { name: "<:sayfabei:867674107428339733> Used Modules", value: `Discord.js: **12.5.3** | Mongoose: **5.13.2** | GreesyDB(Custom): **${dbx.version()}**` }, 
+        { name: '🖥 Dashboard Statics', value: `Ping: ${db.fetch(`dashPing`)} ¦ Index Router Ping : ${db.fetch(`indexPing`)} ms ¦ User Router Ping : ${db.fetch(`userPing`) || "0"} ms ¦ Subscriptions Router Ping : null ms  ¦ Dashboard Router Ping : null ms ¦ Api Ping : 0 ms `, inline: true }, // Dash Ping
       )
       .setTimestamp() //Bunu eğer altta zaman gözüksün istemiyorsanız silin.
      // .setFooter('Stats, yey!', 'https://i.pinimg.com/originals/c3/06/a9/c306a969d8d171a43a09a6dc31f6fbfd.jpg'); // Alttaki footer fotoğrafo
@@ -79,7 +79,7 @@ exports.run = async (client, message, args) => {
     //Your code here...
 
 });*/
-    message.channel.send('', {embed: info, buttons: [pingbuton, testbuton]}); //Mesajı gönderir.
+    message.channel.send('', {embed: info, buttons: [pingbuton]}); //Mesajı gönderir.
   
 };
 

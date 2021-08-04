@@ -40,6 +40,7 @@ exports.run = async (client, message, args) => {
  .setFooter("Greesy © - All Rights Reserved! ")
   const davet = new disbut.MessageButton() 
  .setStyle('url', 'blurple') 
+ .setID("bu")
  .setURL("https://grees.negodev.tk")//qasidevi  oaoaoa
   .setLabel("Invite")
   const docs = new disbut.MessageButton() 
@@ -58,8 +59,13 @@ exports.run = async (client, message, args) => {
   .setURL("https://discord.io/greedybot")
   .setLabel("Suport Server") 
 message.channel.send('', {embed: embed_, buttons: [davet, sp, dash, docs]});
-
-
+/*
+client.on("clickButton", async (button) => {
+  if(button.id === "bu"){
+    
+    await button.reply.send("Thanks Click To View My Dashboard! ")
+   } 
+ });*/
 
  } 
   

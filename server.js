@@ -1556,7 +1556,7 @@ res.json(Nego);
 const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
 
-nico.login(process.env.token2);
+nico.login(process.env.TOKEN);
 const listener = app.listen(process.env.PORT, () => {
   /*console.log("Your app is listening on port " + listener.address().port);
 

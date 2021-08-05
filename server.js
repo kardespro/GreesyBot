@@ -250,7 +250,7 @@ const authRouter = require("./server/auth.js");
 
 //CONFIG
 const ayar = {
-  durum: "!help | !stat "
+  durum: "👑 !help | !stat "
 };
 const config = {
   siteismi: "Greesy | Best Utility Bot",
@@ -292,11 +292,11 @@ nico.on("ready", () => {
 
   const Discord = require("discord.js");
   nico.user.setActivity(ayar.durum, { type: "WATCHING" });
-  const kategori = "869293230942994473";
+ /* const kategori = "869293230942994473";
   var kontrol = kategori
     .forEach(x => {
       x.name > "Channels |";
-    })
+    })*/
   const kanalone = "869297523062358036" 
   kanalone.setName(`Channels - ${nico.channels.cache.size}`)
   
@@ -346,6 +346,7 @@ var mesajj = mesaj;
   `);*/
 
   // nico.user.setActivity(`🌎 !help | !stat `);
+  setInterval(() => backup(), 1000 * 60 * 60 * 24); // Günde bir kere yedekler.
   
 });
 nico.on('guildCreate', guild => {

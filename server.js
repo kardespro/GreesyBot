@@ -1327,7 +1327,29 @@ db.push(`myTickets.${req.user.id}`,tData);
 db.push(`tickets`,tData);
 db.add(`myTicketssize_${req.user.id}`,+1);
 res.redirect("/ticket/view/"+ ticketID);
-var emb = new
+var emb = new discord.MessageEmbed()
+.setTitle("Greesy")
+.setColor("#3437eb")
+.setDescription(`
+
+ A New Support Request
+ 
+ ===== Ticket Information =====
+ 
+ Author: <@${req.user.id}>
+ Type: ${konu}
+ 
+ ================================
+ 
+ [[Answer Ticket]](https://greesy.negodev.tk/admin/ticket/${ticketID}/answer/)
+ 
+ 
+ <@>
+
+
+
+`);
+  
 nico.channels.cache.get("").send()
 });
 

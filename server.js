@@ -407,7 +407,12 @@ nico.on("message", async message => {
   }
   if (cmd) {
     const karaliste = db.fetch(`blacklist.${message.author.id}`)
-    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | You Have Been Blacklisted by My Owners! If this may be wrong, contact Support. https://greesy.negodev.tk/ticket`) 
+    const xd = require("discord-buttons") 
+    const buton1 = new xd.MessageButton() 
+   .setStyle("url","green")
+    .setLabel("Contact")
+   .setURL("https://greesy.negodev.tk")
+    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | **You Have Been Blacklisted by My Owners! If this may be wrong, contact Support**. `,{buttons: buton1}) 
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`
     );

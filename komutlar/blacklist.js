@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
   if(args[0] == "add"){
 const kk = message.mentions.users.first() || args[1];
   if(!kk) return message.channel.send("<:hayirbei:867465654960128010> | Please Mention a **User**! ") 
-db.set(`blacklist.${kk.id}`, true) 
+db.set(`blacklist.${kk}`, true) 
 message.channel.send(`<:evetbei:867465536736460810> | \`${kk}\`(${kk.id}) Added To BlackList!`) 
     client.channels.cache.get("859899078624149516").send(`
      **API Log**
@@ -22,7 +22,7 @@ message.channel.send(`<:evetbei:867465536736460810> | \`${kk}\`(${kk.id}) Added 
   if(args[0] == "remove"){
     const kk2 = message.mentions.users.first() || args[1];
     if(!kk2) return message.channel.send("<:hayirbei:867465654960128010> | Please Mention a **User**!") 
-    db.delete(`blacklist.${kk2.id}`)
+    db.set(`blacklist.${kk2}`, false)
     return message.channel.send("<:evetbei:867465536736460810> | Removed! ") 
     
    } 

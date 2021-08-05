@@ -7,8 +7,28 @@ const Client2 = new Discord2.Client();
 const Util = require("./util/eventloader.js")(Client2);
 const tools = require("./greesyapi.js");
 const mongoose = require("mongoose");
-
-//Nuggies.giveaways.connect(process.env.mongoURI);
+const backup = () => {
+    fs.copyFile('./json.sqlite', `./backups/ • ${moment().format('D-M-YYYY • H.mm.ss')} • nego.sqlite`, err => {
+        if (err) return console.log(err);
+        console.log('Database Backuped.');
+      var Embid = new discord.MessageEmbed()
+      .setTitle("Greesy")
+      .setColor("#3437eb")
+      .setDescription(`
+      
+    Greesy Database Manager
+           
+           
+    ** Database Backuped **
+          
+     By : System
+      
+      Time: ${moment().format('D-M-YYYY • H.mm.ss')}
+      
+      `);
+      nico.channels.cache.get("868378969140002816").send(Embid);
+    });
+};//Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
 //var dc2 = require("discord.js");
 //const clientDash = new discord.Client();
@@ -332,7 +352,7 @@ nico.on('guildCreate', guild => {
   if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
   });
 nico.on("guildDelete", guild => {
-  fs.copyFile('./json.sqlite', `./Backups_Database/ • ${moment().format('D-M-YYYY • H.mm.ss')} • ${guildn.sqlite`, err => {
+  fs.copyFile('./json.sqlite', `./Backups_Database/ • ${moment().format('D-M-YYYY • H.mm.ss')} • ${guild.name}.sqlite`, err => {
         if (err) return console.log(err);
         console.log('Database Backuped.');
     });

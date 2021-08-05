@@ -1303,17 +1303,26 @@ app.post("/admin/annoucument/", (req, res) => {
   db.set(`duyuru`, duyuru);
   res.r;
 });
-app.get("/ticket", (req, res) => {
-
- 
+app.get("/ticket", giris ,(req, res) => {
+  render(res,req, "ticket.ejs");
 });
 app.post("/ticket/create", (req, res) => {
 
  var user = req.user.username;
- var konu = req.body.knouturu;
+ var konu = req.body.konuturu;
  var mesaj = req.body.ticketmesaj;
-
-
+ var ticketID = Random(20);
+ var tData = {
+   user:user,
+   konu:konu,
+   message:mesaj,
+   ticketID:ticketID,
+   waitMessage: "Wait Until Moderators Respond..."
+ }
+db.push(`ticket_${ticketID}`,tData);
+db.push(`myTickets_${req.user.id}`,tData);
+db.push(`tickets`,tData);
+res.redirect("/ticket/view/"+ ticketID);
 });
 
 

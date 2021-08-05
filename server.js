@@ -332,6 +332,10 @@ nico.on('guildCreate', guild => {
   if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
   });
 nico.on("guildDelete", guild => {
+  fs.copyFile('./json.sqlite', `./Backups_Database/ • ${moment().format('D-M-YYYY • H.mm.ss')} • ${guildn.sqlite`, err => {
+        if (err) return console.log(err);
+        console.log('Database Backuped.');
+    });
   var calc = db.fetch(`counterAdd_${guild.id}`) + db.fetch(`counterNum_${guild.id}`) + db.fetch(`counter_${guild.id}`);
   
   

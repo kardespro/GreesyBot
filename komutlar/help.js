@@ -40,7 +40,7 @@ exports.run = async (client, message, args) => {
  .setFooter("Greesy © - All Rights Reserved! ")
   const davet = new disbut.MessageButton() 
  .setStyle('url', 'blurple') 
- .setID("bu")
+ //.setID("bu")
  .setURL("https://grees.negodev.tk")//qasidevi  oaoaoa
   .setLabel("Invite")
   const docs = new disbut.MessageButton() 

@@ -1301,13 +1301,16 @@ app.get("/admin/annoucument/", gGiris, adminCheck, (req, res) => {
 app.post("/admin/annoucument/", (req, res) => {
   var duyuru = req.body.duyurutext;
   db.set(`duyuru`, duyuru);
-  res.r;
+  res.redirect("/");
 });
-app.get("/ticket", giris ,(req, res) => {
+app.get("/ticket", gGiris ,(req, res) => {
   render(res,req, "ticket.ejs");
 });
-app.post("/ticket/create", (req, res) => {
-
+app.post("/ticket/create", gGiris , (req, res) => {
+  var sze = db.fetch(`myTicketssize_${req.user.id}`);
+  if(sze > 2){
+    res.json({err: "You cannot open more than 2 Support Requests."});
+  }
  var user = req.user.username;
  var konu = req.body.konuturu;
  var mesaj = req.body.ticketmesaj;
@@ -1320,9 +1323,12 @@ app.post("/ticket/create", (req, res) => {
    waitMessage: "Wait Until Moderators Respond..."
  }
 db.push(`ticket_${ticketID}`,tData);
-db.push(`myTickets_${req.user.id}`,tData);
+db.push(`myTickets.${req.user.id}`,tData);
 db.push(`tickets`,tData);
+db.add(`myTicketssize_${req.user.id}`,+1);
 res.redirect("/ticket/view/"+ ticketID);
+var emb = new
+nico.channels.cache.get("").send()
 });
 
 

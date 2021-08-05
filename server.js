@@ -371,6 +371,8 @@ nico.on("message", async message => {
     cmd = client.komutlar.get(client.aliases.get(command));
   }
   if (cmd) {
+    const karaliste = db.fetch(`blacklist.${message.author.id}`)
+    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | You Have Been Blacklisted by My Owners! If this may be wrong, contact Support. `) 
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`
     );

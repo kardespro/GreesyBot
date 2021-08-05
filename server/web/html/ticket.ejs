@@ -1,15 +1,13 @@
+<%- include('./static/header') %>
+
 <form action="/ticket/create"method="POST">
-<input name="mesaj" />
-  <label></labe
-<select name="cars" id="cars">
+<input class="form-control" name="mesaj" required/>
+  <br>
+  <label>Type</label>
+<select class="form-control" name="konuturu" id="konuturu" required>
 
-  <option value="volvo">Volvo</option>
+  <option value="Bug">Bug</option>
 
-  <option value="saab">Saab</option>
-
-  <option value="mercedes">Mercedes</option>
-
-  <option value="audi">Audi</option>
-
+  <option value="Other">Other</option>
 </select>
 </form>

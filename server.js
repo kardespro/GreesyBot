@@ -1304,7 +1304,7 @@ app.post("/admin/annoucument/", (req, res) => {
   res.redirect("/");
 });
 app.get("/ticket", gGiris ,(req, res) => {
-  render(res,req, "ticket.ejs");
+  render(res,req, "ticket.ejs",{config});
 });
 app.post("/ticket/create", gGiris , (req, res) => {
   var sze = db.fetch(`myTicketssize_${req.user.id}`);
@@ -1312,12 +1312,13 @@ app.post("/ticket/create", gGiris , (req, res) => {
     res.json({err: "You cannot open more than 2 Support Requests."});
   }
  var user = req.user.username;
- var konu = req.body.konuturu;
+ //var konu = req.body.konuturu;
+  var rBody  = req.body;
  var mesaj = req.body.ticketmesaj;
  var ticketID = Random(20);
  var tData = {
    user:user,
-   konu:konu,
+   konu:k
    message:mesaj,
    ticketID:ticketID,
    waitMessage: "Wait Until Moderators Respond..."

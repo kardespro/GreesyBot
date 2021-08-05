@@ -1,5 +1,25 @@
 <%- include('./static/header') %>
-
+<style>
+.form-control {
+  background-color: var(--form-input);
+  color: var(--input-color);
+  border: none;
+}
+.form-control:focus {
+  background-color: var(--form-input);
+  color: var(--input-color);
+  border: 3px solid var(--button-green);
+}
+  label {
+    color: var(--label-color)!important;
+  }
+input[type="text"]:disabled {
+  background-color: var(--input-disabled);
+  color: gray;
+  border: none;
+  cursor: not-allowed;
+}
+</style>
 <form action="/ticket/create"method="POST">
 <input class="form-control" name="mesaj" required/>
   <br>
@@ -7,7 +27,9 @@
 <select class="form-control" name="konuturu" id="konuturu" required>
 
   <option value="Bug">Bug</option>
-
+  <option value="Report Admin or Moderator">Report Admin or Moderator</option>
+  <option value="Blacklist">Blacklist</option>
+  <option value="Not Running Commands">Not Running Commands</option>
   <option value="Other">Other</option>
 </select>
 </form>

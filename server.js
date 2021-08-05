@@ -1307,18 +1307,18 @@ app.get("/ticket", gGiris ,(req, res) => {
   render(res,req, "ticket.ejs",{config});
 });
 app.post("/ticket/create", gGiris , (req, res) => {
-  var sze = db.fetch(`myTicketssize_${req.user.id}`);
+/*  var sze = db.fetch(`myTicketssize_${req.user.id}`);
   if(sze > 2){
     res.json({err: "You cannot open more than 2 Support Requests."});
-  }
+  }*/
  var user = req.user.username;
- //var konu = req.body.konuturu;
-  var rBody  = req.body;
+var konu = req.body.konuturu;
+var rBody = req.body;
  var mesaj = req.body.ticketmesaj;
  var ticketID = Random(20);
  var tData = {
    user:user,
-   konu:k
+   konu:konu,
    message:mesaj,
    ticketID:ticketID,
    waitMessage: "Wait Until Moderators Respond..."

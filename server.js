@@ -332,7 +332,8 @@ nico.on('guildCreate', guild => {
   if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
   });
 nico.on("guildDelete", guild => {
-  var calc = db.dfetch(`counterAdd_${guild.id}`);
+  var calc = db.fetch(`counterAdd_${guild.id}`) + db.fetch(`counterNum_${guild.id}`) + db.fetch(`counter_${guild.id}`);
+  
   
   db.delete(`counterAdd_${guild.id}`);
   db.delete(`counter_${guild.id}`);
@@ -352,7 +353,7 @@ nico.on("guildDelete", guild => {
     Owner \`<@${guild.ownerID}>\`
     MemberCount: \`${guild.memberCount}\`
     Roles Size : ${guild.roles.cache.size}
-    Space Size of the Server in the Database: 
+    Space Size of the Server in the Database: ${calc}
     
     ==    ==
   

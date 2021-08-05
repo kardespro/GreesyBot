@@ -31,6 +31,7 @@ dependencies:
   nego.db: 2.0.0
   node-fetch: 2.6.1
   node-http-ping: 0.3.1
+  node-superfetch: 0.2.3
   nuggies: 1.2.51
   os: 0.1.2
   parse-ms: 3.0.0
@@ -1464,6 +1465,16 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==
+  /form-data/4.0.0:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.32
+    dev: false
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==
   /formidable/1.2.2:
     dev: false
     resolution:
@@ -2307,15 +2318,6 @@ packages:
       mongoose: '*'
     resolution:
       integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
-  /mongoose-legacy-pluralize/1.0.2/mongoose@5.13.2:
-    dependencies:
-      mongoose: /mongoose/5.13.2/mongoose@5.13.2
-    dev: false
-    id: registry.npmjs.org/mongoose-legacy-pluralize/1.0.2
-    peerDependencies:
-      mongoose: '*'
-    resolution:
-      integrity: sha512-Yo/7qQU4/EyIS8YDFSeenIvXxZN+ld7YdV9LqFVQJzTLye8unujAWPZ4NWKfFA+RNjh+wvTWKY9Z3E5XM6ZZiQ==
   /mongoose/5.13.2:
     dependencies:
       '@types/mongodb': 3.6.20
@@ -2334,27 +2336,6 @@ packages:
     dev: false
     engines:
       node: '>=4.0.0'
-    resolution:
-      integrity: sha512-sBUKJGpdwZCq9102Lj6ZOaLcW4z/T4TI9aGWrNX5ZlICwChKWG4Wo5qriLImdww3H7bETPW9vYtSiADNlA4wSQ==
-  /mongoose/5.13.2/mongoose@5.13.2:
-    dependencies:
-      '@types/mongodb': 3.6.20
-      '@types/node': 15.14.2
-      bson: 1.1.6
-      kareem: 2.3.2
-      mongodb: 3.6.8
-      mongoose-legacy-pluralize: /mongoose-legacy-pluralize/1.0.2/mongoose@5.13.2
-      mpath: 0.8.3
-      mquery: 3.2.5
-      ms: 2.1.2
-      regexp-clone: 1.0.0
-      safe-buffer: 5.2.1
-      sift: 13.5.2
-      sliced: 1.0.1
-    dev: false
-    engines:
-      node: '>=4.0.0'
-    id: registry.npmjs.org/mongoose/5.13.2
     resolution:
       integrity: sha512-sBUKJGpdwZCq9102Lj6ZOaLcW4z/T4TI9aGWrNX5ZlICwChKWG4Wo5qriLImdww3H7bETPW9vYtSiADNlA4wSQ==
   /mpath/0.8.3:
@@ -2443,6 +2424,15 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4q295gTtUXhFYp3CRMsmUWAXwHoB0oKEz3czmO9ZueWDcTcS3sX4I8L5zvdiXRrZpCMhb/TBaY9I27Gi7/Pa1Q==
+  /node-superfetch/0.2.3:
+    dependencies:
+      form-data: 4.0.0
+      node-fetch: 2.6.1
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-xOqifvw/3N+tIeeC80/TNJXkoxDZm8JWc7/0VBkJ86ttQTlJvoicuVaeJlKKHYRlmC2O6ygNIhNPwLYX4bxqdA==
   /nodemailer-fetch/1.6.0:
     dev: false
     resolution:
@@ -2493,7 +2483,7 @@ packages:
     dependencies:
       discord-buttons: github.com/AngeloCore/discord-buttons/a22e7660e97da0082928603bc33332ee94e7fe01
       discord.js: 12.5.3
-      mongoose: /mongoose/5.13.2/mongoose@5.13.2
+      mongoose: 5.13.2
       ms: 2.1.3
     dev: false
     resolution:
@@ -3809,6 +3799,7 @@ specifiers:
   nego.db: ^2.0.0
   node-fetch: ^2.6.1
   node-http-ping: ^0.3.1
+  node-superfetch: ^0.2.3
   nuggies: ^1.2.51
   os: ^0.1.2
   parse-ms: ^3.0.0

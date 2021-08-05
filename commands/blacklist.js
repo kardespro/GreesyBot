@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const db = require("quick.db") 
 //const axios = require('axios');
 
-exports.run = async(client, message, args) => {
+exports.run = async (client, message, args) => {
   var ownirs = ["852853360612605952","682607343707488388"] 
   if(!message.author.id === ownirs.includes) return;
   if(!args[0]) return message.channel.send("<:hayirbei:867465654960128010> || \`add, remove\`") 
@@ -28,7 +28,12 @@ message.channel.send(`<:evetbei:867465536736460810> | \`${kk.tag}#${kk.discrimin
    } 
 };
 
-exports.conf = { aliases: [] };
+exports.conf = { 
+  enabled: true, 
+  guildOnly: true, 
+  permLevel: 8,
+  aliases: [] 
+};
 
 exports.help = {
 

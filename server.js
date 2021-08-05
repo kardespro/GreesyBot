@@ -326,7 +326,14 @@ var mesajj = mesaj;
   `);*/
 
   // nico.user.setActivity(`🌎 !help | !stat `);
+  
 });
+nico.on('guildCreate', guild => {
+  if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
+  });
+nico.on("guildDelete", guild => {
+  db.delete(``);
+  });
 nico.on("clickbutton", dugme => {
   Nuggies.giveaways.buttonclick(nico, dugme);
 });
@@ -372,7 +379,7 @@ nico.on("message", async message => {
   }
   if (cmd) {
     const karaliste = db.fetch(`blacklist.${message.author.id}`)
-    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | You Have Been Blacklisted by My Owners! If this may be wrong, contact Support. `) 
+    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | You Have Been Blacklisted by My Owners! If this may be wrong, contact Support. https://greesy.negodev.tk/ticket`) 
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`
     );

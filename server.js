@@ -149,19 +149,6 @@ app.use(
 );
 
 app.use("/assets", express.static("server/web/css/"));
-
-/*
-
-**************
-
-CodeList
-
-By Kardespro
-
-*************
-
-*/
-
 /*
  * CUSTOM SETTINGS
  */

@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 //const dbb = require("../Database/main.js") 
 const db = require("quick.db") 
-const fs = 
+const fs = require("fs");
+const moment = require("moment");
 //const axios = require('axios');
 /*const backup = () => {
 
@@ -27,7 +28,23 @@ exports.run = async (client, message, args) => {
         console.log('Database Backuped.');
 
 });
-   client.channels.cache.get("").send(``);
+    var Embid = new Discord.MessageEmbed()
+      .setTitle("Greesy")
+      .setColor("#3437eb")
+      .setDescription(`
+      
+    Greesy Database Manager
+           
+           
+    ** Database Backuped **
+          
+     By : <@${message.author.id}>
+      
+      Time: ${moment().format('D-M-YYYY • H.mm.ss')}
+      *
+      `);
+     
+   client.channels.cache.get("868378969140002816").send(Embid);
    
  }
 };

@@ -1344,7 +1344,6 @@ var emb = new discord.MessageEmbed()
  
  [[Answer Ticket]](https://greesy.negodev.tk/admin/ticket/${ticketID}/answer/)
  
- 
  <@${nico.guilds.cache.get("838099680276512778").roles.cache.get("863849390611497001").name}>
 
 

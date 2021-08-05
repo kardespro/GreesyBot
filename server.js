@@ -725,8 +725,8 @@ app.get(
         if (ab_var) return res.redirect("/");
         // res.redirect("/");
         db.set(`abonelik_${req.user.id}`, "free");
-        
-        if(db.fetch(`blacklist.${req.user.id}` == true)) return res.json({error: "You AreAdded Blacklist ,  You don't use website and bot . "});
+        var essek = db.fetch(`blacklist.${req.user.id}`)
+        if(essek == true) return res.json({error: "You Are Added Blacklist ,  You don't use website and bot . "});
       });
     }
   }
@@ -1303,6 +1303,23 @@ app.post("/admin/annoucument/", (req, res) => {
   db.set(`duyuru`, duyuru);
   res.r;
 });
+app.get("/ticket", (req, res) => {
+
+ 
+});
+app.post("/ticket/create", (req, res) => {
+
+ var user = req.user.username;
+ var konu = req.body.knouturu;
+ var mesaj = req.body.ticketmesaj;
+
+
+});
+
+
+
+
+
 
 /*
  * Subscribe API

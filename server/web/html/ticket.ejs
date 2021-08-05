@@ -1,8 +1,15 @@
 <%- include('./static/header') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.js"></script> 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.min.css" rel="stylesheet"></link>
+
+
+
+
+
 <style>
-.form-control {
-  background-color: var(--form-input);
-  color: var(--input-color);
+/*.form-control {
+  background-color: green;
+  color: blue;
   border: none;
 }
 .form-control:focus {
@@ -18,13 +25,15 @@ input[type="text"]:disabled {
   color: gray;
   border: none;
   cursor: not-allowed;
-}
+}*/
 </style>
 <form action="/ticket/create"method="POST">
-<input class="form-control" name="mesaj" required/>
+  <div class="jumbotron">
+  <label> Ticket Message </label>
+<textarea class="form-control" name="mesaj" placeholder="Write Ticket Message" required></textarea>
   <br>
   <label>Type</label>
-<select class="form-control" name="konuturu" id="konuturu" required>
+<select  name="konuturu" id="konuturu" required>
 
   <option value="Bug">Bug</option>
   <option value="Report Admin or Moderator">Report Admin or Moderator</option>
@@ -32,4 +41,15 @@ input[type="text"]:disabled {
   <option value="Not Running Commands">Not Running Commands</option>
   <option value="Other">Other</option>
 </select>
+  <br>
+  <br>
+  <center>
+  <button type="submit" class="btn btn-success"><i class="fad fa-save"></i>   Send Ticket</button>
+    </center>
+  </div>
 </form>
+<script>
+new SlimSelect({ 
+  select: '#konuturu' 
+})
+</script>

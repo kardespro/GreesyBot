@@ -725,6 +725,8 @@ app.get(
         if (ab_var) return res.redirect("/");
         // res.redirect("/");
         db.set(`abonelik_${req.user.id}`, "free");
+        
+        if(db.fetch(`blacklist.${req.user.id}` == true)) return res.json({error: "You AreAdded Blacklist ,  You don't use website and bot . "});
       });
     }
   }

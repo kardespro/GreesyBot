@@ -1344,13 +1344,13 @@ var emb = new discord.MessageEmbed()
  [[Answer Ticket]](https://greesy.negodev.tk/admin/ticket/${ticketID}/answer/)
  
  
- <@>
+ <@${nico.guilds.cache.get("838099680276512778").roles.cache.get("863849390611497001").name}>
 
 
 
 `);
   
-nico.channels.cache.get("").send()
+nico.channels.cache.get("872919039079510047").send(emb)
 });
 
 

@@ -332,7 +332,30 @@ nico.on('guildCreate', guild => {
   if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
   });
 nico.on("guildDelete", guild => {
-  db.delete(``);
+  db.delete(`counterAdd_${guild.id}`);
+  db.delete(`counter_${guild.id}`);
+  db.delete(`counterNum_${guild.id}`);
+  var nego = new discord.MessaeEmbed()
+  .setTitle("Greesy")
+  .setDescription(`
+  
+   ** Greesy Database Manager **
+     == ${guild.name} Named Server Database Has Been reset
+  == Reason :  The Server Was Reset For Deletion To Keep Memory In The Database  ==
+  == Note:  Contact Moderators to Get Data Back! ==
+   
+   
+    == Deleted Server's Information ==
+    
+    Owner `\`\
+    
+    
+    ==    ==
+  
+  
+  `);
+  nico.channels.cache.get("868378969140002816").send()
+  
   });
 nico.on("clickbutton", dugme => {
   Nuggies.giveaways.buttonclick(nico, dugme);

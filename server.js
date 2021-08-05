@@ -338,7 +338,7 @@ nico.on("guildDelete", guild => {
   db.delete(`counterAdd_${guild.id}`);
   db.delete(`counter_${guild.id}`);
   db.delete(`counterNum_${guild.id}`);
-  var nego = new discord.MessaeEmbed()
+  var nego = new discord.MessageEmbed()
   .setTitle("Greesy")
   .setDescription(`
   
@@ -350,7 +350,7 @@ nico.on("guildDelete", guild => {
    
     == Deleted Server's Information ==
     
-    Owner \`<@${guild.ownerID}>\`
+    Owner :  \`<@${guild.ownerID}>\`
     MemberCount: \`${guild.memberCount}\`
     Roles Size : ${guild.roles.cache.size}
     Space Size of the Server in the Database: ${calc}
@@ -358,7 +358,8 @@ nico.on("guildDelete", guild => {
     ==    ==
   
   
-  `);
+  `)
+  .setColor("#3437eb")
   nico.channels.cache.get("868378969140002816").send()
   
   });
@@ -411,7 +412,7 @@ nico.on("message", async message => {
     const buton1 = new xd.MessageButton() 
    .setStyle("url","green")
     .setLabel("Contact")
-   .setURL("https://greesy.negodev.tk")
+   .setURL("https://greesy.negodev.tk/ticket/")
     if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | **You Have Been Blacklisted by My Owners! If this may be wrong, contact Support**. `,{buttons: buton1}) 
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`

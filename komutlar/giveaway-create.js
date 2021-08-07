@@ -4,7 +4,7 @@ const ms = require('ms')
 const Discord = require("discord.js") 
 const path = require("path");
 const db = require("quick.db") 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
 //let açıkmı = await db.fetch(`pre_${message.author.id}`)
  // if(açıkmı) {
   /*
@@ -134,12 +134,14 @@ if(!kontrolreq) return;
           days: "Days",
           pluralS: false
         }
+       // let kontrol = "";
       }
+     // var konyrol = "";
     });
-
     client.giveawaysManager.on("giveawayRerolled", (giveaway, winners) => {
       winners.forEach(member => {
-        
+        let kontrol = member.guild.roles.cache.get(req) 
+        if(!kontrol) return message.channel.send("Winner Did Not Meet The Requirements! ") 
         member.send(
           "**Giveaway Rerolled!:** **Congratulations**, " +
             member.user.username +

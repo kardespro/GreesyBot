@@ -4,7 +4,7 @@ const Nuggies = require('nuggies');
 const ms = require("ms");
 
 const path = require("path");
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
 
  /* let açıkmı = await data.fetch(`pre_${message.author.id}`)
   if(açıkmı) {*/

@@ -160,10 +160,10 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
 exports.conf = {
 	enabled: true,
 	guildOnly: false,
-	aliases: ["giveaway-create"]
+	aliases: ["reroll"]
 };
 exports.help = {
-	name: 'giveaway',
+	name: 'giveaway-reroll',
 	description: 'counter',
 	usage: 'giveaway'
 };

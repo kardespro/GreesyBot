@@ -8,6 +8,7 @@ const Util = require("./util/eventloader.js")(Client2);
 const tools = require("./greesyapi.js");
 const mongoose = require("mongoose");
 const tailwindcss = require('tailwindcss')
+//app.use('/assets', express.static('server/web/html/'))
 const backup = () => {
   fs.copyFile(
     "./json.sqlite",
@@ -509,7 +510,7 @@ const Strategy = require("passport-discord").Strategy;
 const session = require("express-session");
 
 const passport = require("passport");
-
+app.use('/assets', express.static('server/web/html/css/'))
 /*
 
 * Burayi Degismiyin
@@ -863,6 +864,13 @@ app.get("/new2", (req, res) => {
 
   render(res, req, "newindex2.ejs", { cmm, nego: nico });
 });
+app.get("/new3", (req, res) => {
+  const cmm = db.fetch(`commenttest`);
+
+  render(res, req, "nicat.ejs", { cmm, nego: nico });
+});
+
+
 
 //Beta
 

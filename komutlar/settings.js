@@ -7,11 +7,12 @@ moment.locale('tr')
 
 
 exports.run = async (client, message, args) => {
+  if(!message.author.hasPermissions("MANAGE_GUILD")) return message.reply(":x: Your Permission Not Found! `MANAGE_GUILD`.")
 let sayacrakam = db.fetch(`counterNumber_${message.guild.id}`)
-let sayackanal =  db.fetch(`counterChannel_${message.guild.id}`)
+let sayackanal = db.fetch(`counterChannel_${message.guild.id}`)
 let kufur = db.fetch(`kufur_${message.guild.id}`)
 let otorolkanal = db.fetch(`autoroleChannel_${message.guild.id}`)
-let otorolrol =  db.fetch(`autoroleRole_${message.guild.id}`)
+let otorolrol = db.fetch(`autoroleRole_${message.guild.id}`)
 let banlog = db.fetch(`banlog_${message.guild.id}`)
 /*Times*/
 //moment.locale("en").format("LLL")
@@ -48,20 +49,26 @@ BanLog: ${banlog || "Not Set!"}
 
 `)
 const resethepsi = new disbut.MessageButton()
-.setStyle("RED")
+.setStyle("red")
 .setLabel("Reset All")
 .setEmoji("✔")
 .setID("reset")
 client.on("clickButton", async (button) => {
-  if(button.clicker.hasPermission("MANAGE_GUILD")) button.reply.send(":x: Your Permission Not Found!", true) 
+  //if(button.clicker.hasPermission("MANAGE_GUILD")) button.reply.send(":x: Your Permission Not Found!", true) 
   
+  db.delete(`counterNumber_${message.guild.id}`)
+  db.delete(`counterChannel_${message.guild.id}`)
+  db.delete(`kufur_${message.guild.id}`)
+  db.delete(`autoroleChannel_${message.guild.id}`)
+  db.delete(`autoroleRole_${message.guild.id}`)
+  db.delete(`banlog_${message.guild.id}`)
   
-  
+  await button.reply.send("<:evetbei:867465536736460810> | **Succesfully!**")
   
   
   
  });
-message.channel.send('', {buttons: resethepsi})
+message.channel.send('', {embed:embed, buttons: resethepsi})
 
 
 

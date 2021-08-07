@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
-const data = require('croxydb')
+const data = require('quick.db')
 const path = require("path") 
 const Nuggies = require('nuggies');
 const giveaway = {};
 const ms = require('ms');
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
  /* let açıkmı = await data.fetch(`abonelik_${message.author.id}`)
   if(açıkmı) {*/
   /*

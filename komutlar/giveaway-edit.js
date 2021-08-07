@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const data = require('croxydb')
+const db = require('quick.db')
 const Nuggies = require('nuggies');
 const ms = require("ms");
 
@@ -75,24 +75,27 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     }
   if(!args[4]){
     const role = message.mentions.roles.first() || args[4];
-    ifreturn message.channel.send(`Please Mention A Role In Requirements Section! `) 
+    if(!role) return message.channel.send(`Please Mention A Role In Requirements Section! `) 
+    db.set(`giveawayreqrolem_${message.guild.id}`, `Must Have ${role.id} `)
+    db.set(`giveawayrerole_${message.guild.id}`, role.id)
     }
-
+let rol = db.fetch(`giveawayreqrole_${message.guild.id}`) 
         client.giveawaysManager.edit(args[0], {
             addTime: ms(args[1]),
             newWinnerCount: parseInt(args[2]),
+            requrements: rol, 
             newPrize: args.slice(3).join(" ")
         }).then(() => {
             // Here, we can calculate the time after which we are sure that the lib will update the giveaway
             const numberOfSecondsMax = client.giveawaysManager.options.updateCountdownEvery / 1000;
-            message.channel.send(':tada: Tamam! Çekiliş düzenlendi!');
+            message.channel.send(':tada: Edited!');
         }).catch((err) => {
             message.channel.send('<:hayirbei:867465654960128010>' + args[0] + ', ID Not Found!');
         });
 } 
 exports.conf = {
   enabled: true, 
-  aliases: ["giveaway-end", "end"] 
+  aliases: ["giveaway-edit", "end"] 
  } 
 exports.help = {
     name: 'pre-çekiliş-bitir' 

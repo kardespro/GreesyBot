@@ -1,9 +1,9 @@
 const Nuggies = require('nuggies');
 const ms = require('ms')
 //const ms = require("ms");
-
+const Discord = require("discord.js") 
 const path = require("path");
-const db = require("croxydb") 
+const db = require("quick.db") 
 module.exports.run = async (client, message, args) => {
 //let açıkmı = await db.fetch(`pre_${message.author.id}`)
  // if(açıkmı) {
@@ -103,7 +103,10 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
         .setTimestamp()
       );
     }
-
+let kontrolreq = db.fetch(`giveawayreqrolem_${message.guild.id}`)
+if(!kontrolreq) return;
+  let req = db.fetch(`giveawayreqrole_${message.guild.id}`) 
+  
     message.delete();
 
     client.giveawaysManager.start(message.channel, {
@@ -115,7 +118,7 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
           "**NEW GIVEAWAY**",
         giveawayEnded:
           " **GiveAway Has Ended! ** ",
-        timeRemaining: `\n\nTime: **{duration}**!\n\nSponsor: ${
+        timeRemaining: `\n\nTime: **{duration}**!\n Requirements: ${kontrolreq || "<:hayirbei:867465654960128010>"}\nSponsor: ${
           message.author
         }`,
         inviteToParticipate: "React Emoji To Enter!",
@@ -136,6 +139,7 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
 
     client.giveawaysManager.on("giveawayRerolled", (giveaway, winners) => {
       winners.forEach(member => {
+        
         member.send(
           "**Giveaway Rerolled!:** **Congratulations**, " +
             member.user.username +

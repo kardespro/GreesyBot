@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const data = require('quick.db');
 
-exports.run = async (client, message, args) => {// Can°B#1308
+exports.run = async (client, message, args) => { // Can°B#1308
 
   if(!args[0]) return message.channel.send("Please Write a Command Name To Enable! ") //message.channel.send('You need to specify one or more commands to enable.');
 

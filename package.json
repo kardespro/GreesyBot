@@ -45,7 +45,7 @@
     "node-http-ping": "^0.3.1",
     "nuggies": "^1.2.51",
     "os": "^0.1.2",
-    "parse-ms": "^3.0.0",
+    "parse-ms": "^2.1.0",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
     "path": "^0.12.7",

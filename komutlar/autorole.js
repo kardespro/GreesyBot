@@ -7,6 +7,9 @@ moment.locale('tr')
 
 
 exports.run = async (client, message, args) => {
+  if (!message.member.hasPermission("MANAGE_GUILD"))
+    return message.channel.send(`You must have \`MANAGE_GUILD\` permission to use this command!`);
+  
   message.channel.startTyping(1)
 if(!args[0]) return  message.channel.startTyping(1) && message.channel.send("mistake! Correct Use: `!autorole @Role #Channel` ") 
 let rol = message.mentions.roles.first() || args[0];

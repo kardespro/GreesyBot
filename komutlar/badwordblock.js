@@ -4,6 +4,9 @@ const moment = require("moment")
 moment.locale('tr')
 
 exports.run = async (client ,message, args) =>{
+  if (!message.member.hasPermission("MANAGE_MESSAGES"))
+    return message.channel.send(`You must have \`MANAGE_MESSAGES\` permission to use this command!`);
+  
 if(args[0] === 'open') {
     db.set(`kufur_${message.guild.id}`, "acik")
   db.set(`badwordTime_${message.guild.id}`, Date.now())

@@ -6,6 +6,9 @@ moment.locale('tr')
 
 const disbut = require("discord-buttons") 
 exports.run = async (client, message, args) => {
+  if (!message.member.hasPermission("MANAGE_GUILD"))
+    return message.channel.send(`You must have \`MANAGE_GUILD\` permission to use this command!`);
+  
   let kontrol = db.fetch(`counterAdd_${message.guild.id}`)
   let abone = db.fetch(`abonelik_${message.author.id}`,"premium");
  // if(kontrol > 10) return message.channel.send("You Must Have a Premium Membership for More Add-Ons With Meter Adjustment Limit Over! ") 

@@ -7,7 +7,10 @@ moment.locale('tr')
 
 
 exports.run = async (client, message, args) => {
-  if(!message.author.hasPermissions("MANAGE_GUILD")) return message.reply(":x: Your Permission Not Found! `MANAGE_GUILD`.")
+  //if(!message.member.hasPermissions("MANAGE_GUILD")) return message.reply(":x: Your Permission Not Found! `MANAGE_GUILD`.")
+  if (!message.member.hasPermission("MANAGE_MESSAGES"))
+    return message.channel.send(`You must have \`MANAGE_MESSAGES\` permission to use this command!`);
+  
 let sayacrakam = db.fetch(`counterNumber_${message.guild.id}`)
 let sayackanal = db.fetch(`counterChannel_${message.guild.id}`)
 let kufur = db.fetch(`kufur_${message.guild.id}`)
@@ -16,11 +19,12 @@ let otorolrol = db.fetch(`autoroleRole_${message.guild.id}`)
 let banlog = db.fetch(`banlog_${message.guild.id}`)
 /*Times*/
 //moment.locale("en").format("LLL")
-let ccm = db.fetch(`counterNumberTime_${message.guild.id}`)
-let chm = db.fetch(`counterChannelTime_${message.guild.id}`)
-let bdm = db.fetch(`badwordTime_${message.guild.id}`)
-let acm = db.fetch(`autoroleRoleTime_${message.guild.id}`)
-let akm = db.fetch(`autoroleChannelTime_${message.guild.id}`)
+let ccm = db.fetch(`counterNumberTime_${message.guild.id}`).format()
+let chm = db.fetch(`counterChannelTime_${message.guild.id}`).format("LLL")
+let bdm = db.fetch(`badwordTime_${message.guild.id}`).format("LLL")
+let acm = db.fetch(`autoroleRoleTime_${message.guild.id}`).format("LLL")
+let akm = db.fetch(`autoroleChannelTime_${message.guild.id}`).format("
+                                                              ")
 
 //moment(Date.now()).locale("en").format("LLL");
 
@@ -29,11 +33,11 @@ const embed = new Discord.MessageEmbed()
 .setTitle(message.guild.name,"| Settings")
 .setDescription(`
 
-Counter Number: ${sayacrakam || "Not Set!"} (${ccm || ""})
-Counter Channel: ${sayackanal || "Not Set!"} (${chm || ""})
-BadWord Blocker: ${kufur || "Not Set!"} (${bdm || ""})
-AutoRole Role: ${otorolrol || "Not Set!"} (${acm || ""})
-AutoRole Log: ${otorolkanal || "Not Set!"} (${akm || ""})
+Counter Number: ${sayacrakam || "Not Set!"} \`(${ccm || ""})\`
+Counter Channel: ${sayackanal || "Not Set!"} \`(${chm || ""})\`
+BadWord Blocker: ${kufur || "Not Set!"} \`(${bdm || ""})\`
+AutoRole Role: ${otorolrol || "Not Set!"} \`(${acm || ""})\`
+AutoRole Log: ${otorolkanal || "Not Set!"} \`(${akm || ""})\`
 BanLog: ${banlog || "Not Set!"}
 
 

@@ -1488,7 +1488,7 @@ app.post("/user/comment", gGiris, (req, res) => {
 
     comment: cBody,
     cm: req.user,
-    tarih: Date.now()
+    tarih: moment.locale("en").format("LLL")
   };
 
   db.push(`commenttest`, vat);

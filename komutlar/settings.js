@@ -15,13 +15,13 @@ let otorolrol =  db.fetch(`autoroleRole_${message.guild.id}`)
 let banlog = db.fetch(`banlog_${message.guild.id}`)
 /*Times*/
 //moment.locale("en").format("LLL")
-let ccm = db.fetch(`counterNumberTime_${message.guild.id}`).format("LLL")
-let chm = db.fetch(`counterChannelTime_${message.guild.id}`).format("LLL")
+let ccm = db.fetch(`counterNumberTime_${message.guild.id}`)
+let chm = db.fetch(`counterChannelTime_${message.guild.id}`)
 let bdm = db.fetch(`badwordTime_${message.guild.id}`)
 let acm = db.fetch(`autoroleRoleTime_${message.guild.id}`)
 let akm = db.fetch(`autoroleChannelTime_${message.guild.id}`)
 
-
+//moment(Date.now()).locale("en").format("LLL");
 
 const embed = new Discord.MessageEmbed()
 .setColor("#146ca4")
@@ -49,8 +49,19 @@ BanLog: ${banlog || "Not Set!"}
 `)
 const resethepsi = new disbut.MessageButton()
 .setStyle("RED")
-
-message.channel.send(embed)
+.setLabel("Reset All")
+.setEmoji("✔")
+.setID("reset")
+client.on("clickButton", async (button) => {
+  if(button.clicker.hasPermission("MANAGE_GUILD")) button.reply.send(":x: Your Permission Not Found!", true) 
+  
+  
+  
+  
+  
+  
+ });
+message.channel.send('', {buttons: resethepsi})
 
 
 

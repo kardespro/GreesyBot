@@ -23,8 +23,9 @@ let ccm = db.fetch(`counterNumberTime_${message.guild.id}`).format()
 let chm = db.fetch(`counterChannelTime_${message.guild.id}`).format("LLL")
 let bdm = db.fetch(`badwordTime_${message.guild.id}`).format("LLL")
 let acm = db.fetch(`autoroleRoleTime_${message.guild.id}`).format("LLL")
-let akm = db.fetch(`autoroleChannelTime_${message.guild.id}`).format("
-                                                              ")
+let akm = db.fetch(`autoroleChannelTime_${message.guild.id}`).format("LLL") 
+                                                              
+ 
 
 //moment(Date.now()).locale("en").format("LLL");
 

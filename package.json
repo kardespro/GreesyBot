@@ -8,8 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build:css": "postcss server/web/html/css/tailwind.css -o server/web/html/css/style.css"
-  },
+    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "bootstrap-icons": "^1.5.0",
@@ -65,7 +64,8 @@
     "tailwindcss": "^2.2.7",
     "url": "^0.11.0",
     "node-superfetch": "^0.2.3",
-    "postcss-cli": "^8.3.1"
+    "postcss-cli": "^8.3.1",
+    "autoprefixer": "^10.3.1"
   },
   "engines": {
     "node": "12.x"

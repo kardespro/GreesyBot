@@ -511,6 +511,8 @@ const session = require("express-session");
 
 const passport = require("passport");
 app.use('/assets', express.static('server/web/html/css/'))
+app.use(express.static(path.join(__dirname, 'public')));
+
 /*
 
 * Burayi Degismiyin

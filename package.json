@@ -8,7 +8,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"  },
+    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "bootstrap-icons": "^1.5.0",
@@ -65,7 +66,8 @@
     "url": "^0.11.0",
     "node-superfetch": "^0.2.3",
     "postcss-cli": "^8.3.1",
-    "autoprefixer": "^10.3.1"
+    "autoprefixer": "^10.3.1",
+    "discord-giveaways": "^4.5.1"
   },
   "engines": {
     "node": "12.x"

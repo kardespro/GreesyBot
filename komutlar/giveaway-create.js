@@ -51,7 +51,7 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
           .setTitle("**Greesy | GiveAway**")
           .setColor("RED")
           .setDescription(
-            "."
+            "<:hayirbei:867465654960128010> | **You Are Not Permissions Use This Command**"
           )
           .setTimestamp()
       );
@@ -60,11 +60,20 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     if (!args[0]) {
       return message.channel.send(
         new Discord.MessageEmbed()
-          .setTitle("**Hata**")
+          .setTitle("**Greesy | GiveAway**")
           .setColor("RANDOM")
-          .setDescription(
+         /* .setDescription(
             "Lütfen çekilişin süresini girin.\n\n**Kullanımı:** \n **Saniye: s \n Dakika: m \n Saat: h \n Gün: d** \n \n **1.Adım:** g.başlat <süre>"
-          )
+          )*/
+       .setDescription(`
+       <:hayirbei:867465654960128010> | Please Specify a Period of Time! 
+        [Times] 
+      Second: \`s\`
+      Minute: \`m\`
+      Hour: \`h\`
+      Day: \`d\`
+      
+       `) 
           .setTimestamp()
       );
     }
@@ -72,11 +81,14 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     if (!args[1]) {
       return message.channel.send(
         new Discord.MessageEmbed()
-          .setTitle("**Hata**")
+          .setTitle("**Greesy | GiveAway**")
           .setColor("RANDOM")
-          .setDescription(
-            "Lütfen çekilişi kazanacak sayısını girin \n **Örnek:** 1 \n \n **2.Adım:** g.başlat <süre> <kazanacak(lar)>"
-          )
+          /*.setDescription(
+            //"Lütfen çekilişi kazanacak sayısını girin \n **Örnek:** 1 \n \n **2.Adım:** g.başlat <süre> <kazanacak(lar)>"
+          )*/
+       .setDescription(`
+       You Need to Specify The Number of Wins! 
+       `) 
           .setTimestamp()
       );
     }
@@ -84,10 +96,11 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     if (!args[2]) {
       return message.channel.send(
         new Discord.MessageEmbed()
-          .setTitle("**Hata**")
+          .setTitle("**Greesy | GiveAway**")
           .setColor("RANDOM")
-          .setDescription("Lütfen Yapacağınız Çekilişi yazınız. \n \n **3.Adım:** g.başlat <süre> <kazanacak(lar)> <Çekiliş>")
-          .setTimestamp()
+          //.setDescription("Lütfen Yapacağınız Çekilişi yazınız. \n \n **3.Adım:** g.başlat <süre> <kazanacak(lar)> <Çekiliş>")
+         .setDescription(`You didn't write down the name of the giveaway! `) 
+        .setTimestamp()
       );
     }
 
@@ -99,23 +112,23 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
       winnerCount: parseInt(args[1]),
       messages: {
         giveaway:
-          "<:SpaceGiveaway:798525686142468136> **Çekiliş Başladı** <:SpaceGiveaway:798525686142468136>",
+          "**NEW GIVEAWAY**",
         giveawayEnded:
-          "<:SpaceGiveaway:798525686142468136> **Çekiliş Bitti** <:SpaceGiveaway:798525686142468136>",
-        timeRemaining: `\n\Kalan Süre: **{duration}**!\n\Çekilişi Yapan: ${
+          " **GiveAway Has Ended! ** ",
+        timeRemaining: `\n\nTime: **{duration}**!\n\nSponsor: ${
           message.author
         }`,
-        inviteToParticipate: "<a:bytcec:818712678146113567> Çekilişe katılmak için 🎉 tepkisine tıklayın!",
-        winMessage: "🎉 Tebrikler, {winners}! **{prize}** kazandın!",
-        embedFooter: " Çekiliş",
-        noWinner: `\Yeterli katılım olmadığı için çekiliş iptal edildi.\n\Çekilişi Yapan: ${message.author}`,
-        winners: `\Kazanan(lar) `,
-        endedAt: "Bitiş",
+        inviteToParticipate: "React Emoji To Enter!",
+        winMessage: "🎉 Congratulations, {winners}! **{prize}** Win!",
+        embedFooter: " GiveAway",
+        noWinner: `GiveAway Has Canceled .\nSponsor: ${message.author}`,
+        winners: `Winner(s) `,
+        endedAt: "End in",
         units: {
-          seconds: "Saniye",
-          minutes: "Dakika",
-          hours: "Saat",
-          days: "Gün",
+          seconds: "Seconds",
+          minutes: "Minutes",
+          hours: "Hours",
+          days: "Days",
           pluralS: false
         }
       }
@@ -124,7 +137,7 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     client.giveawaysManager.on("giveawayRerolled", (giveaway, winners) => {
       winners.forEach(member => {
         member.send(
-          "**Çekiliş kazanan yeniden çekildi!:** **Tebrikler**, " +
+          "**Giveaway Rerolled!:** **Tebrikler**, " +
             member.user.username +
             ", " +
             giveaway.prize +
@@ -134,8 +147,8 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     });
 
 };
-  
-} 
+  }
+}
 exports.conf = {
   enabled: true, 
   aliases: ["giveaway-start"] 

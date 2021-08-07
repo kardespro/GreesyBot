@@ -24,8 +24,10 @@
 
 <body>
   <%- include("./static/header") %>
-  <form method="POST">
-    
+ <form action="/dash/<%=id%>/yonet/banlog/save" method="POST">
+
+ 
+   
 <div class="jumbotron">
   
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BanLog Channel </p>
@@ -65,18 +67,18 @@
 
     <label class="form-label" for="form1Example1"></label>
 -->
-  <form action="/dash/<%=id%>/yonet/kicklog/save" method="POST">
+  <form action="/dash/<%=id%>/yonet/badword/save" method="POST">
 
   
  <label class="switch">
-  <input type="checkbox" name="badwordd" id="badwordd" value="true">
+  <input type="checkbox" name="badwordd" id="badwordd" value="true" required>
   <span class="slider round"></span>
 </label>
   <br>
 
   <button  style="font-family: sans-serif;" type="submit" class="btn btn-success">Save</button>
 
-    
+    </form>
   </div>
     
 

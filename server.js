@@ -1156,6 +1156,20 @@ app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
   });
 });
 
+//POST METHODS
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (!req.user) return res.redirect("/l/");
   let id = req.params.sunucuID;
@@ -1208,6 +1222,23 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
 */
   res.redirect(`/dash/${id}/yonet/mod`);
 });
+
+
+
+
+///END
+
+
+
+/*
+
+=========
+
+*/
+
+
+
+
 
 app.get("/api/dash/:sunucuID/yonet/mod/save", async (req, res) => {
   if (!req.user) return res.redirect("/l/");

@@ -36,13 +36,13 @@
             <div class="m-2">
               <div class="component flex max-w-sm">
                 <div class="bg-gray-100 shadow-sm rounded-lg">
-                  <div class="bg-cover p-8 rounded-t-lg" style="background-image: url(&quot;<%= srev.bannerURL() || "https://cdn.glitch.com/6ebc0877-3e88-4c65-946a-70564c920033%2F20210807_233936.png?v=1628365229181" %>&quot;);">
-                    <div class="font-semibold text-gray-100 text-lg tracking-wide">#greesy</div>
+                  <div class="bg-cover p-8 rounded-t-lg" style="background-image: url(&quot;<%= srev.bannerURL() || "https://cdn.glitch.com/6ebc0877-3e88-4c65-946a-70564c920033%2F20210807_234415.png?v=1628365479239" %>&quot;);">
+                    <div class="font-semibold text-gray-100 text-lg tracking-wide"></div>
                     <div class="font-black text-gray-100 text-2xl tracking-wide mb-10"></div>
                   </div>
                   <div class="px-8 py-6 relative">
                     <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png&quot;);"></div>
-                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">From</span> Feb 08 <span class="text-gray-500 font-semibold">To</span> Feb 14</div>
+                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">Server Created</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
                     <div class="mt-6">
                       <div class="uppercase font-bold text-gray-600">Your Coupon Code</div>
                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">TailwindCSS2020</div>
@@ -54,6 +54,7 @@
               </div>
             </div>
           </div>
+  </div>
             
             <br>
             <br>

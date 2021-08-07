@@ -1001,7 +1001,8 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
     srev,
     ping,
     fetchGuildPre,
-    config
+    config,
+    moment
   });
 });
 

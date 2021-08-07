@@ -42,7 +42,8 @@
                   </div>
                   <div class="px-8 py-6 relative">
                     <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png&quot;);"></div>
-                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">Server Created</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
+                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold"></span> <span class="badge badge-success"> <%= srev.name %></span><span class="text-gray-500 font-semibold"></span> </div>
+                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">Server Created:</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
                     <div class="mt-6">
                        <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">Server Statics</div>
               <br>
@@ -65,20 +66,6 @@
             <br>
             
             
-<div class="jumbotron">
-  
-  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> Members Count: <%= ksayi %> </p>
-  <br>
-  
-  <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> Verification Level: <%= verfyseviye %> </p>
- <br>
-  <center>
-    
-<img src="https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png" class="rounded card jumbotron"></img>
-  <p class="badge badge-success"><%= srev.name%></p>
-  
-  </center>
-</div>
     <div class="max-w-screen-lg bg-indigo-500 shadow-2xl rounded-lg mx-auto text-center py-12 mt-4">
 
         <h2 class="text-3xl leading-9 font-bold tracking-tight text-white sm:text-4xl sm:leading-10">

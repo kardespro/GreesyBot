@@ -43,9 +43,9 @@
                   <div class="px-8 py-6 relative">
                     <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png&quot;);"></div>
                     <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold"></span> <span class="badge badge-success"> <%= srev.name %></span><span class="text-gray-500 font-semibold"></span> </div>
-                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">Server Created:</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
+                    <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold"><i class="fad fa-hourglass-half"></i> Server Created:</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
                     <div class="mt-6">
-                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">Server Statics</div>
+                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none"><i class="fad fa-signal-alt"></i> Server Statics</div>
               <br>
                       <div class="uppercase font-bold text-gray-600"><i class="fad fa-users"></i> Members Count: <%= ksayi %></div>
                       <br>
@@ -57,7 +57,7 @@
                     <!--
                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">TailwindCSS2020</div>
                   -->  </div>
-                    <div class="mt-6 text-gray-500 text-sm"><%= srev.description || "An Greesy Bot Guild"%></div>
+                    <div class="mt-6 text-gray-500 text-sm"><i class="fad fa-pencil-paintbrush"></i> Description: <%= srev.description || "An Greesy Bot Guild"%></div>
                   </div>
                 <!--  <div><button class="w-full border border-transparent rounded-b-lg font-semibold tracking-wide px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">Use Coupon Code</button></div>
                --> </div>
@@ -170,7 +170,43 @@
 </body>
      
 
-     
+<!-- JQuery -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Bootstrap tooltips -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<!-- MDB core JavaScript -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<!-- Footer -->
+
+
+
+     <!-- Font Awesome -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+<!-- Google Fonts -->
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+
+<!-- Bootstrap core CSS -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Material Design Bootstrap -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+<!-- Footer -->
+
+
 
 
      

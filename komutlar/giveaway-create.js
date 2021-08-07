@@ -103,10 +103,11 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
         .setTimestamp()
       );
     }
+  /*
 let kontrolreq = db.fetch(`giveawayreqrolem_${message.guild.id}`)
 if(!kontrolreq) return;
   let req = db.fetch(`giveawayreqrole_${message.guild.id}`) 
-  
+  */
     message.delete();
 
     client.giveawaysManager.start(message.channel, {
@@ -118,7 +119,7 @@ if(!kontrolreq) return;
           "**NEW GIVEAWAY**",
         giveawayEnded:
           " **GiveAway Has Ended! ** ",
-        timeRemaining: `\n\nTime: **{duration}**!\n Requirements: ${kontrolreq || "<:hayirbei:867465654960128010>"}\nSponsor: ${
+        timeRemaining: `\n\nTime: **{duration}**!\nSponsor: ${
           message.author
         }`,
         inviteToParticipate: "React Emoji To Enter!",
@@ -140,8 +141,9 @@ if(!kontrolreq) return;
     });
     client.giveawaysManager.on("giveawayRerolled", (giveaway, winners) => {
       winners.forEach(member => {
-        let kontrol = member.guild.roles.cache.get(req) 
+        /*let kontrol = member.guild.roles.cache.get(req) 
         if(!kontrol) return message.channel.send("Winner Did Not Meet The Requirements! ") 
+       */
         member.send(
           "**Giveaway Rerolled!:** **Congratulations**, " +
             member.user.username +

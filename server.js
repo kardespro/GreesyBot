@@ -1,20 +1,23 @@
 const express = require("express");
 const Nuggies = require("nuggies");
-const managerdb = require("./Database/main.js") 
-const manager = new managerdb("./all.json") 
+const managerdb = require("./Database/main.js");
+const manager = new managerdb("./all.json");
 const Discord2 = require("discord.js");
 const Client2 = new Discord2.Client();
 const Util = require("./util/eventloader.js")(Client2);
 const tools = require("./greesyapi.js");
 const mongoose = require("mongoose");
+const tailwindcss = require('tailwindcss')
 const backup = () => {
-    fs.copyFile('./json.sqlite', `./backups/ • ${moment().format('D-M-YYYY • H.mm.ss')} • nego.sqlite`, err => {
-        if (err) return console.log(err);
-        console.log('Database Backuped.');
+  fs.copyFile(
+    "./json.sqlite",
+    `./backups/ • ${moment().format("D-M-YYYY • H.mm.ss")} • nego.sqlite`,
+    err => {
+      if (err) return console.log(err);
+      console.log("Database Backuped.");
       var Embid = new discord.MessageEmbed()
-      .setTitle("Greesy")
-      .setColor("#3437eb")
-      .setDescription(`
+        .setTitle("Greesy")
+        .setColor("#3437eb").setDescription(`
       
     Greesy Database Manager
            
@@ -23,12 +26,13 @@ const backup = () => {
           
      By : System
       
-      Time: ${moment().format('D-M-YYYY • H.mm.ss')}
+      Time: ${moment().format("D-M-YYYY • H.mm.ss")}
       
       `);
       nico.channels.cache.get("868378969140002816").send(Embid);
-    });
-};//Nuggies.giveaways.connect(process.env.mongoURI);
+    }
+  );
+}; //Nuggies.giveaways.connect(process.env.mongoURI);
 // CUSTOM CLIENTS
 //var dc2 = require("discord.js");
 //const clientDash = new discord.Client();
@@ -118,9 +122,9 @@ const _ = require("lodash");
 const discord = require("discord.js");
 //require('discord-buttons')(nico);
 const nico = new discord.Client();
-const logs = require('discord-logs');
+const logs = require("discord-logs");
 
-logs(nico)
+logs(nico);
 const path = require("path");
 const { Player } = require("discord-player");
 
@@ -128,8 +132,6 @@ const { Player } = require("discord-player");
 
 const player = new Player(nico);
 nico.player = player;
-
-
 
 const fs = require("fs");
 
@@ -182,24 +184,20 @@ function userFetch(id) {
   return res;
 }
 
-
 function createRole(roleName, rolePermissions, roleColor, guildID) {
   let sunucu = nico.guilds.cache.get(guildID);
 
-   sunucu.roles.create({
+  sunucu.roles.create({
+    data: {
+      name: roleName,
 
-  data: {
+      color: roleColor,
 
-    name: roleName,
-
-    color: roleColor,
-
-    permissions: rolePermissions
-
+      permissions: rolePermissions
     }
-     });
+  });
   return "Created Role";
-};
+}
 
 app.use(async (req, res, next) => {
   var getIP = require("ipware")().get_ip;
@@ -279,14 +277,15 @@ nico.on("ready", () => {
 
   const Discord = require("discord.js");
   nico.user.setActivity(ayar.durum, { type: "WATCHING" });
- /* const kategori = "869293230942994473";
+  /* const kategori = "869293230942994473";
   var kontrol = kategori
     .forEach(x => {
       x.name > "Channels |";
     })*/
-  const kanalone = "869297523062358036" 
-  kanalone.setName(`Channels - ${nico.channels.cache.size}`)
-  
+  const kanalone = "869297523062358036";
+  kanalone
+    .setName(`Channels - ${nico.channels.cache.size}`)
+
     .then(presence => {
       /*
 var mesajj = mesaj;
@@ -334,25 +333,33 @@ var mesajj = mesaj;
 
   // nico.user.setActivity(`🌎 !help | !stat `);
   setInterval(() => backup(), 1000 * 60 * 60 * 24); // Günde bir kere yedekler.
-  
 });
-nico.on('guildCreate', guild => {
-  if(db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
-  });
+nico.on("guildCreate", guild => {
+  if (db.has(`blacklist.${guild.ownerID}`)) return guild.leave();
+});
 nico.on("guildDelete", guild => {
-  fs.copyFile('./json.sqlite', `./Backups_Database/ • ${moment().format('D-M-YYYY • H.mm.ss')} • ${guild.name}.sqlite`, err => {
-        if (err) return console.log(err);
-        console.log('Database Backuped.');
-    });
-  var calc = db.fetch(`counterAdd_${guild.id}`) + db.fetch(`counterNum_${guild.id}`) + db.fetch(`counter_${guild.id}`);
-  
-  
+  fs.copyFile(
+    "./json.sqlite",
+    `./Backups_Database/ • ${moment().format("D-M-YYYY • H.mm.ss")} • ${
+      guild.name
+    }.sqlite`,
+    err => {
+      if (err) return console.log(err);
+      console.log("Database Backuped.");
+    }
+  );
+  var calc =
+    db.fetch(`counterAdd_${guild.id}`) +
+    db.fetch(`counterNum_${guild.id}`) +
+    db.fetch(`counter_${guild.id}`);
+
   db.delete(`counterAdd_${guild.id}`);
   db.delete(`counter_${guild.id}`);
   db.delete(`counterNum_${guild.id}`);
   var nego = new discord.MessageEmbed()
-  .setTitle("Greesy")
-  .setDescription(`
+    .setTitle("Greesy")
+    .setDescription(
+      `
   
    ** Greesy Database Manager **
      == ${guild.name} Named Server Database Has Been reset
@@ -370,11 +377,11 @@ nico.on("guildDelete", guild => {
     ==    ==
   
   
-  `)
-  .setColor("#3437eb")
-  nico.channels.cache.get("868378969140002816").send()
-  
-  });
+  `
+    )
+    .setColor("#3437eb");
+  nico.channels.cache.get("868378969140002816").send();
+});
 nico.on("clickbutton", dugme => {
   Nuggies.giveaways.buttonclick(nico, dugme);
 });
@@ -419,13 +426,17 @@ nico.on("message", async message => {
     cmd = client.komutlar.get(client.aliases.get(command));
   }
   if (cmd) {
-    const karaliste = db.fetch(`blacklist.${message.author.id}`)
-    const xd = require("discord-buttons") 
-    const buton1 = new xd.MessageButton() 
-   .setStyle("url","green")
-    .setLabel("Contact")
-   .setURL("https://greesy.negodev.tk/ticket/")
-    if(karaliste == true) return message.channel.send(`<:hayirbei:867465654960128010> | **You Have Been Blacklisted by My Owners! If this may be wrong, contact Support**. `,{buttons: buton1}) 
+    const karaliste = db.fetch(`blacklist.${message.author.id}`);
+    const xd = require("discord-buttons");
+    const buton1 = new xd.MessageButton()
+      .setStyle("url", "green")
+      .setLabel("Contact")
+      .setURL("https://greesy.negodev.tk/ticket/");
+    if (karaliste == true)
+      return message.channel.send(
+        `<:hayirbei:867465654960128010> | **You Have Been Blacklisted by My Owners! If this may be wrong, contact Support**. `,
+        { buttons: buton1 }
+      );
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`
     );
@@ -725,8 +736,11 @@ app.get(
         if (ab_var) return res.redirect("/");
         // res.redirect("/");
         db.set(`abonelik_${req.user.id}`, "free");
-        var essek = db.fetch(`blacklist.${req.user.id}`)
-        if(essek == true) return res.json({error: "You Are Added Blacklist ,  You don't use website and bot . "});
+        var essek = db.fetch(`blacklist.${req.user.id}`);
+        if (essek == true)
+          return res.json({
+            error: "You Are Added Blacklist ,  You don't use website and bot . "
+          });
       });
     }
   }
@@ -743,18 +757,18 @@ app.use("/blogt", require("./server/routers/blog.js"));
 //app.use("*",require("./server/routers/404.js"));
 app.use("/dashtest", require("./server/routers/dashboard.js"));
 
-const getDurationInMilliseconds = (start) => {
-    const NS_PER_SEC = 1e9
-    const NS_TO_MS = 1e6
-    const diff = process.hrtime(start)
+const getDurationInMilliseconds = start => {
+  const NS_PER_SEC = 1e9;
+  const NS_TO_MS = 1e6;
+  const diff = process.hrtime(start);
 
-    return (diff[0] * NS_PER_SEC + diff[1]) / NS_TO_MS
-}
-setInterval(function(){
-   const start = process.hrtime() 
-  const durationInMilliseconds = getDurationInMilliseconds (start) 
+  return (diff[0] * NS_PER_SEC + diff[1]) / NS_TO_MS;
+};
+setInterval(function() {
+  const start = process.hrtime();
+  const durationInMilliseconds = getDurationInMilliseconds(start);
 
-  db.set(`indexPing`,durationInMilliseconds.toLocaleString());
+  db.set(`indexPing`, durationInMilliseconds.toLocaleString());
 }, 3600000);
 
 /*
@@ -762,7 +776,7 @@ setInterval(function(){
 Pages
 
 */
- /*var getIP = require("ipware")().get_ip;
+/*var getIP = require("ipware")().get_ip;
 
   var ipInfo = getIP(req);
 
@@ -770,7 +784,7 @@ Pages
 
   var ip = ipInfo.clientIp;
 */
- 
+
 app.get("/", bakimCheck, (req, res) => {
   var getIP = require("ipware")().get_ip;
 
@@ -780,17 +794,21 @@ app.get("/", bakimCheck, (req, res) => {
 
   var ip = ipInfo.clientIp;
 
-  const start = process.hrtime() 
-  const durationInMilliseconds = getDurationInMilliseconds (start) 
-  res.on('finish', () => {            
-        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
-    db.set(`indexPing`,durationInMilliseconds.toLocaleString());
-    })
+  const start = process.hrtime();
+  const durationInMilliseconds = getDurationInMilliseconds(start);
+  res.on("finish", () => {
+    console.log(
+      `${req.method} ${
+        req.originalUrl
+      } [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`
+    );
+    db.set(`indexPing`, durationInMilliseconds.toLocaleString());
+  });
 
   var fetchComment = db.fetch(`commenttest`);
   var langPage = db.fetch(`pageLang_${ipInfo.clientIp}`);
   var tr = require("./langs/tr/index.json");
-/*if(langPage == "tr"){
+  /*if(langPage == "tr"){
    // res.json(`${ipInfo.clientIp}`);
     render(res, req, "index.ejs", {
     kardesproclient: nico,
@@ -808,24 +826,26 @@ app.get("/", bakimCheck, (req, res) => {
     config,
     langPage,
     tr,
-    ping:durationInMilliseconds.toLocaleString()
+    ping: durationInMilliseconds.toLocaleString()
   });
 });
 
 app.get("/cmds", bakimCheck, (req, res) => {
-   const start = process.hrtime() 
+  const start = process.hrtime();
 
-  const durationInMilliseconds = getDurationInMilliseconds (start) 
+  const durationInMilliseconds = getDurationInMilliseconds(start);
 
-  res.on('finish', () => {            
+  res.on("finish", () => {
+    console.log(
+      `${req.method} ${
+        req.originalUrl
+      } [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`
+    );
 
-        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
-
-    db.set(`cmdsPing`,durationInMilliseconds.toLocaleString());
-
-    })
-  render(res, req, "commands.ejs",{
-    ping:durationInMilliseconds.toLocaleString(), 
+    db.set(`cmdsPing`, durationInMilliseconds.toLocaleString());
+  });
+  render(res, req, "commands.ejs", {
+    ping: durationInMilliseconds.toLocaleString(),
     config
   });
 });
@@ -838,32 +858,34 @@ app.get("/new", bakimCheck, gGiris, (req, res) => {
   if (!beta) return res.redirect("/");
   render(res, req, "newindex.ejs", { cmm, nego: nico });
 });
-app.get("/new2",  (req, res) => {
-
+app.get("/new2", (req, res) => {
   const cmm = db.fetch(`commenttest`);
-  
-  render(res, req, "newindex2.ejs", { cmm, nego: nico });
 
-  });
+  render(res, req, "newindex2.ejs", { cmm, nego: nico });
+});
 
 //Beta
 
 app.get("/stat/", bakimCheck, (req, res) => {
   var client = nico;
-   const start = process.hrtime() 
+  const start = process.hrtime();
 
-  const durationInMilliseconds = getDurationInMilliseconds (start) 
+  const durationInMilliseconds = getDurationInMilliseconds(start);
 
-  res.on('finish', () => {            
+  res.on("finish", () => {
+    console.log(
+      `${req.method} ${
+        req.originalUrl
+      } [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`
+    );
 
-        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
-
-    db.set(`statPing`,durationInMilliseconds.toLocaleString());
-
-    })
-  render(res, req, "stat.ejs", { nego: client , ping:durationInMilliseconds.toLocaleString(),config
-
- });
+    db.set(`statPing`, durationInMilliseconds.toLocaleString());
+  });
+  render(res, req, "stat.ejs", {
+    nego: client,
+    ping: durationInMilliseconds.toLocaleString(),
+    config
+  });
 });
 
 app.get("/index.html", (req, res) => {
@@ -872,24 +894,37 @@ app.get("/index.html", (req, res) => {
   res.json("Al Sana HTML 🤣");
 });
 /*
-*  Serverlist
-*/
+ *  Serverlist
+ */
 
-app.get("/servers", (req,res) => {
-    var popularforvotes = db.fetch(`popVotes`)
-    var usersSizePop = nico.guilds.cache.filter((m) => m.memberCount > 500)
-    //usersSizePop.forEach(x=> { x.name})
-    var onlineUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "online")
-    var dndUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "dnd")
-    var idleUsersSize = nico.guilds.cache.filter((m) => m.user.presence.status === "idle")
-    var verifiedServers = db.fetch(`verifiedServers`)
-    var publicServers = db.fetch(`publicServer`)
-    var chatServers = db.fetch(`chatserver`)
-    if(!popularforvotes && usersSizePop && onlineUsersSize && dndUsersSize && idleUsersSize && verifiedServers && publicServers && chatServers ) return res.json({error: "Database Error ! Not Found "});
-})
-
-
-
+app.get("/servers", (req, res) => {
+  var popularforvotes = db.fetch(`popVotes`);
+  var usersSizePop = nico.guilds.cache.filter(m => m.memberCount > 500);
+  //usersSizePop.forEach(x=> { x.name})
+  var onlineUsersSize = nico.guilds.cache.filter(
+    m => m.user.presence.status === "online"
+  );
+  var dndUsersSize = nico.guilds.cache.filter(
+    m => m.user.presence.status === "dnd"
+  );
+  var idleUsersSize = nico.guilds.cache.filter(
+    m => m.user.presence.status === "idle"
+  );
+  var verifiedServers = db.fetch(`verifiedServers`);
+  var publicServers = db.fetch(`publicServer`);
+  var chatServers = db.fetch(`chatserver`);
+  if (
+    !popularforvotes &&
+    usersSizePop &&
+    onlineUsersSize &&
+    dndUsersSize &&
+    idleUsersSize &&
+    verifiedServers &&
+    publicServers &&
+    chatServers
+  )
+    return res.json({ error: "Database Error ! Not Found " });
+});
 
 /*
  * Dashboard
@@ -898,22 +933,25 @@ app.get("/servers", (req,res) => {
 app.get("/dash", gGiris, bakimCheck, (req, res) => {
   const user = nico.users.cache.get(req.user.id);
   const perms = discord.Permissions;
- const start = process.hrtime() 
+  const start = process.hrtime();
 
-  const durationInMilliseconds = getDurationInMilliseconds (start) 
+  const durationInMilliseconds = getDurationInMilliseconds(start);
 
-  res.on('finish', () => {            
+  res.on("finish", () => {
+    console.log(
+      `${req.method} ${
+        req.originalUrl
+      } [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`
+    );
 
-        console.log(`${req.method} ${req.originalUrl} [FINISHED] ${durationInMilliseconds.toLocaleString()} ms`)
+    db.set(`dashServerSelectPing`, durationInMilliseconds.toLocaleString());
+  });
 
-    db.set(`dashServerSelectPing`,durationInMilliseconds.toLocaleString());
-
-    })
-
-
-  
-  render(res, req, "sunucusec.ejs", { perms , ping:durationInMilliseconds.toLocaleString(), config
- });
+  render(res, req, "sunucusec.ejs", {
+    perms,
+    ping: durationInMilliseconds.toLocaleString(),
+    config
+  });
 });
 
 app.get("/dash/:sunucuID/yonet", async (req, res) => {
@@ -922,7 +960,10 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
   let guild = nico.guild;
   if (!id) return res.json({ error: "Bulunamadı" });
   let srev = nico.guilds.cache.get(id);
-  let perm = nico.guilds.cache.get(id).members.cache.get(req.user.id).permissions.has("MANAGE_GUILD");
+  let perm = nico.guilds.cache
+    .get(id)
+    .members.cache.get(req.user.id)
+    .permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Bulunamadı" });
   const fetchedLogs = nico.guilds.cache
     .get(id)
@@ -935,7 +976,7 @@ app.get("/dash/:sunucuID/yonet", async (req, res) => {
   var ksayi = nico.guilds.cache.get(id).memberCount;
   var banner = nico.guilds.cache.get(id).banner;
   var fetchGuildPre = db.fetch(`aboneliksunucu_${id}`);
-var ping;
+  var ping;
   render(res, req, "ayarlar.ejs", {
     id,
     guild,
@@ -943,13 +984,13 @@ var ping;
     verfyseviye,
     mfalev,
     afkK,
-    ksayi, 
+    ksayi,
     region,
     roller,
     banner,
     srev,
     ping,
-    fetchGuildPre, 
+    fetchGuildPre,
     config
   });
 });
@@ -966,7 +1007,7 @@ app.get("/dash/:sunucuID/yonet/embed", async (req, res) => {
     .members.cache.get(req.user.id)
     .permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Bulunamadı" });
-  render(res, req, "ayarlar_embed.ejs", { id, fetchPre, guild, config});
+  render(res, req, "ayarlar_embed.ejs", { id, fetchPre, guild, config });
 });
 
 app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
@@ -985,7 +1026,7 @@ app.get("/dash/:sunucuID/yonet/counter", async (req, res) => {
     id,
     fetchPre,
     guild,
-    counterAddingsize, 
+    counterAddingsize,
     config
   });
 });
@@ -1072,7 +1113,6 @@ app.get("/api/dash/:sunucuID/yonet/counter/save", async (req, res) => {
   res.redirect(`/dash/${id}/yonet/counter/`);
 });
 
-
 app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (!req.user) return res.redirect("/l/");
   let id = req.params.sunucuID;
@@ -1089,7 +1129,7 @@ app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
     id,
     fetchPre,
     guild,
-    counterAddingsize, 
+    counterAddingsize,
     config
   });
 });
@@ -1125,19 +1165,19 @@ app.post("/dash/:sunucuID/yonet/mod", async (req, res) => {
   if (rBody == "nah") {
     res.json("al sana nah 😋");
   }
-  
- /*if(req.body.badwordd === "true"){
+
+  /*if(req.body.badwordd === "true"){
    res.json("saaaa");
  } */
-  if(rBody.createForMe === "true"){
+  if (rBody.createForMe === "true") {
     res.json("sa");
   }
 
   db.set(`banlog_${id}`, rBody.banid);
-  db.set(`kicklog_${id}`, rBody.kickid)
- 
-  db.set(`kufur_${id}`, "acik")
-  
+  db.set(`kicklog_${id}`, rBody.kickid);
+
+  db.set(`kufur_${id}`, "acik");
+
   /*
   db.set(`counterNumber_${id + rBody.cnumber}`);
   
@@ -1303,35 +1343,33 @@ app.post("/admin/annoucument/", (req, res) => {
   db.set(`duyuru`, duyuru);
   res.redirect("/");
 });
-app.get("/ticket", gGiris ,(req, res) => {
-  render(res,req, "ticket.ejs",{config});
+app.get("/ticket", gGiris, (req, res) => {
+  render(res, req, "ticket.ejs", { config });
 });
-app.post("/ticket/create", gGiris , (req, res) => {
-/*  var sze = db.fetch(`myTicketssize_${req.user.id}`);
+app.post("/ticket/create", gGiris, (req, res) => {
+  /*  var sze = db.fetch(`myTicketssize_${req.user.id}`);
   if(sze > 2){
     res.json({err: "You cannot open more than 2 Support Requests."});
   }*/
- var user = req.user.username;
-var konu = req.body.konuturu;
-var rBody = req.body;
- var mesaj = req.body.ticketmesaj;
- var ticketID = Random(20);
- var tData = {
-   user:user,
-   konu:konu,
-   message:mesaj,
-   ticketID:ticketID,
-   waitMessage: "Wait Until Moderators Respond..."
- }
-db.push(`ticket_${ticketID}`,tData);
-db.push(`myTickets.${req.user.id}`,tData);
-db.push(`tickets`,tData);
-db.add(`myTicketssize_${req.user.id}`,+1);
-res.redirect("/ticket/view/"+ ticketID);
-var emb = new discord.MessageEmbed()
-.setTitle("Greesy")
-.setColor("#3437eb")
-.setDescription(`
+  var user = req.user.username;
+  var konu = req.body.konuturu;
+  var rBody = req.body;
+  var mesaj = req.body.ticketmesaj;
+  var ticketID = Random(20);
+  var tData = {
+    user: user,
+    konu: konu,
+    message: mesaj,
+    ticketID: ticketID,
+    waitMessage: "Wait Until Moderators Respond..."
+  };
+  db.push(`ticket_${ticketID}`, tData);
+  db.push(`myTickets.${req.user.id}`, tData);
+  db.push(`tickets`, tData);
+  db.add(`myTicketssize_${req.user.id}`, +1);
+  res.redirect("/ticket/view/" + ticketID);
+  var emb = new discord.MessageEmbed().setTitle("Greesy").setColor("#3437eb")
+    .setDescription(`
 
  A New Support Request
  
@@ -1344,19 +1382,18 @@ var emb = new discord.MessageEmbed()
  
  [[Answer Ticket]](https://greesy.negodev.tk/admin/ticket/${ticketID}/answer/)
  
- <@${nico.guilds.cache.get("838099680276512778").roles.cache.get("863849390611497001").name}>
+ <@${
+   nico.guilds.cache
+     .get("838099680276512778")
+     .roles.cache.get("863849390611497001").name
+ }>
 
 
 
 `);
-  
-nico.channels.cache.get("872919039079510047").send(emb)
+
+  nico.channels.cache.get("872919039079510047").send(emb);
 });
-
-
-
-
-
 
 /*
  * Subscribe API
@@ -1391,7 +1428,7 @@ app.get("/user/subscriptions/", (req, res) => {
   render(res, req, "abonelik.ejs", {
     abonelik: fetch_abonelik,
     user,
-    userr, 
+    userr,
     config,
     ping
   });
@@ -1414,7 +1451,7 @@ app.get("/user/subscriptions/delete", (req, res) => {
 app.get("/user/comment", (req, res) => {
   if (!req.user) return res.redirect("/l/");
   var abIzin = db.fetch(`abonelik_${req.user.id}`);
-  render(res, req, "comment.ejs", { abIzin,config });
+  render(res, req, "comment.ejs", { abIzin, config });
 });
 
 app.post("/user/comment", gGiris, (req, res) => {
@@ -1449,40 +1486,38 @@ app.post("/user/comment", gGiris, (req, res) => {
 });
 
 /*
-*  Api Key
-*/
+ *  Api Key
+ */
 
-app.get("/user/apikey", gGiris , (req,res) => {
+app.get("/user/apikey", gGiris, (req, res) => {
   var emaili = req.user.email;
   //res.json(emaili);
-  render(res,req, "apikey.ejs");
-  });
-app.post('/user/apikey', gGiris, (req,res) => {
-  const sendmail = require('sendmail')();
-
- const emaili = req.user.email;
-  var olustur = Random(10);
-  db.set(`apikey.${req.user.id}`,olustur);
-var nego = `<h1>Greesy Bot </h1> <br>  <p style="color:green;">Your Api Key Request Approved ! </p> <br> <div class="container"><h5>Your Api Key : </h5> <br> <br> <h5>${olustur}</h5></div>`
-sendmail({
-
-    from: 'smtp@negodev.tk',
-
-    to: emaili,
-
-    subject: 'Greesy Bot Api Key Request',
-
-    html: 'Mail of test sendmail ',
-
-  }, function(err, reply) {
-
-    console.log(err && err.stack);
-
-    console.dir(reply);
-
+  render(res, req, "apikey.ejs");
 });
-  });
+app.post("/user/apikey", gGiris, (req, res) => {
+  const sendmail = require("sendmail")();
 
+  const emaili = req.user.email;
+  var olustur = Random(10);
+  db.set(`apikey.${req.user.id}`, olustur);
+  var nego = `<h1>Greesy Bot </h1> <br>  <p style="color:green;">Your Api Key Request Approved ! </p> <br> <div class="container"><h5>Your Api Key : </h5> <br> <br> <h5>${olustur}</h5></div>`;
+  sendmail(
+    {
+      from: "smtp@negodev.tk",
+
+      to: emaili,
+
+      subject: "Greesy Bot Api Key Request",
+
+      html: "Mail of test sendmail "
+    },
+    function(err, reply) {
+      console.log(err && err.stack);
+
+      console.dir(reply);
+    }
+  );
+});
 
 /*
  * Haber Sistemi
@@ -1549,9 +1584,9 @@ app.get("/testblog", (req, res) => {
 /*
  * API
  */
-app.get("/api/accesstoken", gGiris,  (req,res) => {
+app.get("/api/accesstoken", gGiris, (req, res) => {
   res.send(req.user.accessToken);
-  });
+});
 //key check
 
 app.get("/api/v1/keycheck/:key", (req, res) => {
@@ -1635,42 +1670,41 @@ app.get("/api/v1/gift/:giftKod/", gGiris, (req, res) => {
 });
 
 // Language Api
-app.get("/api/lang", (req,res) => {
+app.get("/api/lang", (req, res) => {
   var href = req.query.href;
-  if(href == "restore"){
-    res.json({success: "Restored Language"});
+  if (href == "restore") {
+    res.json({ success: "Restored Language" });
     db.delete(`pageLang_${ipInfo.clientIp}`);
-
-    };
-  if(!href) return res.json({error: "Please Write Lang Code"});
-  var eng ;
+  }
+  if (!href) return res.json({ error: "Please Write Lang Code" });
+  var eng;
   var tr = require("./langs/tr/index.json");
-var def = "en";
-   var getIP = require("ipware")().get_ip;
+  var def = "en";
+  var getIP = require("ipware")().get_ip;
   var ipInfo = getIP(req);
   var geoip = require("geoip-lite");
   var ip = ipInfo.clientIp;
- db.set(`pageLang_${ipInfo.clientIp}`,href);
-res.redirect("/");
-  
+  db.set(`pageLang_${ipInfo.clientIp}`, href);
+  res.redirect("/");
 });
 
-app.get("/api/pings", (req,res) => {
-var Nego = {
-  bot_ping: `${nico.ws.ping} ms`,
-  status: "ONLINE",
-  Database_Locations:{
-    us4: "STATUS:CONNECTING.. ERR ! ERRMSG: Requesting us4.greesy.negodev.tk:3000 Was Responding",
-    tr1: "STATUS: ONLINE DATABASE SIZE: 16000 mb",
-    aze1AMDRyzen: "STATUS: ONLINE DATABASE SIZE: 560000 mb",
-    trAMDRyzen: "STATUS: ONLINE DATABASE SIZE 32000 mb"
-  },
-  Dashboard_statics: {
-    index: `STATUS: ONLINE PING: ${db.fetch("indexPing")} ms`
-  }
-}
-res.json(Nego);
-  });
+app.get("/api/pings", (req, res) => {
+  var Nego = {
+    bot_ping: `${nico.ws.ping} ms`,
+    status: "ONLINE",
+    Database_Locations: {
+      us4:
+        "STATUS:CONNECTING.. ERR ! ERRMSG: Requesting us4.greesy.negodev.tk:3000 Was Responding",
+      tr1: "STATUS: ONLINE DATABASE SIZE: 16000 mb",
+      aze1AMDRyzen: "STATUS: ONLINE DATABASE SIZE: 560000 mb",
+      trAMDRyzen: "STATUS: ONLINE DATABASE SIZE 32000 mb"
+    },
+    Dashboard_statics: {
+      index: `STATUS: ONLINE PING: ${db.fetch("indexPing")} ms`
+    }
+  };
+  res.json(Nego);
+});
 
 const keyRouter = require("./server/api/keyAuth.js");
 //app.use("/api/",keyRouter)
@@ -2504,123 +2538,132 @@ nico.on("message", async message => {
 });
 
 nico.on("message", async msg => {
-  if(msg.content.startsWith("!track")){
-nico.player.on("trackStart", (message, track) => {
-               
-               
-      message.channel.send(`Now playing ${track.title}...`)
- 
-})
-   } 
+  if (msg.content.startsWith("!track")) {
+    nico.player.on("trackStart", (message, track) => {
+      message.channel.send(`Now playing ${track.title}...`);
+    });
+  }
 });
 nico.on("guildMemberAdd", async member => {
-  const Discord = require("discord.js")
-const db = require("quick.db");
-const Canvas = require('canvas')
-    , Image = Canvas.Image
-    , Font = Canvas.Font
-    , path = require('path');
-const snekfetch = require('snekfetch');
-const request = require('node-superfetch');
+  const Discord = require("discord.js");
+  const db = require("quick.db");
+  const Canvas = require("canvas"),
+    Image = Canvas.Image,
+    Font = Canvas.Font,
+    path = require("path");
+  const snekfetch = require("snekfetch");
+  const request = require("node-superfetch");
 
-//module.exports = async member => {
-    var randomMsg = [
-                    "",      
-                    ];
-    var randomMsg_integer = randomMsg[Math.floor((Math.random() * randomMsg.length))]
+  //module.exports = async member => {
+  var randomMsg = [""];
+  var randomMsg_integer =
+    randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-  let msj = await db.fetch(`girisM_${member.guild.id}`)
-  if (!msj) msj = `{uye}, ${randomMsg_integer}`
-  let memberChannel = await db.fetch(`gcc_${member.guild.id}`)
-  
+  let msj = await db.fetch(`girisM_${member.guild.id}`);
+  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+  let memberChannel = await db.fetch(`gcc_${member.guild.id}`);
+
   const canvas = Canvas.createCanvas(360, 250);
-  const ctx = canvas.getContext('2d');
-  
-  const background = await Canvas.loadImage('https://media.discordapp.net/attachments/860622363175288842/870221346792144936/20210729_122834.jpg');
+  const ctx = canvas.getContext("2d");
+
+  const background = await Canvas.loadImage(
+    "https://media.discordapp.net/attachments/860622363175288842/870221346792144936/20210729_122834.jpg"
+  );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  
-  ctx.strokeStyle = '#74037b';
+
+  ctx.strokeStyle = "#74037b";
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
-  
+
   ctx.fillStyle = `#D3D3D3`;
   ctx.font = `25px "S&amp;S Nickson One"`;
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
 
-  let avatarURL = member.user.avatarURL() || member.user.defaultAvatarURL
+  let avatarURL = member.user.avatarURL() || member.user.defaultAvatarURL;
   const { body } = await request.get(avatarURL);
   const avatar = await Canvas.loadImage(body);
-  
+
   ctx.beginPath();
   ctx.lineWidth = 4;
-  ctx.fill()
+  ctx.fill();
   ctx.lineWidth = 4;
- ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
   ctx.clip();
   ctx.drawImage(avatar, 112, 55, 110, 110);
-  
-  const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'Logged-Greesy.jpg');
-  member.guild.channels.cache.get(memberChannel).send(attachment)
-  member.guild.channels.cache.get(memberChannel).send(msj.replace('{uye}', member).replace('{sunucu}', member.guild.name))
-  if (member.user.bot) return member.guild.channels.cache.get(memberChannel).send(`🤖 This Is Bot: ${member.user.tag}`)
-  
 
-  
-  });
+  const attachment = new Discord.MessageAttachment(
+    canvas.toBuffer(),
+    "Logged-Greesy.jpg"
+  );
+  member.guild.channels.cache.get(memberChannel).send(attachment);
+  member.guild.channels.cache
+    .get(memberChannel)
+    .send(msj.replace("{uye}", member).replace("{sunucu}", member.guild.name));
+  if (member.user.bot)
+    return member.guild.channels.cache
+      .get(memberChannel)
+      .send(`🤖 This Is Bot: ${member.user.tag}`);
+});
 nico.on("guildMemberRemove", async member => {
   //const Canvas = require('canvas') , Image = Canvas.Image , Font = Canvas.Font , path = require('path');const snekfetch = require('snekfetch');const request = require('node-superfetch');
-    
-const Discord = require("discord.js")
-  const Canvas = require('canvas')
-    , Image = Canvas.Image
-    , Font = Canvas.Font
-    , path = require('path');
-const snekfetch = require('snekfetch');
-const request = require('node-superfetch');
-  var randomMsg = [
-                    ""
-                    ];
-    var randomMsg_integer = randomMsg[Math.floor((Math.random() * randomMsg.length))]
-  
-  let paket = await db.fetch(`pakets_${member.id}`)
-  let memberChannel = await db.fetch(`gcc_${member.guild.id}`)
-  let msj = await db.fetch(`cikisM_${member.guild.id}`)
-  if (!msj) msj = `{uye}, ${randomMsg_integer}`
-  
-  
-  const canvas = Canvas.createCanvas(360, 250);
- const ctx = canvas.getContext('2d');
-  
-  const background = await Canvas.loadImage('https://media.discordapp.net/attachments/860622363175288842/870221931411013644/20210729_123100.jpg');
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  
-  ctx.strokeStyle = '#74037b';
- ctx.strokeRect(0, 0, canvas.width, canvas.height);
-  
-  ctx.fillStyle = `#D3D3D3`;
- ctx.font = `25px "Warsaw"`;
- ctx.textAlign = "center";
- ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
-  
-  let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
-  const { body } = await request.get(avatarURL);
- const avatar = await Canvas.loadImage(body);
-  
-  ctx.beginPath();
- ctx.lineWidth = 4;
-  ctx.fill()
- ctx.lineWidth = 4;
- ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
- ctx.clip();
- ctx.drawImage(avatar, 112, 55, 110, 110);
-  
-  const attachment = new Discord.Attachment(canvas.toBuffer(), 'Left-Greesy.jpg');
-  member.guild.channels.get(memberChannel).send(attachment)
-  member.guild.channels.get(memberChannel).send(msj.replace('{uye}', member).replace('{sunucu}', member.guild.name));
-  if (member.user.bot) return member.guild.channels.get(memberChannel).send(`🤖 This Is Bot:, ${member.user.tag}`)
-  
 
-  });
+  const Discord = require("discord.js");
+  const Canvas = require("canvas"),
+    Image = Canvas.Image,
+    Font = Canvas.Font,
+    path = require("path");
+  const snekfetch = require("snekfetch");
+  const request = require("node-superfetch");
+  var randomMsg = [""];
+  var randomMsg_integer =
+    randomMsg[Math.floor(Math.random() * randomMsg.length)];
+
+  let paket = await db.fetch(`pakets_${member.id}`);
+  let memberChannel = await db.fetch(`gcc_${member.guild.id}`);
+  let msj = await db.fetch(`cikisM_${member.guild.id}`);
+  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+
+  const canvas = Canvas.createCanvas(360, 250);
+  const ctx = canvas.getContext("2d");
+
+  const background = await Canvas.loadImage(
+    "https://media.discordapp.net/attachments/860622363175288842/870221931411013644/20210729_123100.jpg"
+  );
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#74037b";
+  ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = `#D3D3D3`;
+  ctx.font = `25px "Warsaw"`;
+  ctx.textAlign = "center";
+  ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
+
+  let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL;
+  const { body } = await request.get(avatarURL);
+  const avatar = await Canvas.loadImage(body);
+
+  ctx.beginPath();
+  ctx.lineWidth = 4;
+  ctx.fill();
+  ctx.lineWidth = 4;
+  ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.clip();
+  ctx.drawImage(avatar, 112, 55, 110, 110);
+
+  const attachment = new Discord.Attachment(
+    canvas.toBuffer(),
+    "Left-Greesy.jpg"
+  );
+  member.guild.channels.get(memberChannel).send(attachment);
+  member.guild.channels
+    .get(memberChannel)
+    .send(msj.replace("{uye}", member).replace("{sunucu}", member.guild.name));
+  if (member.user.bot)
+    return member.guild.channels
+      .get(memberChannel)
+      .send(`🤖 This Is Bot:, ${member.user.tag}`);
+});
 nico.on("message", async (msg, user) => {
   const request = require("node-superfetch");
   const db = require("quick.db");
@@ -2634,7 +2677,9 @@ nico.on("message", async (msg, user) => {
     let time = ms(timeout - (Date.now() - nego));
     msg.delete();
     msg.channel
-      .send("**On this channel, slow mode is on, you need to wait without texting!**")
+      .send(
+        "**On this channel, slow mode is on, you need to wait without texting!**"
+      )
       .then(message => message.delete(2000));
   } else {
     if (msg.content.length > 0) {
@@ -2644,66 +2689,65 @@ nico.on("message", async (msg, user) => {
 });
 //.
 nico.on("guildMemberBoost", async member => {
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
-  if(!kontrol) return;
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
+  if (!kontrol) return;
   kanal.send(`
   ${member.user.tag} Just Boosted a Server! 
-  `) 
- });
+  `);
+});
 nico.on("guildMemberUnboost", async member => {
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
-  if(!kontrol) return;
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
+  if (!kontrol) return;
   kanal.send(`
   
   ${member.user.tag} Just UnBoosted a Server! :c
-  `) 
- });
+  `);
+});
 
 nico.on("guildMemberRoleAdd", async (member, role) => {
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
-  if(!kontrol) return;
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
+  if (!kontrol) return;
   kanal.send(`
   ==MODLOG | GREESY==
   ${member.user.tag} Gived A **${role.name}** Role! 
-  `) 
- });
+  `);
+});
 
 nico.on("guildMemberNicknameUpdate", async (member, old, yeni) => {
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
-  if(!kontrol) return;
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
+  if (!kontrol) return;
   kanal.send(`
   ==MODLOG | GREESY==
   ${member.user.tag} Changed Nickname! 
   \ Details: /
   Old: ${old} 
   New: ${yeni} 
-  `) 
- });
+  `);
+});
 
-nico.on("guildMemberRoleRemove", async (member,role) => {
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
-  if(!kontrol) return;
+nico.on("guildMemberRoleRemove", async (member, role) => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
+  if (!kontrol) return;
   kanal.send(`
   ==MODLOG | GREESY==
   ${member.user.tag} Lost in The **${role.name}** Role! 
-  `) 
- });
+  `);
+});
 
 //});
 nico.on("messageContentEdited", async (message, member, old, yeni) => {
+  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`);
 
-  let kontrol = db.fetch(`modlog_${member.guild.id}.aktif`) 
+  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`);
 
-  var kanal = db.fetch(`modlog_${member.guild.id}.kanal`) 
+  if (!kontrol) return;
 
-  if(!kontrol) return;
-
- /* kanal.send(`
+  /* kanal.send(`
 
   ${member.user.tag} Just Boosted a Server! 
 
@@ -2714,9 +2758,8 @@ nico.on("messageContentEdited", async (message, member, old, yeni) => {
   Member: ${member.user.tag}
   Old Message: \`${old}\`
   Edited: \`${yeni}\`
-  `)
-
- });
+  `);
+});
 // Partner Sistemi
 /*
 setInterval(async () => {
@@ -2879,5 +2922,3 @@ client.channels.cache.get(PLog).send(new Discord.MessageEmbed().setColor('BLUE')
 }
 })
 */
-
-

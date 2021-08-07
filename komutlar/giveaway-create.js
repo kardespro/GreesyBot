@@ -160,6 +160,7 @@ if(!kontrolreq) return;
 exports.conf = {
   enabled: true, 
   guildOnly: true, 
+  permLevel:8,
   aliases: ["giveaway"] 
  } 
 exports.help = {

@@ -44,13 +44,18 @@
                     <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://cdn.discordapp.com/icons/<%=id%>/<%=srev.icon%>.png&quot;);"></div>
                     <div class="mt-10 text-sm"><span class="text-gray-500 font-semibold">Server Created</span> <%= moment(srev.createdAt).locale("en").format("LLL"); %><span class="text-gray-500 font-semibold"></span> </div>
                     <div class="mt-6">
-                      <div class="uppercase font-bold text-gray-600">Your Coupon Code</div>
+                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">Server Statics</div>
+              <br>
+                      <div class="uppercase font-bold text-gray-600">Members Count: <%= ksayi %></div>
+                      <br>
+                        <div class="uppercase font-bold text-gray-600">Verification Level: <%= verfyseviye %> </div>
+                    <!--
                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none">TailwindCSS2020</div>
-                    </div>
-                    <div class="mt-6 text-gray-500 text-sm">Coupon only valid on select UI Components &amp; once per user</div>
+                  -->  </div>
+                    <div class="mt-6 text-gray-500 text-sm"><%= srev.description || "An Greesy Bot Guild"%></div>
                   </div>
-                  <div><button class="w-full border border-transparent rounded-b-lg font-semibold tracking-wide px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">Use Coupon Code</button></div>
-                </div>
+                <!--  <div><button class="w-full border border-transparent rounded-b-lg font-semibold tracking-wide px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">Use Coupon Code</button></div>
+               --> </div>
               </div>
             </div>
           </div>

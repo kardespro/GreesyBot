@@ -141,6 +141,17 @@ const db = require("quick.db");
 const moment = require("moment");
 //db.add("kull",1);
 require("discord-buttons")(nico);
+const { GiveawaysManager } = require("discord-giveaways");
+const cekilis = new GiveawaysManager(nico, {
+  storage: "./giveaways.json",
+  updateCountdownEvery: 10000,
+  default: {
+    botsCanWin: false,
+    embedColor: "RANDOM",
+    reaction: "🎉"
+  }
+});
+nico.giveawaysManager = cekilis;
 var bodyParser = require("body-parser");
 
 app.use(bodyParser.json());

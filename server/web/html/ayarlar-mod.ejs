@@ -30,23 +30,25 @@
   
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BanLog Channel </p>
   
-  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID" required/>
     <label class="form-label" for="form1Example1"></label>
   <br>
-  <button name="bnlog" style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
+  <button  style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
   </div>
+    </form>
     <br>
     <br>
     
 <div class="jumbotron">
-  
+  <form action="/dash/<%=id%>/yonet/kicklog/save" method="POST">
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> KickLog Channel </p>
   
-  <input style="font-family: 'Noto Sans JP', sans-serif;" name="kickid" type="number" id="form1Example1" class="form-control" placeholder="Write ID"/>
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="kickid" type="number" id="form1Example1" class="form-control" placeholder="Write ID" required/>
     <label class="form-label" for="form1Example1"></label>
   <br>
-  <button name="kicklo" style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="kickl">Save</button>
+  <button  style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="kickl">Save</button>
   </div>
+  </form>
     <br>
     <br>
     
@@ -63,6 +65,9 @@
 
     <label class="form-label" for="form1Example1"></label>
 -->
+  <form action="/dash/<%=id%>/yonet/kicklog/save" method="POST">
+
+  
  <label class="switch">
   <input type="checkbox" name="badwordd" id="badwordd" value="true">
   <span class="slider round"></span>
@@ -71,6 +76,7 @@
 
   <button  style="font-family: sans-serif;" type="submit" class="btn btn-success">Save</button>
 
+    
   </div>
     
 
@@ -217,6 +223,7 @@ input:checked + .slider:before {
 <script>
     const hamburger = document.querySelector(".hamburger");const navMenu = document.querySelector(".nav-menu");const navLink = document.querySelectorAll(".nav-link"); hamburger.addEventListener("click", mobileMenu);navLink.forEach(n => n.addEventListener("click", closeMenu)); function mobileMenu() { hamburger.classList.toggle("active"); navMenu.classList.toggle("active");} function closeMenu() { hamburger.classList.remove("active"); navMenu.classList.remove("active");}
 </script>
+<%- include('./static/dash_footer') %>
 <!-- JQuery -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 

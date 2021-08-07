@@ -137,21 +137,22 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
     client.giveawaysManager.on("giveawayRerolled", (giveaway, winners) => {
       winners.forEach(member => {
         member.send(
-          "**Giveaway Rerolled!:** **Tebrikler**, " +
+          "**Giveaway Rerolled!:** **Congratulations**, " +
             member.user.username +
             ", " +
             giveaway.prize +
-            " Kazandın"
+            ""
         );
       });
     });
 
+//};
+// } 
 };
-  }
-}
 exports.conf = {
   enabled: true, 
-  aliases: ["giveaway-start"] 
+  guildOnly: true, 
+  aliases: ["giveaway"] 
  } 
 exports.help = {
 	name: 'çekiliş-başlat'

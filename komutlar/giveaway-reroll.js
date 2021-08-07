@@ -1,11 +1,13 @@
 const Discord = require('discord.js');
 const data = require('croxydb')
+const path = require("path") 
 const Nuggies = require('nuggies');
 const giveaway = {};
 const ms = require('ms');
 module.exports.run = async (client, message, args) => {
  /* let açıkmı = await data.fetch(`abonelik_${message.author.id}`)
   if(açıkmı) {*/
+  /*
 const filter = m => m.author.id === message.author.id;
     const collector = message.channel.createMessageCollector(filter, { max: 7, time: 60 * 1000 });
     let step = 0;
@@ -118,6 +120,40 @@ Premium almak için [Destek sunucumuzu](https://discord.gg/KZfAEjrPUF) ziyaret e
 .setTimestamp()
 )
 } */
+   let hasPerm = message.member.hasPermission("MANAGE_MESSAGES");
+  let hasRole = message.member.roles.cache.find(r => r.name === "Giveaways");
+
+    if (hasPerm === false || !hasRole == null)
+      return message.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle("**Greesy | GiveAway**")
+          .setColor("RED")
+         /* .setDescription(
+            "Bu komutu kullanmak için `MANAGE_MESSAGES` yetkisine ihtiyacınız var."
+          )*/
+       .setDescription(`You Do Not Have Permission to Use This Command! `) 
+          .setTimestamp()
+      );
+
+    if (!args[0]) {
+      return message.channel.send(
+        new Discord.MessageEmbed()
+          .setTitle("**Greesy | GiveAway**")
+          .setColor("RED")
+          /*.setDescription(
+            "Lütfen, yeniden çekmek istediğiniz çekiliş ID sini giriniz \n Örnek (g.yeniden-çek (çekiliş mesajı nın ıd si))"
+          )*/
+       .setDescription(`
+       <:hayirbei:867465654960128010> | Please Write **GiveAway ID**(Message ID) in Reroll! 
+       `) 
+          .setTimestamp()
+      );
+    }
+        client.giveawaysManager.reroll(args[0], {
+      messages: {
+        congrat: "🎁 Congratulations: {winners}"
+      }
+    });
 }
 
 

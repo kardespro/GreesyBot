@@ -1,9 +1,14 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
+const moment = require("moment")
+moment.locale('tr')
 
 exports.run = async (client ,message, args) =>{
 if(args[0] === 'open') {
     db.set(`kufur_${message.guild.id}`, "acik")
+  db.set(`badwordTime_${message.guild.id}`, Date.now())
+
+  
     message.channel.send('<:evetbei:867465536736460810> | Succesfully Activated **BadWord** Blocker. ')
   return
 }

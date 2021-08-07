@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 const db = require("quick.db") 
 const ayarlar = require('../ayarlar.json')
+const moment = require("moment")
+
+moment.locale('tr')
+
 
 exports.run = async (client, message, args) => {
   message.channel.startTyping(1)
@@ -9,9 +13,15 @@ let rol = message.mentions.roles.first() || args[0];
   if(!rol) return message.channel.send("mistake! Please Mention a Role! ") 
   message.channel.startTyping(1)
   db.set(`autoroleRole_${message.guild.id}`, rol.id) 
+  db.set(`autoroleRoleTime_${message.guild.id}`, Date.now())
+
+  
   let kanal = message.mentions.channels.first() || args[1];
   if(!kanal) return message.channel.send("mistake! Please Mention a Valid Channel! ") 
   db.set(`autoroleChannel_${message.guild.id}`, kanal.id)
+  db.set(`autoroleChannelTime_${message.guild.id}`, Date.now())
+
+  
    message.channel.startTyping(1)
  
   return message.channel.send(`

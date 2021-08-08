@@ -34,11 +34,11 @@ const embed = new Discord.MessageEmbed()
 .setTitle(message.guild.name,"| Settings")
 .setDescription(`
 
-Counter Number: ${sayacrakam || "Not Set!"} \`(${ccm || ""})\`
-Counter Channel: ${sayackanal || "Not Set!"} \`(${chm || ""})\`
-BadWord Blocker: ${kufur || "Not Set!"} \`(${bdm || ""})\`
-AutoRole Role: ${otorolrol || "Not Set!"} \`(${acm || ""})\`
-AutoRole Log: ${otorolkanal || "Not Set!"} \`(${akm || ""})\`
+Counter Number: ${sayacrakam || "Not Set!"} \`(${moment(ccm).locale("en").format("LLL") || ""})\`
+Counter Channel: ${sayackanal || "Not Set!"} \`(${moment(chm).locale("en").format("LLL") || "" })\`
+BadWord Blocker: ${kufur || "Not Set!"} \`(${moment(bdm).locale("en").format("LLL") || "" })\`
+AutoRole Role: ${otorolrol || "Not Set!"} \`(${moment(ccm).format("LLL") || "" })\`
+AutoRole Log: ${otorolkanal || "Not Set!"} \`(${moment(akm).format("LLL") || "" })\`
 BanLog: ${banlog || "Not Set!"}
 
 

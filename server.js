@@ -451,7 +451,7 @@ nico.on("message", async message => {
         `<:hayirbei:867465654960128010> | **You Have Been Blacklisted by My Owners! If this may be wrong, contact Support**. `,
         { buttons: buton1 }
       );
-    if(serverkara == true) return message.channel.send("<:hayirbei:867465654960128010> | This Server Have Been BlackListed in My Owners! Members Not  ") 
+    if(serverkara == true) return message.channel.send("<:hayirbei:867465654960128010> | **This Server Have Been BlackListed in My Owners**! \n `Members Not Use My Commands!` ", {buttons: buton1}) 
     const kapalımıkardesbu = await db.fetch(
       `kapalı.${cmd.help.name}.${message.guild.id}`
     );

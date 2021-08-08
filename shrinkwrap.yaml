@@ -56,6 +56,7 @@ dependencies:
   superagent-response-time: 1.0.3
   tailwindcss: 2.2.7
   url: 0.11.0
+  weky: 3.1.2
 packages:
   /@babel/code-frame/7.14.5:
     dependencies:
@@ -81,6 +82,14 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==
+  /@babel/runtime/7.14.8:
+    dependencies:
+      regenerator-runtime: 0.13.9
+    dev: false
+    engines:
+      node: '>=6.9.0'
+    resolution:
+      integrity: sha512-twj3L8Og5SaCRCErB4x4ajbvBIVV77CGeFglHpeg5WC5FF8TZzBWXtTJ4MqaD9QszLYTtr+IsaAL2rEUevb+eg==
   /@canvacord/assets/1.0.2:
     dev: false
     resolution:
@@ -240,6 +249,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-JQbbmxZTZehdc2iszGKs5oC3NFnjeay7mtAWrdt7qNtAVK0g19muApzAy4bm9byz79xa2ZnO/BOBC2R8RC5Lww==
+  /@weky/inlinereply/0.0.0:
+    dependencies:
+      discord.js: 12.5.3
+    dev: false
+    resolution:
+      integrity: sha512-wUecLX4CR87PiFbH9d264zcfnyXxZbhr30NIJBjJ96U5tHdQzyOpMPInQmU8mq2hOuC6keEM3pFiXa2B75tYDA==
   /abbrev/1.1.1:
     dev: false
     resolution:
@@ -450,6 +465,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
+  /axios/0.21.1:
+    dependencies:
+      follow-redirects: 1.14.1
+    dev: false
+    resolution:
+      integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
   /balanced-match/1.0.2:
     dev: false
     resolution:
@@ -834,6 +855,10 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
+  /complex.js/2.0.15:
+    dev: false
+    resolution:
+      integrity: sha512-gDBvQU8IG139ZBQTSo2qvDFP+lANMGluM779csXOr6ny1NUtA3wkUnCFjlDNH/moAVfXtvClYt6G0zarFbtz5w==
   /component-emitter/1.3.0:
     dev: false
     resolution:
@@ -970,6 +995,10 @@ packages:
       node: '>=6.0'
     resolution:
       integrity: sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
+  /decimal.js/10.3.1:
+    dev: false
+    resolution:
+      integrity: sha512-V0pfhfr8suzyPGOx3nmq4aHqabehUZn6Ch9kyFpV79TGDTWFmHqUqXdabR7QHqxzrYolF4+tVmJhUG4OURg5dQ==
   /decompress-response/4.2.1:
     dependencies:
       mimic-response: 2.1.0
@@ -1260,6 +1289,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
+  /escape-latex/1.2.0:
+    dev: false
+    resolution:
+      integrity: sha512-nV5aVWW1K0wEiUIEdZ4erkGGH8mDxGyxSeqPzRNtWP7ataw+/olFObw7hujFWlVjNsaDFw5VZ5NzVSIqRgfTiw==
   /escape-string-regexp/1.0.5:
     dev: false
     engines:
@@ -1530,6 +1563,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-4zPxDyhCyiN2wIAtSLI6gc82/EjqZc1onI4Mz/l0pWrAlsSfYH/2ZIcU+e3oA2wDwbzIWNKwa23F8rh6+DRWkw==
+  /follow-redirects/1.14.1:
+    dev: false
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg==
   /forever-agent/0.6.1:
     dev: false
     resolution:
@@ -1847,6 +1886,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-LLase1dHCRMel68/HZTFft0N0wti0epHr3nNY7ynpLbyZpmrKMQ8YIpiOV77TM97cNpC8Wb2n6f66IRggwdWPw==
+  /html-entities/2.3.2:
+    dev: false
+    resolution:
+      integrity: sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
   /html-tags/3.1.0:
     dev: false
     engines:
@@ -2101,6 +2144,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-eLpKyrfG3mzvGE2Du8VoPbeSkRry093+tyNjdYaBbJS9v17knImYGNXQCUV0gLxQtF82m3E8iRb/wdSQZLoq7A==
+  /javascript-natural-sort/0.7.1:
+    dev: false
+    resolution:
+      integrity: sha1-+eIwPUUH9tdDVac2ZNFED7Wg71k=
   /js-tokens/4.0.0:
     dev: false
     resolution:
@@ -2291,6 +2338,23 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
+  /mathjs/9.4.4:
+    dependencies:
+      '@babel/runtime': 7.14.8
+      complex.js: 2.0.15
+      decimal.js: 10.3.1
+      escape-latex: 1.2.0
+      fraction.js: 4.1.1
+      javascript-natural-sort: 0.7.1
+      seedrandom: 3.0.5
+      tiny-emitter: 2.1.0
+      typed-function: 2.0.0
+    dev: false
+    engines:
+      node: '>= 12'
+    hasBin: true
+    resolution:
+      integrity: sha512-5EEJXnWOzLDgMHSFyw623nH+MTBZxquWwXtrzTsingOouJJ6UZG2VNO1lwH31IMt9aMno1axO6TYleIP4YSDaQ==
   /media-typer/0.3.0:
     dev: false
     engines:
@@ -3219,6 +3283,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-8liAVezDmUcH+tdzoEGrhfbGcP7nOV4NkGE3a74+qqvE7nt9i4sKLGBuZNOnpI4WiGksiNPklZxva80061QiPg==
+  /regenerator-runtime/0.13.9:
+    dev: false
+    resolution:
+      integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
   /regexp-clone/1.0.0:
     dev: false
     resolution:
@@ -3367,6 +3435,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-Q5Z/97nbON5t/L/sH6mY2EacfjVGwrCcSi5D3btRO2GZ8pf1K1UN7Z9H5J57hjVU2Qzxr1xO+FmBhOvEkzCMmg==
+  /seedrandom/3.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
   /semver-store/0.3.0:
     dev: false
     resolution:
@@ -3790,6 +3862,10 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-DUCttfhsnLCjwoDoFcI+B2iJgYa93vBnDUATYEeRx6sntCTdN01VnqsIuTlALXla/LWooNg0yEGeB+Y8WdFxGA==
+  /tiny-emitter/2.1.0:
+    dev: false
+    resolution:
+      integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
   /tiny-lru/7.0.6:
     dev: false
     engines:
@@ -3862,6 +3938,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==
+  /typed-function/2.0.0:
+    dev: false
+    engines:
+      node: '>= 8'
+    resolution:
+      integrity: sha512-Hhy1Iwo/e4AtLZNK10ewVVcP2UEs408DS35ubP825w/YgSBK1KVLwALvvIG4yX75QJrxjCpcWkzkVRB0BwwYlA==
   /uid-safe/2.1.5:
     dependencies:
       random-bytes: 1.0.0
@@ -3945,6 +4027,22 @@ packages:
       '0': node >=0.6.0
     resolution:
       integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
+  /weky/3.1.2:
+    dependencies:
+      '@weky/inlinereply': 0.0.0
+      axios: 0.21.1
+      chalk: 4.1.2
+      cheerio: 1.0.0-rc.10
+      discord-buttons: 4.0.0
+      discord.js: 12.5.3
+      html-entities: 2.3.2
+      mathjs: 9.4.4
+      node-fetch: 2.6.1
+      quick.db: 7.1.3
+      string-width: 2.1.1
+    dev: false
+    resolution:
+      integrity: sha512-Dg9trCdZYrjnH5RmltiSqU6W/brinJqPck6lUEoruiJQ7u0DLKNldvrTl3xkkNnI8u8TuXqlK7p50HytO15Ahg==
   /wide-align/1.1.3:
     dependencies:
       string-width: 2.1.1
@@ -4116,3 +4214,4 @@ specifiers:
   superagent-response-time: ^1.0.3
   tailwindcss: ^2.2.7
   url: ^0.11.0
+  weky: ^3.1.2

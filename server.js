@@ -2977,3 +2977,11 @@ client.channels.cache.get(PLog).send(new Discord.MessageEmbed().setColor('BLUE')
 })
 */
 /*giveaway*/
+nico.on("message", message => {
+ // if(message.content.startsWith  "!flip")){
+  if (message.content.startsWith("!flip")) {
+    const { flip } = require("weky");
+    flip('Greesy')
+    
+  }
+  });

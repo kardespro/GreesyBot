@@ -26,6 +26,14 @@ message.channel.send(`<:evetbei:867465536736460810> | \`${kk}\`(${kk.id}) Added 
     return message.channel.send("<:evetbei:867465536736460810> | Removed! ") 
     
    } 
+  if(args[0] == "server"){
+    const sunucuid = args[1];
+    if(!sunucuid) return message.reply("Please Write a Server **ID**") 
+   var trm = client.guilds.cache.get(sunucuid)
+    if(!trm) return message.channel.send("Bot Is Not Added in ", sunucuid) 
+  db.set(`blacklist.${sunucuid}.sunucu`, true) 
+    return message.channel.send(`Added The BlackList! `) 
+  } 
 };
 
 exports.conf = { 

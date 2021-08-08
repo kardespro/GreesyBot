@@ -884,6 +884,12 @@ app.get("/new3", (req, res) => {
   render(res, req, "nicat.ejs", { cmm, nego: nico });
 });
 
+app.get("/promo", (req, res) => {
+  const cmm = db.fetch(`commenttest`);
+
+  render(res, req, "promo.ejs", { cmm, nego: nico , config });
+});
+
 
 
 //Beta

@@ -247,7 +247,7 @@ const authRouter = require("./server/auth.js");
 
 //CONFIG
 const ayar = {
-  durum: "👑 !help | !stat "
+  durum: "💥 Greesy | !help & !stat  | 👥 Autorole & Counter | ⚡ Plugins And More...."
 };
 const config = {
   siteismi: "Greesy | Best Utility Bot",

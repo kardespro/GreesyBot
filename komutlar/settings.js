@@ -37,8 +37,8 @@ const embed = new Discord.MessageEmbed()
 Counter Number: ${sayacrakam || "Not Set!"} \`(${moment(ccm).locale("en").format("LLL") || ""})\`
 Counter Channel: ${sayackanal || "Not Set!"} \`(${moment(chm).locale("en").format("LLL") || "" })\`
 BadWord Blocker: ${kufur || "Not Set!"} \`(${moment(bdm).locale("en").format("LLL") || "" })\`
-AutoRole Role: ${otorolrol || "Not Set!"} \`(${moment(ccm).format("LLL") || "" })\`
-AutoRole Log: ${otorolkanal || "Not Set!"} \`(${moment(akm).format("LLL") || "" })\`
+AutoRole Role: ${otorolrol || "Not Set!"} \`(${moment(ccm).locale("en").format("LLL") || "" })\`
+AutoRole Log: ${otorolkanal || "Not Set!"} \`(${moment(akm).locale("en").format("LLL") || "" })\`
 BanLog: ${banlog || "Not Set!"}
 
 

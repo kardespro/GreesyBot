@@ -55,6 +55,7 @@ dependencies:
   superagent: 6.1.0
   superagent-response-time: 1.0.3
   tailwindcss: 2.2.7
+  uptimermanager.js: 1.0.4
   url: 0.11.0
   weky: 3.1.2
 packages:
@@ -3976,6 +3977,10 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-sr9O6FFKrmFltIF4KdIbLvSZBOw=
+  /uptimermanager.js/1.0.4:
+    dev: false
+    resolution:
+      integrity: sha512-AqtuTJgaankci4exYnFRDJaVF5ujBkqjj5fEaMZKBPJRfxPld1qc8r6Ai+SvPZ6f6+CEwXq8maO0Xy0M7FSi+w==
   /uri-js/4.4.1:
     dependencies:
       punycode: 2.1.1
@@ -4213,5 +4218,6 @@ specifiers:
   superagent: ^6.1.0
   superagent-response-time: ^1.0.3
   tailwindcss: ^2.2.7
+  uptimermanager.js: ^1.0.4
   url: ^0.11.0
   weky: ^3.1.2

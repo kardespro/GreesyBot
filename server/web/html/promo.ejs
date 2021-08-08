@@ -25,12 +25,12 @@
             <div class="m-2">
               <div class="component flex max-w-sm">
                 <div class="bg-gray-100 shadow-sm rounded-lg">
-                  <div class="bg-cover p-8 rounded-t-lg" style="background-image: url(&quot;https://images.unsplash.com/photo-1556139954-ec19cce61d61?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2134&amp;q=80&quot;);">
+                  <div class="bg-cover p-8 rounded-t-lg" style="background-image: url(&quot;https://cdn.glitch.com/6ebc0877-3e88-4c65-946a-70564c920033%2F20210808_230524.png?v=1628449719299&quot;);">
                     <div class="font-semibold text-gray-100 text-lg tracking-wide">#tailwindcss</div>
                     <div class="font-black text-gray-100 text-2xl tracking-wide mb-10">Get 50% off on all premium components</div>
                   </div>
                   <div class="px-8 py-6 relative">
-                   <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=256&amp;q=80&quot;);"></div>
+                   <div class="absolute top-0 left-0 ml-8 transform -translate-y-1/2 h-20 w-20 bg-cover rounded-full border-2 border-gray-500" style="background-image: url(&quot;https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.gif&quot;);"></div>
                     <br>
                     <div class="mt-6">
                       <div class="uppercase mt-2 text-indigo-500 font-black text-2xl leading-none"><!-- <input name="promo" class="form-control" required></input> -->
@@ -41,7 +41,7 @@
 </form>
 </div>
                     </div>
-                    <div class="mt-6 text-gray-500 text-sm">Coupon only valid on select UI Components &amp; once per user</div>
+                    <div class="mt-6 text-gray-500 text-sm">If You Get an Error Contact the Moderators</div>
                   </div>
                   <div><button class="w-full border border-transparent rounded-b-lg font-semibold tracking-wide px-5 py-4 focus:outline-none focus:shadow-outline bg-indigo-500 text-gray-100 hover:bg-indigo-600 hover:text-gray-200">Use Promocode</button></div>
                 </div>
@@ -70,6 +70,8 @@
                   <div class="mt-6 text-sm text-gray-600"> 
                     <% if(fetchInventory){ %>
                     <% fetchInventory.forEach(x => { %>
+                    <p class="text-info">Promocode: <%= x.code %></p>
+                  
                     <br>
                     <p class="text-info">Usage Date: <%= x.usageDate %></p>
                      <br> <br>

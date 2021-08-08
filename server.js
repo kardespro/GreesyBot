@@ -2979,9 +2979,27 @@ client.channels.cache.get(PLog).send(new Discord.MessageEmbed().setColor('BLUE')
 /*giveaway*/
 nico.on("message", message => {
  // if(message.content.startsWith  "!flip")){
-  if (message.content.startsWith("!flip")) {
-    const { flip } = require("weky");
-    flip('Greesy')
-    
+  if (message.content.startsWith("!snake")) {
+    const { Snake } = require("weky");
+    Snake({
+	message: message,
+	embed: {
+		title: 'Snake | Greesy',
+		description: 'GG, you scored **{{score}}** points!',
+		color: '#7289da',
+		timestamp: true,
+	},
+	emojis: {
+		empty: '⬛',
+		snakeBody: '🟩',
+		food: '🍎',
+		up: '⬆️',
+		right: '⬅️',
+		down: '⬇️',
+		left: '➡️',
+	},
+	othersMessage: 'Only <@{{author}}> can use the buttons!',
+	buttonText: 'Cancel',
+});
   }
   });

@@ -3279,31 +3279,6 @@ client.on('message', async message => {
                                 };
                             };
                         };
-                    };
-                } else {
-                    message.channel.send(
-                        new Discord.MessageEmbed()
-                            .setTitle('Greesy | Giveaway')
-                            .setColor("RED")
-                            .setDescription(`mistake! Usage: \`!gstart <time> <winners> <server id or "none"> <role id or "none"> <message count number or "none"> <prize>\` using.`)
-                    );
-                };
-            } else {
-                message.channel.send(
-                    new Discord.MessageEmbed()
-                        .setTitle('Greesy | Giveaway')
-                        .setColor("RED")
-                        .setDescription(`mistake! In order to use this command, you must run the command \`!gstart <time> <winners> <server id or "none"> <role id or "none"> <message count number or "none"> <prize>\`.`)
-                );
-            };
-         /* catch(err) {
-
-        console.log(`An error has occured when using command ${cmd}:`);
-
-        console.log(err);
-
-    };
-
-});*/
-          }
-        };
+                    }
+                  
+ });

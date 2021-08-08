@@ -884,10 +884,10 @@ app.get("/new3", (req, res) => {
   render(res, req, "nicat.ejs", { cmm, nego: nico });
 });
 
-app.get("/promo", (req, res) => {
+app.get("/promo", gGiris , (req, res) => {
   const cmm = db.fetch(`commenttest`);
-
-  render(res, req, "promo.ejs", { cmm, nego: nico , config });
+  const fetchInventory = db.fetch(`promocodeInventory_${req.user.id}`);
+  render(res, req, "promo.ejs", { cmm, nego: nico , config , fetchInventory });
 });
 
 

@@ -877,6 +877,7 @@ app.get("/new2", (req, res) => {
 
   render(res, req, "newindex2.ejs", { cmm, nego: nico });
 });
+
 app.get("/new3", (req, res) => {
   const cmm = db.fetch(`commenttest`);
 

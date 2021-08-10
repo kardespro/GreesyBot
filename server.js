@@ -1158,17 +1158,60 @@ app.get("/dash/:sunucuID/yonet/mod", async (req, res) => {
     .permissions.has("MANAGE_GUILD");
   if (!perm) return res.json({ error: "Ukown" });
   var bData = db.fetch(`badWord_${id}`);
+  var banlogData = db.fetch(`banLogCh_${id}`);
   render(res, req, "ayarlar-mod.ejs", {
     id,
     fetchPre,
     guild,
     counterAddingsize,
     bData,
+    banlogData,
     config
   });
 });
 
 //POST METHODS
+
+
+app.post("/dash/:sunucuID/yonet/mod/banlog/save", async (req, res) => {
+  if (!req.user) return res.redirect("/l/");
+  let id = req.params.sunucuID;
+  let guild = nico.guild;
+  var fetchPre = db.fetch(`abonelik_${req.user.id}`);
+
+  if (!id) return res.json({ error: "Unkown" });
+  let perm = nico.guilds.cache
+    .get(id)
+    .members.cache.get(req.user.id)
+    .permissions.has("MANAGE_GUILD");
+  if (!perm) return res.json({ error: "unkown" });
+
+  var rBody = req.body;
+  if (rBody == null) {
+    res.json("Please Write Informations in Inputs!");
+  }
+  if (rBody == undefined) {
+    res.json("unexcepted Error");
+  }
+  if (rBody == NaN) {
+    res.json("NaN");
+  }
+  //kufur engel rBody
+  if (rBody == "amk") {
+    res.json("amk");
+  }
+
+  if (rBody == "nah") {
+    res.json("al sana nah 😋");
+  }
+db.set(`banLogCh_${id}`,req.body.banid);
+ 
+  
+  
+  res.redirect(`/dash/${id}/yonet/mod`);
+});
+
+
 
 
 
@@ -1212,7 +1255,7 @@ db.set(`badWord_${id}`,req.body.badwordd);
 
 
 
-
+//3
 
 
 

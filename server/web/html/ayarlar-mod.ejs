@@ -32,7 +32,7 @@
   
   <p style="text-align: left;font-family: 'Noto Sans JP', sans-serif;"> BanLog Channel </p>
   
-  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID" required/>
+  <input style="font-family: 'Noto Sans JP', sans-serif;" name="banid" type="number" id="form1Example1" class="form-control" placeholder="Write ID" <%if(banlogData){%> value="<%=banlogData%>"<%}%> required/>
     <label class="form-label" for="form1Example1"></label>
   <br>
   <button  style="font-family: sans-serif;" type="submit" class="btn btn-success" onClick="banlog">Save</button>
@@ -71,7 +71,7 @@
 
   
  <label class="switch">
-  <input type="checkbox" name="badwordd" id="badwordd" <%if(bData){ %> value="false" <% }else{ %>  <%}%> required>
+  <input type="checkbox" name="badwordd" id="badwordd" <%if(bData){ %> value="true" <% }else{ %>  <%}%> required>
   <span class="slider round"></span>
 </label>
   <br>

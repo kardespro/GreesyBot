@@ -894,7 +894,19 @@ app.get("/promo", gGiris , (req, res) => {
 });
 
 //Profil
-app.get("/
+app.get("/profile", (req,res) => {
+  
+});
+app.get("/users/:userID", (req,res) => {
+  var nego = nico.users.cache.get(req.params.userID);
+  if(!nego) return res.json({error: "No User Data Found"});
+  //Data
+var Mod = nico.guilds.cache.get("838099680276512778").members.cache.get(req.params.userID).roles.cache.has("863849390611497001");
+var owner = nico.guilds.cache.get("838099680276512778").members.cache.get(req.params.userID).roles.cache.has("860623102123442227");
+var bot  = nico.users.cache.get(req.params.userID).bot;
+
+  
+});
 
 //Beta
 

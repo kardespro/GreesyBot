@@ -4,11 +4,31 @@
  <center> <img src="<%=avatar%>" alt="Greesy | <%=ismi%>#<%=disc%>" /></center>
   <br>
   <center>
+    <% if(owner){ %>
+    <i class="fad fa-crown" id="owner"></i>
+    <%}%>
 <% if(Mod){ %>
   
-  <i class="fad fa-wrench"></i>
+  <i class="fad fa-wrench" id="mod"></i>
   
   <%}%>
+    <%if(rozetler == "HOUSE_BRILLIANCE"){ %>
+    t
+    <%}%>
 </center>
 
 </div>
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#mod', {
+        content: 'Greesy Moderator',
+      });
+  tippy('#owner', {
+        content: 'Greesy Owner',
+      });
+    
+    </script>

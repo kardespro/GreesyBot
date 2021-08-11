@@ -1,4 +1,7 @@
 <%- include("./static/header") %>
+<style>
+  
+  </style>
 <div class="card">
 
   <div style="padding: 20px 5em; box-sizing: border-box; margin: 1;" class="kard-body">
@@ -8,7 +11,7 @@
   </div>
   <br>
   <br>
-  <div class="jumbotron mb-3" style="background-color: #146ca4; color: white;">
+  <div class="jumbotron mb-3 wrapper" style="background-color: #146ca4; color: white;">
 <% user.guilds.forEach((sunucu) => {
         const permsOnGuild = new perms(sunucu.permissions);
         if(!permsOnGuild.has("MANAGE_GUILD")) return;

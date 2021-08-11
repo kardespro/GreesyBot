@@ -904,8 +904,28 @@ app.get("/users/:userID", (req,res) => {
 var Mod = nico.guilds.cache.get("838099680276512778").members.cache.get(req.params.userID).roles.cache.has("863849390611497001");
 var owner = nico.guilds.cache.get("838099680276512778").members.cache.get(req.params.userID).roles.cache.has("860623102123442227");
 var bot  = nico.users.cache.get(req.params.userID).bot;
+var bio = db.fetch(`bio_${req.params.userID}`);
+var rozetler = nico.users.cache.get(req.params.userID).flags.toArray()
+var ismi =  nico.users.cache.get(req.params.userID).name;
+var disc =  nico.users.cache.get(req.params.userID).discriminator;
+var avatar =  nico.users.cache.get(req.params.userID).displayAvatarURL();
 
+
+
+
+
+
+render(res,req, "user-profile.ejs",{
+  Mod,
+  owner,
+  bot,
+  bio,
+  rozetler,
+  ismi,
+  disc,
+  avatar
   
+});
 });
 
 //Beta

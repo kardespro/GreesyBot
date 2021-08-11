@@ -906,7 +906,7 @@ var owner = nico.guilds.cache.get("838099680276512778").members.cache.get(req.pa
 var bot  = nico.users.cache.get(req.params.userID).bot;
 var bio = db.fetch(`bio_${req.params.userID}`);
 var rozetler = nico.users.cache.get(req.params.userID).flags.toArray()
-var ismi =  nico.users.cache.get(req.params.userID).name;
+var ismi =  nico.users.cache.get(req.params.userID).username;
 var disc =  nico.users.cache.get(req.params.userID).discriminator;
 var avatar =  nico.users.cache.get(req.params.userID).displayAvatarURL();
 

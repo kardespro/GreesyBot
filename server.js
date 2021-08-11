@@ -893,7 +893,8 @@ app.get("/promo", gGiris , (req, res) => {
   render(res, req, "promo.ejs", { cmm, nego: nico , config , fetchInventory });
 });
 
-
+//Profil
+app.get("/
 
 //Beta
 

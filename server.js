@@ -392,7 +392,7 @@ nico.on("guildDelete", guild => {
   `
     )
     .setColor("#3437eb");
-  nico.channels.cache.get("868378969140002816").send();
+  nico.channels.cache.get("868378969140002816").send(nego);
 });
 nico.on("clickbutton", dugme => {
   Nuggies.giveaways.buttonclick(nico, dugme);

@@ -842,12 +842,14 @@ app.get("/", bakimCheck, (req, res) => {
 
     }*/
   var lang;
+  var anc = db.fetch(`duyuru`);
   render(res, req, "index.ejs", {
     kardesproclient: nico,
     fetchComment,
     config,
     langPage,
     tr,
+    anc: anc,
     ping: durationInMilliseconds.toLocaleString()
   });
 });

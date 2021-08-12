@@ -16,6 +16,11 @@
 <!-- Sweetalert -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/>
+
 <!-- Font Awesome -->
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -283,12 +288,16 @@ h3 {
 .swal{
   color:green;
   }
+ /* .sweet-alert { margin: auto; transform: translateX(-50%); } 
+  */
 </style>
    <script>
   swal({
   title: "Updates!",
   text: `<%= anc %>`,
-  icon: "info",
+  customClass: "sweet-alert",
+  width:"700px !important",
+  type: "info",
   button: "OK",
 });;
 </script>

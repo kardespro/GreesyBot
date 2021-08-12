@@ -69,7 +69,8 @@
     "autoprefixer": "^10.3.1",
     "discord-giveaways": "^4.5.1",
     "weky": "^3.1.2",
-    "uptimermanager.js": "^1.0.4"
+    "uptimermanager.js": "^1.0.4",
+    "ddos": "^0.2.1"
   },
   "engines": {
     "node": "12.x"

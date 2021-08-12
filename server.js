@@ -210,6 +210,11 @@ function createRole(roleName, rolePermissions, roleColor, guildID) {
   });
   return "Created Role";
 }
+var Ddos = require('ddos')
+var ddos = new Ddos({burst:3,limit:4,maxcount:15,maxexpiry:120,checkinterval:1,testmode:false,responseStatus:429,errormessage:'Greesy Bot DDOS Protocole Active ! '}); 
+app.use(ddos.express);
+
+
 
 app.use(async (req, res, next) => {
   var getIP = require("ipware")().get_ip;

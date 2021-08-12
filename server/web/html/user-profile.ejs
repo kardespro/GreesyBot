@@ -1,4 +1,15 @@
 <%- include('./static/header') %>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">  
+  <style>
+    .modal {
+      transition: opacity 0.25s ease;
+    }
+    body.modal-active {
+      overflow-x: hidden;
+      overflow-y: visible !important;
+    }
+  </style>
+
 
 <div class="jumbotron bg-indigo">
  <center> <img src="<%=avatar%>" alt="Greesy | <%=ismi%>#<%=disc%>" /></center>
@@ -56,11 +67,17 @@
 <div class="jumbotron">
 <% if(user){ %>
   <% if(user.id == p.id){ %>
-  <i class="fad fa-pencil"></i> 
-  <%}%>
+<button class="modal-open btn btn-success"><i class="fad fa-pencil"></i>  Edit</button>
+ 
+    <%}%>
   <%}%>
 </div>
 
+   <!--Modal-->
+  
+  <script>
+     
+  </script>
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 <script>

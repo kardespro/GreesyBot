@@ -914,7 +914,8 @@ var rozetler = nico.users.cache.get(req.params.userID).flags.toArray()
 var ismi =  nico.users.cache.get(req.params.userID).username;
 var disc =  nico.users.cache.get(req.params.userID).discriminator;
 var avatar =  nico.users.cache.get(req.params.userID).displayAvatarURL();
-var p  = nico.users.cache.get
+var  p  = nico.users.cache.get(req.params.userID);
+  
 
 
 
@@ -922,6 +923,8 @@ var p  = nico.users.cache.get
 
 render(res,req, "user-profile.ejs",{
   Mod,
+  p,
+  config,
   owner,
   bot,
   bio,
